@@ -1,0 +1,27 @@
+<section class="section event" id="event">
+   <div class="container">
+   <h3 class="section__title event__heading graphcms-container">
+     {{dev.event.title}}
+   </h3>
+   <div class="event__text section__text">
+      {{dev.event.description}}
+   </div>
+   <div class="event__techs-title">
+      {{dev.event.techs.title}}
+   </div>
+   
+   <ul class="techs">
+      {% for tech in dev.event.techs.list %}
+      <li class="techs__item">
+         <div class="techs__img-box">
+            <img class="techs__img" alt="" src="{{tech.img}}">
+         </div>
+         <p class="techs__title">{{tech.title}}</p>
+      </li>
+      {% endfor %}
+   </ul>
+   <div class="event__tip">
+      {{dev.event.followUs}}
+   </div>
+   </div>
+</section>

@@ -1,0 +1,347 @@
+{
+	"pages": [
+		{
+			"slug": "home",
+			"seoTitle": "TechLead Conference - Unlock Your Potential for Leadership, Teamwork, and Career Growth",
+			"seoDescription": "Join us at the TechLead Conference and take your professional development to the next level! Gain valuable insights on best practices, skills improvement, and innovative technology. Network with like-minded professionals, learn from top leaders, and be inspired by our keynote speakers. Get mentored by experienced team leads and explore diversity and inclusion, talent management, and career growth. Enhance your leadership and teamwork skills and build valuable relationships in the tech industry. Register now!",
+			"blocks": [
+				{
+					"screens": [
+						{
+							"speakerHandle": false,
+							"iconFace": "face_1"
+						},
+						{
+							"speakerHandle": "https://media.graphassets.com/output=format:jpg/resize=fit:crop,height:720,width:720/KNCsUTMuTQa9oFubkwaw",
+							"iconFace": "face_2"
+						},
+						{
+							"speakerHandle": "https://media.graphassets.com/output=format:jpg/resize=fit:crop,height:720,width:720/JlRsK3w2QIKa2rWXvhFI",
+							"iconFace": "face_3"
+						},
+						{
+							"speakerHandle": false,
+							"iconFace": "face_4"
+						},
+						{
+							"speakerHandle": false,
+							"iconFace": "face_5"
+						},
+						{
+							"speakerHandle": "https://media.graphassets.com/output=format:jpg/resize=fit:crop,height:720,width:720/3TDFu9pQSWOebq5VtRSH",
+							"iconFace": "face_6"
+						},
+						{
+							"speakerHandle": "https://media.graphassets.com/output=format:jpg/resize=fit:crop,height:720,width:720/vdys7eolSMmIeG8yvaaj",
+							"iconFace": "face_7"
+						},
+						{
+							"speakerHandle": false,
+							"iconFace": "face_8"
+						},
+						{
+							"speakerHandle": false,
+							"iconFace": "face_9"
+						},
+						{
+							"speakerHandle": "https://media.graphassets.com/output=format:jpg/resize=fit:crop,height:720,width:720/wiXovZ9vQril3fojv1ks",
+							"iconFace": "face_10"
+						},
+						{
+							"speakerHandle": "https://media.graphassets.com/output=format:jpg/resize=fit:crop,height:720,width:720/C9xvAbVzS0arI2cexYaC",
+							"iconFace": "face_11"
+						},
+						{
+							"speakerHandle": false,
+							"iconFace": "face_12"
+						}
+					],
+					"component": "hero",
+					"subtitle": "<p>March 9 & 10, 2023 (remote)</p><p>7am PST / 10am EST / 4pm CET</p>",
+					"title": "<p>Event about <strong>career growth</strong>, <strong>leadership</strong> </p><p>and <strong>seniority in tech</strong> </p>",
+					"statistics": [
+						{
+							"number": "2",
+							"title": "Tracks of talks"
+						},
+						{
+							"number": "20+",
+							"title": "Speakers sharing career tips"
+						},
+						{
+							"number": "5K+",
+							"title": "Engineers & tech leads attending"
+						}
+					],
+					"mainCTA": "Get Multipass",
+					"secondaryCTA": "Watch 2023 Recordings"
+				},
+				{
+					"component": "event"
+				},
+				{
+					"component": "features",
+					"title": "Features",
+					"features": [
+						{
+							"title": "Awesome Speakers",
+							"description": "High-quality talks from field experts",
+							"bgImg": "https://media.graphassets.com/output=format:jpg/resize=height:800,fit:max/KNCsUTMuTQa9oFubkwaw",
+							"networkers": false
+						},
+						{
+							"title": "Networking",
+							"description": "Join live chat rooms, meet new friends and new opportunities",
+							"bgImg": false,
+							"networkers": [
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/JlRsK3w2QIKa2rWXvhFI"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/3TDFu9pQSWOebq5VtRSH"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/vdys7eolSMmIeG8yvaaj"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/3TDFu9pQSWOebq5VtRSH"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/vdys7eolSMmIeG8yvaaj"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw"
+								}
+							]
+						},
+						{
+							"title": "Remote and fun",
+							"description": "Socialize at remote afterparties with online games",
+							"bgImg": "assets/img/feature-pic_2.jpg",
+							"networkers": false
+						}
+					]
+				},
+				{
+					"component": "speakers",
+					"title": "Speakers",
+					"speakers": [
+						{
+							"avatar": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw",
+							"name": "Swizec Teller",
+							"company": "Tia, USA",
+							"talk": "<span>Talk:</span>  On Becoming a Tech Lead",
+							"text": "<p>Author of the <a href=\"https://swizec.com/senior-mindset/\">Senior Engineer Mindset</a> book.</p><p>Swizec is a software engineer, author, educator, and conference speaker. He's published books on modern web technologies, data visualization, and productivity, and has trained engineering teams at Fortune500 companies. Now he's distilling 20 years of tacit experience into actionable steps.</p>"
+						},
+						{
+							"avatar": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/JlRsK3w2QIKa2rWXvhFI",
+							"name": "Erin Fox",
+							"company": "Tia, USA",
+							"talk": "<span>Talk:</span>  On Becoming a Tech Lead",
+							"text": "<p>I’m Erin - raised in the Bay Area, schooled in Sonoma, Hawaii, and NYC. I’m a software engineer with a drive for JavaScript, React, explaining things simply and cats. I hold a MA in Communication from Hawaii Pacific University and previously worked at Major League Soccer on the mobile team. I’ve given talks internationally and across the US on the work I’ve been doing. I keep busy with new side projects, reading all of Reese Witherspoon’s bookclub books, re-watching Frontend Master courses, and tweeting about it all on Twitter.</p>"
+						},
+						{
+							"avatar": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/3TDFu9pQSWOebq5VtRSH",
+							"name": "Tara Z. Manicsic",
+							"company": "Tia, USA",
+							"talk": "<span>Talk:</span>  On Becoming a Tech Lead",
+							"text": "<p>I’m Erin - raised in the Bay Area, schooled in Sonoma, Hawaii, and NYC. I’m a software engineer with a drive for JavaScript, React, explaining things simply and cats. I hold a MA in Communication from Hawaii Pacific University and previously worked at Major League Soccer on the mobile team. I’ve given talks internationally and across the US on the work I’ve been doing. I keep busy with new side projects, reading all of Reese Witherspoon’s bookclub books, re-watching Frontend Master courses, and tweeting about it all on Twitter.</p>"
+						},
+						{
+							"avatar": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/vdys7eolSMmIeG8yvaaj",
+							"name": "Alex Moldovan",
+							"company": "CodeSandbox, Romania",
+							"talk": "<span>Talk:</span>  On Becoming a Tech Lead",
+							"text": "<p>I’m Erin - raised in the Bay Area, schooled in Sonoma, Hawaii, and NYC. I’m a software engineer with a drive for JavaScript, React, explaining things simply and cats. I hold a MA in Communication from Hawaii Pacific University and previously worked at Major League Soccer on the mobile team. I’ve given talks internationally and across the US on the work I’ve been doing. I keep busy with new side projects, reading all of Reese Witherspoon’s bookclub books, re-watching Frontend Master courses, and tweeting about it all on Twitter.</p>"
+						},
+						{
+							"avatar": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw",
+							"name": "Swizec Teller",
+							"company": "Tia, USA",
+							"talk": "<span>Talk:</span>  On Becoming a Tech Lead",
+							"text": "<p>Author of the <a href=\"https://swizec.com/senior-mindset/\">Senior Engineer Mindset</a> book.</p><p>Swizec is a software engineer, author, educator, and conference speaker. He's published books on modern web technologies, data visualization, and productivity, and has trained engineering teams at Fortune500 companies. Now he's distilling 20 years of tacit experience into actionable steps.</p>"
+						},
+						{
+							"avatar": "https://media.graphassets.com/resize=fit:crop,height:500,width:500/output=format:jpg/KNCsUTMuTQa9oFubkwaw",
+							"name": "Swizec Teller",
+							"company": "Tia, USA",
+							"talk": "<span>Talk:</span>  On Becoming a Tech Lead",
+							"text": "<p>I’m Erin - raised in the Bay Area, schooled in Sonoma, Hawaii, and NYC. I’m a software engineer with a drive for JavaScript, React, explaining things simply and cats. I hold a MA in Communication from Hawaii Pacific University and previously worked at Major League Soccer on the mobile team. I’ve given talks internationally and across the US on the work I’ve been doing. I keep busy with new side projects, reading all of Reese Witherspoon’s bookclub books, re-watching Frontend Master courses, and tweeting about it all on Twitter.</p>"
+						}
+					],
+					"cfp": {
+						"title": "WANT TO KNOW THE REST?",
+						"link": {
+							"text": "Follow us",
+							"url": "#contact-form"
+						}
+					}
+				},
+				{
+					"component": "schedule",
+					"text": "Schedule",
+					"url": "#"
+				},
+				{
+					"component": "full-ticket"
+				},
+				{
+					"component": "discussions",
+					"title": "Discussions",
+					"videoRooms": [
+						{
+							"icon": "https://media.graphassets.com/resize=fit:crop,height:512,width:512/output=format:png/068AmQYaRkCVaTGfyMGN",
+							"title": "HOW TO PREVENT BURNOUT?",
+							"speakers": [
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/CzoA9Hn0Tym7kPsFVMfS",
+									"name": "Ziv Levy"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/oiQeR8YRpec1gDNkFt72",
+									"name": "Stefania Ioana Chiorean"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/UWmiqSaOTr9sj0lecVa8",
+									"name": "Daniel Afonso"
+								}
+							]
+						},
+						{
+							"icon": "https://media.graphassets.com/resize=fit:crop,height:512,width:512/output=format:png/FOlpP86nSg2QvUkJwVM0",
+							"title": "WHEN TO SWITCH FROM AN IC ROLE TO MANAGEMENT?",
+							"speakers": [
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/UWmiqSaOTr9sj0lecVa8",
+									"name": "Daniel Afonso"
+								}
+							]
+						},
+						{
+							"icon": "https://media.graphassets.com/resize=fit:crop,height:512,width:512/output=format:png/Wd6b8WDMQK6mcYoyNINM",
+							"title": "EFFECTIVE MENTORSHIP: HOW TO MAKE SURE EVERYONE BECOMES A CRAFTSMAN",
+							"speakers": [
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/oiQeR8YRpec1gDNkFt72",
+									"name": "Stefania Ioana Chiorean"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/UWmiqSaOTr9sj0lecVa8",
+									"name": "Daniel Afonso"
+								}
+							]
+						},
+						{
+							"icon": "https://media.graphassets.com/resize=fit:crop,height:512,width:512/output=format:png/DWPmyMRkQL6zBWW1PDQQ",
+							"title": "GROWING THE HIERARCHAL LADDER ISN'T PERSE THE BEST APPROACH",
+							"speakers": [
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/CzoA9Hn0Tym7kPsFVMfS",
+									"name": "Ziv Levy"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/oiQeR8YRpec1gDNkFt72",
+									"name": "Stefania Ioana Chiorean"
+								},
+								{
+									"img": "https://media.graphassets.com/resize=fit:crop,height:100,width:100/output=format:png/UWmiqSaOTr9sj0lecVa8",
+									"name": "Daniel Afonso"
+								}
+							]
+						}
+					]
+				},
+				{
+					"component": "follow-us",
+					"title": "Follow us<br> for updates",
+					"description": "Subscribe to our conference newsletter and get the latest updates and special deals"
+				},
+				{
+					"component": "bars",
+					"title": "TechLeadConf",
+					"description": "Join Spatial.chat and enjoy a remote communication with the community!",
+					"list": [
+						{
+							"title": "DRAW BATTLE",
+							"text": "A game as unique as the people who play it",
+							"btnText": "Join",
+							"btnLink": "#"
+						},
+						{
+							"title": "CHIT-CHAT ROOM",
+							"text": "Join to talk to other community members on topics around TechLeadConf and many more!",
+							"btnText": "Join",
+							"btnLink": "#"
+						}
+					]
+				}
+			]
+		},
+		{
+			"slug": "faq",
+			"seoTitle": "FAQ",
+			"seoDescription": "",
+			"blocks": [
+				{
+					"component": "hero",
+					"title": "FAQ"
+				},
+				{
+					"component": "faq",
+					"description": "<p>Our team is always striving to provide the best support to help you with any questions related to conference attendance and to make information more transparent and instantly accessible, we've started gathering most frequently asked questions on the page below. </p><p>If you can't find an answer to your question below – contact us via <a href=\"mailto:events@gitnation.org\">events@gitnation.org</a>.</p>",
+					"list": [
+						{
+							"title": "Program",
+							"list": [
+								{
+									"title": "What is the timing of the conference",
+									"text": "<p>The talks &amp; QnAs will be held on March 9 from 4pm CET until around 9pm CET. And on March 10 there will be 4-5 discussion rooms (not live-streamed) from 5pm to 7pm CET.</p>"
+								}
+							]
+						},
+						{
+							"title": "Organisational info",
+							"list": [
+								{
+									"title": "Where can I find all logistics and organisational information on how to connect, what the exact schedule is, etc?",
+									"text": "<p>You will get an email with all the information you’ll need at the conference about 2-3 days before the event &amp; we'll duplicate the message on the day of the conference before the stream.</p><p>If you didn't receive the email, please check your spam folder.</p><p>And if you still haven't found the email, please contact us via events@gitnation.org.</p>"
+								}
+							]
+						},
+						{
+							"title": "Actions with tickets",
+							"list": [
+								{
+									"title": "If I can’t attend the conference, can I give the ticket to my friend/colleague?",
+									"text": "<p>Yes, you can. Simply re-assign your ticket in your confirmation email you’ve received after registration. Pay attention that only a ticket buyer can re-assign tickets.</p>"
+								},
+								{
+									"title": "I’d like to buy a ticket. Can you issue an invoice for my order?",
+									"text": "<p>Yes, it is possible to pay via invoice. Please, send your company details to events@gitnation.org and we will issue it for you:</p><ul><li>company name</li><li>company address</li><li>VAT number</li><li>number and type of tickets</li></ul>"
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	]
+}

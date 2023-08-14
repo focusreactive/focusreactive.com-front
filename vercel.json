@@ -1,0 +1,8 @@
+{
+  "functions": {
+    "api/preview/index.js": {
+      "includeFiles": "functions/**"
+    }
+  },
+  "rewrites": [{ "source": "/", "destination": "/home" }]
+}

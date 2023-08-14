@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   {% for page in pages %}
+   {% if page.slug.current == slug %}
+
+   <title>Seo Title</title>
+   <meta name="description" content="this is seo description">
+
+   {% endif %}
+   {% endfor %}
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg" topmargin="0">
+   <div class="out">
+      {% include '_header.njk' %}
+      {{ content | safe }}
+      {% include '_footer.njk' %}
+   </div>
+
+   {% if eleventy.serverless.query.slug %}
+    <script>
+    (function(){
+         var source = new EventSource("https://nzudkmke.api.sanity.io/v2021-06-07/data/listen/production?query=*[slug.current == '{{ eleventy.serverless.query.slug }}']", {withCredentials: true});
+         source.addEventListener("mutation", e => {
+            location.reload(true)
+         })
+
+    })()
+    </script>
+   {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+{
+	"header": {
+		"menu": [
+			{
+				"text": "About",
+				"url": "/#event"
+			},
+			{
+				"text": "Speakers",
+				"url": "/#speakers"
+			},
+			{
+				"text": "Schedule",
+				"url": "/schedule"
+			},
+			{
+				"text": "Features",
+				"url": "/#features"
+			},
+			{
+				"text": "FAQ",
+				"url": "/faq"
+			}
+		],
+		"btn": {
+			"text": "Tickets",
+			"url": "/#tickets"
+		}
+	},
+
+	"footer": {
+		"menu": [
+			{
+				"text": "Terms & Conditions",
+				"url": "https://gitnation.org/terms"
+			},
+			{
+				"text": "Data Promise",
+				"url": "https://gitnation.org/data-promise"
+			},
+			{
+				"text": "Email Us!",
+				"url": "mailto:events@gitnation.org"
+			},
+			{
+				"text": "GitNation Careers",
+				"url": "https://jobs.gohire.io/gitnation-2ntrzg06/"
+			}
+		],
+		"tip": "<p>Do you like our mission? Would you like to contribute and join forces? Let's talk!<br> We're looking for partnership opportunities and are eager to hear any of your ideas.<br><a href=\"mailto:events@gitnation.org\">events@gitnation.org</a></p>"
+	},
+	"socials": [
+		{
+			"url": "https://twitter.com/TheTechLeadConf",
+			"icon": "/assets/img/instagram.svg"
+		},
+		{
+			"url": "https://www.youtube.com/@JavaScriptConferences",
+			"icon": "/assets/img/fb.svg"
+		},
+		{
+			"url": "https://portal.gitnation.org/",
+			"icon": "/assets/img/tw.svg"
+		}
+	],
+	"fullTicket": {
+		"title": "Full-access attendee perks",
+		"list": [
+			{
+				"modificator": "full-width",
+				"bgImg": "assets/img/ticket_bg_3.png",
+				"title": "Free workshops",
+				"text": "Live participation + workshop recordings will be shared after the conference",
+				"img": "https://media.graphassets.com/output=format:webp/resize=width:128,height:128,fit:crop/qEqGpan6RmYyfAAYak4w"
+			},
+			{
+				"bgImg": "assets/img/ticket_bg_2.png",
+				"title": "Get recordings right after the conference",
+				"text": "Others will get it in a month",
+				"img": "https://media.graphassets.com/output=format:webp/resize=width:128,height:128,fit:crop/FV7gnFWHQaqPVkIe3eol"
+			},
+			{
+				"bgImg": "assets/img/ticket_bg_4.png",
+				"title": "2x more content",
+				"text": "Enjoy 2 tracks of talks from world renowned speakers",
+				"img": "https://media.graphassets.com/output=format:webp/resize=width:128,height:128,fit:crop/DtaSl1KTDGgoOcusFRKw"
+			},
+			{
+				"bgImg": "assets/img/ticket_bg_1.png",
+				"title": "Enjoy HD streaming quality",
+				"text": "Get the full experience & get prepared for a big screen",
+				"img": "https://media.graphassets.com/output=format:webp/resize=width:128,height:128,fit:crop/gEhax3EiT2Gq7fc76tfe"
+			},
+			{
+				"btn": {
+					"text": "Buy ticket",
+					"url": "#"
+				}
+			}
+		]
+	},
+	"event": {
+		"title": "Helping developers to achieve career goals",
+		"description": "<p>Welcome to the conference about leadership and seniority in teams! 20 engineers, managers and HR from leading companies will give talks on topics as careers and soft skills. We'll discuss how to become more senior and get more influence in the company, get a promotion and achieve what you want in your career.</p><p>Enjoy talks and Q&amp;As on March 9 from 4pm to 9pm CET. And join discussion rooms on March 10 from 4pm to 6pm CET. It's a remote event on both days.</p>",
+		"followUs": "<p>Want to know the rest? <a href=\"#contact-form\">Follow us</a></p>",
+		"techs": {
+			"title": "THE FOLLOWING TOPICS WILL BE COVERED:",
+			"list": [
+				{
+					"img": "https://media.graphassets.com/output=format:png/resize=fit:crop,height:100/SX0AouTiTvCCBp3Gzjyo",
+					"title": "Career growth & security"
+				},
+				{
+					"img": "https://media.graphassets.com/output=format:png/resize=fit:crop,height:100/UgPdKqP9QKOS4EDQcJjD",
+					"title": "Mastering interviews"
+				},
+				{
+					"img": "https://media.graphassets.com/output=format:png/resize=fit:crop,height:100/D5AQSLLvQ8aDMX9jL47X",
+					"title": "Soft skills"
+				},
+				{
+					"img": "https://media.graphassets.com/output=format:png/resize=fit:crop,height:100/t4SdzS2ET12jLy0pOeyz",
+					"title": "Team/tech leadership"
+				},
+				{
+					"img": "https://media.graphassets.com/output=format:png/resize=fit:crop,height:100/kV9ypLhZQorCsTrwKrdK",
+					"title": "Horizontal/Full-stack growth"
+				}
+			]
+		}
+	}
+}

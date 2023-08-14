@@ -1,0 +1,52 @@
+<div class="hero" id="hero">
+   {% if blocks.speakers %}
+      <div class="screens-wrap">
+         <div class="screens">
+            {% for speaker in blocks.speakers %}
+            <div class="screens__item">
+               <div class="screens__overlay">
+               <img src="{{ speaker.backgroundIcon | imgURL }}" alt="">
+               </div>
+               {% if speaker.speakerPhoto %}
+                  <img class="screens__img" src="{{speaker.speakerPhoto | imgURL}}">
+               {% endif %}
+            </div>
+            {% endfor %}
+         </div>
+      </div>
+   {% endif %}
+   <div class="hero__inner">
+      <div class="hero__logo">
+         <a href="/" class="logo"><img src="assets/img/logo.svg" alt="Tech_Lead_JS"></a>
+      </div>
+      {% if blocks.subtitle %}
+         <div class="hero__suptitle">
+            {{blocks.subtitle | blockContent}}
+         </div>
+      {% endif %}
+      <h1 class="hero__title">
+         {{blocks.title | blockContent}}
+      </h1>
+
+      {% if blocks.statistic %}
+         <div class="hero__info">
+            <ul class="h-list ">
+               {% for static in blocks.statistic %}
+                  <li class="h-list__item">
+                     <div class="h-list__value">{{static.value}}</div>
+                     <div class="h-list__text">{{static.title}}</div>
+                  </li>
+               {% endfor %}
+            </ul>
+         </div>
+      {% endif %}
+      <div class="hero__btn">
+         {% if blocks.mainLink %}
+            <a href="{{blocks.mainLink.url}}" class="btn">{{blocks.mainLink.title}}</a>
+         {% endif %}
+         {% if blocks.secondaryLink %}
+            <a href="{{blocks.secondaryLink.url}}" class="btn btn--border">{{blocks.secondaryLink.title}}</a>
+         {% endif %}
+      </div>
+   </div>
+</div>

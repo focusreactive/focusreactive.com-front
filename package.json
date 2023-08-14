@@ -1,0 +1,23 @@
+{
+	"name": "11ty-sanity",
+	"version": "1.0.0",
+	"description": "",
+	"main": "script.js",
+	"scripts": {
+		"start": "eleventy --serve --port=3000",
+		"build": "eleventy"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@11ty/eleventy": "^2.0.1",
+		"@11ty/eleventy-fetch": "^4.0.0",
+		"@sanity/block-content-to-html": "^2.0.0",
+		"@sanity/client": "^6.4.0",
+		"@sanity/image-url": "^1.0.2",
+		"node-fetch": "^2.6.12",
+		"nunjucks": "^3.2.4",
+		"react": "^18.2.0"
+	}
+}

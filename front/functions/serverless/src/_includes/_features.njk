@@ -1,0 +1,32 @@
+<section class="section features with-btns" id="features">
+   <div class="container">
+   <h3 class="section__title">
+      {{blocks.title}}
+   </h3>
+   <div class="features-block">
+      {% for feature in blocks.features %}
+         <div class="features-block__item">
+            <h3 class="features-block__title">{{feature.title}}</h3>
+            <p class="features-block__desc">{{feature.description}}</p>
+
+            <div class="features-block__back">
+               {% if feature.networkers %}
+                  <div class="networkers">
+                     {% for networker in feature.networkers %}
+                        <div class="networkers__item">
+                           <img class="networkers__speaker" src="{{networker|imgURL}}" alt="">
+                        </div>
+                     {% endfor %}
+                  </div>
+               {% endif %}
+               {% if feature.bgImage %}
+                  <img class="features-block__back-pic" src="{{feature.bgImage|imgURL}}" alt="">
+               {% endif %}
+            </div>
+
+         </div>
+
+      {% endfor %}
+   </div>
+   </div>
+</section>

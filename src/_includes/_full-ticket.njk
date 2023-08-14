@@ -1,0 +1,34 @@
+<section class="section s-full-ticket" id="full-ticket">
+   <div class="container">
+      <h3 class="section__title section__title_big">
+      {{dev.fullTicket.title}}
+      </h3>
+      <div class="full-ticket">
+         {% for  ticket in dev.fullTicket.list %}
+         <div class="full-ticket__item {{'full-width' if ticket.modificator}}">
+            {% if ticket.bgImg %}
+               <div class="full-ticket__bg" style="background-image: url({{ticket.bgImg}});"></div>
+            {% endif %}
+            <div class="full-ticket__left">
+               {% if ticket.title %}
+                  <p class="full-ticket__title">{{ticket.title}}</p>
+               {% endif %}
+               {% if ticket.img %}
+               <div class="full-ticket__img-wrap">
+                  <img class="full-ticket__img" src="{{ticket.img}}" alt="icon">
+               </div>
+               {% endif %}
+            </div>
+            {% if ticket.text %}
+            <div class="full-ticket__desc">{{ticket.text}}</div>
+            {% endif %}
+            {% if ticket.btn %}
+            <a href="{{ticket.btn.url}}" class="btn">{{ticket.btn.text}}</a>
+            {% endif %}
+         </div>
+
+         {% endfor %}
+
+      </div>
+   </div>
+</section>

@@ -1,0 +1,24 @@
+<section class="section zoom-bars" id="zoom-bars">
+   <div class="container">
+      <h3 class="section__title">
+        {{blocks.title}}
+      </h3>
+      <h4 class="section__subtitle">
+         {{blocks.description}}
+      </h4>
+      <div class="bars-list">
+         {% for bar in blocks.list %}
+         <div class="bars-list__item">
+
+            <div class="bars-list__content">
+            <p class="bars-list__bar">{{bar.title}}</p>
+            <p class="bars-list__name">{{bar.text}}</p>
+            <div class="bars-list__rooms">
+               <a class="bars-list__btn btn btn--transparent" >{{bar.link.title}}</a>
+            </div>
+            </div>
+         </div>
+         {% endfor %}
+      </div>
+   </div>
+</section>
