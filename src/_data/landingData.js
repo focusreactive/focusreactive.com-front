@@ -1,18 +1,45 @@
 const fetch = require("node-fetch");
 
+const query = `*[_type == 'landingPage' && !(_id in path("drafts.**"))] {
+    ...,
+    blocks[] {
+      ...,
+      "image": image.asset->.url,
+      "bgImage": bgImage.asset->.url,
+      partners[] {
+        ...,
+        "image": image.asset->.url,
+      },
+      elements[] {
+        ...,
+        "image": image.asset->.url
+      }
+    },
+    seo {
+      ...,
+      ogTags {
+        ...,
+        "image": image.asset->.url,
+      },
+      ogTwitter {
+        ...,
+        "image": image.asset->.url,
+      }
+    },
+    footer->
+  }`;
+
 module.exports = async (params) => {
   const dynamicSlug = params.eleventy?.serverless?.query?.slug;
 
-  let QUERY = encodeURIComponent(
-    `*[_type == "pages" && !(_id in path("drafts.**"))]`
-  );
+  let QUERY = encodeURIComponent(query);
   if (dynamicSlug) {
     QUERY = encodeURIComponent(
       `coalesce(*[_type == "pages" && slug.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "pages" && slug.current == "${dynamicSlug}"][0])`
     );
   }
 
-  let PROJECT_ID = "nzudkmke";
+  let PROJECT_ID = "vftxng62";
   let DATASET = "production";
 
   // Compose the URL for your project's endpoint and add the query
@@ -20,8 +47,7 @@ module.exports = async (params) => {
 
   const data = await fetch(URL, {
     headers: {
-      Authorization:
-        "Bearer skB5uHVZpMcGpjN6wKVQOZ6cWU3inNSTX3wgphH2mhavcKuPAsJXsOlxUl0YXtDfLwCKJok8y35luq4pOwFfuEj5xAMV2C6N21zJru2fPR6shBudoMRKyLyOVusmvDWnEPjLGu1Y2F6mJaBMesvXlVbTwpsrITgvxxJaE67oiBCJFDQ1xlZN",
+      Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
     },
   })
     .then((res) => res.json())

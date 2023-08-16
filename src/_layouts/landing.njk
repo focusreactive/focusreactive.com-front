@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <link href="/assets/css/landing/app.css" rel="stylesheet" type="text/css">
+</head>
+
+<body class="bg" topmargin="0">
+   <div class="out">
+      {{ content | safe }}
+   </div>
+
+   {% if eleventy.serverless.query.slug %}
+   <script>
+        window.addEventListener('message', receiveMessage, false);
+
+        function receiveMessage(event) {
+            if (event.origin !== 'https://11ty-sanity-mvp-cms.vercel.app') {
+                return;
+            }
+
+            if(event.data === 'reload()') {
+               window.location.reload(true);
+            }
+        }
+    </script>
+   {% endif %}
+</body>
+
+</html>

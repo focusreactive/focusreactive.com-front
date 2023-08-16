@@ -5,3 +5,4 @@ dist
 _site
 functions/serverless
 .vercel
+.env

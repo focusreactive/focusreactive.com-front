@@ -1,0 +1,75 @@
+---
+
+layout: 'landing.njk'
+
+pagination:
+  data: landingData
+  size: 1
+  alias: data
+
+permalink:
+    build: "/{{data.path.current}}/"
+    serverless: '/dynamics'
+
+---
+{% set blocks = blocks %}
+{% set emailFormData = emailForm %}
+
+{% import "_partials/_mixins.html" as mixins %}
+
+	{% for block in data.blocks %}
+		{% if block._type === 'heroDark' %}
+			{% set heroData = block %}
+			{% include "_partials/_content-hero.html" %}
+		{% endif %}
+		{% if block._type === 'hero' %}
+			{% set heroData = block %}
+			{% include "_partials/_hero_landing.html" %}
+		{% endif %}
+		{% if block._type === 'aboutText' %}
+			{% set introData = block %}
+			{% include "_partials/_intro_text.html" %}
+		{% endif %}
+		{% if block._type === 'teasers' %}
+			{% set teasersData = block %}
+			{% include "_partials/_teasers.html" %}
+		{% endif %}
+		{% if block._type === 'reviews' %}
+			{% set reviewsData = block %}
+			{% include "_partials/_reviews.html" %}
+		{% endif %}
+		{% if block._type === 'clientsAccordion' %}
+			{% set accourdionData = block %}
+			{% include "_partials/_clients-accordion.html" %}
+		{% endif %}
+		{% if block._type === 'landingBlog' %}
+			{% set blogData = block %}
+			{% include "_partials/_blog.html" %}
+		{% endif %}
+		{% if block._type === 'officesMap' %}
+			{% include "_partials/_offices.html" %}
+		{% endif %}
+		{% if block._type === 'counters' %}
+			{% set countersData = block %}
+			{% include "_partials/_counters.html" %}
+		{% endif %}
+		{% if block._type === 'singleReview' %}
+			{% set reviewData = block %}
+			{% include "_partials/_reviews-single.html" %}
+		{% endif %}
+		{% if block._type === 'contentColumns' %}
+			{% set columnsData = block %}
+			{% include "_partials/_content-2-col.html" %}
+		{% endif %}
+		{% if block._type === 'technologies' %}
+			{% set technologiesData = block %}
+			{% include "_partials/_technologies.html" %}
+		{% endif %}
+		{% if block._type === 'heroContentSmall' %}
+			{% set heroContentSmallData = block %}
+			{% include "_partials/_content-hero-small.html" %}
+		{% endif %}
+
+	{% endfor %}
+	{% include "_partials/_social.html" %}
+	{% include "_partials/_mail-us.html" %}

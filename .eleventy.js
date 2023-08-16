@@ -3,6 +3,7 @@ const ClientObj = require("@sanity/client");
 const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+require("dotenv").config();
 
 const client = ClientObj.createClient({
   projectId: "nzudkmke",
