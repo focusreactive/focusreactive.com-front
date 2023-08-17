@@ -35,7 +35,34 @@ module.exports = async (params) => {
   let QUERY = encodeURIComponent(query);
   if (dynamicSlug) {
     QUERY = encodeURIComponent(
-      `coalesce(*[_type == "pages" && slug.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "pages" && slug.current == "${dynamicSlug}"][0])`
+      `coalesce(*[_type == "landingPage" && path.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "landingPage" && path.current == "${dynamicSlug}"]{
+    ...,
+    blocks[] {
+      ...,
+      "image": image.asset->.url,
+      "bgImage": bgImage.asset->.url,
+      partners[] {
+        ...,
+        "image": image.asset->.url,
+      },
+      elements[] {
+        ...,
+        "image": image.asset->.url
+      }
+    },
+    seo {
+      ...,
+      ogTags {
+        ...,
+        "image": image.asset->.url,
+      },
+      ogTwitter {
+        ...,
+        "image": image.asset->.url,
+      }
+    },
+    footer->
+  }[0])`
     );
   }
 
@@ -53,5 +80,5 @@ module.exports = async (params) => {
     .then((res) => res.json())
     .catch((err) => console.error(err));
 
-  return data.result.length ? data.result : [data.result];
+  return data?.result?.length ? data.result : [data.result];
 };

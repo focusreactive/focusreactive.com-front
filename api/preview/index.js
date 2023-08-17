@@ -4,9 +4,9 @@ export default async function handler(request, response) {
   const { slug } = request.query;
 
   let elev = new EleventyServerless("serverless", {
-    path: `/dynamic`,
+    path: `/dynamics`,
     query: {
-      slug: slug.replace("dynamic/", ""),
+      slug: slug.replace("dynamics/", ""),
     },
   });
 

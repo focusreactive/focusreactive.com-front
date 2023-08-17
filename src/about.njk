@@ -1,0 +1,55 @@
+---
+title: "FocusReactive - Next.js, Headless CMS and eCommerce expert agency"
+keywords: "react, reactjs, javascript, nodejs, consultancy, london, software development, contractors"
+twitter_publisher: "@focusreactive"
+description: "We architect, build and lead technically advanced websites with a focus on performance and scalability. Partners and experts in Next.js/Vercel, Sanity, Contentful, Shopify Hydrogen and other Headless eCommerce plafroms."
+og_url: "https://focusreactive.com"
+og_image: "https://focusreactive.com/img/og-image.png"
+innerPage: true
+
+heroImage: 'hero_bg2.jpg'
+
+advantages: [
+	{
+		title: 'Understand the problem',
+		desc: 'We care about client product as it is our own, working together on breaking down the problem and finding the right solution for short, mid and long term results.<br /> Resources are then planned according to project needs and timelines, finding the well-balanced approach.'
+	},
+	{
+		title: 'Execution & Technical Leadership',
+		desc: 'We believe in leading by example. We work hand in hand with your team throughout the course of the project, providing training and helping you build the strongest tech platform foundation. We embrace agile practices, and our deep integration with your team enables us to overcome any potential challenges and maximize our impact.'
+	},
+	{
+		title: 'Efficient On-site / remote working model',
+		desc: 'Our teams are based in London, Amsterdam, and remote throughout Central Europe conferring both the benefits of an on-site leadership presence and the scalability of remote models. By leveraging years of experience working with distributed teams, we deliver a seamless experience,
+integrating perfectly with the client organization to maximize efficiency.<br />
+With the right amount of work travel for important project phases and an always-present, on-site architect on the team, your business will benefit from better cost-to-value ratio without sacrificing quality..
+'
+	}
+]
+
+layout: 'landing.njk'
+
+permalink:
+    build: "/about"
+    serverless: '/dynamics'
+
+---
+
+{% set introTitle = aboutData.intoTitle %}
+{% set introSubtitle = aboutData.intoSubtitle %}
+{% set introDescription = aboutData.introDescription %}
+
+{% set teamData = mainPageData.team %}
+{% set heroLines = ['REACT / NODE', 'CONSULTANCY', 'TRUSTED', 'BY THE', 'COMMUNITY'] %}
+
+{% block content %}
+
+	{% include "_partials/_social.html" %}
+	{% include "_partials/_intro.html" %}
+	{% include "_partials/_team.html" %}
+	{% include "_partials/_offices.html" %}
+	{% include "_partials/_mail-us.html" %}
+
+	{#{% include "partials/_description.html" %}#}
+
+{% endblock %}
