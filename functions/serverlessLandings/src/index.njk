@@ -1,0 +1,195 @@
+---
+title: "FocusReactive - Next.js, Headless CMS and eCommerce expert agency"
+keywords: "react, reactjs, javascript, nodejs, consultancy, london, software development, contractors"
+twitter_publisher: "@focusreactive"
+description: "We architect, build and lead technically advanced websites with a focus on performance and scalability. Partners and experts in Next.js/Vercel, Sanity, Contentful, Shopify Hydrogen and other Headless eCommerce plafroms."
+og_url: "https://focusreactive.com"
+og_image: "https://focusreactive.com/img/og-image.png"
+
+heroImage: 'hero_bg2.jpg'
+
+members: [
+	{
+		memberRow: [
+			{
+				photo: 'robert.jpg',
+				name: 'Robert Haritonov',
+				about: 'Tech Lead <br/> Architect <span>Founder</span>',
+				links: [
+          {
+            href: 'https://twitter.com/operatino',
+            name: 'Twitter'
+          },
+          {
+            href: 'https://speakerdeck.com/operatino',
+            name: 'Speakerdeck'
+          },
+          {
+            href: 'https://www.linkedin.com/in/robertharitonov/',
+            name: 'LinkedIn'
+          },
+        ]
+			},
+			{
+				photo: 'denis.jpg',
+				name: 'Denis Radin',
+				about: 'Tech Lead <br/> Principal developer <span>Founder</span>',
+				links: [
+          {
+            href: 'https://twitter.com/PixelsCommander',
+            name: 'Twitter'
+          },
+          {
+            href: 'https://github.com/PixelsCommander',
+            name: 'GitHub'
+          },
+        ]
+			}
+		]
+	},
+	{
+		memberRow: [
+			{
+				photo: 'oleg.jpg',
+				name: 'Oleg Proskurin',
+				about: "Senior Engineer <br/> React <span>Design Systems</span>",
+				links: [
+          {
+            href: 'https://twitter.com/UsulPro',
+            name: 'Twitter'
+          },
+          {
+            href: 'https://github.com/UsulPro',
+            name: 'GitHub'
+          },
+          {
+            href: 'https://stackoverflow.com/users/5721315/oleg-pro?tab=answers&sort=votes',
+            name: 'StackOverflow'
+          },
+        ]
+			},
+			{
+				photo: 'alexey.jpg',
+				name: 'Alexey Kureev',
+        about: "Senior Engineer <br/> React / <span>React Native</span>",
+				links: [
+          {
+            href: 'https://twitter.com/kureevalexey',
+            name: 'Twitter'
+          },
+          {
+            href: 'https://github.com/Kureev',
+            name: 'GitHub'
+          },
+          {
+            href: 'https://www.linkedin.com/in/kureev/',
+            name: 'LinkedIn'
+          },
+        ]
+			}
+		]
+	},
+	{
+		memberRow: [
+			{
+				photo: 'nik.jpg',
+				name: 'Nik Graf',
+        about: "Independent consultant <br/> GraphQL <span>React, Reason</span>",
+				links: [
+          {
+            href: 'https://github.com/nikgraf',
+            name: 'GitHub'
+          },
+          {
+            href: 'https://twitter.com/nikgraf',
+            name: 'Twitter'
+          },
+          {
+            href: 'https://www.nikgraf.com',
+            name: 'Website'
+          },
+        ]
+			},
+			{
+				photo: 'kirill.jpg',
+				name: 'Kirill Korolyov',
+				about: "Senior Engineer <br/> React <span>Node.js</span>",
+				links: [
+          {
+            href: 'https://twitter.com/dremora',
+            name: 'Twitter'
+          },
+          {
+            href: 'https://github.com/Dremora',
+            name: 'GitHub'
+          },
+          {
+            href: 'https://www.linkedin.com/in/dremora/',
+            name: 'LinkedIn'
+          },
+        ]
+			}
+		],
+  }
+]
+contactsSectionMod: 'is-darker'
+
+recommendations: [
+	{
+		img: 'tagon.jpg',
+		name: 'G. Tandon',
+		position: 'Head of Digital Software, Asia-Pacific',
+		desc: '“Delivering our mobile app fast and on time was critical. To achieve this, the development team found pragmatic technical software solutions that also accommodated our specific business needs. I was impressed by the quality of work and the transparency of the process throughout.”'
+	},{
+		img: 'caruso.jpg',
+		name: 'R. Caruso',
+		position: 'Head of Innovation Lab',
+		desc: '“Working with Theodo has been a tremendous experience. They delivered, on time, a state-of-the-art platform that leveraged best-in-class Agile practices and cutting edge software. The dynamic and enthusiastic team pushed us to develop a game-changing product. Can’t wait to work with them again!”'
+	},{
+		img: 'engels.jpg',
+		name: 'Geert Engels',
+		position: 'Director Of Engineering',
+		desc: '“I was impressed with the technical and methodological training provided by the Theodo team. Not only did they allow us to launch our mobile and web app, but also enhanced our London Showroom customer journey through an innovative touch screen experience while leaving us with a strong team to continue development going forward.”'
+	},{
+		img: 'taplin.jpg',
+		name: 'S. Taplin',
+		position: 'Director, microsoft',
+		desc: '“Even with products that support a diverse, global customer base, Theodo’s agility truly sped up development. By delivering state of the art mobile software with weekly iterations and daily communication, Theodo let us focus on other aspects of the project. The methodology was so powerful that all Alfa teams now work with it as result.”'
+	},{
+		img: 'heydenreich.jpg',
+		name: 'MC Heydenreich',
+		position: 'CEO & Founder, nissan motor',
+		desc: '“Five months after going live, the website is running smoothly and the sales are great! I would absolutely recommend Theodo and I hope to work with them again in the future.”'
+	}
+]
+
+layout: 'landing.njk'
+---
+
+{% set techsTitle = mainPageData.techs.title %}
+{% set techsSubTitle = mainPageData.techs.subTitle %}
+{% set techs = mainPageData.techs.spheres %}
+{% set aboutTextLines = mainPageData.aboutTextLines %}
+{% set clientsSlider = mainPageData.clients %}
+{% set products = mainPageData.products %}
+{% set summary = mainPageData.whatWeDo %}
+{% set eventsData = mainPageData.events %}
+{% set teamData = mainPageData.team %}
+{% set emailFormData = mainPageData.emailForm %}
+{% set heroLines = mainPageData.heroLines %}
+{% block content %}
+{% include "_partials/_social.html" %}
+{% include "_partials/_hero.html" %}
+{% include "_partials/_about.html" %}
+{% include "_partials/_summary.html" %}
+{% include "_partials/_techs.html" %}
+{% include "_partials/_products.html" %}
+{% include "_partials/_events.html" %}
+{# {% include "_partials/_journal.html" %} #}
+{% include "_partials/_open-source.html" %}
+{# {% include "_partials/_team.html" %} #}
+{# {% include "_partials/_recommendations.html" %} #}
+{# {% include "_partials/_offices.html" %} #}
+{% include "_partials/_mail-us.html" %}
+{# {% include "_partials/_contacts.html" %} #}
+{% endblock %}

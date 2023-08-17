@@ -1,0 +1,40 @@
+---
+title: "FocusReactive - Next.js, Headless CMS and eCommerce expert agency"
+keywords: "react, reactjs, javascript, nodejs, consultancy, london, software development, contractors"
+twitter_publisher: "@focusreactive"
+description: "We architect, build and lead technically advanced websites with a focus on performance and scalability. Partners and experts in Next.js/Vercel, Sanity, Contentful, Shopify Hydrogen and other Headless eCommerce plafroms."
+og_url: "https://focusreactive.com"
+og_image: "https://focusreactive.com/img/og-image.png"
+innerPage: true
+
+
+heroImage: 'giphy.gif'
+
+advantages: [
+{
+title: 'High performance',
+desc: 'Be your project a Web app, CAD system or a 3D game it is always true that high responsivity and smooth animations is a key to user satisfaction. Our experience of optimizing Web applications reflected in the <a href="http://challengingnative.com">Challenging Native workshop</a> and now we are ready to boost your app performance to the most of what is possible.'
+},
+{
+title: 'WebGL on a scale',
+desc: 'Many companies on the market can show nicely looking 3d demos however development and maintainance of large WebGL applications require quite a different skillset. We ve been working on <a href="https://www.youtube.com/watch?v=e-avQTvjORI">projects of a unique scale and complexity</a>. Now we are glad to help you by putting our years of experience to the table.'
+},
+{
+title: 'Graphics made caring of details',
+desc: '3D graphics on the Web is an advanced technology and a powerful medium however to unleash it`s potential hard work on models, materials and animations is required. Having a strong expertise on building 3d experiences we can make your application shine and be ahead of competitors.'
+}
+]
+
+layout: 'landing.njk'
+
+---
+{% set heroLines = ['REACT / NODE', 'CONSULTANCY', 'TRUSTED', 'BY THE', 'COMMUNITY'] %}
+
+{% block content %}
+
+{% include "_partials/_social.html" %}
+{% include "_partials/_hero.html" %}
+
+{% include "_partials/_graphics.html" %}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+<header class="header js-header">
+   <div class="header__inner js-menu">
+      <div class="header__nav">
+      <ul class="nav">
+         {% for item in dev.header.menu %}
+         <li class="nav__item"><a href="{{item.url}}" class="nav__link">{{item.text}}</a></li>
+         {% endfor %}
+      </ul>
+      </div>
+      <div class="header__btn">
+         <a tabindex="2" class="btn" href="{{dev.header.btn.url}}">{{dev.header.btn.text}}</a>
+      </div>
+   </div>
+
+   <div class="header__burger">
+      <div class="burger js-burger">
+         <span></span>
+         <span></span>
+         <span></span>
+      </div>
+   </div>
+</header>

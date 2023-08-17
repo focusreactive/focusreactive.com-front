@@ -1,0 +1,45 @@
+<footer class="footer section">
+   <div class="container">
+   <div class="footer__main">
+      <h3 class="footer__title">
+         Contact us
+      </h3>
+      <div class="footer__mid">
+         <div class="footer__nav">
+         <ul class="f-nav">
+            {% for item in dev.footer.menu %}
+            <li class="f-nav__item"><a href="{{item.url}}" class="f-nav__link">{{item.text}}</a></li>
+            {% endfor %}
+         </ul>
+         </div>
+         <div class="footer__socials">
+         <ul class="social social--theme">
+            {% for social in dev.socials %}
+            <li class="social__item">
+               <a href="{{social.url}}" class="social__link" target="_blank" >
+                  <img src="{{social.icon}}" alt="">
+               </a>
+            </li>
+            {% endfor %}
+         </ul>
+         </div>
+      </div>
+   </div>
+   </div>
+   <div class="footer__basement">
+   <div class="container">
+      <div class="footer__logo">
+         <div class="f-logo">
+         <span class="f-logo__icon">
+            <img src="/assets/img/Smile.svg" alt="Frontend nation">
+         </span>
+         <div class="f-logo__label"> Event by <a href="https://gitnation.org">GitNation</a>
+         </div>
+         </div>
+      </div>
+      <div class="footer__tip">
+         {{dev.footer.tip}}
+      </div>
+   </div>
+   </div>
+</footer>

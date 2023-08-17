@@ -2,16 +2,26 @@
 <html lang="en">
 
 <head>
+   {% for page in pages %}
 
+   <title>Seo Title</title>
+   <meta name="description" content="this is seo description">
+   {% if eleventy.serverless.query.slug %}
+      <meta http-equiv="Cache-control" content="no-cache">
+   {% endif %} 
+
+   {% endfor %}
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <link href="/assets/css/landing/app.css" rel="stylesheet" type="text/css">
+   <link href="/assets/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body class="bg" topmargin="0">
    <div class="out">
+      {% include '_header.njk' %}
       {{ content | safe }}
+      {% include '_footer.njk' %}
    </div>
 
    {% if eleventy.serverless.query.slug %}
@@ -19,7 +29,7 @@
         window.addEventListener('message', receiveMessage, false);
 
         function receiveMessage(event) {
-            if (event.origin !== 'https://fr-website.sanity.studio') {
+            if (event.origin !== 'https://11ty-sanity-mvp-cms.vercel.app') {
                 return;
             }
 
