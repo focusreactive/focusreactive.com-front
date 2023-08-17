@@ -1,0 +1,48 @@
+<!-- begin about -->
+<section id="about" data-section="about" class="about is-light js-scroll-header">
+    <div class="container">
+        <!-- <h2 class="about__main-title">
+            <span class="text text--font-md text--green">React</span>
+            <span class="text text--font-md text--border-dark"> <b>/</b> JavaScript</span>
+            <br/>
+            <span class="text text--font-md text--border-dark"> <b>/</b> Node.JS</span>
+        </h2> -->
+        <h3 class="title title--dark title--xs">
+            {% for line in aboutTextLines %}
+                {{line}}<br/>
+            {% endfor %}
+        </h3>
+    </div>
+
+    <div class="about__slider">
+<!--        <div class="clients-slider">-->
+<!--            <div class="clients-slider__title">-->
+<!--                <div class="container">-->
+<!--                    <h2 class="title title&#45;&#45;dark title&#45;&#45;md">{{clientsSlider.title}}</h2>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="clients-slider__slides">-->
+<!--            <div class="slider js-slider-parent">-->
+<!--                <div class="slider__inner">-->
+<!--                    <div class="slider__slides js-slider">-->
+<!--                        {% for client in clientsSlider.clients %}-->
+<!--                            <div class="clients-slider__slide">-->
+<!--                                <h4 class="clients-slider__name">{{ client.name }}</h4>-->
+<!--                                <img src={{ client.logo }} alt="{{ client.name }}"/>-->
+<!--                            </div>-->
+<!--                        {% endfor %}-->
+<!--                    </div>-->
+<!--                    <div class="slider__prev-btn js-prev-btn is-hidden is-extreme">-->
+<!--                        {% include './svg/arrow.svg' %}-->
+<!--                    </div>-->
+<!--                    <div class="slider__next-btn js-next-btn is-extreme">-->
+<!--                        {% include './svg/arrow.svg' %}-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="slider__amount slider__amount&#45;&#45;mt-lg js-slider-amount"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</section>
+<!-- end about -->

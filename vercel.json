@@ -1,10 +1,10 @@
 {
   "functions": {
     "api/landing-preview/index.js": {
-      "includeFiles": "functions/serverlessLandings/**/*"
+      "includeFiles": "functions/serverlessLandings/**"
     },
     "api/about-preview/index.js": {
-      "includeFiles": "functions/serverless/**/*"
+      "includeFiles": "functions/serverless/**"
     }
   },
   "rewrites": [{ "source": "/", "destination": "/home" }]

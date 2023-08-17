@@ -1,0 +1,21 @@
+<section id="recommendations" class="recommendations is-light js-scroll-header">
+    <div class="container">
+        <h2 class="recommendations__title">100% of our customers recommended us in 2020</h2>
+        <h3 class="recommendations__subtitle">Our collaborative methodology leads to lasting partnership and happy clients-list</h3>
+
+        <ul class="clients-list">
+            {% for recommendation in recommendations %}
+            <li class="clients-list__item">
+                <div class="clients-list__photo">
+                    <img src="/img/clients/{{recommendation.img}}">
+                </div>
+                <div class="clients-list__content">
+                    <h3 class="clients-list__name">{{recommendation.name}}</h3>
+                    <p class="clients-list__position">{{recommendation.position}}</p>
+                    <div class="clients-list__desc">{{recommendation.desc | safe}}</div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,32 @@
+<section class="section s-video-rooms" id="video-rooms">
+   <div class="container">
+   <h3 class="section__title">
+      {{blocks.title}}
+   </h3>
+
+   <div class="video-rooms">
+      {% for rooms in blocks.videoRooms %}
+      <div class="video-rooms__item ">
+         <div class="video-rooms__img-wrap">
+         <picture>
+            <img src="{{rooms.icon|imgURL}}" class="video-rooms__img" alt="">
+         </picture>
+         </div>
+         <h4 class="video-rooms__title">{{rooms.title}}</h4>
+         {% if rooms.speakers %}
+            <div class="video-rooms__users">
+               {% for speaker in rooms.speakers %}
+                  <div class="video-rooms__user">
+                     <picture>
+                        <img src="{{speaker.avatar|imgURL}}" class="video-rooms__avatar" alt="{{speaker.name}}">
+                     </picture>
+                     <p class="video-rooms__name">{{speaker.name}}</p>
+                  </div>
+               {% endfor %}
+            </div>
+         {% endif %}
+      </div>
+      {% endfor %}
+
+   </div>
+</section>

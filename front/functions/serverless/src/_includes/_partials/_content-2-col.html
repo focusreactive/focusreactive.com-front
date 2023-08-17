@@ -1,0 +1,25 @@
+<section class="content_2_col is-light js-scroll-header">
+  <div class="container">
+    <div class="content_2_col__col content_2_col__col_1">
+      <h2>{{ columnsData.title }}</h2>
+      {% for paragraph in columnsData.paragraphs %}
+      <p>{{ paragraph }}</p>
+      {% endfor %}
+    </div>
+    <div class="content_2_col__col content_2_col__col_2">
+      <img
+        width="320"
+        src="{{ columnsData.image }}"
+        alt="{{ columnsData.title }}"
+      />
+    </div>
+  </div>
+  <div class="content_2_col__link-container">
+    {% if columnsData.link %}
+
+    <a class="btn btn--primary" href="{{columnsData.link}}"
+      >{{columnsData.linkTitle}}</a
+    >
+    {% endif %}
+  </div>
+</section>

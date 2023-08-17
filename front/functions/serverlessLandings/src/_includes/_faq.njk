@@ -1,0 +1,29 @@
+<div class="section faq">
+   <div class="container">
+      {% if blocks.description %}
+      <div class="faq__description">
+         {{blocks.description}}
+      </div>
+      {% endif %}
+      <div class="faq__content">
+         {% for list in blocks.list %}
+            <h3 class="faq__section-title">{{list.title}}</h3>
+             <ul class="faq__list">
+               {% for item in list.list %}
+
+                  <li class="faq__item js-accordion-item">
+                    
+                     <button tabindex="0" role="button" aria-pressed="false" class="faq__question js-accordion-toggler">
+                        {{item.title}}
+                     </button>
+                     <div class="faq__ansver js-accordion-spoiler">
+                        {{item.text}}
+                     </div>
+                  </li>
+               
+               {% endfor %}
+            </ul>
+         {% endfor %}
+      </div>
+   </div>
+</div>
