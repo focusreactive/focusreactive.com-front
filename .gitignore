@@ -4,5 +4,6 @@ node_modules
 dist
 _site
 functions/serverless
+functions/serverlessLandings
 .vercel
 .env
