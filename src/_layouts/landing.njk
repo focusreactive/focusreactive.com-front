@@ -21,14 +21,10 @@
         console.log('Listening fory', event);
             if (event.origin === 'https://fr-website.sanity.studio' || event.origin === 'http://localhost:3333') {
             if(event.data === 'reload()') {
-                        console.log(1);
                            window.location.reload(true);
                         }
-            console.log(-1);
             }
-            console.log(0);
                 return;
-
         }
     </script>
    {% endif %}
