@@ -76,6 +76,8 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
       S.view.component(JsonPreview).title('Preview'),
     ]);
   }
+
+  return S.document();
 };
 
 export default S.defaults();
