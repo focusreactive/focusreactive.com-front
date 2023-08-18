@@ -80,7 +80,5 @@ module.exports = async (params) => {
     .then((res) => res.json())
     .catch((err) => console.error(err));
 
-  console.log(data.result);
-
   return data?.result?.length ? data.result : [data.result];
 };

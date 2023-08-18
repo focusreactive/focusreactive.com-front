@@ -1,16 +1,9 @@
 const fetch = require("node-fetch");
 
-const query = `*[_type=="ourWorkPage"][0]`;
+const query = `*[_type == 'landingPage' && !(_id in path("drafts.**"))].path.current`;
 
-module.exports = async (params) => {
-  const dynamicSlug = params.eleventy?.serverless?.query?.slug;
-
+export const getLandingsLinks = async (params) => {
   let QUERY = encodeURIComponent(query);
-  if (dynamicSlug) {
-    QUERY = encodeURIComponent(
-      `coalesce(*[_type == "ourWorkPage" && _id in path("drafts.**")][0],*[_type == "ourWorkPage"][0])`
-    );
-  }
 
   let PROJECT_ID = "vftxng62";
   let DATASET = "production";
@@ -18,7 +11,7 @@ module.exports = async (params) => {
   // Compose the URL for your project's endpoint and add the query
   let URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
-  const aboutUsData = await fetch(URL, {
+  const data = await fetch(URL, {
     headers: {
       Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
     },
@@ -26,5 +19,7 @@ module.exports = async (params) => {
     .then((res) => res.json())
     .catch((err) => console.error(err));
 
-  return aboutUsData.result;
+  console.log(data.result, "data.result");
+
+  return data?.result?.length ? data.result : [data.result];
 };
