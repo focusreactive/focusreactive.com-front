@@ -7,7 +7,7 @@ const sendPostMessage = () => {
     .getElementById('preview_iframe')
     .contentWindow.postMessage(
       'reload()',
-      'https://fr-11ty-migration-front-dev.vercel.app',
+      'https://fr-11ty-migration-front.vercel.app',
     );
 };
 
@@ -28,19 +28,21 @@ const JsonPreview = ({ document: sanityDocument }) => {
   useEffect(() => {
     switch (sanityDocument?.displayed?._type) {
       case 'landingPage': {
-        setSlugString(sanityDocument.displayed?.path?.current);
+        setSlugString(
+          `landing-preview?slug=${sanityDocument.displayed?.path?.current}`,
+        );
         break;
       }
       case 'aboutUsPage': {
-        setSlugString('about-preview');
+        setSlugString('preview?slug=about-preview');
         break;
       }
       case 'mainPage': {
-        setSlugString('main-preview');
+        setSlugString('preview?slug=main-preview');
         break;
       }
       case 'ourWorkPage': {
-        setSlugString('our-work-preview');
+        setSlugString('preview?slug=our-work-preview');
         break;
       }
       default: {
@@ -55,7 +57,7 @@ const JsonPreview = ({ document: sanityDocument }) => {
     <iframe
       title="page"
       id="preview_iframe"
-      src={`https://fr-11ty-migration-front-dev.vercel.app/api/preview?slug=${slugString}`}
+      src={`https://fr-11ty-migration-front.vercel.app/api/${slugString}`}
       style={{ height: '100%', width: '100%' }}
     />
   );
@@ -74,6 +76,7 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
       S.view.component(JsonPreview).title('Preview'),
     ]);
   }
+  return S.document();
 };
 
 export default S.defaults();
