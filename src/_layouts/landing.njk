@@ -14,17 +14,15 @@
 </head>
  {% if eleventy.env.isServerless %}
    <script>
-        console.log('Listening for messages from Sanity');
         window.addEventListener('message', receiveMessage, false);
 
         function receiveMessage(event) {
-        console.log('Listening fory', event);
             if (event.origin === 'https://fr-website.sanity.studio' || event.origin === 'http://localhost:3333') {
-            if(event.data === 'reload()') {
-                           window.location.reload(true);
-                        }
+                if(event.data === 'reload()') {
+                    window.location.reload(true);
+                }
             }
-                return;
+            return;
         }
     </script>
    {% endif %}

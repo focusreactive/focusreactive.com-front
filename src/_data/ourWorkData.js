@@ -8,7 +8,7 @@ module.exports = async (params) => {
   let QUERY = encodeURIComponent(query);
   if (dynamicSlug) {
     QUERY = encodeURIComponent(
-      `coalesce(*[_type == "ourWorkPage" && path.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "ourWorkPage" && slug.current == "${dynamicSlug}"][0])`
+      `coalesce(*[_type == "ourWorkPage" && path.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "ourWorkPage"][0])`
     );
   }
 
