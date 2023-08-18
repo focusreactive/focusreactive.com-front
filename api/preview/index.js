@@ -27,11 +27,9 @@ export default async function handler(request, response) {
   console.log(request, "request");
   let path;
 
-  const pathname = new URL(request.rawUrl).pathname;
-
-  switch (pathname) {
-    case "preview": {
-      path = "preview";
+  switch (slug) {
+    case "about-preview": {
+      path = "about-preview";
       break;
     }
     case "landing-preview": {
