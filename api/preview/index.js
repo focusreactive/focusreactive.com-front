@@ -2,6 +2,7 @@ const { EleventyServerless } = require("@11ty/eleventy");
 
 export default async function handler(request, response) {
   const { slug } = request.query;
+  console.log(request.query);
   let path;
 
   switch (slug) {
