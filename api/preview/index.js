@@ -20,6 +20,8 @@
 //   }
 // }
 
+import { getLandingsLinks } from "../../utils/getLandingsLinks";
+
 const { EleventyServerless } = require("@11ty/eleventy");
 
 export default async function handler(request, response) {
@@ -30,10 +32,6 @@ export default async function handler(request, response) {
   switch (slug) {
     case "about-preview": {
       path = "about-preview";
-      break;
-    }
-    case "landing-preview": {
-      path = "landing-preview";
       break;
     }
     case "main-preview": {
@@ -51,6 +49,13 @@ export default async function handler(request, response) {
     default: {
       path = "default-preview";
       break;
+    }
+  }
+
+  if (path === "default-preview") {
+    const landingPaths = getLandingsLinks();
+    if (landingPaths.includes(slug)) {
+      path = "landing-preview";
     }
   }
 
