@@ -22,6 +22,12 @@ module.exports = function (eleventyConfig) {
     copy: ["node_modules"],
   });
 
+  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+    name: "serverlessLandings", // The serverless function name from your permalink object
+    redirects: false,
+    copy: ["node_modules"],
+  });
+
   eleventyConfig.addPassthroughCopy("src/assets");
 
   let nunjucksEnvironment = new Nunjucks.Environment(
