@@ -1,9 +1,6 @@
 {
   "functions": {
-    "api/landing-preview/index.js": {
-      "includeFiles": "functions/serverlessLandings/**"
-    },
-    "api/about-preview/index.js": {
+    "api/preview/index.js": {
       "includeFiles": "functions/serverless/**"
     }
   },

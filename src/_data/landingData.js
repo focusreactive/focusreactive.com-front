@@ -35,7 +35,7 @@ module.exports = async (params) => {
   let QUERY = encodeURIComponent(query);
   if (dynamicSlug) {
     QUERY = encodeURIComponent(
-      `coalesce(*[_type == "landingPage" && path.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "landingPage" && path.current == "${dynamicSlug}"]{
+      `coalesce(*[_type == "landingPage" && path.current == "${dynamicSlug}" && _id in path("drafts.**")][0],*[_type == "landingPage" && path.current == "${dynamicSlug}"][0]{
     ...,
     blocks[] {
       ...,
@@ -62,7 +62,7 @@ module.exports = async (params) => {
       }
     },
     footer->
-  }[0])`
+  })`
     );
   }
 
@@ -79,6 +79,8 @@ module.exports = async (params) => {
   })
     .then((res) => res.json())
     .catch((err) => console.error(err));
+
+  console.log(data.result);
 
   return data?.result?.length ? data.result : [data.result];
 };

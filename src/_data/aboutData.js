@@ -5,8 +5,6 @@ const query = `*[_type=="aboutUsPage"][0]`;
 module.exports = async (params) => {
   const dynamicSlug = params.eleventy?.serverless?.query?.slug;
 
-  console.log("dynamicSlug", dynamicSlug);
-
   let QUERY = encodeURIComponent(query);
   if (dynamicSlug) {
     QUERY = encodeURIComponent(
@@ -27,8 +25,6 @@ module.exports = async (params) => {
   })
     .then((res) => res.json())
     .catch((err) => console.error(err));
-
-  console.log("aboutUsData", aboutUsData);
 
   return aboutUsData.result;
 };
