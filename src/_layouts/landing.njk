@@ -17,7 +17,7 @@
         window.addEventListener('message', receiveMessage, false);
 
         function receiveMessage(event) {
-            if (event.origin === 'https://fr-11ty-migration-cms.vercel.app' || event.origin === 'http://localhost:3333' || event.origin === 'https://fr-website.sanity.studio') {
+            if (event.origin === 'http://localhost:3333' || event.origin === 'https://fr-website.sanity.studio') {
                 if(event.data === 'reload()') {
                     window.location.reload(true);
                 }
