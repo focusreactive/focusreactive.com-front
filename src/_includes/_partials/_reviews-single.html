@@ -4,7 +4,7 @@
 		<p class="reviews__text text-center">{{ reviewData.text }}</p>
 		<div class="reviews__cards">
 			<div class="reviews__card">
-				<div class="reviews__card_image" style="background-image: url({{ reviewData.image }})"></div>
+				<div class="reviews__card_image" style="background-image: url({{ reviewData.image | imgURL }})"></div>
 				<div class="reviews__card_inner">
 					<h4 class="reviews__card_title">{{ reviewData.name }}</h4>
 					<h4 class="reviews__card_subtitle text--border-dark">{{ reviewData.role }}</h4>

@@ -3027,7 +3027,7 @@ html {
 
 .hero.hero_inner {
   min-height: 0;
-  background: url(/img/h-bg.svg) right bottom no-repeat;
+  background: url(../img/h-bg.svg) right bottom no-repeat;
   background-color: #181818;
 }
 

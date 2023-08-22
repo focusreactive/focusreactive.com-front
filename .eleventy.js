@@ -6,10 +6,9 @@ const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 require("dotenv").config();
 
 const client = ClientObj.createClient({
-  projectId: "nzudkmke",
+  projectId: "vftxng62",
   dataset: "production",
-  token:
-    "sk4pvS2ZY8GiQuEiYsW4eIEQ9Vgcuh1xhMnL80ch5sA3ozTtHkpJfqJItI4pyWvT2ijrE2Mlszuee9hPTlTq0U3yy54jTcdPohzqms00vxfzIpzOFqdOOtuMSTAiUEFaVa2i3XVjUpLxIPjclRbCqxM0d85dqv7cigcTOiTEC2jsYfYLRt3w",
+  token: process.env.SANITY_API_TOKEN,
   useCdn: true,
 });
 

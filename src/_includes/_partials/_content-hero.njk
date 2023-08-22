@@ -2,13 +2,13 @@
   <div class="container">
     <div
       class="content_hero__bg"
-      style="background-image: url({{ heroData.bgImage }})"
+      style="background-image: url({{ heroData.bgImage | imgURL }})"
     ></div>
     <div class="content_hero__card text-center">
       <div class="content_hero__card_image">
         <img
           width="320"
-          src="{{ heroData.image }}"
+          src="{{ heroData.image | imgURL }}"
           alt="{{ heroData.title }}"
         />
       </div>

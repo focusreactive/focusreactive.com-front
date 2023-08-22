@@ -5,7 +5,7 @@
 		{% for item in technologiesData.elements %}
 			<div class="technologies__card">
 				<div class="technologies__card_image">
-					<img width="55" src="{{ item.image }}" alt="{{ item.title }}"/>
+					<img width="55" src="{{ item.image | imgURL }}" alt="{{ item.title }}"/>
 				</div>
 				<h4 class="technologies__card_title">{{ item.title }}</h4>
 			</div>
