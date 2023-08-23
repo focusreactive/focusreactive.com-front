@@ -4,13 +4,9 @@
     left: 0
     z-index: 150
     width: 100%
-    padding: 18px 0
-    +md
-        padding-top: 20px
-    +m
-        padding-top: 16px
-    +xs
-        padding-top: 18px
+    padding: 22px 0
+    +sm
+        padding: 18px 0
     .container
         position: relative
     &__logo
@@ -23,21 +19,13 @@
             flex-shrink: 0
             font-size: 0
             padding-top: 0
-        +r(850)
-            padding-top: 2px
-        +xs
-            max-width: 132px
-            padding-top: 0
-            margin-top: -5px
-            margin-left: 3px
-        +r(350)
-            max-width: 100px
-            margin-top: -14px
+
         a
             display: block
             width: 100%
         svg
             display: block
+            height: auto
             +ie
                 width: 100%
             @supports not (-webkit-overflow-scrolling: touch)
@@ -48,7 +36,7 @@
                 +r(350)
                     width: 100px
         svg path
-            transition: all 0.35s ease
+                transition: all 0.35s ease
     &__inner
         display: flex
         justify-content: space-between
