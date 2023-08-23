@@ -1,0 +1,66 @@
+.advantage
+    padding: 72px 0 73px
+    +md
+        padding: 34px 0 30px
+    +xs
+        padding: 37px 0 32px
+    &__inner
+        max-width: 750px
+        margin: 0 auto
+        font-size: 0
+        +md
+            max-width: none
+    & + &
+        border-top: 1px solid rgba(204, 204, 204, 0.4)
+    &__number, &__text
+        display: inline-block
+        vertical-align: top
+    &__text
+        width: 50%
+        +xs
+            width: 75%
+    &__number
+        width: 50%
+        font-size: 38px
+        line-height: 1.1
+        color: $green
+        font-weight: bold
+        +md
+            font-size: 32px
+            margin-left: 25%
+            width: 25%
+        +xs
+            margin-left: 0
+            font-size: 20px
+    &__title
+        font-size: 38px
+        +helB
+        color: $dark-grey
+        margin-bottom: 38px
+        text-transform: uppercase
+        letter-spacing: -0.04em
+        line-height: 1.1
+        +md
+            font-size: 32px
+            margin-bottom: 17px
+            padding-right: 25%
+            letter-spacing: -0.02em
+            line-height: 1.15
+        +xs
+            font-size: 20px
+            margin-bottom: 17px
+            padding-right: 0
+    &__desc
+        color: $dark-grey
+        font-size: 14px
+        +helB
+        letter-spacing: -0.01em
+        opacity: 0.6
+        line-height: 1.75em
+        padding-right: 30px
+        +md
+            padding-right: 27%
+        +xs
+            font-size: 11px
+            line-height: 1.6
+            padding-right: 18%

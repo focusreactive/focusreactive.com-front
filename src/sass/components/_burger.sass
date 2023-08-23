@@ -1,0 +1,32 @@
+.burger
+    width: 50px
+    height: 50px
+    position: relative
+
+    cursor: pointer
+    z-index: 51
+
+    &::before, &::after
+        content: ''
+        position: absolute
+        left: 50%
+        width: 58px
+        height: 3px
+        transform: translate(-50%, -50%) rotate(0) translateZ(0)
+        +xs
+            width: 40px
+    &::before
+        top: 20px
+        transition: background-color .2s ease, top 0.25s ease 0.15s, transform 0.25s ease
+    &::after
+        top: 27px
+        transition: background-color .2s ease, top 0.25s ease 0.15s, transform 0.25s ease
+    &.is-open
+        &:before
+            top: 24px
+            transition: top 0.15s ease-in, transform 0.15s ease 0.25s
+            transform: translate(-50%, -50%) rotate(45deg) translateZ(0)
+        &:after
+            top: 24px
+            transition: top 0.15s ease-in, transform 0.15s ease 0.25s
+            transform: translate(-50%, -50%) rotate(-45deg) translateZ(0)

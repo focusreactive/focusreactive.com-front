@@ -1,0 +1,157 @@
+.header
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 150
+    width: 100%
+    padding: 18px 0
+    +md
+        padding-top: 20px
+    +m
+        padding-top: 16px
+    +xs
+        padding-top: 18px
+    .container
+        position: relative
+    &__logo
+        display: block
+        padding-top: 13px
+        text-decoration: none
+        transition: all .7s ease
+        +md
+            max-width: 140px
+            flex-shrink: 0
+            font-size: 0
+            padding-top: 0
+        +r(850)
+            padding-top: 2px
+        +xs
+            max-width: 132px
+            padding-top: 0
+            margin-top: -5px
+            margin-left: 3px
+        +r(350)
+            max-width: 100px
+            margin-top: -14px
+        a
+            display: block
+            width: 100%
+        svg
+            display: block
+            +ie
+                width: 100%
+            @supports not (-webkit-overflow-scrolling: touch)
+                width: 170px
+                +md
+                    width: 100%
+            @supports (-webkit-overflow-scrolling: touch)
+                +r(350)
+                    width: 100px
+        svg path
+            transition: all 0.35s ease
+    &__inner
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__note
+        font-size: 12px
+        letter-spacing: -0.02em
+        color: $light-grey
+        opacity: 0.6
+        position: absolute
+        left: calc(25% + 100px)
+        +lg
+            left: calc(25% + 25px)
+
+        &.is-desktop
+            +r(1100)
+                display: none
+        &.is-mobile
+            display: none
+            +r(850)
+                display: block
+                opacity: 1
+                padding-left: 0
+                top: 25px
+                max-width: calc(100% - 70px)
+                left: 30px
+            +r(540)
+                left: 20px
+
+    &__burger
+        display: none
+        +r(850)
+            display: block
+            margin-left: auto
+            position: absolute
+            top: 10px
+            right: 10px
+    &__menu
+        +r(850)
+            transform: translateX(100%)
+            position: fixed
+            width: 100%
+            top: 0
+            right: 0
+            height: 100%
+            background-color: $white
+            transition: transform .25s ease-in-out
+            padding: 30px
+            overflow-y: auto
+            &.is-open
+                transform: translateX(0)
+        +r(540)
+            padding: 20px
+
+    &.is-light
+        #this__logo
+            svg, svg path
+                fill: $white
+        .header__logo
+            svg, svg path
+                fill: $white
+        .menu
+            &__link
+                color: $white
+                &.is-active
+                    color: $green
+        .burger
+            &::before, &::after
+                background-color: $white
+            &.is-open
+                &::before, &::after
+                    background-color: $black
+
+    &.is-dark
+        #this__logo
+            svg, svg path
+                fill: $black
+        .header__logo
+            svg, svg path
+                fill: $black
+        .menu
+            &__link
+                color: $dark-grey
+                +r(850)
+                    color: $white
+                &.is-active
+                    color: $green
+        .burger
+            &::before, &::after
+                background-color: $black
+            &.is-open
+                &::before, &::after
+                    background-color: $black
+    &.scroll-down
+        #this__logo
+            transform: translateY(-200%)
+
+    &.inner
+        .header__logo
+            margin: -5px 0 0 0
+            padding: 0
+            svg
+                width: 140px
+    &.is-fixed
+        background: linear-gradient(to bottom, rgba(0,0,0, 0.1), rgba(0,0,0, 0))
+        backdrop-filter: blur(10px)

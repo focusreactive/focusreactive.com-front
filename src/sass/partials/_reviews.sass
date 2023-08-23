@@ -1,0 +1,138 @@
+.reviews
+	padding: 200px 0 145px
+
+	&.is-light
+		background-color: #f8f8f8
+
+	+md
+		padding: 120px 0 60px
+
+	&__title
+		color: #f8f8f8
+		font-size: 100px
+		letter-spacing: 0.03em
+		font-weight: 400
+		margin-bottom: 60px
+		text-transform: uppercase
+
+		+lg
+			font-size: 60px
+
+		+sm
+			font-size: 38px
+
+		+xs
+			color: transparent
+			-webkit-background-clip: text
+			-webkit-text-stroke: 2px #454545
+
+	&__cards
+		display: flex
+		justify-content: center
+		max-width: 1440px
+
+		+s
+			display: block
+
+	&__card
+		max-width: 50%
+		padding: 0 30px 60px
+		width: 100%
+
+		+s
+			margin-left: auto
+			margin-right: auto
+			max-width: 600px
+			padding-left: 0
+			padding-right: 0
+
+		+sm
+			max-width: 375px
+
+	&__card_image
+		background-position: 50% 50%
+		background-size: cover
+		float: left
+		height: 115px
+		margin-bottom: 20px
+		margin-right: 20px
+		position: relative
+		width: 115px
+
+		&:before
+			color: #13CF2E
+			content: '“'
+			font-size: 60px
+			font-weight: 700
+			left: 0
+			letter-spacing: 0.06em
+			line-height: 1
+			position: absolute
+			top: -20px
+
+		+sm
+			width: 75px
+			height: 75px
+			margin-right: 15px
+
+	&__card_inner
+		overflow: hidden
+
+		+sm
+			overflow: visible
+
+	&__card_title
+		font-size: 32px
+		font-weight: 700
+		line-height: 1
+		text-transform: uppercase
+
+		+sm
+			font-size: 26px
+
+	&__card_subtitle
+		font-size: 18px
+		+helB
+		font-weight: bold
+		letter-spacing: 0.05em
+		line-height: 1.2
+		margin-top: 4px
+		margin-bottom: 15px
+		margin-right: 0
+		-webkit-text-stroke-width: 0
+		color: #666
+		overflow: hidden
+		text-transform: uppercase
+
+		+sm
+			color: #666
+			font-size: 16px
+
+	&__card_text
+		color: #646464
+		font-size: 14px
+		line-height: 1.6
+
+		+s
+			clear: both
+
+.reviews_single
+	.reviews__title
+		margin-bottom: 30px
+
+	.reviews__card
+		width: auto
+
+	.reviews__card_image
+		width: 80px
+		height: 80px
+
+	.reviews__text
+		margin: 0 auto 30px
+		max-width: 870px
+		font-size: 20px
+		color: #181818
+
+		+s
+			margin-bottom: 50px
+			font-size: 16px
