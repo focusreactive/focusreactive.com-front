@@ -1,0 +1,121 @@
+.techs
+    padding: 32px 0 100px
+    background: #202020 !important
+    color: #fff
+
+    +md
+        padding: 32px 0 50px
+
+    .subtitle
+        text-transform: uppercase
+        +helB
+        font-size: 120px
+        position: relative
+        z-index: 10
+        color: transparent
+        -webkit-background-clip: text
+        -webkit-text-stroke: 1.5px #fff
+        // +stroke(2, $white)
+        
+        text-align: center
+        transition: color .4s ease
+        line-height: 1em
+        font-weight: bold
+        margin: 74px 0
+        margin-left: -14px
+        letter-spacing: -0.03em
+        color: #202020
+        +md
+            margin: 42px 0
+            font-size: 7.4vw
+
+        +xs
+            text-align: left
+            text-shadow: none
+            -webkit-text-stroke-width: 0
+            color: $white
+            opacity: 1
+            margin: 12px 0
+            margin-left: 0
+            line-height: 1.2
+            letter-spacing: -0.05em
+
+            br
+                display: none
+
+.techs-block
+
+    &__section
+        margin: 90px 0 0
+
+        +xs
+            margin: 40px 0 0
+
+    &__title
+        text-transform: uppercase
+        text-align: center
+        font-size: 12px
+        color: $green
+
+.techs-list
+    display: flex
+    justify-content: center
+    flex-wrap: wrap
+    margin: 70px 0
+    gap: 20px 50px
+
+    +md
+        gap: 20px 40px
+    +s
+        gap: 20px 30px
+    +xs
+        gap: 10px 20px
+
+    &__item
+        display: flex
+        align-items: center
+        justify-content: center
+        max-width: 18%
+
+        +md
+            max-width: 23%
+        +s
+            max-width: 30%
+        +xs
+            max-width: 45%
+
+        &:hover
+            .techs-list
+                &__img
+                    opacity: 0.8
+
+    &__link
+        padding: 20px
+        display: block
+
+        +sm
+            padding: 15px
+
+    &__img
+        display: block
+        opacity: 0.5
+        transition: all ease 0.1s
+        max-width: 100%
+        max-height: 70px
+
+        +md
+            max-height: 60px
+        +s
+            max-height: 46px
+        +xs
+            max-height: 38px
+
+    &__partner
+        font-size: 12px
+        color: $green
+        align-self: center
+        margin: -36px 0 0
+
+        +s
+            font-size: 10px
+            margin: -24px 0 0

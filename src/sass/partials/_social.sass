@@ -1,0 +1,33 @@
+.social
+    position: fixed
+    z-index: 200
+    right: -30px
+    top: 50%
+    transform: rotate(-90deg)
+    +m
+        right: -65px
+    +sm
+        display: none
+    &__links
+        font-size: 0
+    &__item
+        display: inline-block
+        position: relative
+        & + &
+            padding-left: 8px
+            &:before
+                content: '/'
+                +hel
+                font-weight: bold
+                font-size: 12px
+                color: $light-grey
+                opacity: 0.6
+                margin-right: 8px
+    &__link
+        color: #777
+        letter-spacing: 1px
+        font-weight: bold
+        font-size: 12px
+        text-decoration: none
+        &:hover
+            text-decoration: underline

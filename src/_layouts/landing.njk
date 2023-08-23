@@ -10,7 +10,7 @@
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <link href="/assets/css/landing/app.css" rel="stylesheet" type="text/css">
+   <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
 </head>
  {% if eleventy.env.isServerless %}
    <script>
@@ -28,10 +28,12 @@
    {% endif %}
 <body class="bg" topmargin="0">
    <div class="out">
+      {% include "_partials/_header.html" %}
       {{ content | safe }}
-   </div>
+      {% include "_partials/_footer.html" %}
+   </div> 
 
-
-</body>
+   <script src="/assets/js/app.js"></script>
+</body> 
 
 </html>

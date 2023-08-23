@@ -1,0 +1,175 @@
+.slider
+	position: relative
+	$this: &
+	&__inner
+		position: relative
+	&__prev-btn, &__next-btn
+		display: inline-block
+		padding: 20px
+		cursor: pointer
+		font-size: 0
+		opacity: 1
+		visibility: visible
+		pointer-events: all
+		position: absolute
+		z-index: 100
+		top: 63%
+		transform: translateY(-50%)
+		transition: opacity .3s ease-in-out, transform .3s ease-in-out
+		+md
+			top: 61%
+		+xs
+			top: 70%
+			opacity: 0.5
+		+r(400)
+			padding: 10px
+		&.is-hidden
+			opacity: 0
+			visibility: hidden
+			pointer-events: none
+			+xs
+				opacity: 0.5
+				visibility: visible
+				pointer-events: all
+		.arrow--fill
+			display: none
+		svg
+			width: 42px
+			+md
+				width: 30px
+			+r(400)
+				width: 28px
+			polygon
+				fill: transparent
+				stroke: #89898c
+		&.is-hoverable
+			&:hover
+				svg
+					polygon
+						fill: #fff
+						stroke: #fff
+	&__prev-btn
+		transform: translateY(-50%) rotate(90deg)
+		left: math(250/1600)
+		+md
+			left: math(325/1600)
+		+r(850)
+			left: 10%
+		+sm
+			left: 5%
+		+xs
+			left: 20px
+		&.is-hidden
+			transform: translateX(25px) translateY(-50%) rotate(90deg)
+			+xs
+				transform: translateX(0) translateY(-50%) rotate(90deg)
+	&__next-btn
+		transform: translateX(0) translateY(-50%) rotate(-90deg)
+		right: math(250/1600)
+		+md
+			right: math(325/1600)
+
+		+r(850)
+			right: 10%
+		+sm
+			right: 5%
+		+xs
+			right: 20px
+		&.is-hidden
+			transform: translateX(-25px) translateY(-50%) rotate(-90deg)
+			+xs
+				transform: translateX(0) translateY(-50%) rotate(-90deg)
+
+	&__amount
+		margin: 0 auto
+		text-align: center
+		+hel
+		font-size: 12px
+		color: $dark-grey
+		opacity: 0.4
+		margin-top: 30px
+		+xs
+			opacity: 1
+			font-size: 10px
+			font-weight: bold
+		&--mt-lg
+			margin-top: 196px
+			+m
+				margin-top: 84px
+			+md
+				margin-top: 88px
+			+xs
+				margin-top: 40px
+	&__slides
+		position: relative
+		z-index: 50
+	&--full
+		#{$this}__amount
+			position: absolute
+			margin: 0 auto
+			left: 0
+			right: 0
+			bottom: 36px
+			z-index: 80
+			color: $white
+			opacity: 0.5
+			+hel
+			font-weight: normal
+			+xs
+				bottom: 18px
+		#{$this}__slide
+			width: 100%
+			max-height: 600px
+			position: relative
+			background-repeat: no-repeat
+			background-size: cover
+			+md
+				max-height: 600px
+			+xs
+				height: 374px
+			img
+				width: 100%
+				object-fit: cover
+				+md
+					min-height: 480px
+				+xs
+					height: 100%
+					object-fit: cover
+					min-height: auto
+		#{$this}__prev-btn,
+		#{$this}__next-btn
+			top: 50%
+			+xs
+				display: none !important
+		#{$this}__prev-btn
+			left: 122px
+			+md
+				left: 20px
+		#{$this}__next-btn
+			right: 122px
+			+md
+				right: 20px
+		#{$this}__name
+			position: absolute
+			font-size: 12px
+			color: $white
+			+hel
+			font-weight: normal
+			top: 40px
+			left: calc(25% + 100px)
+			+lg
+				top: 36px
+				left: calc(25% + 25px)
+			+md
+				left: calc(25% + 15px)
+				top: 36px
+			+xs
+				font-size: 9px
+				top: 18px
+				left: 20px
+		.slick-list
+			+xs
+				padding: 0 10% 0 0
+
+.slick-track
+	font-size: 0

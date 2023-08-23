@@ -1,0 +1,144 @@
+.project-link
+    padding: 30px 0
+    padding-bottom: 52px
+    background-color: transparent
+    text-decoration: none
+    display: block
+    position: relative
+    transition: all .3s ease
+    $this: &
+    +sm
+        border-bottom: 1px solid #d1d1d1
+    +md
+        padding-bottom: 40px
+    +xs
+        padding: 40px 0
+    &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        height: 100%
+        margin: 0 auto
+        width: 100%
+        opacity: 0
+        background-color: $green
+        z-index: 1
+        transition: opacity .4s ease
+    &__inner
+        display: flex
+        align-items: center
+        justify-content: space-between
+        position: relative
+        z-index: 20
+        +sm
+            display: block
+    &__col-left
+        width: 40%
+        +md
+            width: 50%
+        +sm
+            width: 100%
+            text-align: center
+    &__col-right
+        width: 50%
+        display: flex
+        justify-content: space-between
+        +md
+            padding-top: 39px
+        +m
+            display: block
+            padding-top: 33px
+            position: relative
+            top: 4px
+            width: 50%
+        +sm
+            display: flex
+            align-items: center
+            width: 100%
+            padding-top: 36px
+        +xs
+            display: block
+            text-align: center
+            padding-top: 20px
+    &__github
+        padding-left: 15px
+        flex-shrink: 0
+        white-space: nowrap
+        +m
+            margin-top: 8px
+            padding-left: 0
+        +sm
+            margin-top: 0
+        +xs
+            margin-top: 10px
+    &__title, &__desc, &__note
+        transition: color .2s ease
+    &__title
+        text-transform: uppercase
+        +helB
+        font-size: 38px
+        color: $dark-grey
+        line-height: 1
+        letter-spacing: -0.04em
+        +m
+            font-size: 32px
+        +md
+            margin-bottom: 9px
+        +sm
+            margin-bottom: 20px
+            font-size: 30px
+        +xs
+            font-size: 20px
+            margin-bottom: 17px
+    &__desc
+        +helB
+        line-height: 1.29
+        font-size: 24px
+        color: $dark-grey
+        letter-spacing: -0.025em
+        text-transform: uppercase
+        +m
+            font-size: 20px
+            padding-right: 8px
+        +md
+            line-height: 1.2
+        +sm
+            font-size: 14px
+            line-height: 1.4
+        +xs
+            font-size: 9px
+            padding-right: 0
+            letter-spacing: normal
+        br
+            +r(825)
+                display: none
+            +sm
+                display: block
+    &__note
+        color: $dark-grey
+        margin-top: 5px
+        +helB
+        text-transform: uppercase
+        font-size: 12px
+        letter-spacing: -0.04em
+        +sm
+            font-size: 14px
+            padding-right: 8px
+        +xs
+            font-size: 10px
+            padding-right: 0
+            +hel
+            font-weight: bold
+            margin-top: 7px
+    &__github
+        font-size: 0
+    &:hover, &.is-main
+        &:before
+            opacity: 1
+        #{$this}__title,
+        #{$this}__desc,
+        #{$this}__note
+            color: $white
+
+      

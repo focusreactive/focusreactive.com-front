@@ -1,0 +1,128 @@
+body
+	background: #FFF
+	+hel
+	font-size: 16px
+	font-size: 1rem
+	line-height: 1.4
+	&.is-hidden
+		position: fixed
+		overflow: hidden
+		height: 100%
+		width: 100%
+	&.no-hover
+		pointer-events: none
+.out
+	overflow: hidden
+
+.container
+	max-width: 1600px
+	padding: 0 50px
+	width: 100%
+	margin: 0 auto
+	+m
+		padding: 0 30px
+	+xs
+		padding: 0 20px
+.relate
+	position: relative
+
+.text-fill-svg
+	font-size: 120px
+	line-height: 1
+	width: 100%
+	max-height: 120px
+	&--green
+		fill: $green
+		color: $green
+
+.text-border-svg
+	font-size: 120px
+	line-height: 1
+	width: 100%
+	max-height: 120px
+	fill: transparent
+	stroke-width: 2px
+	stroke-linejoin: round
+	&--light
+		stroke: $white
+	&--dark
+		stroke: $dark-grey
+	&--grey
+		stroke: $light-grey
+	tspan
+		stroke: none
+		fill: $green
+
+section
+	&.is-light
+		background-color: $white
+	&.is-dark
+		background-color: $dark-grey
+
+.text-center
+	text-align: center
+	&--mob-left
+		+xs
+			text-align: left
+
+.plus-link
+	display: inline-block
+	text-align: center
+	font-size: 0
+	padding: 10px
+	transform: rotate(0) translateZ(0)
+	transition: transform .2s ease-out
+	&:hover
+		transform: rotate(45deg) translateZ(0)
+	img
+		max-width: 60px
+		height: auto
+		+m
+			max-width: 41px
+		+sm
+			max-width: 50px
+		+xs
+			max-width: 35px
+
+.mt-xs
+	margin-top: 30px
+	+m
+		margin-top: 0
+
+br.is-desktop
+	+md
+		display: none
+
+.arrow
+	&--right
+		transform: rotate(180deg)
+
+.arrow-common
+	width: 40px
+	polygon
+		fill: transparent
+		stroke: #9b9d9f
+		transition: all .15s ease
+
+.dib
+	display: inline-block
+
+.js-obj-fit
+	font-family: 'object-fit: cover;'
+
+.h-margin
+	margin: 90px 0 0
+
+@keyframes mouseArrowDown
+	0%
+		transform: translateY(0)
+	10%
+		transform: translateY(8px)
+	20%
+		transform: translateY(0)
+	30%
+		transform: translateY(8px)
+	40%
+		transform: translateY(0)
+	100%
+		transform: translateY(0)

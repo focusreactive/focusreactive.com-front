@@ -1,0 +1,459 @@
+.events
+    padding-bottom: 109px
+    background-color: #f5f5f5 !important
+    +m
+        padding-bottom: 70px
+    +xs
+        background-color: $white !important
+        padding-bottom: 56px
+    &__title
+        margin-left: -8px
+        +md
+            margin-left: auto
+            padding-left: 6px
+        +sm
+            padding-left: 0
+        .title
+            letter-spacing: -0.03em
+            line-height: 1.14
+            +md
+                line-height: 1.16
+            +xs
+                line-height: 1.35
+    &__hero
+        padding-top: 105px
+        background-repeat: no-repeat
+        background-size: cover
+        +md
+            background-position: 10% 100%
+        +m
+            padding-top: 130px
+            background-position: 50% 100%
+        +sm
+            background-position: 50% 100%
+        +xs
+            padding-top: 49px
+    &__plus-link
+        text-align: center
+        margin-top: 105px
+        +md
+            margin-top: 28px
+        +xs
+            margin-top: 44px
+
+.event-link
+    $this: &
+    display: block
+    padding: 36px 0
+    text-decoration: none
+    text-transform: uppercase
+    position: relative
+    +md
+        padding-top: 32px
+    +m
+        padding-top: 32px
+    +sm
+        padding-top: 35px
+    &:before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        height: 100%
+        margin: 0 auto
+        width: 100%
+        opacity: 0
+        background-color: $green
+        transition: opacity .2s ease
+    & + &
+        border-top: 1px solid rgba(204, 204, 204, 0.4)
+    &__inner
+        display: flex
+        justify-content: space-between
+        align-items: center
+        position: relative
+        z-index: 20
+    &__wrap
+        flex-shrink: 0
+        width: 49%
+        display: flex
+        align-items: center
+        justify-content: space-between
+        +sm
+            align-items: flex-end
+            margin-top: 15px
+            flex-direction: row-reverse
+            flex-grow: 1
+            width: 100%
+            justify-content: flex-start
+
+    &__col
+        display: flex
+        align-items: center
+        &:first-child
+            width: 52%
+            +sm
+                width: 50%
+    &__type
+        font-size: 38px
+        transition: all .25s ease
+        flex: 1
+        text-align: left
+        padding-right: 20px
+        -webkit-text-stroke-width: 1.3px
+        line-height: 1
+        .text-border-svg
+            stroke-width: 1px
+            
+        +m
+            font-size: 32px
+            line-height: 1.375em
+        +sm
+            text-align: left
+            text-shadow: none
+            color: $black 
+            margin-bottom: 10px
+            font-weight: 700
+            font-size: 22px
+        
+        &.is-desktop
+            +sm
+                display: none
+        &.is-mobile
+            +rmin(768)
+                display: none
+    &__date
+        font-size: 22px
+        -webkit-text-stroke: 1px currentColor
+        color: $black
+        line-height: 1
+        text-align: right
+        transition: all .25s ease
+        
+        +md
+            font-size: 18px
+        +sm
+            text-align: left
+            text-shadow: none
+           
+            font-weight: normal
+            font-size: 15px
+            font-weight: 700
+        &.is-desktop
+            +sm
+                display: none
+        &.is-mobile
+            +rmin(600)
+                display: none
+    &__title
+        font-weight: normal
+        font-size: 80px
+        text-align: center
+        margin: 0 auto
+        width: 100%
+        color: $green
+        transition: color .25s ease
+    &__name
+        +helB
+        font-size: 24px
+        letter-spacing: -0.04em
+        line-height: 1.2
+        color: $dark-grey
+        transition: color .2s ease
+        +m
+            font-size: 20px
+            line-height: 1.2em
+        +r(340)
+            font-size: 18px
+        &.is-desktop
+            +sm
+                display: none
+        &.is-mobile
+            +rmin(600)
+                display: none
+    &__note
+        text-align: left
+        font-size: 24px
+        // margin-top: -19px
+        letter-spacing: -0.03em
+
+        z-index: 2
+        width: 50%
+        -webkit-text-stroke: 1px currentColor
+        position: relative
+        color: $black
+        transition: all .25s ease
+        display: block
+
+        +md
+            font-size: 18px
+
+        +m
+            font-size: 20px
+        
+        +sm
+            display: none
+    &__address
+        color: $dark-grey
+        font-size: 12px
+        +hel
+        font-weight: bold
+        transition: color .2s ease
+        margin-left: -4%
+  
+        +sm
+            margin-left: auto
+            margin-top: 0
+        
+            text-align: right
+        &.is-desktop
+            +sm
+                display: none
+    &:not(.is-main)
+        padding-bottom: 28px
+        &:nth-child(1)
+            padding-bottom: 32px
+            +md
+                padding-bottom: 24px
+            +sm
+                padding-bottom: 29px
+        #{$this}__type
+            font-size: 36px
+            
+            +md
+                font-size: 30px
+            +sm
+                font-size: 20px
+                padding-right: 0
+                margin-bottom: 5px
+        #{$this}__inner
+            +sm
+                display: block
+            & > #{$this}__col
+                width: 100%
+                text-align: center
+        #{$this}__col
+            +sm
+                width: 70%
+            +sm
+                width: 50% 
+                
+        #{$this}__wrap
+            +sm
+                justify-content: space-between
+                margin-top: 0
+            #{$this}__col
+                text-align: left
+                width: 60%
+                display: block
+                &:nth-child(1)
+                    width: 40%
+            #{$this}__address
+                +sm
+                    padding-left: 8px
+                +sm
+                    padding-left: 0
+                    
+                    font-size: 9px
+                    letter-spacing: -0.005em
+        #{$this}__date 
+            +sm 
+                -webkit-text-stroke: 0.5px currentColor
+        #{$this}__name
+            line-height: 1.25
+            letter-spacing: -0.03em
+            text-align: left
+            +r(850)
+                padding-right: 20px
+
+            +sm
+                padding-right: 8px
+                line-height: 1.35
+                text-align: center
+            br
+                +r(850)
+                    display: none
+                +sm
+                    display: block
+
+    &:hover
+        &:before
+            opacity: 1
+        .text-border-svg
+            opacity: 1 !important
+            fill: #fff
+        .text-border
+            stroke: $white
+            opacity: 0.8
+        .event-link__date
+            color: #fff 
+            opacity: 1
+        #{$this}__name,
+        #{$this}__address
+            color: $white
+        &:not(.is-main)
+            #{$this}__type,
+            #{$this}__note
+                color: #fff
+                -webkit-text-stroke-color: #fff
+                opacity: 1
+                z-index: 2
+                position: relative
+                
+            #{$this}__date
+            
+                color: #fff
+                
+
+    &.is-main
+        background-color: transparent
+        border-top: 1px solid rgba(204, 204, 204, 0.2)
+        padding-top: 23px
+        margin-top: 116px
+        padding-bottom: 32px
+        +md
+            margin-top: 75px
+            padding-top: 15px
+            padding-bottom: 36px
+        +m
+            margin-top: 75px
+            padding-top: 15px
+        +sm
+            margin-top: 57px
+            padding-top: 13px
+            padding-bottom: 30px
+        #{$this}__title
+            font-size: 0
+            .text-border-svg
+                font-size: 85px
+                
+                +helB
+                letter-spacing: -0.03em
+                max-height: 80px
+                +md
+                    font-size: 70px
+                +m
+                    font-size: 70px
+                    max-height: 72px
+                +sm
+                    font-size: 56px
+                    max-height: 58px
+        #{$this}__wrap
+            +sm
+                width: 40%
+                display: block
+                flex-shrink: 1
+            #{$this}__col
+                +sm
+                   
+                    width: auto
+                    &:first-child 
+                        width: auto
+                
+
+        #{$this}__inner
+            display: block
+        #{$this}__bottom
+            display: flex
+            align-items: center
+            margin-top: 16px
+            +md
+                margin-top: 19px
+            +sm
+                align-items: flex-end
+                margin-top: 7px
+        #{$this}__name
+            color: $white
+            text-align: center
+            margin-top: 28px
+            font-size: 38px
+            line-height: 1.2
+            letter-spacing: -0.03em
+            padding-left: 3px
+            +m
+                font-size: 32px
+                line-height: 1.188em
+            +md
+                margin-top: 25px
+            +sm
+                font-size: 20px
+                line-height: 1.3
+                padding-left: 0
+                margin-top: 24px
+            +r(350)
+                br
+                    display: none
+        #{$this}__date
+            font-size: 22px
+            color: #fff
+            opacity: 1
+            +md
+                font-size: 16px
+            +r(620)
+                font-size: 14px
+            +sm
+                display: none
+            &.is-mobile
+                +sm
+                    display: block
+                    font-size: 18px
+                    font-weight: normal
+                    text-align: left
+                    color: #fff
+                    opacity: 1
+                
+        #{$this}__type
+            font-size: 38px
+            
+            +sm
+                display: block
+                font-size: 20px
+                opacity: 1
+
+            .text-border-svg
+                font-size: 47px
+                height: 47px
+                display: block
+                
+                +sm
+                    font-size: 26px
+                    fill: #fff
+                    
+     
+              
+        #{$this}__address
+            letter-spacing: -0.03em
+            color: $white
+            +md
+                white-space: nowrap
+            +sm
+                padding-left: 8px
+            +sm
+                padding-left: 0
+                white-space: normal
+                
+                letter-spacing: -0.005em
+                font-size: 9px
+        #{$this}__col
+            +sm 
+                display: block
+            &:nth-child(2)
+                +sm
+                    width: 40%
+            &:last-child
+                +sm
+                    display: none
+            &:first-child
+                width: 60%
+            
+        // &:before
+        //     background-color: transparent
+        &:hover
+            // &:before
+            //     background-color: transparent
+            #{$this}__title,
+            #{$this}__type
+                color: #0cb524
+            #{$this}__date
+                color: #fff
+                text-shadow: none
