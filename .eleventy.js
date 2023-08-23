@@ -41,6 +41,9 @@ module.exports = function (eleventyConfig) {
 
 	eleventyConfig.addPassthroughCopy("src/assets");
 
+	eleventyConfig.addWatchTarget("src/js");
+	eleventyConfig.addWatchTarget("src/sass");
+
 	let nunjucksEnvironment = new Nunjucks.Environment(
 		new Nunjucks.FileSystemLoader("src/_includes"),
 		{
