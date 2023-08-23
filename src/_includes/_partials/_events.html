@@ -1,7 +1,7 @@
 <!-- begin events -->
 <section id="events" data-section="events" class="events is-dark js-scroll-header">
     <div class="events__inner">
-        <div class="events__hero" style="background-image: url({{eventsData.bgImage}})">
+        <div class="events__hero" style="background-image: url({{eventsData.bgImage | imgURL}})">
             <div class="container">
                 <div class="events__title">
                     <h2 class="title title--light title--xs">
@@ -58,7 +58,7 @@
             {% for event in eventsData.events %}
                 <a href="{{ event.url }}" class="event-link" target="_blank">
                     <div class="container">
-                        
+
                         <div class="event-link__inner">
                             <div class="event-link__col">
                                 <p class="event-link__type text--font-xs text--border-dark is-desktop">{{ event.type }}</p>

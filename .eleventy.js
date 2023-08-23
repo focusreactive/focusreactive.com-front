@@ -16,14 +16,14 @@ const client = ClientObj.createClient({
 const builder = imageUrlBuilder(client);
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.on("eleventy.before", async () => {
-    await esbuild.build({
-      entryPoints: ["src/js/app.js"],
-      bundle: true,
-      sourcemap: true,
-      outfile: "_site/assets/js/app.js",
-    });
-  });
+  // eleventyConfig.on("eleventy.before", async () => {
+  //   await esbuild.build({
+  //     entryPoints: ["src/js/app.js"],
+  //     bundle: true,
+  //     sourcemap: true,
+  //     outfile: "_site/assets/js/app.js",
+  //   });
+  // });
 
   eleventyConfig.setBrowserSyncConfig({
     files: "./_site/assets/css/**/*.css",
