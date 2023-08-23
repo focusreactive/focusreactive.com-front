@@ -1,0 +1,33 @@
+.navbar-link-wrapper {
+  padding: 0 20px;
+}
+
+.navbar-link-wrapper > a:hover {
+  color: black;
+}
+
+.navbar-link-wrapper:first-child {
+  margin-right: 82px;
+}
+
+@media only screen and (max-width: 996px) {
+  .navbar-link-wrapper {
+    padding: 0;
+  }
+
+  .navbar-link-wrapper:first-child {
+    margin-right: 0;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .navbar-link-wrapper {
+    padding: 0 10px;
+  }
+}
+
+@media only screen and (max-width: 1480px) {
+  .navbar-link-wrapper:first-child {
+    margin-right: 20px;
+  }
+}

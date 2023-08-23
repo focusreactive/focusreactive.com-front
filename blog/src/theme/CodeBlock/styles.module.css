@@ -1,0 +1,9 @@
+.code-block {
+  font-size: 85%;
+  background-color: rgb(247, 247, 247);
+  border-radius: 3px;
+  font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+  max-width: 620px;
+  margin: 26px auto 0px;
+  font-size: 1em;
+}

@@ -1,0 +1,70 @@
+.mail-us {
+  margin: 70px auto 0;
+}
+
+.mail-us__title {
+  font-family: Helvetica Bold, Arial, sans-serif;
+  text-transform: uppercase;
+  max-width: 700px;
+  font-size: 28px;
+  line-height: 1.24;
+  text-align: center;
+  margin: 0 auto 70px;
+}
+
+.mail-form {
+  max-width: 514px;
+  margin: 0 auto;
+}
+
+.mail-form a {
+  text-decoration: underline;
+  color: inherit;
+}
+
+.mail-form__line {
+  margin: 18px 0 0;
+}
+
+.mail-form__input {
+  border: 0;
+  font-family: Helvetica Bold, Arial, sans-serif;
+  font-size: 18px;
+  width: 100%;
+  height: 58px;
+  border-bottom: 2px solid #000;
+  background: #fff;
+  color: #000;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.mail-form__submit {
+  display: flex;
+  margin: 50px 0 0 auto;
+  min-width: 168px;
+  background-color: #fff;
+  color: grey;
+  border: 1px solid #13cf2e;
+  border-color: grey;
+  padding: 17px 12px;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.mail-form__input-textarea {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  min-height: 120px;
+  min-width: 100%;
+  max-width: 100%;
+}

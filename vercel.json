@@ -7,5 +7,7 @@
       "includeFiles": "functions/serverlessLandings/**"
     }
   },
-  "rewrites": [{ "source": "/", "destination": "/home" }]
+  "rewrites": [{ "source": "/", "destination": "/home" }],
+  "buildCommand": "yarn build && cd blog && yarn build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
+  "installCommand": "yarn && cd blog && yarn"
 }
