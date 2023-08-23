@@ -6,42 +6,42 @@
 
         <div class="members">
             {% for rows in teamData.members %}
-            <div class="members__row">
-                <div class="members__wrap container">
-                    {% for member in rows.members %}
-                    <div class="members__col">
-                        <div class="member {{ member.mod }}">
-                            <div class="member__photo">
-                                <img src="{{ member.avatar }}" alt="{{ member.name }}">
-                            </div>
-                            <div class="member__info">
-                                <div class="member__desc">
-                                    <h4 class="member__name">{{ member.name }}</h4>
-                                    <p class="member__about text text--font-xs text--border-light">
-                                        {% for line in member.keyWords %}
-                                        {% if loop.last == false %}
-                                        {{line}}<br />
-                                        {% endif %}
-                                        {% if loop.last == true %}
-                                        {{line}}
-                                        {% endif %}
-                                        {% endfor %}
-                                    </p>
-                                    <!-- <p class="member__text">Even with products that support a diverse. Delivering state of the art mobile software with weekly iterations and daily communication</p> -->
+                <div class="members__row">
+                    <div class="members__wrap container">
+                        {% for member in rows.members %}
+                            <div class="members__col">
+                                <div class="member {{ member.mod }}">
+                                    <div class="member__photo">
+                                        <img src="{{ member.avatar }}" alt="{{ member.name }}">
+                                    </div>
+                                    <div class="member__info">
+                                        <div class="member__desc">
+                                            <h4 class="member__name">{{ member.name }}</h4>
+                                            <p class="member__about text text--font-xs text--border-light">
+                                                {% for line in member.keyWords %}
+                                                    {% if loop.last == false %}
+                                                            {{line}}<br/>
+                                                    {% endif %}
+                                                    {% if loop.last == true %}
+                                                        {{line}}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </p>
+                                            <!-- <p class="member__text">Even with products that support a diverse. Delivering state of the art mobile software with weekly iterations and daily communication</p> -->
+                                        </div>
+                                        <div class="member__links">
+                                            {% for link in member.links %}
+                                            <span class="member__link-wrap">
+                                                <a href="{{link.url}}" class="member__link" target="_blank">{{link.title}}</a>
+                                            </span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="member__links">
-                                    {% for link in member.links %}
-                                    <span class="member__link-wrap">
-                                        <a href="{{link.url}}" class="member__link" target="_blank">{{link.title}}</a>
-                                    </span>
-                                    {% endfor %}
-                                </div>
                             </div>
-                        </div>
+                        {% endfor %}
                     </div>
-                    {% endfor %}
                 </div>
-            </div>
             {% endfor %}
         </div>
     </div>

@@ -4,7 +4,7 @@
 		<div class="reviews__cards">
 			{% for element in reviewsData.elements %}
 				<div class="reviews__card">
-					<div class="reviews__card_image" style="background-image: url({{ element.image }})"></div>
+					<div class="reviews__card_image" style="background-image: url({{ element.image | imgURL }})"></div>
 					<div class="reviews__card_inner">
 						<h4 class="reviews__card_title">{{ element.name }}</h4>
 						<h4 class="reviews__card_subtitle text--border-dark">{{ element.role }}</h4>

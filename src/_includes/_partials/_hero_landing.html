@@ -6,7 +6,7 @@
 >
   <div
     class="hero__bg hero-bg--image"
-    style="background-image: url({{ heroData.image }})"
+    style="background-image: url({{ heroData.image | imgURL }})"
   ></div>
   <div class="container">
     <div class="hero__inner">
@@ -31,7 +31,7 @@
           <div class="hero__logos-item">
             <img
               width="197"
-              src="{{ partner.image }}"
+              src="{{ partner.image | imgURL }}"
               alt="{{ partner.name }}"
             />
           </div>

@@ -60,7 +60,7 @@ permalink:
 	{% for block in data.blocks %}
 		{% if block._type === 'heroDark' %}
 			{% set heroData = block %}
-			{% include "_partials/_content-hero.html" %}
+			{% include "_partials/_content-hero.njk" %}
 		{% endif %}
 		{% if block._type === 'hero' %}
 			{% set heroData = block %}

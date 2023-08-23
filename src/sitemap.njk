@@ -1,0 +1,28 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://focusreactive.com</loc>
+        <lastmod>{{ mainPageData._updatedAt }}</lastmod>
+    </url>
+    <url>
+        <loc>https://focusreactive.com/about/</loc>
+        <lastmod>{{ aboutData._updatedAt }}</lastmod>
+    </url>
+    <url>
+        <loc>https://focusreactive.com/our-work/</loc>
+        <lastmod>{{ ourWorkData._updatedAt }}</lastmod>
+    </url>
+
+    {% for page in landingData %}
+       {% if not page.data.draft %}
+        <url>
+            <loc>https://focusreactive.com/{{page.path.current}}/</loc>
+            <lastmod>{{ page._updatedAt }}</lastmod>
+        </url>
+        {% endif %}
+    {% endfor %}
+</urlset>
