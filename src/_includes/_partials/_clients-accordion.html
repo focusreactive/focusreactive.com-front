@@ -38,4 +38,18 @@
     </li>
     {% endfor %}
   </ul>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+      var $item = $('.js-accordion-item');
+
+      $item.on('click', function(e){
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+          $(this).find('.clients-cases__right').slideUp();
+        } else {
+          $(this).toggleClass('active').siblings().removeClass('active').find('.clients-cases__right').slideUp();
+          $(this).find('.clients-cases__right').slideDown();
+        }
+      });
+  </script>
 </section>
