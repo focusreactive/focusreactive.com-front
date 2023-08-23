@@ -5,7 +5,7 @@
   @return url('../img/#{$image}')
 
 @function vw($px-vw, $base-vw: 1600px)
-  @return ($px-vw * 100vw) / $base-vw
+  @return calc(($px-vw * 100vw) / $base-vw)
 
 @function vh($px-vh, $base-vh: 950px)
   @return ($px-vh * 100vh) / $base-vh
