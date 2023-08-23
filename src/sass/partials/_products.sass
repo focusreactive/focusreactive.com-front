@@ -1,0 +1,102 @@
+.products
+	padding-bottom: 16px
+	background: #202020!important
+
+	&__footer
+		margin: 90px 0 80px
+
+	+sm
+		&__footer
+			margin: 40px 0 0
+
+.products-list
+	margin: 145px 0 0
+	display: flex
+	justify-content: center
+	border-top: 1px solid #373737
+	border-bottom: 1px solid #373737
+
+	+sm
+		margin: 90px 0 0
+
+	&__item
+		color: #fff
+		text-decoration: none
+		min-height: 340px
+		
+		flex: 1 1
+		transition: all 0.1s ease
+
+		&:not(:last-child)
+			border-right: 1px solid #373737
+
+		&:hover
+			background: $green
+
+			.products-list__title
+				color: #fff
+				// text-shadow: 0 1px 0 $green, 1px 0 0 $green, 0 -1px 0 $green, -1px 0 0 $green
+
+	&__container
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		width: 100%
+		height: 100%
+		text-align: center
+		padding: 20px
+
+	&__title
+		+helB
+		text-transform: uppercase
+		font-size: 40px
+		line-height: 1
+		color: transparent
+		-webkit-background-clip: text
+		-webkit-text-stroke: 1px #fff
+		// text-shadow: 0 1px 0 #fff, 1px 0 0 #fff, 0 -1px 0 #fff, -1px 0 0 #fff
+		// background: #f00
+		// color: #f00
+		// -webkit-background-clip: text
+		// -webkit-text-stroke: 1px #fff
+		color: #202020
+		max-width: 600px
+		margin: 0 auto
+		text-align: center
+		margin: 0 0 20px
+		transition: all 0.1s ease
+		+sm 
+			color: #fff 
+			-webkit-text-stroke-width: 0
+
+
+	&__desc
+		+helB
+		text-transform: uppercase
+		font-size: 16px
+		line-height: 1.46
+		max-width: 560px
+		margin: 0 auto
+		text-align: center
+		transition: all 0.1s ease
+
+	+md
+		&__title
+			font-size: 32px
+
+	+sm
+		flex-direction: column
+		&__title
+			font-size: 26px
+
+		&__item
+			display: flex
+			min-height: 1px
+
+			&:not(:last-child)
+				border-right: none
+				border-bottom: 1px solid #373737
+
+		&__container
+			margin: auto !important

@@ -3,6 +3,7 @@ const ClientObj = require("@sanity/client");
 const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+const esbuild = require("esbuild");
 require("dotenv").config();
 
 const client = ClientObj.createClient({
@@ -15,50 +16,66 @@ const client = ClientObj.createClient({
 const builder = imageUrlBuilder(client);
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "serverless", // The serverless function name from your permalink object
-    redirects: false,
-    copy: ["node_modules"],
-  });
+	eleventyConfig.on("eleventy.before", async () => {
+		await esbuild.build({
+			entryPoints: ["src/js/app.js"],
+			bundle: true,
+			sourcemap: true,
+			outfile: "_site/assets/js/app.js",
+		});
+	});
 
-  eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
-    name: "serverlessLandings", // The serverless function name from your permalink object
-    redirects: false,
-    copy: ["node_modules"],
-  });
+	eleventyConfig.setBrowserSyncConfig({
+		files: "./_site/assets/css/**/*.css",
+	});
 
-  eleventyConfig.addPassthroughCopy("src/assets");
+	eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+		name: "serverless", // The serverless function name from your permalink object
+		redirects: false,
+		copy: ["node_modules"],
+	});
 
-  let nunjucksEnvironment = new Nunjucks.Environment(
-    new Nunjucks.FileSystemLoader("src/_includes"),
-    {
-      autoescape: false,
-    }
-  );
+	eleventyConfig.addPlugin(EleventyServerlessBundlerPlugin, {
+		name: "serverlessLandings", // The serverless function name from your permalink object
+		redirects: false,
+		copy: ["node_modules"],
+	});
 
-  nunjucksEnvironment.addFilter("imgURL", function (value) {
-    return builder.image(value).auto("format").url();
-  });
+	eleventyConfig.addPassthroughCopy("src/assets");
 
-  nunjucksEnvironment.addFilter("blockContent", function (value) {
-    return blocksToHtml({
-      blocks: value,
-    });
-  });
+	eleventyConfig.addWatchTarget("src/js");
+	eleventyConfig.addWatchTarget("src/sass");
 
-  eleventyConfig.setLibrary("njk", nunjucksEnvironment);
+	let nunjucksEnvironment = new Nunjucks.Environment(
+		new Nunjucks.FileSystemLoader("src/_includes"),
+		{
+			autoescape: false,
+		}
+	);
 
-  return {
-    addPassthroughFileCopy: true,
-    markdownTemplateEngine: "njk",
-    HTMLTemplateEngine: "njk",
-    dataTemplateEngine: "njk",
-    templateFormats: ["html", "njk", "md"],
-    dir: {
-      input: "src",
-      output: "_site",
-      includes: "_includes",
-      layouts: "_layouts",
-    },
-  };
+	nunjucksEnvironment.addFilter("imgURL", function (value) {
+		return builder.image(value).auto("format").url();
+	});
+
+	nunjucksEnvironment.addFilter("blockContent", function (value) {
+		return blocksToHtml({
+			blocks: value,
+		});
+	});
+
+	eleventyConfig.setLibrary("njk", nunjucksEnvironment);
+
+	return {
+		addPassthroughFileCopy: true,
+		markdownTemplateEngine: "njk",
+		HTMLTemplateEngine: "njk",
+		dataTemplateEngine: "njk",
+		templateFormats: ["html", "njk", "md"],
+		dir: {
+			input: "src",
+			output: "_site",
+			includes: "_includes",
+			layouts: "_layouts",
+		},
+	};
 };

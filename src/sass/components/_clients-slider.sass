@@ -1,0 +1,44 @@
+.clients-slider
+    &__title
+        margin-bottom: 57px
+        +xs
+            margin-left: -3px
+            margin-bottom: 25px
+        +not-ie
+            letter-spacing: -0.15em
+            +xs
+                letter-spacing: -0.05em
+        .title--md
+            +md
+                font-size: 60px
+            +xs
+                font-size: 36px
+    &__slide
+        img
+            margin: 0 auto
+            max-height: 240px
+            +xs
+                max-height: 107px
+    &__name
+        margin: 0 auto
+        // margin-left: 30.3%
+        margin-left: calc(25% + 100px)
+        +hel
+        font-size: 12px
+        color: $dark-grey
+        opacity: 0.4
+        margin-bottom: 64px
+        +lg
+            margin-left: calc(25% + 25px)
+        +md
+            +css-lock(200, 269, 768, 1023, margin-left)
+            margin-top: 8px
+        +sm
+            margin-left: 30%
+        +xs
+            font-size: 10px
+            opacity: 1
+            margin-left: 20px
+            letter-spacing: -0.035em
+            margin-bottom: 42px
+   

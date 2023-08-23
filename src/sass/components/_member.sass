@@ -1,0 +1,220 @@
+.members
+    .container
+        +s
+            padding: 0
+    &__row
+        padding: 35px 0 40px
+        +md
+            padding: 38px 0 38px
+        +s
+            padding: 0
+        & + &
+            border-top: 1px solid #464646
+            +s
+                border: none
+        &:first-child
+            .member__about
+                span
+                    +md
+                        display: block
+                        padding-left: 40%
+                        // margin-left: -8px
+                    +s
+                        display: inline-block
+                        margin-left: 0
+                        padding-left: 0
+
+    &__wrap
+        display: flex
+        +s
+            display: block
+    &__col
+        width: calc(50% - 15px)
+        +r(1360)
+            width: calc(50% - 18px)
+        +s
+            width: 100%
+        & + &
+            padding-left: 15px
+            +r(870)
+                padding-left: 8px
+            +r(800)
+                padding-left: 10px
+            +s
+                padding-left: 0
+    
+    
+.member
+    display: flex
+    align-items: stretch
+    +s
+        justify-content: center
+        padding: 26px 30px
+        border-bottom: 1px solid #464646
+    +xs
+        padding: 18px 18px 16px
+    &--no-mob-border
+        +sm
+            border: none
+    &__photo
+        max-width: 190px
+        height: auto
+        margin-right: 30px
+        padding-top: 3px
+        flex-shrink: 0
+        font-size: 0
+        +sm
+            max-width: 150px
+            margin-right: 20px
+        +r(870)
+            flex-shrink: 1
+            flex: 0 0 150px 
+        +r(800)
+            max-width: 140px
+            flex: 0 0 140px 
+        +sm
+            flex-shrink: 0
+            max-width: 150px
+            flex: 0 0 150px 
+        +xs
+            max-width: 84px
+            flex: 0 0 84px 
+        +r(330)
+            margin-right: 15px
+        img
+            width: 100%
+    &__info
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        +s
+            min-width: 350px
+        +sm
+            width: 100%
+            min-width: 0
+    &__name
+        color: $white
+        text-transform: uppercase
+        line-height: 1
+        +hel
+        font-weight: bold
+        font-size: 38px
+        margin-bottom: 6px
+        letter-spacing: -0.02em
+        +m
+            font-size: 32px
+            margin-bottom: 8px
+        +md
+            letter-spacing: -0.035em
+            +css-lock(24, 32, 768, 1023, font-size)
+            line-height: 1.18
+            margin-top: -4px
+        +sm
+            font-size: 30px
+            margin-top: 0
+        +xs
+            font-size: 20px
+        +r(330)
+            font-size: 18px
+    &__text
+        font-size: 12px
+        color: #666
+        line-height: 1.5
+        max-width: 300px
+        margin: 10px 0 22px
+
+    &__about
+        font-size: 22px
+        font-weight: normal
+        text-transform: uppercase
+        opacity: 1
+        font-weight: 700
+        line-height: 1.37
+        color: #747474
+        -webkit-text-stroke-width: 0
+        // text-shadow: none 
+        margin-bottom: 15px
+        // +stroke(1, #747474)
+        // text-shadow: 0px 0px 0 #fff, 0px 0 0 #fff, -1px 0px 0 #fff, 0 -1px 0 #fff, 0 0 0 #fff, 0 1px 0 #fff, 1px 0px 0 #fff, 0px 0 0 #fff, 0px 0px 0 #fff
+        +smooth-font
+        
+        +lg
+            letter-spacing: 0.005em
+        // +m
+        +md
+            font-size: 19px
+            // +css-lock(16, 18, 768, 1023, font-size)
+            line-height: 1.3
+        +sm
+            font-size: 20px
+        +xs
+            font-size: 10px
+            line-height: 1.4
+            letter-spacing: -0.005em
+        
+        .text-border
+            font-size: 24px
+            height: 22px
+            font-weight: normal
+            opacity: 0.4
+        span
+            display: block
+            +css-lock(50, 130, 1367, 1921, padding-left)
+            +lg
+                margin-left: 20px
+            +md
+                display: inline-block
+                padding-left: 0
+                margin-left: 0
+            &.is-mob-left
+                // +md
+                //     display: block
+                //     +css-lock(50, 130, 599, 1023, padding-left)
+                +md
+                    display: inline-block
+                    padding-left: 0
+    &__links
+        display: flex
+        text-transform: uppercase
+        +r(850)
+            padding-top: 8px
+        +xs
+            justify-content: flex-end
+            margin-top: 11px
+    &__link
+        display: block
+        color: $white
+        opacity: 0.5
+        +hel
+        font-weight: bold
+        line-height: 1
+        font-size: 12px
+        letter-spacing: 0.025em
+        text-decoration: none
+        transition: opacity .2s ease
+        +sm
+            font-weight: normal
+        +xs
+            font-size: 9px
+        &:hover
+            opacity: .9
+    &__link-wrap
+        position: relative
+        & + &
+            padding-left: 23px
+            +xs
+                padding-left: 15px
+            &:before
+                content: '/'
+                color: $white
+                left: 3px
+                top: -1px
+                font-size: 12px
+                opacity: 0.2
+                font-weight: bold
+                padding: 0 5px
+                position: absolute
+                +xs
+                    font-size: 9px
+                    padding: 0
+                    left: 5px

@@ -1,0 +1,132 @@
+.summary
+    background-color: #202020 !important
+    &__inner
+        padding-top: 214px
+        padding-bottom: 190px
+        +m
+            padding-top: 133px
+            padding-bottom: 150px
+        +xs
+            padding-top: 50px
+            padding-bottom: 50px
+    &__links
+        padding-top: 46px
+        +md
+            padding-top: 97px
+        +m
+            padding-top: 97px
+        +xs
+            padding-top: 30px
+    &__link
+        display: block
+        text-decoration: none
+        text-transform: uppercase
+        position: relative
+        padding: 25px 50px 35px
+        line-height: 1
+        border-bottom: 1px solid #373737
+        +md
+            padding: 20px 30px 30px
+        +xs
+            padding: 18px 20px
+
+        &:last-child
+            border-bottom: none
+        
+        &:before
+            content: ''
+            position: absolute
+            left: 0
+            top: 0
+            height: 100%
+            margin: 0 auto
+            width: 100%
+            opacity: 0
+            background-color: $green
+            transition: opacity .4s ease
+        &:hover, &.is-active
+            .summary__name
+                text-shadow: none
+                color: $white
+                opacity: 1
+            .summary__description
+                opacity: 1
+            &:before
+                opacity: 1
+    &__name
+        // font-weight: normal
+        +helB
+        font-size: 100px
+        position: relative
+        z-index: 10
+        // +stroke(2, $white)
+         color: transparent
+        -webkit-background-clip: text
+        -webkit-text-stroke: 1.5px #fff
+        
+        text-align: center
+        transition: color .4s ease
+        line-height: 1em
+        font-weight: bold
+        margin-left: -14px
+        letter-spacing: -0.03em
+        color: #202020
+        +md
+            font-size: 7.4vw
+
+        +xs
+            text-align: left
+            text-shadow: none
+            color: $white
+            -webkit-text-stroke-width: 0
+            opacity: 1
+            margin-left: 0
+            line-height: 1.2
+            letter-spacing: -0.05em
+
+            br
+                display: none
+
+    &__description
+        +hel
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 12px
+        letter-spacing: -0.03em
+        padding-left: 6px
+        text-align: center
+        opacity: 1
+        color: #fff
+        position: relative
+        z-index: 10
+        line-height: 1.7
+        transition: opacity .25s ease
+        max-width: 800px
+        margin: 14px auto 0
+        +m
+            line-height: 1.67em
+            margin-top: 8px
+        +md
+            margin-top: 12px
+        +xs
+            text-align: left
+            padding-left: 0
+            margin-top: 10px
+            line-height: 1.4
+            font-size: 9px
+            letter-spacing: -0.01em
+
+    &__delimeter
+        font-weight: bold
+        font-size: 12px
+        text-align: center
+        opacity: 0.2
+        color: #f8f8f8
+        position: relative
+        z-index: 10
+        line-height: 1.7
+        margin-bottom: 7px
+
+    &__footer
+        margin-top: 20px
+

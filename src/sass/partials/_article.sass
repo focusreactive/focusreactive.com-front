@@ -1,0 +1,152 @@
+.article
+	padding-top: 144px
+	+xs
+		padding-top: 100px
+
+
+	.container
+		max-width: 1024px
+
+	&__img
+		display: block
+		margin: 43px auto
+		max-width: 100%
+
+	p.article__short-desc
+		font-size: 14px
+		max-width: 540px
+		text-align: center
+		margin: 0 auto
+
+	h1
+		+helB
+		line-height: 1
+		font-size: 70px
+		text-align: center
+		text-transform: uppercase
+		letter-spacing: -0.03em
+		margin: 0 0 22px
+		+m
+			font-size: 5.5vw
+		+xs
+			font-size: 8vw
+
+	h3
+		+helB
+		font-size: 32px
+		margin: 36px auto 36px
+		line-height: 1.2
+		text-transform: uppercase
+		text-align: center
+		max-width: 780px
+		letter-spacing: -0.03em
+		margin: 36px auto
+		+m
+			font-size: 26px
+		+xs
+			font-size: 5vw
+
+	p
+		font-size: 14px
+		line-height: 1.72
+		max-width: 620px
+		margin: 26px auto 0
+		+xs
+			text-align: justify
+
+
+
+.article-info
+	display: flex
+	max-width: 620px
+	margin: 44px auto 80px
+	align-items: center
+	justify-content: space-between
+	flex-wrap: wrap
+
+	+xs
+		flex-direction: column
+		align-items: center
+		margin: 20px auto 40px
+
+	&__socials
+		display: flex
+
+		a
+			width: 40px
+			height: 40px
+			display: flex
+			align-items: center
+			justify-content: center
+			transform: translateY(0)
+			transition: all ease 0.2s
+
+			&:hover
+				transform: translateY(-3px)
+
+		+xs
+			margin: 10px auto 20px
+
+	&__authors
+		display: flex
+
+
+
+.author
+	display: flex
+	margin: 0 0 0 34px
+	font-size: initial
+
+	&:first-child
+		margin: 0
+
+	&__img-wrap
+		border-radius: 50%
+		margin: 0 20px 0 0
+
+		img
+			display: block
+
+	&__desc
+		display: flex
+		justify-content: center
+		flex-direction: column
+
+	p.author__name
+		+helB
+		font-size: 12px
+		color: #222
+		margin: 0
+
+	p.author__company
+		font-size: 12px
+		color: #666
+		margin: 0
+
+	p
+		margin: 0
+		line-height: 1.5
+
+
+.article-slider-wrap
+	margin: 43px -500px
+
+.article-slider
+	width: 100vw
+	display: block
+	margin: 0 auto
+
+	img
+		width: 100%
+
+
+
+.tags
+	+helB
+	font-size: 14px
+	margin: 20px auto 40px
+	text-transform: uppercase
+	color: #13cf2e
+	text-align: right
+	line-height: 1.72
+	max-width: 620px

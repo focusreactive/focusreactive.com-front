@@ -1,0 +1,35 @@
+.scroll-next
+    text-align: center
+    padding-top: 145px
+    padding-bottom: 108px
+    background-size: cover
+    background-repeat: no-repeat
+    +md
+        padding-top: 114px
+        padding-bottom: 74px
+    +xs
+        padding-top: 60px
+        padding-bottom: 48px
+        background-position: 50% 50%
+    &__title
+        margin-bottom: 32px
+        +md
+            margin-bottom: 37px
+        +xs
+            margin-bottom: 25px
+        .title
+            letter-spacing: -0.03em
+            padding-left: 10px
+            +sm
+                padding-left: 0
+            +xs
+                text-align: center
+                line-height: 1.4
+                letter-spacing: -0.005em
+    &__icon
+        animation: mouseArrowDown 4s ease infinite
+        svg
+            +md
+                max-height: 55px
+            +xs
+                max-height: 45px

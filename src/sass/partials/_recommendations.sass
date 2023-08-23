@@ -1,0 +1,124 @@
+.recommendations
+	overflow: hidden
+	background: #e3e3e3 !important
+	padding: 206px 0 50px
+
+	&__title
+		+helB
+		font-size: 80px
+		color: #000000
+		line-height: 0.88
+		text-transform: uppercase
+		text-align: center
+		max-width: 1100px
+		margin: 0 auto 50px
+		letter-spacing: -0.03em
+
+	&__subtitle
+		font-size: 28px
+		color: #000000
+		line-height: 1.2
+		text-transform: uppercase
+		text-align: center
+		max-width: 750px
+		margin: 0 auto
+		letter-spacing: 0.03em
+		text-shadow: 1px -1px 0 #454545, 1px 0px 0 #454545, 1px 1px 0 #454545, 0px 1px 0 #454545, -1px 1px 0 #454545, -1px 0px 0 #454545, -1px -1px 0 #454545, 0px -1px 0 #454545
+		color: #e3e3e3
+
+	+m
+		padding: 120px 0 50px
+
+		&__title
+			font-size: 60px
+
+	+sm
+		&__title
+			font-size: 40px
+
+		&__subtitle
+			font-size: 18px
+
+	+xs
+		padding: 80px 0 50px
+
+		&__title
+			font-size: 32px
+
+
+
+.clients-list
+	display: flex
+	flex-wrap: wrap
+	margin: 106px 0 50px
+
+	&__item
+		position: relative
+		width: 50%
+		display: flex
+		padding: 40px 50px 57px 0
+
+		&:last-child
+			&:after
+				display: none
+
+		&:after
+			content: ''
+			position: absolute
+			left: -5000px
+			right: -5000px
+			bottom: -1px
+			height: 1px
+			background: #d5d5d5
+
+
+	&__photo
+		margin: 0 28px 0 0
+
+	&__content
+		max-width: 455px
+
+	&__name
+		font-size: 23px
+		text-transform: uppercase
+		line-height: 1.2
+		margin: -5px 0 3px
+
+	&__position
+		text-transform: uppercase
+		font-size: 15px
+		line-height: 1.6
+		text-shadow: 1px -1px 0 #868686, 1px 0px 0 #868686, 1px 1px 0 #868686, 0px 1px 0 #868686, -1px 1px 0 #868686, -1px 0px 0 #868686, -1px -1px 0 #868686, 0px -1px 0 #868686
+		color: #e3e3e3
+		letter-spacing: 0.03em
+		padding: 0 0 0 30px
+		margin: 3px 0 12px
+
+	&__desc
+		+helB
+		font-size: 14px
+		line-height: 1.76
+		color: #868686
+
+	+sm
+		margin: 80px 0 30px
+
+		&__item
+			flex-direction: column
+			align-items: center
+			text-align: center
+
+		&__photo
+			margin: 0 0 10px
+
+		&__position
+			padding: 0
+
+	+xs
+		margin: 30px 0 20px
+		&__item
+			width: 100%
+			padding-right: 0
+
+		&__photo
+			margin: 0 0 10px

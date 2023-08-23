@@ -1,0 +1,34 @@
+.btn
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    font-size: 24px
+    letter-spacing: -0.04em
+    line-height: 1
+    font-weight: bold
+    text-transform: uppercase
+    text-decoration: none
+    transition: all .25s ease
+    +md
+        font-size: 20px
+    &--primary
+        background-color: $green
+        color: $white
+        min-width: 375px
+        padding: 17px 12px
+        border: 1px solid $green
+        +md
+            min-width: 315px
+            padding: 19px 12px
+        +xs
+            min-width: 260px
+            padding: 13px 12px
+        &:hover
+            background-color: $white
+            color: $green
+        &:disabled
+            background-color: white
+            color: gray
+            border-color: gray
+
+

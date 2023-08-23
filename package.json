@@ -4,8 +4,12 @@
 	"description": "",
 	"main": "script.js",
 	"scripts": {
-		"start": "eleventy --serve --port=3000",
-		"build": "eleventy"
+		"watch:sass": "sass --watch src/sass:_site/assets/css",
+		"build:sass": "sass src/sass:_site/assets/css",
+		"watch:eleventy": "eleventy --serve --port=3000",
+		"build:eleventy": "eleventy",
+		"start": "npm-run-all build:sass --parallel watch:*",
+		"build": "npm-run-all build:*"
 	},
 	"keywords": [],
 	"author": "",
@@ -17,9 +21,19 @@
 		"@sanity/client": "^6.4.0",
 		"@sanity/image-url": "^1.0.2",
 		"dotenv": "^16.3.1",
+		"email-validator": "^2.0.4",
+		"es6-promise": "^4.2.8",
+		"isomorphic-fetch": "^3.0.0",
 		"jquery": "^3.7.0",
 		"node-fetch": "^2.6.12",
 		"nunjucks": "^3.2.4",
-		"react": "^18.2.0"
+		"object-fit-images": "^3.2.4",
+		"react": "^18.2.0",
+		"slick-carousel": "^1.8.1"
+	},
+	"devDependencies": {
+		"esbuild": "^0.19.2",
+		"npm-run-all": "^4.1.5",
+		"sass": "^1.66.1"
 	}
 }
