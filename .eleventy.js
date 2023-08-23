@@ -3,7 +3,6 @@ const ClientObj = require("@sanity/client");
 const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
-const esbuild = require("esbuild");
 require("dotenv").config();
 
 const client = ClientObj.createClient({
@@ -16,15 +15,6 @@ const client = ClientObj.createClient({
 const builder = imageUrlBuilder(client);
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.on("eleventy.after", async () => {
-    await esbuild.build({
-      entryPoints: ["src/js/app.js"],
-      bundle: true,
-      sourcemap: true,
-      outfile: "_site/assets/js/app.js",
-    });
-  });
-
   eleventyConfig.setBrowserSyncConfig({
     files: "./_site/assets/css/**/*.css",
   });

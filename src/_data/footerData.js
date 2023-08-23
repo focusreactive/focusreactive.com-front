@@ -11,7 +11,7 @@ module.exports = async () => {
   // Compose the URL for your project's endpoint and add the query
   let URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;
 
-  const aboutUsData = await fetch(URL, {
+  const footerData = await fetch(URL, {
     headers: {
       Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
     },
@@ -19,7 +19,5 @@ module.exports = async () => {
     .then((res) => res.json())
     .catch((err) => console.error(err));
 
-  console.log(aboutUsData.result);
-
-  return aboutUsData.result;
+  return footerData.result;
 };

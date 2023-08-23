@@ -8,8 +8,8 @@
 		"build:sass": "sass src/sass:_site/assets/css",
 		"watch:eleventy": "eleventy --serve --port=3000",
 		"build:eleventy": "eleventy",
-		"start": "yarn build:sass & yarn watch:sass & yarn watch:eleventy",
-		"build": "yarn build:sass & yarn build:eleventy"
+		"start": "yarn esbuild src/js/app.js --bundle --outdir=_site/assets/js && yarn build:sass & yarn watch:sass & yarn watch:eleventy",
+		"build": "yarn esbuild src/js/app.js --bundle --outdir=_site/assets/js && yarn build:sass & yarn build:eleventy"
 	},
 	"keywords": [],
 	"author": "",
