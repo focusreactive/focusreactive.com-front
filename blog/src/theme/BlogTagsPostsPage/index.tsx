@@ -41,7 +41,6 @@ function BlogTagsPostsPageMetadata({ tag }) {
   const title = useBlogTagsPostsPageTitle(tag);
   return (
     <>
-      <PageMetadata title={title} />
       <SearchMetadata tag="blog_tags_posts" />
     </>
   );
@@ -54,8 +53,9 @@ function BlogTagsPostsPageContent({ tag, items }) {
     permalink: item.content.frontMatter.slug,
     description: item.content.frontMatter.description,
   }));
+
   return (
-    <BlogLayout title={`${title} | ${GENERIC_TITLE}`}>
+    <BlogLayout title={title} keywords={tag.label}>
       <div className={clsx("block__container", "block__container_centered", "block__container_margin-top")}>
         <header className="margin-bottom--xl">
           <h1>{title}</h1>

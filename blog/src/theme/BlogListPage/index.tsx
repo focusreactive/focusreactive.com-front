@@ -18,7 +18,6 @@ function BlogListPageMetadata(props) {
   const title = isBlogOnlyMode ? siteTitle : blogTitle;
   return (
     <>
-      <PageMetadata title={title} description={blogDescription} />
       <SearchMetadata tag="blog_posts_list" />
     </>
   );
@@ -32,9 +31,10 @@ function BlogListPageContent(props) {
     title: item.content.frontMatter.title,
     tags: item.content.frontMatter.tags,
   }));
+  const keywords = tags.map((tag) => tag.label).join(", ");
 
   return (
-    <BlogLayout title={GENERIC_TITLE}>
+    <BlogLayout keywords={keywords}>
       <TagsList tags={tags} />
       <ArticlesList posts={posts} />
     </BlogLayout>

@@ -12,10 +12,11 @@ const AuthorPage = (props) => {
     permalink: item.content.frontMatter.slug,
     description: item.content.frontMatter.description,
   }));
+  const keywords = [...new Set(posts.flatMap((post) => post.tags.map((tag) => tag.label)))].join(", ");
 
   return (
     <>
-      <BlogLayout title={`Author: ${props.route.authorName} | ${GENERIC_TITLE}`}>
+      <BlogLayout title={`Author: ${props.route.authorName}`} keywords={keywords}>
         <div className="block__container_margin-top">
           <ArticlesList posts={posts} />
         </div>

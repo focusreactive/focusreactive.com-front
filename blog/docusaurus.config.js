@@ -105,7 +105,7 @@ const mockResponse = {
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "Blog | FocusReactive - Next.js, Headless CMS and eCommerce expert agency",
+  title: "FocusReactive - Next.js, Headless CMS and eCommerce expert agency",
   tagline: "Next.js, Headless CMS and eCommerce expert agency",
   url: "https://focusreactive.com/",
   baseUrl: "/",

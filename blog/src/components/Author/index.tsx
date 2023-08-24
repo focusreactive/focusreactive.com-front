@@ -13,6 +13,7 @@ const Avatar = styled.img<AvatarProps>`
   ${({ avatarSize }) => (avatarSize === "big" ? "width: 80px; height 80px;" : "width: 45px; height 45px;")}
   border-radius: 50%;
   flex-shrink: 0;
+  aspect-ratio: 1/1;
 `;
 
 type AuthorProps = AvatarProps &
@@ -23,7 +24,7 @@ type AuthorProps = AvatarProps &
 const Author = ({ name, id, picture, avatarSize, isItSignature, about }: AuthorProps) => (
   <div className={styles.author}>
     <div className={styles["author__img-wrap"]}>
-      <Avatar src={picture} alt={name} avatarSize={avatarSize} />
+      <Avatar src={`${picture}?w=${avatarSize === "big" ? "160" : "90"}`} alt={name} avatarSize={avatarSize} />
     </div>
     <div className={styles.author__desc}>
       <Link to={`/blog/author/${id}`}>

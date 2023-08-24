@@ -25,15 +25,24 @@ function BlogPostPageContent({ children }) {
     authorsMap: SanityApiAuthor[];
   };
 
-  const { title, description, tags, relatedPosts, permalink, authorsMap } = frontMatter as unknown as ExtendedMetadata;
+  const { title, description, tags, relatedPosts, permalink, authorsMap, date } =
+    frontMatter as unknown as ExtendedMetadata;
 
   const heroImage = (frontMatter.image || frontMatter.heroImage) as string;
   const authorIds = frontMatter.authors || [];
+  const keywords = tags.map((tag) => tag.label).join(", ");
+  const authors = authorsMap
+    .filter((author) => authorIds.includes(author.id))
+    .map((author) => author.name)
+    .join(", ");
 
   return (
-    <BlogLayout title={`${title} | ${GENERIC_TITLE}`}>
+    <BlogLayout title={title} description={description} keywords={keywords} image={heroImage} type={"article"}>
       <Head>
-        <link rel="prefetch" href={heroImage} />
+        <meta property={"article:published_time"} content={date.toISOString()} />
+        <meta property={"article:modified_time"} content={date.toISOString()} />
+        <meta property={"article:author"} content={authors} />
+        <meta property={"article:tag"} content={keywords} />
       </Head>
       <Article className={styles.article}>
         <MarkdownBlock className={styles.article__container} heroImage={heroImage}>
@@ -54,6 +63,7 @@ function BlogPostPageContent({ children }) {
     </BlogLayout>
   );
 }
+
 export default function BlogPostPage(props) {
   const BlogPostContent = props.content;
 
