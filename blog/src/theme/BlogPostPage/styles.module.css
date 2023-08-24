@@ -1,0 +1,136 @@
+.article {
+  padding-top: 144px;
+}
+
+.article__container {
+  max-width: 1024px;
+  padding: 0 var(--layout-horizonal-padding);
+  width: 100%;
+  margin: 0 auto;
+}
+
+.article p {
+  font-size: 16px;
+  line-height: 1.72;
+  max-width: 620px;
+  margin: 26px auto 0;
+  text-align: left;
+}
+
+.article ol {
+  list-style-type: decimal-leading-zero;
+  font-size: 16px;
+  line-height: 1.72;
+  max-width: 650px;
+  margin: 26px auto 0px;
+  padding-left: 2em;
+}
+
+.article ol li {
+  text-align: left;
+}
+
+.article blockquote {
+  padding: 0px 1em;
+  color: rgb(106, 115, 125);
+  border-left: 0.25em solid rgb(223, 226, 229);
+  max-width: 620px;
+  margin: 26px auto 0px;
+}
+
+.article table {
+  max-width: 620px;
+  margin: 26px auto 0px;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+  display: table;
+}
+
+.article ul {
+  font-size: 16px;
+  line-height: 1.72;
+  max-width: 620px;
+  margin: 26px auto 0px;
+  list-style-type: inherit;
+  padding-left: 2em;
+  text-align: left;
+}
+
+.article h1,
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  text-transform: uppercase;
+  margin: 36px auto;
+}
+
+.article h1 {
+  text-align: center;
+}
+
+.article h1.article__title {
+  font-family: Helvetica Bold, Arial, sans-serif;
+  line-height: 1;
+  font-size: 70px;
+  letter-spacing: -0.03em;
+  margin: 0 0 22px;
+  text-transform: none;
+}
+
+.article p.article__description {
+  font-size: 14px;
+  max-width: 540px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 1280px) {
+  .article h1.article__title {
+    font-size: 5.5vw;
+  }
+}
+
+@media only screen and (max-width: 599px) {
+  .article h1.article__title {
+    font-size: 8vw;
+  }
+}
+
+.article h2 {
+  font-size: 22px;
+  line-height: 1.2;
+  margin: 32px auto;
+  font-weight: 800;
+}
+
+.article h2,
+.article h3,
+.article h4,
+.article h5,
+.article h6 {
+  max-width: 620px;
+  text-align: left;
+}
+
+.article__tags {
+  font-family: Helvetica Bold, Arial, sans-serif;
+  font-size: 16px;
+  margin: 20px auto 40px;
+  text-transform: uppercase;
+  color: #13cf2e;
+  text-align: right;
+  line-height: 1.72;
+  max-width: 620px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 670px) {
+  .article__tags {
+    padding: 9px var(--layout-horizonal-padding) 0;
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,15 @@
+.tag-section {
+  font-size: 16px;
+  font-weight: 700;
+  color: #13cf2e;
+  line-height: 1.5;
+  border-bottom: 1px solid #ccc;
+  text-transform: uppercase;
+  margin: 90px 0 0;
+}
+
+@media only screen and (max-width: 599px) {
+  .tag-section {
+    display: none;
+  }
+}
