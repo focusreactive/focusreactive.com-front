@@ -1,17 +1,35 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
-import S from '@sanity/desk-tool/structure-builder';
+import {
+  ComponentView,
+  DefaultDocumentNodeResolver,
+  UserViewComponent,
+} from 'sanity/lib/exports/desk';
+import { SanityDocument } from '@sanity/types';
 
 const sendPostMessage = () => {
-  document
-    .getElementById('preview_iframe')
-    .contentWindow.postMessage(
-      'reload()',
-      'https://fr-11ty-migration-front.vercel.app',
-    );
+  const iframe = document.getElementById(
+    'preview_iframe',
+  ) as HTMLIFrameElement | null;
+
+  if (!iframe || !iframe.contentWindow) return null;
+
+  iframe.contentWindow.postMessage(
+    'reload()',
+    'https://fr-11ty-migration-front.vercel.app',
+  );
 };
 
-const JsonPreview = ({ document: sanityDocument }) => {
+const JsonPreview = ({
+  document: sanityDocument,
+}: {
+  document: {
+    draft: SanityDocument | null;
+    displayed: Partial<SanityDocument>;
+    historical: Partial<SanityDocument> | null;
+    published: SanityDocument | null;
+  };
+}) => {
   const [slugString, setSlugString] = useState('');
 
   const debouncedChangeHandler = useCallback(
@@ -29,6 +47,7 @@ const JsonPreview = ({ document: sanityDocument }) => {
     switch (sanityDocument?.displayed?._type) {
       case 'landingPage': {
         setSlugString(
+          // @ts-ignore
           `landing-preview?slug=${sanityDocument.displayed?.path?.current}`,
         );
         break;
@@ -53,7 +72,6 @@ const JsonPreview = ({ document: sanityDocument }) => {
   }, []);
 
   return (
-    // eslint-disable-next-line react/jsx-filename-extension
     <iframe
       title="page"
       id="preview_iframe"
@@ -62,7 +80,11 @@ const JsonPreview = ({ document: sanityDocument }) => {
     />
   );
 };
-export const getDefaultDocumentNode = ({ schemaType }) => {
+
+export const defaultDocumentNode: DefaultDocumentNodeResolver = (
+  S,
+  { schemaType },
+) => {
   const documentsWithPreview = [
     'landingPage',
     'aboutUsPage',
@@ -78,5 +100,3 @@ export const getDefaultDocumentNode = ({ schemaType }) => {
   }
   return S.document();
 };
-
-export default S.defaults();

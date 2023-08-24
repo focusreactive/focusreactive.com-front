@@ -1,48 +1,35 @@
 {
-  "name": "frwebsite",
+  "name": "focusreactive-blog-cms",
   "private": true,
-  "version": "1.0.0",
-  "description": "",
-  "main": "package.json",
-  "author": "Александр Грамович <alex.gramovich.1996@gmail.com>",
-  "license": "UNLICENSED",
+  "version": "0.0.0",
   "scripts": {
+    "dev": "sanity dev",
     "start": "sanity start",
-    "test": "sanity check",
     "build": "sanity build",
-    "deploy": "sanity deploy"
+    "deploy": "sanity deploy",
+    "deploy-graphql": "sanity graphql deploy"
   },
-  "keywords": [
-    "sanity"
-  ],
   "dependencies": {
-    "@sanity/base": "^2.12.2",
-    "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.12.2",
-    "@sanity/default-layout": "^2.12.2",
-    "@sanity/default-login": "^2.11.1",
-    "@sanity/desk-tool": "^2.12.2",
-    "@sanity/vision": "^2.11.2",
+    "@sanity/vision": "^3.15.1",
+    "easymde": "2",
     "lodash.debounce": "^4.0.8",
-    "prop-types": "^15.7",
-    "react": "^17.0",
-    "react-dom": "^17.0",
-    "sanity-plugin-markdown": "^2.1.2",
-    "styled-components": "^5.2.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-is": "^18.2.0",
+    "sanity": "^3.15.1",
+    "sanity-plugin-markdown": "^4.1.0",
+    "styled-components": "^5.3.9"
   },
   "devDependencies": {
-    "@sanity/cli": "^2.10.0",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.0.6",
-    "eslint": "7.2.0",
-    "eslint-config-airbnb": "^18.2.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-import": "^2.21.2",
-    "eslint-plugin-jest": "^23.16.0",
-    "eslint-plugin-jsx-a11y": "^6.3.1",
-    "eslint-plugin-prettier": "^3.1.4",
-    "eslint-plugin-react": "^7.20.0",
-    "eslint-plugin-react-hooks": "^4.0.4",
-    "prettier": "^2.0.5"
+    "@sanity/eslint-config-studio": "^3.0.0",
+    "@types/lodash.debounce": "^4.0.7",
+    "@types/react": "^18.0.25",
+    "@types/styled-components": "^5.1.26",
+    "eslint": "^8.6.0",
+    "prettier": "^2.8.8",
+    "typescript": "^4.9.5"
+  },
+  "volta": {
+    "node": "16.20.2"
   }
 }
