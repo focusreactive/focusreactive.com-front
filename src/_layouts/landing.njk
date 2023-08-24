@@ -7,6 +7,101 @@
       <meta http-equiv="Cache-control" content="no-cache">
    {% endif %}
 
+   {% if data.seo.ogTags.locale %}
+      <meta property="og:locale" content="{{ data.seo.ogTags.locale }}">
+   {% endif %}
+
+   {% if data.seo.ogTags.type %}
+      <meta property="og:type" content="{{ data.seo.ogTags.type }}">
+   {% endif %}
+
+   {% if data.seo.ogTags.title %}
+      <meta property="og:title" content="{{ data.seo.ogTags.title }}">
+   {% elif data.seo.title %}
+      <meta property="og:title" content="{{ data.seo.title }}">
+   {% endif %}
+
+   {% if data.seo.ogTags.description %}
+      <meta property="og:description" content="{{ data.seo.ogTags.description }}">
+   {% elif data.seo.description %}
+      <meta property="og:description" content="{{ data.seo.description }}">
+   {% endif %}
+
+   {% if data.seo.ogTags.url %}
+      <meta property="og:url" content="{{ data.seo.ogTags.url }}">
+   {% endif %}
+
+   {% if data.seo.ogTags.siteName %}
+      <meta property="og:site_name" content="{{ data.seo.ogTags.siteName }}">
+   {% endif %}
+
+   {% if data.seo.ogTags.image %}
+      <meta property="og:image" content="{{ data.seo.ogTags.image }}">
+   {% endif %}
+
+   {% if data.seo.description %}
+      <meta name="description" content="{{ data.seo.description }}">
+   {% endif %}
+
+   {% if data.seo.keyWords %}
+      <meta name="keywords" content="{{ data.keyWords }}">
+   {% endif %}
+
+   {% if data.seo.articleTags.publisher %}
+      <meta name="article:publisher" content="{{ data.seo.articleTags.publisher }}" />
+   {% endif %}
+
+   {% if data.seo.articleTags.modifiedTime %}
+      <meta name="article:modified_time" content="{{ data.seo.articleTags.modifiedTime }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.card %}
+      <meta name="twitter:card" content="{{ data.seo.ogTwitter.card }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.title %}
+      <meta name="twitter:title" content="{{ data.seo.ogTwitter.title }}" />
+   {% elif data.seo.title %}
+      <meta name="twitter:title" content="{{ data.seo.title }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.description %}
+      <meta name="twitter:description" content="{{ data.seo.ogTwitter.description }}" />
+   {% elif data.seo.description %}
+      <meta name="twitter:description" content="{{ data.seo.description }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.image %}
+      <meta name="twitter:image" content="{{ data.seo.ogTwitter.image }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.creator %}
+      <meta name="twitter:creator" content="{{ data.seo.ogTwitter.creator }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.site %}
+      <meta name="twitter:site" content="{{ data.seo.ogTwitter.site }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.label1 %}
+      <meta name="twitter:label1" content="{{ data.seo.ogTwitter.label1 }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.data1 %}
+      <meta name="twitter:data1" content="{{ data.seo.ogTwitter.data1 }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.label2 %}
+       <meta name="twitter:label2" content="{{ data.seo.ogTwitter.label2 }}" />
+   {% endif %}
+
+   {% if data.seo.ogTwitter.data2 %}
+       <meta name="twitter:data2" content="{{ data.seo.ogTwitter.data2 }}" />
+   {% endif %}
+
+   {% if data.seo.title %}
+      <title>{{ data.seo.title }}</title>
+   {% endif %}
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -31,9 +126,9 @@
       {% include "_partials/_header.html" %}
       {{ content | safe }}
       {% include "_partials/_footer.html" %}
-   </div> 
+   </div>
 
    <script src="/assets/js/app.js"></script>
-</body> 
+</body>
 
 </html>
