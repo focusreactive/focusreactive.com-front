@@ -1,35 +1,17 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import debounce from 'lodash.debounce';
-import {
-  ComponentView,
-  DefaultDocumentNodeResolver,
-  UserViewComponent,
-} from 'sanity/lib/exports/desk';
-import { SanityDocument } from '@sanity/types';
+import S from '@sanity/desk-tool/structure-builder';
 
 const sendPostMessage = () => {
-  const iframe = document.getElementById(
-    'preview_iframe',
-  ) as HTMLIFrameElement | null;
-
-  if (!iframe || !iframe.contentWindow) return null;
-
-  iframe.contentWindow.postMessage(
-    'reload()',
-    'https://fr-11ty-migration-front.vercel.app',
-  );
+  document
+    .getElementById('preview_iframe')
+    .contentWindow.postMessage(
+      'reload()',
+      'https://fr-11ty-migration-front.vercel.app',
+    );
 };
 
-const JsonPreview = ({
-  document: sanityDocument,
-}: {
-  document: {
-    draft: SanityDocument | null;
-    displayed: Partial<SanityDocument>;
-    historical: Partial<SanityDocument> | null;
-    published: SanityDocument | null;
-  };
-}) => {
+const JsonPreview = ({ document: sanityDocument }) => {
   const [slugString, setSlugString] = useState('');
 
   const debouncedChangeHandler = useCallback(
@@ -47,7 +29,6 @@ const JsonPreview = ({
     switch (sanityDocument?.displayed?._type) {
       case 'landingPage': {
         setSlugString(
-          // @ts-ignore
           `landing-preview?slug=${sanityDocument.displayed?.path?.current}`,
         );
         break;
@@ -72,6 +53,7 @@ const JsonPreview = ({
   }, []);
 
   return (
+    // eslint-disable-next-line react/jsx-filename-extension
     <iframe
       title="page"
       id="preview_iframe"
@@ -80,11 +62,7 @@ const JsonPreview = ({
     />
   );
 };
-
-export const defaultDocumentNode: DefaultDocumentNodeResolver = (
-  S,
-  { schemaType },
-) => {
+export const getDefaultDocumentNode = ({ schemaType }) => {
   const documentsWithPreview = [
     'landingPage',
     'aboutUsPage',
@@ -100,3 +78,5 @@ export const defaultDocumentNode: DefaultDocumentNodeResolver = (
   }
   return S.document();
 };
+
+export default S.defaults();
