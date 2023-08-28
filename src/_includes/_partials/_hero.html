@@ -5,7 +5,7 @@
         <div class="hero__inner">
             <h1 class="hero__title ">
                 {% for line in heroLines %}
-                    <span>{{ line }}</span>
+                <span>{{ line }}</span>
                 {% endfor %}
             </h1>
             <!-- <h1 class="hero__title is-tablet">
@@ -18,7 +18,7 @@
     </div>
     <div class="hero__next-section">
         <a href="{% if innerPage %}#description{% else %}#about{% endif %}" class="js-scroll-to">
-            <img src="./assets/img/arrow.png" alt="next section arrow" />
+            <img src="/assets/img/arrow.png" alt="next section arrow" />
         </a>
     </div>
     <div class="container relate">
