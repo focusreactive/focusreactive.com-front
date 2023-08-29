@@ -2,26 +2,23 @@
 <section
   id="home"
   data-section="home"
-  class="hero is-dark js-scroll-header {{heroMod}}"
->
+  class="hero is-dark js-scroll-header {{heroMod}}">
   <div
     class="hero__bg hero-bg--image"
-    style="background-image: url({{ heroData.image | imgURL }})"
-  ></div>
+    style="background-image: url({{ heroData.image | imgURL }})"></div>
   <div class="container">
     <div class="hero__inner">
       <h1
         class="hero__title_landing"
-        style="color: {{ heroData.titleColor }}"
-      >
+        style="color: {{ heroData.titleColor }}">
         {% for line in heroData.titleLines %}
-        <span data-disable-custom-style="{{heroData.isCustomFirstLineDisabled}}" data-inherit-color="{% if heroData.titleColor %}true{% endif %}"
-          >{{ line }}</span
-        >
+        <span data-disable-custom-style="{{heroData.isCustomFirstLineDisabled}}" data-inherit-color="{% if heroData.titleColor %}true{% endif %}">{{ line }}</span>
         {% endfor %}
       </h1>
     </div>
   </div>
+
+  {% if data._id != 'ce0e4726-6b0f-4d3d-b726-d580a64b15a2' %}
   <div class="hero__logos">
     <div class="container">
       <div class="hero__logos_inner">
@@ -32,13 +29,13 @@
             <img
               width="197"
               src="{{ partner.image | imgURL }}"
-              alt="{{ partner.name }}"
-            />
+              alt="{{ partner.name }}" />
           </div>
           {% endfor %}
         </div>
       </div>
     </div>
   </div>
+  {% endif %}
 </section>
 <!-- end hero -->
