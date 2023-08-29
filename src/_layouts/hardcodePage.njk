@@ -27,7 +27,19 @@
    <title>{{ title }}</title>
 
    <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+
+    <script>
+      (function (h, o, t, j, a, r) {
+       h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+       h._hjSettings = { hjid: 3443963, hjsv: 6 };
+       a = o.getElementsByTagName('head')[0];
+       r = o.createElement('script'); r.async = 1;
+       r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+       a.appendChild(r);
+      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
 </head>
+
  {% if eleventy.env.isServerless %}
    <script>
         window.addEventListener('message', receiveMessage, false);
@@ -42,12 +54,29 @@
         }
     </script>
    {% endif %}
+
 <body class="bg" topmargin="0">
    <div class="out">
       {% include "_partials/_header.html" %}
       {{ content | safe }}
       {% include "_partials/_footer.html" %}
    </div>
+
+   <script>
+     var _gauges = _gauges || [];
+     (function () {
+      var t = document.createElement('script');
+      t.type = 'text/javascript';
+      t.async = true;
+      t.id = 'gauges-tracker';
+      t.setAttribute('data-site-id', '5c60ad334cba7a6ec400efc0');
+      t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+      t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(t, s);
+     })();
+   </script>
+
    <script type="text/javascript" src="/assets/js/github-repo-buttons.js" ></script>
    
    <script type="text/javascript" src="https://widget.clutch.co/static/js/widget.js"></script>
