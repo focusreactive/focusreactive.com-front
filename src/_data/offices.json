@@ -1,0 +1,17 @@
+[
+  {
+    "title": "Amsterdam",
+    "tel": "+3 163 848 2851",
+    "address": "Eksterstraat 49 1021 EB Amsterdam The Netherlands",
+    "email": "hi@focusreactive.com",
+    "lat": "52.3865637",
+    "lng": "4.9156313"
+  },
+  {
+    "title": "London",
+    "address": "Kemp House, 152 - 160 City Road, London, EC1V 2NX VAT GB320927125",
+    "email": "hi@focusreactive.com",
+    "lat": "51.5272705",
+    "lng": "-0.0889722"
+  }
+]

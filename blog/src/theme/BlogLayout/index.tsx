@@ -5,9 +5,19 @@ import { GENERIC_DESCRIPTION, GENERIC_TITLE } from "@site/src/constants";
 import { PageMetadata } from "@docusaurus/theme-common";
 
 export default function BlogLayout(props) {
-  const { children, title, description, keywords, image, type, ...layoutProps } = props;
+  const {
+    children,
+    title,
+    description,
+    keywords,
+    image,
+    type,
+    ...layoutProps
+  } = props;
 
-  const previewImage = image ? `${image}?w=1200&h=630` : "https://focusreactive.com/img/og-image-1200x630.png";
+  const previewImage = image
+    ? `${image}?w=1200&h=630`
+    : "https://focusreactive.com/assets/assets/img/og-image-1200x630.png";
 
   return (
     <Layout {...layoutProps}>
@@ -15,7 +25,10 @@ export default function BlogLayout(props) {
 
       <Head>
         <meta name="description" content={description || GENERIC_DESCRIPTION} />
-        <meta name="og:description" content={description || GENERIC_DESCRIPTION} />
+        <meta
+          name="og:description"
+          content={description || GENERIC_DESCRIPTION}
+        />
 
         <meta name="og:image" content={previewImage} />
         {image && <link rel="prefetch" href={image} />}

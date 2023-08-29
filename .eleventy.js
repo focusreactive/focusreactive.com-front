@@ -32,6 +32,7 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPassthroughCopy("src/assets");
+  eleventyConfig.addPassthroughCopy({ "src/assets/img/favicon.ico": "/" });
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
   eleventyConfig.addWatchTarget("src/js");
