@@ -6,7 +6,7 @@ description: "We architect, build and lead technically advanced websites with a 
 og_url: "https://focusreactive.com"
 og_image: "https://focusreactive.com/assets/img/og-image.png"
 
-heroImage: './assets/img/hero_bg2.jpg'
+heroImage: '/assets/img/hero_bg2.jpg'
 
 members: [
 	{
@@ -163,6 +163,49 @@ recommendations: [
 	}
 ]
 
+clientLogos: [
+  {
+    url: '/tipico-case-study/',
+    img: '/assets/img/clients/tipico.png',
+    target: false,
+  },
+  {
+    url: '/notsoape-case-study/',
+    img: '/assets/img/clients/not_so_ape.png',
+    target: false,
+  },
+  {
+    url: '/trafficguard-case-study/',
+    img: '/assets/img/clients/trafic_guard.png',
+    target: false,
+  },
+  {
+    url: '/marketfinance-case-study/',
+    img: '/assets/img/clients/marketfinance.png',
+    target: false,
+  },
+  {
+    url: 'https://www.secretescapes.com/',
+    img: '/assets/img/clients/secrets_escapes.png',
+    target: true,
+  },
+  {
+    url: '/easypark-case-study/',
+    img: '/assets/img/clients/easypark.png',
+    target: false,
+  },
+  {
+    url: '/hardhat-case-study/',
+    img: '/assets/img/clients/hardHat.png',
+    target: false,
+  },
+  {
+    url: 'https://nomic.foundation/',
+    img: '/assets/img/clients/nomic_foundation.png',
+    target: true,
+  }
+]
+
 layout: 'hardcodePage.njk'
 
 permalink:
@@ -184,7 +227,8 @@ permalink:
 {% block content %}
 {% include "_partials/_social.html" %}
 {% include "_partials/_hero.html" %}
-{% include "_partials/_about.html" %}
+{# {% include "_partials/_about.html" %} #}
+{% include "_partials/_last-clients.html" %}
 {% include "_partials/_summary.html" %}
 {% include "_partials/_techs.html" %}
 {% include "_partials/_products.html" %}
