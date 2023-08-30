@@ -17,7 +17,7 @@ export default function BlogLayout(props) {
 
   const previewImage = image
     ? `${image}?w=1200&h=630`
-    : "https://focusreactive.com/assets/assets/img/og-image-1200x630.png";
+    : "https://focusreactive.com/assets/img/og-image.png";
 
   return (
     <Layout {...layoutProps}>
