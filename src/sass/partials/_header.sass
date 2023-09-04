@@ -94,10 +94,12 @@
             svg, svg path
                 fill: $white
         .menu
+
             &__link
                 color: $white
                 &.is-active
                     color: $green
+
         .burger
             &::before, &::after
                 background-color: $white
@@ -113,6 +115,9 @@
             svg, svg path
                 fill: $black
         .menu
+            &__item-button
+                .menu__link
+                    background: $green
             &__link
                 color: $dark-grey
                 +r(850)

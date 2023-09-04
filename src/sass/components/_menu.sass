@@ -122,7 +122,7 @@
         margin-left: 10px
         +s
             margin-left: 5px
-        &:hover, &:not(.menu__item-button).is-focus
+        &:hover:not(.menu__item-button), &:not(.menu__item-button).is-focus
 
             .menu__link
                 color: $green
@@ -151,7 +151,7 @@
             margin-left: 20px
 
             .menu__link
-                background: $green
+                background: darken($green, 11%)
                 &:hover
                     -webkit-text-stroke: 0 #fff
                     color: #fff !important
