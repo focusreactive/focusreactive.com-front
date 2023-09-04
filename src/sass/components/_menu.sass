@@ -122,7 +122,7 @@
         margin-left: 10px
         +s
             margin-left: 5px
-        &:hover, &:not(.menu__item-button).is-focus
+        &:hover:not(.menu__item-button), &:not(.menu__item-button).is-focus
 
             .menu__link
                 color: $green
@@ -135,6 +135,7 @@
                     +s
                         &:before
                             width: calc(100% - 12px)
+
         +rmin(851)
             &:hover, &.is-focus
                 .menu__dropdown
@@ -151,10 +152,13 @@
             margin-left: 20px
 
             .menu__link
-                background: $green
-                &:hover
+                background: darken($green, 13%)
+                &:hover, &:focus-visible
                     -webkit-text-stroke: 0 #fff
                     color: #fff !important
+                    background: $green
+                    &:before
+                        display: none
 
         +r(850)
             font-size: 32px
@@ -213,7 +217,16 @@
                     transform: rotate(-45deg)
                     +r(850)
                         display: none
-
+    &__link:focus-visible
+        color: $green
+        &:before
+            width: calc(100% - 40px)
+            +m
+                &:before
+                    width: calc(100% - 30px)
+            +s
+                &:before
+                    width: calc(100% - 12px)
     &__soc-links
         display: none
         +r(850)

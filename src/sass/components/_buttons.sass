@@ -12,23 +12,21 @@
     +md
         font-size: 20px
     &--primary
-        background-color: $green
+        background-color: darken($green, 11%)
         color: $white
         min-width: 375px
         padding: 17px 12px
-        border: 1px solid $green
+        border: 1px solid darken($green, 11%)
         +md
             min-width: 315px
             padding: 19px 12px
         +xs
             min-width: 260px
             padding: 13px 12px
-        &:hover
+        &:hover, &:focus-visible
             background-color: $white
             color: $green
         &:disabled
             background-color: white
             color: gray
             border-color: gray
-
-

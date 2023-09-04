@@ -104,18 +104,18 @@
         line-height: 1
         .text-border-svg
             stroke-width: 1px
-            
+
         +m
             font-size: 32px
             line-height: 1.375em
         +sm
             text-align: left
             text-shadow: none
-            color: $black 
+            color: $black
             margin-bottom: 10px
             font-weight: 700
             font-size: 22px
-        
+
         &.is-desktop
             +sm
                 display: none
@@ -129,13 +129,13 @@
         line-height: 1
         text-align: right
         transition: all .25s ease
-        
+
         +md
             font-size: 18px
         +sm
             text-align: left
             text-shadow: none
-           
+
             font-weight: normal
             font-size: 15px
             font-weight: 700
@@ -178,7 +178,7 @@
         letter-spacing: -0.03em
 
         z-index: 2
-        width: 50%
+        width: 60%
         -webkit-text-stroke: 1px currentColor
         position: relative
         color: $black
@@ -190,7 +190,7 @@
 
         +m
             font-size: 20px
-        
+
         +sm
             display: none
     &__address
@@ -199,12 +199,11 @@
         +hel
         font-weight: bold
         transition: color .2s ease
-        margin-left: -4%
-  
+
         +sm
             margin-left: auto
             margin-top: 0
-        
+
             text-align: right
         &.is-desktop
             +sm
@@ -219,7 +218,7 @@
                 padding-bottom: 29px
         #{$this}__type
             font-size: 36px
-            
+
             +md
                 font-size: 30px
             +sm
@@ -236,8 +235,8 @@
             +sm
                 width: 70%
             +sm
-                width: 50% 
-                
+                width: 50%
+
         #{$this}__wrap
             +sm
                 justify-content: space-between
@@ -253,11 +252,11 @@
                     padding-left: 8px
                 +sm
                     padding-left: 0
-                    
+
                     font-size: 9px
                     letter-spacing: -0.005em
-        #{$this}__date 
-            +sm 
+        #{$this}__date
+            +sm
                 -webkit-text-stroke: 0.5px currentColor
         #{$this}__name
             line-height: 1.25
@@ -276,7 +275,8 @@
                 +sm
                     display: block
 
-    &:hover
+    &:hover, &:focus-visible
+
         &:before
             opacity: 1
         .text-border-svg
@@ -286,7 +286,7 @@
             stroke: $white
             opacity: 0.8
         .event-link__date
-            color: #fff 
+            color: #fff
             opacity: 1
         #{$this}__name,
         #{$this}__address
@@ -299,11 +299,10 @@
                 opacity: 1
                 z-index: 2
                 position: relative
-                
+
             #{$this}__date
-            
+
                 color: #fff
-                
 
     &.is-main
         background-color: transparent
@@ -326,7 +325,7 @@
             font-size: 0
             .text-border-svg
                 font-size: 85px
-                
+
                 +helB
                 letter-spacing: -0.03em
                 max-height: 80px
@@ -345,11 +344,10 @@
                 flex-shrink: 1
             #{$this}__col
                 +sm
-                   
+
                     width: auto
-                    &:first-child 
+                    &:first-child
                         width: auto
-                
 
         #{$this}__inner
             display: block
@@ -401,10 +399,10 @@
                     text-align: left
                     color: #fff
                     opacity: 1
-                
+
         #{$this}__type
             font-size: 38px
-            
+
             +sm
                 display: block
                 font-size: 20px
@@ -414,28 +412,25 @@
                 font-size: 47px
                 height: 47px
                 display: block
-                
+
                 +sm
                     font-size: 26px
                     fill: #fff
-                    
-     
-              
+
         #{$this}__address
             letter-spacing: -0.03em
             color: $white
-            +md
-                white-space: nowrap
+
             +sm
                 padding-left: 8px
             +sm
                 padding-left: 0
                 white-space: normal
-                
+
                 letter-spacing: -0.005em
                 font-size: 9px
         #{$this}__col
-            +sm 
+            +sm
                 display: block
             &:nth-child(2)
                 +sm
@@ -445,10 +440,11 @@
                     display: none
             &:first-child
                 width: 60%
-            
+
         // &:before
         //     background-color: transparent
-        &:hover
+        &:hover, &:focus-visible
+
             // &:before
             //     background-color: transparent
             #{$this}__title,

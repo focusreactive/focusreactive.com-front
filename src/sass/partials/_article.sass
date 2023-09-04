@@ -3,7 +3,6 @@
 	+xs
 		padding-top: 100px
 
-
 	.container
 		max-width: 1024px
 
@@ -54,8 +53,6 @@
 		+xs
 			text-align: justify
 
-
-
 .article-info
 	display: flex
 	max-width: 620px
@@ -81,7 +78,8 @@
 			transform: translateY(0)
 			transition: all ease 0.2s
 
-			&:hover
+			&:hover, &:focus-visible
+
 				transform: translateY(-3px)
 
 		+xs
@@ -89,8 +87,6 @@
 
 	&__authors
 		display: flex
-
-
 
 .author
 	display: flex
@@ -127,7 +123,6 @@
 		margin: 0
 		line-height: 1.5
 
-
 .article-slider-wrap
 	margin: 43px -500px
 
@@ -138,8 +133,6 @@
 
 	img
 		width: 100%
-
-
 
 .tags
 	+helB
