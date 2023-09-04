@@ -275,7 +275,8 @@
                 +sm
                     display: block
 
-    &:hover
+    &:hover, &:focus-visible
+
         &:before
             opacity: 1
         .text-border-svg
@@ -442,7 +443,8 @@
 
         // &:before
         //     background-color: transparent
-        &:hover
+        &:hover, &:focus-visible
+
             // &:before
             //     background-color: transparent
             #{$this}__title,

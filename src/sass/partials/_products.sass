@@ -23,14 +23,15 @@
 		color: #fff
 		text-decoration: none
 		min-height: 340px
-		
+
 		flex: 1 1
 		transition: all 0.1s ease
 
 		&:not(:last-child)
 			border-right: 1px solid #373737
 
-		&:hover
+		&:hover, &:focus-visible
+
 			background: $green
 
 			.products-list__title
@@ -66,10 +67,9 @@
 		text-align: center
 		margin: 0 0 20px
 		transition: all 0.1s ease
-		+sm 
-			color: #fff 
+		+sm
+			color: #fff
 			-webkit-text-stroke-width: 0
-
 
 	&__desc
 		+helB

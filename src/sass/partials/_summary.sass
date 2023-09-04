@@ -32,7 +32,7 @@
 
         &:last-child
             border-bottom: none
-        
+
         &:before
             content: ''
             position: absolute
@@ -44,7 +44,7 @@
             opacity: 0
             background-color: $green
             transition: opacity .4s ease
-        &:hover, &.is-active
+        &:hover, &.is-active, &:focus-visible
             .summary__name
                 text-shadow: none
                 color: $white
@@ -60,10 +60,10 @@
         position: relative
         z-index: 10
         // +stroke(2, $white)
-         color: transparent
+        color: transparent
         -webkit-background-clip: text
         -webkit-text-stroke: 1.5px #fff
-        
+
         text-align: center
         transition: color .4s ease
         line-height: 1em
@@ -129,4 +129,3 @@
 
     &__footer
         margin-top: 20px
-

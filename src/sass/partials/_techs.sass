@@ -16,7 +16,7 @@
         -webkit-background-clip: text
         -webkit-text-stroke: 1.5px #fff
         // +stroke(2, $white)
-        
+
         text-align: center
         transition: color .4s ease
         line-height: 1em
@@ -84,17 +84,16 @@
         +xs
             max-width: 45%
 
-        &:hover
-            .techs-list
-                &__img
-                    opacity: 0.8
-
     &__link
         padding: 20px
         display: block
 
         +sm
             padding: 15px
+        &:hover, &:focus-visible
+            .techs-list
+                &__img
+                    opacity: 0.8
 
     &__img
         display: block
