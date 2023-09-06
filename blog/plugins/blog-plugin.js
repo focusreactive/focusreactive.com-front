@@ -106,7 +106,7 @@ async function blogPluginExtended(...pluginArgs) {
       "heroImage": heroImage.asset->url,
       "slug": slug.current,
       "authors": authors[]->id,
-      content,
+      "content": contentMarkdown,
       "tags": tags[]->label,
       `;
 
