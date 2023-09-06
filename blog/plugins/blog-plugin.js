@@ -173,7 +173,7 @@ async function blogPluginExtended(...pluginArgs) {
               }) +
               "---" +
               os.EOL +
-              post.content[0],
+              post.content,
           });
         }
       } catch (error) {
