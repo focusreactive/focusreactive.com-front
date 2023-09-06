@@ -154,7 +154,7 @@ async function blogPluginExtended(...pluginArgs) {
               authors: post.authors,
               frontMatter: {},
             },
-            content: post.content[0],
+            content: post.content,
             ...post,
             slug,
             mdx:
