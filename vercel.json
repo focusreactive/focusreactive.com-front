@@ -10,5 +10,42 @@
   "rewrites": [{ "source": "/", "destination": "/home" }],
   "buildCommand": "yarn build && cd blog && yarn build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
   "installCommand": "yarn && cd blog && yarn",
-  "trailingSlash": true
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/how-to-improve-seo-with-nextjs/",
+      "destination": "/how-nextjs-can-improve-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/contentfull-part1/ ",
+      "destination": "/contentful-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/contentfull-part2/",
+      "destination": "/contentful-part-2/",
+      "permanent": true
+    },
+    {
+      "source": "/jamstack-the-new-era-tech/",
+      "destination": "/what-is-jamstack/",
+      "permanent": true
+    },
+    {
+      "source": "/headless-vs-traditional/",
+      "destination": "/headless-cms-vs-traditional/",
+      "permanent": true
+    },
+    {
+      "source": "/best-cms-for-nextjs/",
+      "destination": "/best-headless-cms-for-nextjs/",
+      "permanent": true
+    },
+    {
+      "source": "/headless-cms-experts/",
+      "destination": "/headless-cms-agency/",
+      "permanent": true
+    }
+  ]
 }
