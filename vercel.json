@@ -18,7 +18,7 @@
       "permanent": true
     },
     {
-      "source": "/contentfull-part1/ ",
+      "source": "/contentfull-part1/",
       "destination": "/contentful-part-1/",
       "permanent": true
     },
