@@ -1,4 +1,4 @@
-Sitemap: https://fr-11ty-migration-front.vercel.app/sitemap.xml
-
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://fr-11ty-migration-front.vercel.app/sitemap.xml
