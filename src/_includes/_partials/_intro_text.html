@@ -1,6 +1,9 @@
-<section class="intro_text is-light js-scroll-header">
+<section class="intro_text is-light js-scroll-header {{ introData.textSize }}">
   <div class="container">
     <h2>{{ introData.title }}</h2>
-    <p class="intro_text__subtitle">{{ introData.richText | blockContent }}</p>
+
+    <div class="intro_text__content">
+      {{ introData.richText | blockContent }}
+    </div>
   </div>
 </section>
