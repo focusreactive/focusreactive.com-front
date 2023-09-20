@@ -1,50 +1,65 @@
-# FR Blog
+# FocusReactive.com Repository
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+This repository contains two projects for the FocusReactive.com website: the main project and the blog project.
 
-### Installation
+## Main Project
 
-```
-$ yarn
-```
+The main project is based on 11ty, a static site generator. It is used to build the main pages of the website.
 
-### Local Development
+### Running the Main Project
 
-```
-$ yarn start
-```
+To run the main project in development mode, use the following command:
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
-```
-$ yarn build
+```bash
+yarn start
 ```
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+This command will start a development server and allow you to preview your changes in real-time.
 
-### Deployment
+### Building the Main Project for Production
 
-Using SSH:
+To build the main project for production, use the following command:
 
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+```bash
+yarn build
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+This command will generate optimized files for deployment.
 
-We can customize components by [swizzling](https://docusaurus.io/docs/swizzling) and styles by [styling](https://docusaurus.io/docs/swizzling)
+---
 
-Custom plugin `plugins/blog-plugin.js` based on default one `plugin-content-blog` but extended to add relatedPosts to metadata.
+## Blog Project
 
-TODO:
-1 Trigger deployment when post is published in Sanity studio
-2 Use document action to create permalink field in a tag?
-3 Deploy fr sanity studio and import content
+The blog project is based on Docusaurus, a modern static website generator. It is used to create and manage the blog section of the website.
+
+### Running the Blog Project
+
+To run the blog project in development mode, navigate to the `blog` directory and use the following command:
+
+```bash
+yarn start
+```
+
+This command will start a development server specifically for the blog project.
+
+### Building the Blog Project for Production
+
+To build the blog project for production, navigate to the `blog` directory and use the following command:
+
+```bash
+yarn build
+```
+
+---
+
+## Deployment
+
+This project is automatically deployed to [Netlify](https://www.netlify.com/) on every commit to the `main` branch.
+
+---
+
+## Issues and Bug Reports
+
+If you encounter any issues or want to report a bug, please [open an issue](https://github.com/focusreactive/focusreactive.com-site/issues).
+
+Happy coding!
