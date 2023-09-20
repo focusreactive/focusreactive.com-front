@@ -1,0 +1,13 @@
+<section class="content_hero is-dark js-scroll-header">
+  <div class="container">
+    <div
+      class="content_hero__bg"
+      style="background-image: url({{ fullWidthImageData.image | imgURL }})"
+    ></div>
+    <div class="content_hero__card text-center">
+      <h4 class="content_hero__card_title {{ 'colored' if fullWidthImageData.colored }}">
+        {{ fullWidthImageData.title }}
+      </h4>
+    </div>
+  </div>
+</section>
