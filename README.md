@@ -1,14 +1,14 @@
-# FocusReactive.com Repository
+# FocusReactive.com
 
-This repository contains two projects for the FocusReactive.com website: the main project and the blog project.
+This repository contains two projects for the FocusReactive.com website: the **Main** project and **Blog** project.
 
 ## Main Project
 
-The main project is based on 11ty, a static site generator. It is used to build the main pages of the website.
+Main project is based on 11ty, a static site generator. It is used to build main pages of the website.
 
-### Running the Main Project
+### Running Main Project
 
-To run the main project in development mode, use the following command:
+To run Main project in development mode, use the following command:
 
 ```bash
 yarn start
@@ -16,9 +16,9 @@ yarn start
 
 This command will start a development server and allow you to preview your changes in real-time.
 
-### Building the Main Project for Production
+### Building Main Project for Production
 
-To build the main project for production, use the following command:
+To build Main project for production, use the following command:
 
 ```bash
 yarn build
@@ -30,21 +30,21 @@ This command will generate optimized files for deployment.
 
 ## Blog Project
 
-The blog project is based on Docusaurus, a modern static website generator. It is used to create and manage the blog section of the website.
+The project is based on Docusaurus, a modern static website generator. It is used to create and manage the section of the website.
 
-### Running the Blog Project
+### Running Blog Project
 
-To run the blog project in development mode, navigate to the `blog` directory and use the following command:
+To run blog project in development mode, navigate to the `blog` directory and use the following command:
 
 ```bash
 yarn start
 ```
 
-This command will start a development server specifically for the blog project.
+This command will start a development server specifically for blog project.
 
-### Building the Blog Project for Production
+### Building Blog Project for Production
 
-To build the blog project for production, navigate to the `blog` directory and use the following command:
+To build blog project for production, navigate to the `blog` directory and use the following command:
 
 ```bash
 yarn build
