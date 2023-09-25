@@ -4,7 +4,7 @@ This repository contains two projects for the FocusReactive.com website: the **M
 
 ## Main Project
 
-Main project is based on 11ty, a static site generator. It is used to build main pages of the website.
+Main project is based on 11ty, a static site generator. It is used to build Main pages of the website.
 
 ### Running Main Project
 
@@ -40,11 +40,11 @@ To run blog project in development mode, navigate to the `blog` directory and us
 yarn start
 ```
 
-This command will start a development server specifically for blog project.
+This command will start a development server specifically for Blog project.
 
 ### Building Blog Project for Production
 
-To build blog project for production, navigate to the `blog` directory and use the following command:
+To build Blog project for production, navigate to the `blog` directory and use the following command:
 
 ```bash
 yarn build
