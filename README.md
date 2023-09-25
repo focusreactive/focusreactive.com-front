@@ -1,28 +1,65 @@
-# FocusReactive.com
+# FocusReactive.com Repository
 
-`yarn start`
+This repository contains two projects for the FocusReactive.com website: the main project and the blog project.
 
-open http://localhost:9000/
+## Main Project
 
-### stage
+The main project is based on 11ty, a static site generator. It is used to build the main pages of the website.
 
-http://staging.focusreactive.com/
+### Running the Main Project
 
-### prod
+To run the main project in development mode, use the following command:
 
-http://focusreactive.com/
+```bash
+yarn start
+```
 
+This command will start a development server and allow you to preview your changes in real-time.
 
-## develop
+### Building the Main Project for Production
 
-`yarn dev`
+To build the main project for production, use the following command:
 
-open http://localhost:8000/
+```bash
+yarn build
+```
 
->Note: jQuery scripts don't auto-launch in dev mode
+This command will generate optimized files for deployment.
 
-## Blog
+---
 
-studio https://fr-website.sanity.studio/desk
+## Blog Project
 
-2022
+The blog project is based on Docusaurus, a modern static website generator. It is used to create and manage the blog section of the website.
+
+### Running the Blog Project
+
+To run the blog project in development mode, navigate to the `blog` directory and use the following command:
+
+```bash
+yarn start
+```
+
+This command will start a development server specifically for the blog project.
+
+### Building the Blog Project for Production
+
+To build the blog project for production, navigate to the `blog` directory and use the following command:
+
+```bash
+yarn build
+```
+
+---
+
+## Deployment
+
+This project is automatically deployed to [Netlify](https://www.netlify.com/) on every commit to the `main` branch.
+
+---
+
+## Issues and Bug Reports
+
+If you encounter any issues or want to report a bug, please [open an issue](https://github.com/focusreactive/focusreactive.com-site/issues).
+
+Happy coding!
