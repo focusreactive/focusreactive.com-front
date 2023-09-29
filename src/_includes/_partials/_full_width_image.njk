@@ -1,10 +1,15 @@
 <section class="full-width-image js-scroll-header">
   <div class="container">
+  <figure>
     <img
       class="full-width-image__image"
       src="{{ fullWidthImageData.image | imgURL }}"
       loading="lazy"
     >
+    {% if fullWidthImageData.imageDescription %}
+      <figcaption>{{ fullWidthImageData.imageDescription }}</figcaption>
+    {% endif %}
+  </figure>
 
     <h4 class="full-width-image__text {{ 'colored' if fullWidthImageData.colored }} {{ 'shadow' if fullWidthImageData.titleShadow }}">
       {{ fullWidthImageData.title }}
