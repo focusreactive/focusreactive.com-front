@@ -2,7 +2,7 @@
   <div class="container">
     <h2>{{ introData.title }}</h2>
 
-    <div class="intro_text__content">
+    <div class="intro_text__content {{ 'hide-markers' if introData.hideListMarkers }}">
       {{ introData.richText | blockContent }}
     </div>
   </div>
