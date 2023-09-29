@@ -2,13 +2,14 @@
   <div class="container">
     <div class="content_2_col__col content_2_col__col_1">
       <h2>{{ columnsData.title }}</h2>
+      <div class="content_2_col__text {{ columnsData.textSize }}">
       {% for paragraph in columnsData.paragraphs %}
-      <p>{{ paragraph }}</p>
+        <p>{{ paragraph }}</p>
       {% endfor %}
+      </div>
     </div>
     <div class="content_2_col__col content_2_col__col_2">
       <img
-        width="320"
         src="{{ columnsData.image | imgURL }}"
         alt="{{ columnsData.title }}"
       />

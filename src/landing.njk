@@ -110,9 +110,9 @@ permalink:
 			{% include "_partials/_content-hero-small.html" %}
 		{% endif %}
 		{% if block._type === 'fullWidthImage' %}
-      {% set fullWidthImageData = block %}
-      {% include "_partials/_full_width_image.njk" %}
-    {% endif %}
+			{% set fullWidthImageData = block %}
+			{% include "_partials/_full_width_image.njk" %}
+		{% endif %}
 
 	{% endfor %}
 	{% include "_partials/_social.html" %}
