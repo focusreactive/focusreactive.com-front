@@ -10,9 +10,17 @@
 			</div>
 		{% endfor %}
 		</div>
-		<div class="counters__text">
-			<h2>{{ countersData.articleTitle }}</h2>
-			<p>{{ countersData.articleText }}</p>
-		</div>
+
+		{% if countersData.articleTitle or countersData.articleText %}
+			<div class="counters__text">
+				{% if countersData.articleTitle %}
+					<h2>{{ countersData.articleTitle }}</h2>
+				{% endif %}
+
+				{% if countersData.articleText %}
+					<p>{{ countersData.articleText }}</p>
+				{% endif %}
+			</div>
+		{% endif %}
 	</div>
 </section>
