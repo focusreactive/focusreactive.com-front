@@ -38,12 +38,19 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/js");
   eleventyConfig.addWatchTarget("src/sass");
 
-  let nunjucksEnvironment = new Nunjucks.Environment(
-    new Nunjucks.FileSystemLoader("src/_includes"),
-    {
-      autoescape: false,
-    }
-  );
+  eleventyConfig.addNunjucksShortcode("sectionClasses",  function (block) {
+    const sectionConfig = block?.sectionConfig;
+    if (!sectionConfig) return "";
+    const classes = [];
+    const { disableTopPadding, disableBottomPadding } = sectionConfig;
+    disableTopPadding && classes.push("pt-0");
+    disableBottomPadding && classes.push("pb-0");
+    return classes.join(" ");
+  });
+
+  let nunjucksEnvironment = new Nunjucks.Environment(new Nunjucks.FileSystemLoader("src/_includes"), {
+    autoescape: false,
+  });
 
   nunjucksEnvironment.addFilter("imgURL", function (value) {
     return builder.image(value).auto("format").url();
