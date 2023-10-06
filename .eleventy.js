@@ -3,11 +3,15 @@ const ClientObj = require("@sanity/client");
 const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
+const { buildFileUrl } = require("@sanity/asset-utils");
 require("dotenv").config();
 
+const PROJECT_ID = "vftxng62";
+const DATASET = "production";
+
 const client = ClientObj.createClient({
-  projectId: "vftxng62",
-  dataset: "production",
+  projectId: PROJECT_ID,
+  dataset: DATASET,
   token: process.env.SANITY_API_TOKEN,
   useCdn: true,
 });
@@ -38,7 +42,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("src/js");
   eleventyConfig.addWatchTarget("src/sass");
 
-  eleventyConfig.addNunjucksShortcode("sectionClasses",  function (block) {
+  eleventyConfig.addNunjucksShortcode("sectionClasses", function (block) {
     const sectionConfig = block?.sectionConfig;
     if (!sectionConfig) return "";
     const classes = [];
@@ -54,6 +58,11 @@ module.exports = function (eleventyConfig) {
 
   nunjucksEnvironment.addFilter("imgURL", function (value) {
     return builder.image(value).auto("format").url();
+  });
+
+  nunjucksEnvironment.addFilter("videoURL", (file) => {
+    const [assetId, extension] = file.asset._ref.replace("file-", "").split("-");
+    return buildFileUrl({ projectId: PROJECT_ID, dataset: DATASET, assetId, extension });
   });
 
   nunjucksEnvironment.addFilter("blockContent", function (value) {

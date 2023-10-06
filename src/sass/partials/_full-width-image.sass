@@ -3,18 +3,28 @@
 	position: relative
 
 	figcaption
+		max-width: 800px
+		margin: 0 auto
 		font-size: 24px
 		text-align: center
-		padding-top: 28px
+		padding-top: 34px
+
+		+s
+			margin-top: 20px
+			font-size: 16px
 
 	&__image
 		width: 100%
+		box-shadow: #c6c6c6 0 0 22px 3px
+
+		+s
+			box-shadow: #c6c6c6 0 0 10px 2px
 
 	&__text
 		position: absolute
 		top: 50%
 		left: 50%
-		transform: translate(-50%,-50%)
+		transform: translate(-50%, -50%)
 		font-size: clamp(52px, 10vw, 118px)
 		line-height: 1.2
 		letter-spacing: -0.02em

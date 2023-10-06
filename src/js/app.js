@@ -12,6 +12,7 @@ import { scrollDirection } from "./components/scollDirection.js";
 import { feedbackForm } from "./components/feedbackForm.js";
 import { accordion } from "./components/accordion.js";
 import { dropdownMenu } from "./components/dropdownMenu.js";
+import { video } from "./components/video.js";
 
 // For github buttons plugin
 require("es6-promise").polyfill();
@@ -37,6 +38,7 @@ const hydrateJs = () => {
 	feedbackForm();
 	accordion();
 	dropdownMenu();
+	video();
 };
 
 $(document).ready(hydrateJs);

@@ -113,6 +113,10 @@ permalink:
 			{% set fullWidthImageData = block %}
 			{% include "_partials/_full_width_image.njk" %}
 		{% endif %}
+		{% if block._type === 'fullWidthVideo' %}
+			{% set fullWidthVideoData = block %}
+			{% include "_partials/_full_width_video.html" %}
+		{% endif %}
 
 	{% endfor %}
 	{% include "_partials/_social.html" %}

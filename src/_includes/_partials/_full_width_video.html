@@ -1,0 +1,20 @@
+<section class="full-width-video {% sectionClasses fullWidthImageData %}">
+  <div class="container">
+    <figure>
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        title="{{ fullWidthVideoData.title }}"
+        poster="{{ fullWidthVideoData.placeholder | imgURL }}"
+      >
+        <source data-src="{{ fullWidthVideoData.video | videoURL }}" type="video/mp4" />
+      </video>
+
+      {% if fullWidthVideoData.description %}
+      <figcaption>{{ fullWidthVideoData.description }}</figcaption>
+      {% endif %}
+    </figure>
+  </div>
+</section>
