@@ -57,6 +57,7 @@ module.exports = function (eleventyConfig) {
   });
 
   nunjucksEnvironment.addFilter("imgURL", function (value) {
+    if (!value) return "";
     return builder.image(value).auto("format").url();
   });
 
