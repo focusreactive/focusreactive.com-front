@@ -61,6 +61,7 @@ module.exports = function (eleventyConfig) {
   });
 
   nunjucksEnvironment.addFilter("videoURL", (file) => {
+    if (!file?.asset?._ref) return "";
     const [assetId, extension] = file.asset._ref.replace("file-", "").split("-");
     return buildFileUrl({ projectId: PROJECT_ID, dataset: DATASET, assetId, extension });
   });
