@@ -68,6 +68,7 @@ module.exports = function (eleventyConfig) {
   });
 
   nunjucksEnvironment.addFilter("blockContent", function (value) {
+    if (!value) return "";
     return blocksToHtml({
       blocks: value,
     });
