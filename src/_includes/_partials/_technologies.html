@@ -1,15 +1,78 @@
-<section class="technologies is-dark js-scroll-header">
+{% set tech = [{
+image: '/assets/img/tech/vercel.svg',
+title: 'Vercel',
+link: '#',
+description: 'Built on cutting-edge serverless technology, Vercel can withstand any traffic spike, with automatic failover and global replication of assets.'
+},
+{
+image: '/assets/img/tech/vue.svg',
+title: 'Vue.js',
+link: null,
+description: 'An approachable, performant and versatile framework for building web user interfaces.Builds on top of standard HTML, CSS and JavaScript with intuitive API and world-class documentation.'
+},
+{
+image: '/assets/img/tech/svelte.svg',
+title: 'Svelte',
+link: null,
+description: 'Shifts as much work as possible out of the browser and into your build step. No more manual optimisations — just faster, more efficient apps.'
+},
+{
+image: '/assets/img/tech/next.svg',
+title: 'Next.js',
+link: null,
+description: 'Enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.'
+},
+{
+image: '/assets/img/tech/angular.svg',
+title: 'Angular',
+link: '#',
+description: 'The web development framework for building the future. Angular lets you start small and supports you as your team and apps grow.'
+},{
+image: '/assets/img/tech/react.svg',
+title: 'react',
+link: '#',
+description: 'The library for web and native user interfaces. React lets you build user interfaces out of individual pieces called components.'
+},{
+image: '/assets/img/tech/node.svg',
+title: 'Node.js',
+link: null,
+description: 'Enables you to create full-stack Web applications by extending the latest React features, and integrating powerful Rust-based JavaScript tooling for the fastest builds.'
+},{
+image: '/assets/img/tech/nuxt.svg',
+title: 'Nuxt',
+link: null,
+description: 'Kickstart your projectwith a starter. Open a Nuxt starter on CodeSandbox, StackBlitz or locally to get up and running in a few seconds.'
+},{
+image: '/assets/img/tech/vercel.svg',
+title: 'react',
+link: null,
+description: 'The library for web and native user interfaces. React lets you build user interfaces out of individual pieces called components.'
+}] %}
+
+<section class="sec-technologies is-light js-scroll-header">
 	<div class="container">
-		<h2 class="technologies__title text--border-light">{{ technologiesData.title }}</h2>
-		<div class="technologies__cards">
-		{% for item in technologiesData.elements %}
-			<div class="technologies__card">
-				<div class="technologies__card_image">
-					<img width="55" src="{{ item.image | imgURL }}" alt="{{ item.title }}"/>
+		<h2 class="sec-technologies__title ">PROJECT TECH STACK</h2>
+		<div class="technologies">
+			{% for item in tech %}
+			<div class="technologies__item">
+				<div class="technologies__logo">
+					<img src="{{item.image}}" alt="{{item.title}}" />
 				</div>
-				<h4 class="technologies__card_title">{{ item.title }}</h4>
+				<h4 class="technologies__title">
+					{% if item.link %}
+					<a href="{{item.link}}" class="technologies__link">
+						<span>{{item.title}}</span>
+						<svg class="icon icon-permalink" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+							<path d="M5.5 2.5H2.5C1.67157 2.5 1 3.17157 1 4V11.5C1 12.3284 1.67157 13 2.5 13H10C10.8284 13 11.5 12.3284 11.5 11.5V8.5M8.5 1H13M13 1V5.5M13 1L5.5 8.5" stroke-linecap="round" stroke-linejoin="round" />
+						</svg>
+					</a>
+					{% else %}
+					<span>{{item.title}}</span>
+					{% endif %}
+				</h4>
+				<div class="technologies__text">{{item.description}}</div>
 			</div>
-		{% endfor %}
+			{% endfor %}
 		</div>
 	</div>
 </section>

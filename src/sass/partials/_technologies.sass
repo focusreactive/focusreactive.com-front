@@ -1,53 +1,93 @@
-.technologies
-	padding: 120px 0
+.sec-technologies
+	padding: 100px 0
 	overflow: hidden
-	text-align: center
-
-	+s
-		padding: 120px 0
+	+sm
+		padding: 60px 0
 
 	&__title
-
-		font-size: 80px
-		letter-spacing: 0.03em
+		text-align: center
+		font-size: 28px
+		font-weight: 700
 		text-transform: uppercase
 		+helB
+		color: $black
 		margin-bottom: 70px
+		+md
+			font-size: 22px
+			margin-bottom: 50px
+		+xs
+			font-size: 18px
+			margin-bottom: 30px
 
+.technologies
+	display: flex
+	flex-wrap: wrap
+	position: relative
+	+s
+		margin-left: -31px
+		margin-right: -31px
+	+xs
+		margin-left: -21px
+		margin-right: -21px
+
+	&__item
+		width: calc(33.33% + 1px)
+		border: 1px solid #E8E8E8
+		margin-right: -1px
+		margin-top: -1px
+		padding: 40px 40px 30px
+		+m
+			padding: 30px
+		+s
+			padding: 24px 30px
 		+sm
-			font-size: 32px
-			margin-bottom: 40px
-
-	&__cards
-		display: flex
-		justify-content: center
-		flex-wrap: wrap
-		align-items: stretch
-
-		+sm
-			justify-content: space-around
-
-	&__card
-		display: flex
-		flex-direction: column
-		padding: 0 2vw 30px
-
-		+sm
-			width: 33.333%
-
-	&__card_image
-		flex-grow: 1
+			width: calc(50% + 1px)
+		+xs
+			padding: 20px
+			width: 100%
+			margin-right: 0
+	&__logo
+		height: 70px
 		display: flex
 		align-items: center
-		justify-content: center
-
+		margin-bottom: 60px
+		+m
+			margin-bottom: 40px
+			height: 60px
+		+s
+			height: 50px
+			margin-bottom: 30px
 		img
-			max-width: 100%
-			height: auto
+			max-width: 200px
+			max-height: 100%
+			+m
+				max-width: 160px
+			+s
+				max-width: 120px
 
-	&__card_title
-		font-size: 12px
-		color: #fff
+	&__title
 		text-transform: uppercase
+		margin-bottom: 15px
+		color: #313131
+		span
+			display: inline-block
+			vertical-align: middle
+	&__link
+		text-decoration: none
+		color: inherit
+
+		.icon
+			display: inline-block
+			vertical-align: middle
+			stroke: #313131
+			font-size: 12px
+			margin-left: 5px
+			position: relative
+			top: -1px
+		&:hover
+			color: $greenD
+
+	&__text
+		color: #313131
+		font-size: 12px
 		font-weight: 400
-		padding-top: 20px
