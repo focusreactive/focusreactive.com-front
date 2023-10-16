@@ -105,6 +105,10 @@ permalink:
 			{% set technologiesData = block %}
 			{% include "_partials/_technologies.html" %}
 		{% endif %}
+		{% if block._type === 'techStack' %}
+			{% set techStack = block %}
+			{% include "_partials/_tech-stack.html" %}
+		{% endif %}
 		{% if block._type === 'heroContentSmall' %}
 			{% set heroContentSmallData = block %}
 			{% include "_partials/_content-hero-small.html" %}
