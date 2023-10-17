@@ -38,7 +38,7 @@ const hydrateJs = () => {
 	feedbackForm();
 	accordion();
 	dropdownMenu();
-	video();
+	// video();
 };
 
 $(document).ready(hydrateJs);

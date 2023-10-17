@@ -18,7 +18,7 @@
         title="{{ columnsData.title }}"
         poster="{{ columnsData.image | imgURL }}"
       >
-        <source data-src="{{ columnsData.video | videoURL }}" type="video/mp4" />
+        <source src="{{ columnsData.video | videoURL }}" type="video/mp4" />
       </video>
       {% else %}
       <img src="{{ columnsData.image | imgURL }}" alt="{{ columnsData.title }}" />
