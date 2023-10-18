@@ -1,22 +1,21 @@
 .reviews
-	padding: 200px 0 145px
+	padding: 100px 0 100px
 
 	&.is-light
 		background-color: #f8f8f8
 
 	+md
-		padding: 120px 0 60px
+		padding: 80px 0
+	+sm
+		padding: 60px 0
 
 	&__title
 		color: #f8f8f8
-		font-size: 100px
+		font-size: 60px
 		letter-spacing: 0.03em
 		font-weight: 400
 		margin-bottom: 60px
 		text-transform: uppercase
-
-		+lg
-			font-size: 60px
 
 		+sm
 			font-size: 38px
@@ -48,6 +47,9 @@
 
 		+sm
 			max-width: 375px
+
+		&:last-child
+			padding-bottom: 0
 
 	&__card_image
 		background-position: 50% 50%
