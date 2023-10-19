@@ -1,29 +1,18 @@
 .clients
-	padding: 193px 0 20px
-
-	+md
-		padding: 140px 0 20px
+	padding: 100px 0 20px
 
 	&__footer
 		margin: 50px auto
 
 	&__title
-		font-size: 75px
+		font-size: 60px
 		text-transform: uppercase
 		text-align: center
 		line-height: 1
-		max-width: 1200px
-		padding: 0 20px
-		margin: 0 auto
-		font-weight: 400
-		opacity: 0.8
-		color: transparent
-		-webkit-background-clip: text
-		-webkit-text-stroke: 2px #454545
-		// text-shadow: 2px -2px 0 #454545, 2px 0px 0 #454545, 2px 2px 0 #454545, 0px 2px 0 #454545, -2px 2px 0 #454545, -2px 0px 0 #454545, -2px -2px 0 #454545, 0px -2px 0 #454545
-
+		margin-bottom: 60px
 		+md
-			font-size: 60px
+			font-size: 50px
+			margin-bottom: 45px
 
 		+xs
 			font-size: 38px
@@ -45,8 +34,11 @@
 
 .clients-cases
 	padding: 0
-	margin: 92px 0 50px
+	margin: 60px 0 50px
 	list-style: none
+	+sm
+		margin-top: 40px
+		margin-bottom: 40px
 
 	&__item
 		margin: 0 0 0
@@ -59,10 +51,13 @@
 			+m
 				flex-direction: column
 
-
 	&__left
 		flex: 1 1 50%
+		max-width: 50%
 		padding: 0 50px 0 0
+		+m
+			max-width: 100%
+			padding-right: 80px
 
 	&__right
 		flex: 1 1 50%
@@ -71,9 +66,7 @@
 			margin: 20px 0 0
 
 	&__name
-		font-size: 56px
-		max-width: 480px
-		line-height: 1.2
+		font-size: clamp(40px, 3.2vw, 56px)
 		color: #fff
 		text-transform: uppercase
 		line-height: 1
@@ -82,20 +75,17 @@
 		color: transparent
 		-webkit-background-clip: text
 		-webkit-text-stroke: 2px #454545
-		// text-shadow: 2px -2px 0 #454545, 2px 0px 0 #454545, 2px 2px 0 #454545, 0px 2px 0 #454545, -2px 2px 0 #454545, -2px 0px 0 #454545, -2px -2px 0 #454545, 0px -2px 0 #454545
+
 		letter-spacing: 1px
 
 		+m
 			max-width: none
-
-		+sm
-			font-size: 46px
 			-webkit-text-stroke-width: 0
-			color: #454545
+			color: #000
 			font-weight: 600
 
 		+xs
-			font-size: 32px
+			font-size: 28px
 
 	&__title
 		+helB
@@ -145,16 +135,15 @@
 				display: none
 
 .clients-acordion
-	padding: 0 50px
-
-	+s
-		padding: 0
 
 	&__item
 		position: relative
 		cursor: pointer
 		border-color: #D6D6D6
-		padding: 0	
+		padding: 0 50px
+
+		+s
+			padding: 0
 
 		&:not(.active):hover
 
@@ -164,41 +153,49 @@
 			.clients-cases__name
 				color: #fff
 				-webkit-text-stroke-color: #fff
-			.clients-acordion__item_trigger:before 
+			.clients-acordion__item_trigger:before
 				text-shadow: 1px -1px 0 #fff, 1px 0px 0 #fff, 1px 1px 0 #fff, 0px 1px 0 #fff, -1px 1px 0 #fff, -1px 0px 0 #fff, -1px -1px 0 #fff, 0px -1px 0 #fff
-				
+
 		&.active
-			.clients-acordion__item_trigger:before 
+			.clients-acordion__item_trigger:before
 				content: '-'
 				color: #181818
 				text-shadow: 1px -1px 0 #181818, 1px 0px 0 #181818, 1px 1px 0 #181818, 0px 1px 0 #181818, -1px 1px 0 #181818, -1px 0px 0 #181818, -1px -1px 0 #181818, 0px -1px 0 #181818
 
-	&__item_inner 
+	&__item_inner
 		margin: 0 -50px
 		padding: 42px 0
 
 		+s
 			margin: 0
+			padding: 30px 0
+		+sm
+			padding: 20px 0
 
 	&__item_trigger
 		position: absolute
 		right: 50px
-		top: 30px
+		top: 40px
 		min-width: 30px
 		text-align: center
 		font-size: 50px
+		line-height: 1
 
 		&:before
 			content: '+'
 			text-shadow: 1px -1px 0 #454545, 1px 0px 0 #454545, 1px 1px 0 #454545, 0px 1px 0 #454545, -1px 1px 0 #454545, -1px 0px 0 #454545, -1px -1px 0 #454545, 0px -1px 0 #454545
 			color: #fff
-			
+			display: block
+		+m
+			top: 32px
+			right: 15px
+		+s
+			top: 20px
 		+sm
-			top: 25px
+			top: 9px
 
 		+xs
-			right: 30px
-			top: 16px
+			top: 5px
 
 	.clients-cases__right
 		display: none

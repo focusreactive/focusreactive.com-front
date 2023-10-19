@@ -1,18 +1,20 @@
 .teasers
-	padding: 100px 0 145px
+	padding: 80px 0
 
 	+md
-		padding: 60px 0 80px
+		padding: 60px 0
 
 	&__title
-		font-size: 80px
+		font-size: 60px
 		line-height: 1.2
 		margin-bottom: 60px
 		text-transform: uppercase
-
-		+s
-			font-size: 36px
+		+md
+			font-size: 50px
 			margin-bottom: 45px
+
+		+xs
+			font-size: 38px
 
 	&__cards
 		align-items: flex-start
@@ -20,12 +22,12 @@
 		flex-wrap: wrap
 		justify-content: center
 		max-width: 1440px
-
+		gap: 45px 0
 		+sm
-			display: block
+			flex-direction: column
 
 	&__card
-		padding: 0 3vw 45px
+		padding: 0 3vw 0
 		max-width: 33.333%
 		width: 100%
 
@@ -35,17 +37,11 @@
 
 		+s
 			max-width: 50%
-			padding-left: 40px
-			padding-right: 40px
 
 		+sm
-			padding-left: 50px
-			padding-right: 50px
-			max-width: 375px
-			margin-left: auto
-			margin-right: auto
-			padding: 0 25px 45px
-
+			padding-left: 0
+			padding-right: 0
+			max-width: 100%
 	&__card_image
 		align-items: center
 		display: flex

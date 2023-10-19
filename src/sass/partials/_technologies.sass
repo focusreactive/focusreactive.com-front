@@ -3,46 +3,53 @@
 	overflow: hidden
 	text-align: center
 
-	+s
-		padding: 120px 0
+	+sm
+		padding: 60px 0
 
 	&__title
 
-		font-size: 80px
+		font-size: 60px
 		letter-spacing: 0.03em
 		text-transform: uppercase
 		+helB
-		margin-bottom: 70px
+		line-height: 1
+		margin-bottom: 60px
+		+md
+			font-size: 50px
+			margin-bottom: 45px
 
-		+sm
+		+xs
 			font-size: 32px
-			margin-bottom: 40px
 
 	&__cards
 		display: flex
 		justify-content: center
 		flex-wrap: wrap
 		align-items: stretch
-
+		gap: 30px
 		+sm
-			justify-content: space-around
+			gap: 20px 15px
 
 	&__card
 		display: flex
+		width: 110px
 		flex-direction: column
-		padding: 0 2vw 30px
-
+		text-align: center
 		+sm
-			width: 33.333%
+			width: 80px
 
 	&__card_image
 		flex-grow: 1
 		display: flex
 		align-items: center
 		justify-content: center
-
+		height: 60px
+		+sm
+			height: 40px
 		img
 			max-width: 100%
+			width: auto
+			max-height: 100%
 			height: auto
 
 	&__card_title
@@ -51,3 +58,6 @@
 		text-transform: uppercase
 		font-weight: 400
 		padding-top: 20px
+		+sm
+			padding-top: 15px
+			font-size: 10px

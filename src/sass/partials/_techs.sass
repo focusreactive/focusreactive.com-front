@@ -5,7 +5,8 @@
 
     +md
         padding: 32px 0 50px
-
+    .title
+        text-align: center !important
     .subtitle
         text-transform: uppercase
         +helB
@@ -30,12 +31,12 @@
             font-size: 7.4vw
 
         +xs
-            text-align: left
+
             text-shadow: none
             -webkit-text-stroke-width: 0
             color: $white
             opacity: 1
-            margin: 12px 0
+            margin: 12px 0 30px
             margin-left: 0
             line-height: 1.2
             letter-spacing: -0.05em
@@ -44,24 +45,23 @@
                 display: none
 
 .techs-block
-
-    &__section
-        margin: 90px 0 0
-
-        +xs
-            margin: 40px 0 0
+    display: flex
+    flex-direction: column
+    gap: 60px 0
+    align-content: stretch
 
     &__title
         text-transform: uppercase
         text-align: center
         font-size: 12px
         color: $green
+        margin-bottom: 20px
 
 .techs-list
     display: flex
     justify-content: center
     flex-wrap: wrap
-    margin: 70px 0
+
     gap: 20px 50px
 
     +md
