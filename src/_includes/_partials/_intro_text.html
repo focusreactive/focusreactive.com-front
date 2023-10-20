@@ -1,9 +1,11 @@
-<section class="intro_text is-light js-scroll-header {{ introData.textSize }} {% sectionClasses introData %}">
+<section
+  class="intro_text is-light js-scroll-header {{ introData.textSize }} pos-{{ introData.position }} {% sectionClasses introData %}"
+>
   <div class="container">
     <h2>{{ introData.title }}</h2>
 
     <div class="intro_text__content {{ 'hide-markers' if introData.hideListMarkers }}">
       {{ introData.richText | blockContent }}
-    </div> 
+    </div>
   </div>
 </section>
