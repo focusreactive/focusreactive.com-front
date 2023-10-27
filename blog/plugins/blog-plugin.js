@@ -151,43 +151,6 @@ async function blogPluginExtended(...pluginArgs) {
           }),
         );
 
-        if ('developMode') {
-          res.posts = [res.posts[0]];
-          res.posts[0].content = `
-Let’s say we have a such hierarchy for representing a eCommerce part. We have a Brand type for representing different brands. Let’s say that Brand is a root level in our hierarchy. Each Brand represents their products not directly but with a list of collections. So Brand content type should have an array with references to a Collection documents. Collection already contain a list of Production of that collections. Yep I know in real life a product can be added to a different collections and collections shouldn’t belong to only one brand. But for simplicity let’s stick with exaggerated model.
-
-Except eCommerce part we would like to have some landing pages with arbitrary content in our website. For that we will create a Landing content type which alongside obvious fields like title, slug and other SEO parameters will have an array of nested objects for content block. Content blocks is a generic name for several content types containing content of a specific type to be inserted on a page.
-
-\`\`\`graphql
-query FilterPaginationSorting {
-  ProductItems(filter_query_v2: {rating: {gt_int: 5}}, search_term: "Truffles") {
-    items {
-      content {
-        Name
-        rating
-      }
-    }
-  }
-}
-\`\`\`
-
-Except eCommerce part we would like to have some landing pages with arbitrary content in our website. For that we will create a Landing content type which alongside obvious fields like title, slug and other SEO parameters will have an array of nested objects for content block. Content blocks is a generic name for several content types containing content of a specific type to be inserted on a page.
-
-\`\`\`graphiql{"api":"fr1Hygraph"}
-query FilterPaginationSorting {
-  ProductItems(filter_query_v2: {rating: {gt_int: 5}}, search_term: "Truffles") {
-    items {
-      content {
-        Name
-        rating
-      }
-    }
-  }
-}
-\`\`\`
-          `;
-        }
-
         for (const post of res.posts) {
           post.tags = post.tags.map(
             (tag) => normalizeFrontMatterTag(blogTagsListPath, tag), // TODO implement on sanity side?
@@ -195,7 +158,6 @@ query FilterPaginationSorting {
         }
 
         for (const post of res.posts) {
-          console.log('🚀 ~ file: blog-plugin.js:143 ~ post:', post);
           const slug = '/' + post.slug; //TODO
           const relatedPosts = getRelatedPosts(res.posts, post);
 
