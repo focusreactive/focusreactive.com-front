@@ -173,8 +173,7 @@ query FilterPaginationSorting {
 
 Except eCommerce part we would like to have some landing pages with arbitrary content in our website. For that we will create a Landing content type which alongside obvious fields like title, slug and other SEO parameters will have an array of nested objects for content block. Content blocks is a generic name for several content types containing content of a specific type to be inserted on a page.
 
-\`\`\`graphiql
-# api=f1Hygraph
+\`\`\`graphiql{"api":"fr1Hygraph"}
 query FilterPaginationSorting {
   ProductItems(filter_query_v2: {rating: {gt_int: 5}}, search_term: "Truffles") {
     items {
