@@ -1,11 +1,11 @@
 <!-- begin techs -->
 <section id="techs" data-section="techs" class="techs is-dark js-scroll-header">
-	<div class="container">
+    <div class="container">
         {% if techsTitle %}
-            <h3 class="title title--light title--xs">{{techsTitle}}</h3>
+        <h3 class="title title--light title--xs">{{techsTitle}}</h3>
         {% endif %}
         {% if techsSubTitle %}
-            <h4 class="subtitle">{{techsSubTitle}}</h4>
+        <h4 class="subtitle">{{techsSubTitle}}</h4>
         {% endif %}
 
         <div class="techs-block">
@@ -16,7 +16,7 @@
                 <ul class="techs-list">
                     {% for logo in section.list %}
                     <li class="techs-list__item">
-                        <a class="techs-list__link" href="{{logo.link}}">
+                        <a class="techs-list__link" href="{{logo.link}}" target="_blank">
                             <img class="techs-list__img" src="{{ logo.src }}" alt="{{ logo.title }}" width="{{logo.width}}">
                         </a>
                         {% if logo.isPartner %}
@@ -28,6 +28,6 @@
             </div>
             {% endfor %}
         </div>
-	</div>
+    </div>
 </section>
 <!-- end techs -->
