@@ -1,31 +1,37 @@
-const blogPluginExports = require("@docusaurus/plugin-content-blog");
-const { getBlogTags } = require("@docusaurus/plugin-content-blog/lib/blogUtils");
-const utils = require("@docusaurus/utils");
-const path = require("path");
-const { stringify } = require("yaml");
-const os = require("os");
+const blogPluginExports = require('@docusaurus/plugin-content-blog');
+const {
+  getBlogTags,
+} = require('@docusaurus/plugin-content-blog/lib/blogUtils');
+const utils = require('@docusaurus/utils');
+const path = require('path');
+const { stringify } = require('yaml');
+const os = require('os');
 const defaultBlogPlugin = blogPluginExports.default;
-const normalizeFrontMatterTag = require("../utils/normalizeFrontMatterTag.ts");
-const sanityClient = require("@sanity/client");
+const normalizeFrontMatterTag = require('../utils/normalizeFrontMatterTag.ts');
+const sanityClient = require('@sanity/client');
 
 const client = sanityClient({
-  projectId: "vftxng62",
-  dataset: "production",
-  apiVersion: "2022-11-21", // use current UTC date - see "specifying API version"!
-  token: "", // or leave blank for unauthenticated usage
+  projectId: 'vftxng62',
+  dataset: 'production',
+  apiVersion: '2022-11-21', // use current UTC date - see "specifying API version"!
+  token: '', // or leave blank for unauthenticated usage
   useCdn: false, // `false` if you want to ensure fresh data
 });
 
-const pluginDataDirRoot = path.join(".docusaurus", "docusaurus-plugin-content-blog");
-const aliasedSource = (source) => `~blog/${utils.posixPath(path.relative(pluginDataDirRoot, source))}`;
+const pluginDataDirRoot = path.join(
+  '.docusaurus',
+  'docusaurus-plugin-content-blog',
+);
+const aliasedSource = (source) =>
+  `~blog/${utils.posixPath(path.relative(pluginDataDirRoot, source))}`;
 
 function formatBlogPostDate(locale, date, calendar) {
   try {
     return new Intl.DateTimeFormat(locale, {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-      timeZone: "UTC",
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric',
+      timeZone: 'UTC',
     }).format(new Date(date));
   } catch (err) {
     logger_1.default.error`Can't format blog post date "${String(date)}"`;
@@ -33,19 +39,28 @@ function formatBlogPostDate(locale, date, calendar) {
   }
 }
 
-function paginateBlogPosts({ blogPosts, basePageUrl, blogTitle, blogDescription }) {
+function paginateBlogPosts({
+  blogPosts,
+  basePageUrl,
+  blogTitle,
+  blogDescription,
+}) {
   const totalCount = blogPosts.length;
   const postsPerPage = totalCount;
   const numberOfPages = Math.ceil(totalCount / postsPerPage);
   const pages = [];
 
   function permalink(page) {
-    return page > 0 ? utils.normalizeUrl([basePageUrl, `page/${page + 1}`]) : basePageUrl;
+    return page > 0
+      ? utils.normalizeUrl([basePageUrl, `page/${page + 1}`])
+      : basePageUrl;
   }
 
   for (let page = 0; page < numberOfPages; page += 1) {
     pages.push({
-      items: blogPosts.slice(page * postsPerPage, (page + 1) * postsPerPage).map((item) => item.id),
+      items: blogPosts
+        .slice(page * postsPerPage, (page + 1) * postsPerPage)
+        .map((item) => item.id),
       metadata: {
         permalink: permalink(page),
         page: page + 1,
@@ -66,29 +81,32 @@ function paginateBlogPosts({ blogPosts, basePageUrl, blogTitle, blogDescription 
 function getRelatedPosts(allBlogPosts, currentPost) {
   const relatedPosts = allBlogPosts.filter(
     (post) =>
-      post.tags.some((postTag) => currentPost.tags.some((currentPostTag) => postTag.label === currentPostTag.label)) &&
-      post.title !== currentPost.title
+      post.tags.some((postTag) =>
+        currentPost.tags.some(
+          (currentPostTag) => postTag.label === currentPostTag.label,
+        ),
+      ) && post.title !== currentPost.title,
   );
 
   return relatedPosts.map((post) => ({
     title: post.title,
-    permalink: "/" + post.slug,
+    permalink: '/' + post.slug,
     authors: post.authors,
     tags: post.tags,
   }));
 }
 
 async function blogPluginExtended(...pluginArgs) {
-  pluginArgs[1].routeBasePath = "/"; // Serve the blogPosts at the site's root
+  pluginArgs[1].routeBasePath = '/'; // Serve the blogPosts at the site's root
 
-  const postsPerPageOption = "ALL";
-  const blogTagsListPath = "/tags";
+  const postsPerPageOption = 'ALL';
+  const blogTagsListPath = '/tags';
   const blogPluginInstance = await defaultBlogPlugin(...pluginArgs);
   const { blogTitle, blogDescription } = pluginArgs[1];
   const authorsMap = [];
 
   return {
-    name: "docusaurus-plugin-content-blog",
+    name: 'docusaurus-plugin-content-blog',
     // Add all properties of the default blog plugin so existing functionality is preserved
     ...blogPluginInstance,
     /**
@@ -119,7 +137,7 @@ async function blogPluginExtended(...pluginArgs) {
 
         const indexQuery = `{
         "posts": *[_type == "post"] | order(date desc, _updatedAt desc) {${postFields}},
-        "authors": *[_type == "author"] {${authorFields}},       
+        "authors": *[_type == "author"] {${authorFields}},
       }`;
 
         const res = await client.fetch(indexQuery, {});
@@ -130,24 +148,24 @@ async function blogPluginExtended(...pluginArgs) {
             name: author.name,
             about: author.about,
             picture: author.picture,
-          })
+          }),
         );
 
         for (const post of res.posts) {
           post.tags = post.tags.map(
-            (tag) => normalizeFrontMatterTag(blogTagsListPath, tag) // TODO implement on sanity side?
+            (tag) => normalizeFrontMatterTag(blogTagsListPath, tag), // TODO implement on sanity side?
           );
         }
 
         for (const post of res.posts) {
-          const slug = "/" + post.slug; //TODO
+          const slug = '/' + post.slug; //TODO
           const relatedPosts = getRelatedPosts(res.posts, post);
 
           blogPosts.push({
             id: slug,
             metadata: {
               permalink: slug,
-              source: "temp",
+              source: 'temp',
               title: post.title,
               description: post.description,
               tags: post.tags,
@@ -158,12 +176,12 @@ async function blogPluginExtended(...pluginArgs) {
             ...post,
             slug,
             mdx:
-              "---" +
+              '---' +
               os.EOL +
               stringify({
                 ...post,
                 content: undefined,
-                formattedDate: formatBlogPostDate("en-US", post.date),
+                formattedDate: formatBlogPostDate('en-US', post.date),
                 heroImage: post.heroImage,
                 authors: post.authors,
                 slug,
@@ -171,7 +189,7 @@ async function blogPluginExtended(...pluginArgs) {
                 authorsMap,
                 tags: post.tags,
               }) +
-              "---" +
+              '---' +
               os.EOL +
               post.content,
           });
@@ -181,7 +199,7 @@ async function blogPluginExtended(...pluginArgs) {
       }
       return {
         blogPosts,
-        blogSidebarTitle: "none",
+        blogSidebarTitle: 'none',
         blogListPaginated: [],
         blogTags: getBlogTags({ blogPosts, postsPerPageOption }),
         blogTagsListPath,
@@ -192,7 +210,11 @@ async function blogPluginExtended(...pluginArgs) {
       const { content: blogContents, actions } = data;
       const { addRoute, createData } = actions;
       const blogItemsToMetadata = {};
-      const { blogPosts: allBlogPosts, blogTags, blogTagsListPath } = blogContents;
+      const {
+        blogPosts: allBlogPosts,
+        blogTags,
+        blogTagsListPath,
+      } = blogContents;
 
       function blogPostItemsModule(items) {
         return items.map((postId) => {
@@ -210,11 +232,13 @@ async function blogPluginExtended(...pluginArgs) {
         });
       }
 
-      const blogPosts = allBlogPosts.filter((post) => post.metadata.frontMatter.is_featured !== true);
+      const blogPosts = allBlogPosts.filter(
+        (post) => post.metadata.frontMatter.is_featured !== true,
+      );
 
       const blogListPaginated = paginateBlogPosts({
         blogPosts,
-        basePageUrl: "/blog",
+        basePageUrl: '/blog',
         blogTitle,
         blogDescription,
         postsPerPageOption,
@@ -225,13 +249,16 @@ async function blogPluginExtended(...pluginArgs) {
         allBlogPosts.map(async (blogPost) => {
           const { id, metadata } = blogPost;
 
-          const contentPath = await createData(`${utils.docuHash(id)}.mdx`, blogPost.mdx);
+          const contentPath = await createData(
+            `${utils.docuHash(id)}.mdx`,
+            blogPost.mdx,
+          );
 
           metadata.source = contentPath;
 
           addRoute({
             path: metadata.permalink,
-            component: "@theme/BlogPostPage",
+            component: '@theme/BlogPostPage',
             exact: true,
             modules: {
               content: contentPath,
@@ -239,7 +266,7 @@ async function blogPluginExtended(...pluginArgs) {
           });
 
           blogItemsToMetadata[id] = metadata;
-        })
+        }),
       );
 
       const tagsProp = Object.values(blogTags).map((tag) => ({
@@ -250,13 +277,13 @@ async function blogPluginExtended(...pluginArgs) {
 
       const tagsPropPath = await createData(
         `${utils.docuHash(`${blogTagsListPath}-tags`)}.json`,
-        JSON.stringify(tagsProp, null, 2)
+        JSON.stringify(tagsProp, null, 2),
       );
 
       async function createTagsListPage() {
         addRoute({
           path: blogTagsListPath,
-          component: "@theme/BlogTagsListPage",
+          component: '@theme/BlogTagsListPage',
           exact: true,
           modules: {
             tags: aliasedSource(tagsPropPath),
@@ -272,12 +299,12 @@ async function blogPluginExtended(...pluginArgs) {
 
           const pageMetadataPath = await createData(
             `${utils.docuHash(permalink)}.json`,
-            JSON.stringify(metadata, null, 2)
+            JSON.stringify(metadata, null, 2),
           );
 
           addRoute({
             path: permalink,
-            component: "@theme/BlogListPage",
+            component: '@theme/BlogListPage',
             exact: true,
             modules: {
               items: blogPostItemsModule(items),
@@ -285,7 +312,7 @@ async function blogPluginExtended(...pluginArgs) {
               tags: tagsPropPath,
             },
           });
-        })
+        }),
       );
 
       authorsMap.map(async (author) => {
@@ -298,7 +325,7 @@ async function blogPluginExtended(...pluginArgs) {
 
         const authorListPaginated = paginateBlogPosts({
           blogPosts: authorPosts,
-          basePageUrl: "/blog/author/" + authorId,
+          basePageUrl: '/blog/author/' + authorId,
           blogTitle,
           blogDescription,
           postsPerPageOption,
@@ -310,7 +337,7 @@ async function blogPluginExtended(...pluginArgs) {
 
           addRoute({
             path: permalink,
-            component: "@site/src/components/AuthorPage",
+            component: '@site/src/components/AuthorPage',
             exact: true,
             authorName: authorName,
             modules: {
@@ -339,17 +366,17 @@ async function blogPluginExtended(...pluginArgs) {
 
             const tagPropPath = await createData(
               `${utils.docuHash(metadata.permalink)}.json`,
-              JSON.stringify(tagProp, null, 2)
+              JSON.stringify(tagProp, null, 2),
             );
 
             const listMetadataPath = await createData(
               `${utils.docuHash(metadata.permalink)}-list.json`,
-              JSON.stringify(metadata, null, 2)
+              JSON.stringify(metadata, null, 2),
             );
 
             addRoute({
               path: metadata.permalink,
-              component: "@theme/BlogTagsPostsPage",
+              component: '@theme/BlogTagsPostsPage',
               exact: true,
               modules: {
                 items: blogPostItemsModule(items),
@@ -357,7 +384,7 @@ async function blogPluginExtended(...pluginArgs) {
                 listMetadata: aliasedSource(listMetadataPath),
               },
             });
-          })
+          }),
         );
       }
 
@@ -369,7 +396,7 @@ async function blogPluginExtended(...pluginArgs) {
         headTags: [
           {
             async: true,
-            tagName: "script",
+            tagName: 'script',
             innerHTML: `
                (function (h, o, t, j, a, r) {
                 h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
@@ -383,7 +410,7 @@ async function blogPluginExtended(...pluginArgs) {
           },
           {
             async: true,
-            tagName: "script",
+            tagName: 'script',
             innerHTML: `
                var _gauges = _gauges || [];
                   (function () {
@@ -400,10 +427,10 @@ async function blogPluginExtended(...pluginArgs) {
              `,
           },
           {
-            tagName: "script",
+            tagName: 'script',
             attributes: {
               async: true,
-              src: "https://widget.clutch.co/static/js/widget.js",
+              src: 'https://widget.clutch.co/static/js/widget.js',
             },
           },
         ],
