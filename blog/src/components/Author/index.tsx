@@ -31,39 +31,46 @@ const Author = ({
 	avatarSize,
 	isItSignature,
 	about,
-}: AuthorProps) => (
-	<div className={styles.author}>
-		<div className={styles["author__img-wrap"]}>
-			<Avatar
-				src={`${picture}?w=${avatarSize === "big" ? "160" : "90"}`}
-				alt={name}
-				avatarSize={avatarSize}
-			/>
-		</div>
-		<div className={styles.author__desc}>
-			<Link to={`/blog/author/${id}`}>
+}: AuthorProps) => {
+	const aboutText = about.replace("@", "");
+
+	return (
+		<div className={styles.author}>
+			<div className={styles["author__img-wrap"]}>
+				<Avatar
+					src={`${picture}?w=${avatarSize === "big" ? "160" : "90"}`}
+					alt={name}
+					avatarSize={avatarSize}
+				/>
+			</div>
+			<div className={styles.author__desc}>
+				<Link to={`/blog/author/${id}`}>
+					<p
+						className={
+							isItSignature
+								? clsx(
+										styles.author__name,
+										styles.author__name__signature
+								  )
+								: styles.author__name
+						}
+					>
+						{name}
+					</p>
+				</Link>
 				<p
 					className={
 						isItSignature
-							? clsx(styles.author__name, styles.author__name__signature)
-							: styles.author__name
+							? clsx(
+									styles.author__company,
+									styles.author__company__signature
+							  )
+							: styles.author__company
 					}
-				>
-					{name}
-				</p>
-			</Link>
-			<p
-				className={
-					isItSignature
-						? clsx(
-								styles.author__company,
-								styles.author__company__signature
-						  )
-						: styles.author__company
-				}
-			>{`${about}`}</p>
+				>{`${aboutText}`}</p>
+			</div>
 		</div>
-	</div>
-);
+	);
+};
 
 export default Author;
