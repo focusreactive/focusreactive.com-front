@@ -1,3 +1,4 @@
+require('dotenv').config();
 const blogPluginExports = require('@docusaurus/plugin-content-blog');
 const {
   getBlogTags,
@@ -10,12 +11,16 @@ const defaultBlogPlugin = blogPluginExports.default;
 const normalizeFrontMatterTag = require('../utils/normalizeFrontMatterTag.ts');
 const sanityClient = require('@sanity/client');
 
+const isDev = process.env.NODE_ENV === 'development';
+const sanityToken = process.env.SANITY_API_TOKEN;
+
 const client = sanityClient({
   projectId: 'vftxng62',
   dataset: 'production',
   apiVersion: '2022-11-21', // use current UTC date - see "specifying API version"!
-  token: '', // or leave blank for unauthenticated usage
+  token: isDev ? sanityToken : '', // or leave blank for unauthenticated usage
   useCdn: false, // `false` if you want to ensure fresh data
+  perspective: isDev ? 'previewDrafts' : 'published',
 });
 
 const pluginDataDirRoot = path.join(
