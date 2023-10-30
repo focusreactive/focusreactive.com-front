@@ -21,6 +21,7 @@ const GraphiQL = ({ className, children, mdxCode }: Props) => {
       <div className={styles.playground}>
         <div className={styles.wrapper}>
           <iframe
+            loading="lazy"
             title="GraphiQL"
             width="100%"
             height="100%"

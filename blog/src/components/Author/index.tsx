@@ -36,7 +36,7 @@ const Author = ({
 		<div className={styles.author}>
 			<div className={styles["author__img-wrap"]}>
 				<Avatar
-					src={`${picture}?w=${avatarSize === "big" ? "160" : "90"}`}
+					src={`${picture}?w=160&auto=format`}
 					alt={name}
 					avatarSize={avatarSize}
 				/>

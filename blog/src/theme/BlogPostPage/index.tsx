@@ -51,7 +51,7 @@ function BlogPostPageContent({ children }) {
         </MarkdownBlock>
         <Socials authors={authorIds} authorsMap={authorsMap} />
         <MarkdownBlock className={styles.article__container} heroImage={heroImage}>
-          {heroImage ? <img className="hero-image" src={heroImage} alt={title} fetchPriority="hight" /> : null}
+          {heroImage ? <img className="hero-image" src={`${heroImage}?w=1024&auto=format`} alt={title} fetchPriority="hight" /> : null}
           <MDXContent>{children}</MDXContent>
         </MarkdownBlock>
         <div className={styles.article__tags}>

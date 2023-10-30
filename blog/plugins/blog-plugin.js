@@ -19,7 +19,7 @@ const client = sanityClient({
   dataset: 'production',
   apiVersion: '2022-11-21', // use current UTC date - see "specifying API version"!
   token: isDev ? sanityToken : '', // or leave blank for unauthenticated usage
-  useCdn: false, // `false` if you want to ensure fresh data
+  useCdn: true, // `false` if you want to ensure fresh data
   perspective: isDev ? 'previewDrafts' : 'published',
 });
 

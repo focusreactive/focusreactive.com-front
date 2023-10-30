@@ -9,7 +9,6 @@ import GraphiQL from '@site/src/components/GraphiQL';
 const components = {
   ...MDXComponents,
   code: (props) => {
-    console.log("🚀 ~ file: index.tsx:12 ~ props:", props)
     if (props?.className?.match(/^language-graphiql.*/)) {
       return <GraphiQL {...props} mdxCode={MDXComponents.code}/>;
     }
@@ -19,6 +18,7 @@ const components = {
     return <>{props.children}</>;
   },
   Gist,
+  img: Image,
   ImageBlock: Image,
 };
 

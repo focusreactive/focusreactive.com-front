@@ -66,11 +66,12 @@ const constructElement = ({ src, altText, classList, wrappers }) => {
 };
 
 export const Image = ({ src, alt }) => {
+  const optimizedSrc = `${src}?w=620&auto=format`
   const rowAlt = alt || "";
   const attr = getImageAttr(rowAlt);
   const altText = getImageAlt(rowAlt);
   const modifiers = applyAttr(attr);
-  const element = constructElement({ src, altText, ...modifiers });
+  const element = constructElement({ src: optimizedSrc, altText, ...modifiers });
   return element;
 };
 

@@ -1,3 +1,4 @@
+// TODO: if we don't use this file let's consider deleting it
 import React from "react";
 import {
   BlogPostProvider,
@@ -37,7 +38,7 @@ const BlogPost = ({ children }) => {
         </MarkdownBlock>
         <Socials authors={authorIds} authorsMap={authorsMap} />
         <MarkdownBlock className={styles.article__container} heroImage={heroImage}>
-          {heroImage ? <img className="hero-image" src={heroImage} alt={title} /> : null}
+          {heroImage ? <img className="hero-image" src={`${heroImage}?w=1024&auto=format`} alt={title} /> : null}
         </MarkdownBlock>
         <BlogPostItem>{children}</BlogPostItem>
         <div className={styles.article__tags}>
