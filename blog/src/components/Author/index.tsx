@@ -32,8 +32,6 @@ const Author = ({
 	isItSignature,
 	about,
 }: AuthorProps) => {
-	const aboutText = about.replace("@", "");
-
 	return (
 		<div className={styles.author}>
 			<div className={styles["author__img-wrap"]}>
@@ -67,7 +65,7 @@ const Author = ({
 							  )
 							: styles.author__company
 					}
-				>{`${aboutText}`}</p>
+				>{`${about}`}</p>
 			</div>
 		</div>
 	);
