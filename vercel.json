@@ -46,6 +46,51 @@
       "source": "/headless-cms-experts/",
       "destination": "/headless-cms-agency/",
       "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/storyblok-experts/",
+      "destination": "https://focusreactive.com/storyblok-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/sanity-experts/",
+      "destination": "https://focusreactive.com/sanity-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/headless-cms-agency/",
+      "destination": "https://focusreactive.com/headless-cms-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/contentful-agency/",
+      "destination": "https://focusreactive.com/contentful-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/jamstack-experts/",
+      "destination": "https://focusreactive.com/jamstack-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/next-js-experts/",
+      "destination": "https://focusreactive.com/next-js-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/headless-ecommerce-experts/",
+      "destination": "https://focusreactive.com/headless-ecommerce-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/crystallize-experts/",
+      "destination": "https://focusreactive.com/crystallize-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "https://focusreactive.com/ai-experts/",
+      "destination": "https://focusreactive.com/ai-integration-expert-agency/",
+      "permanent": true
     }
   ]
 }
