@@ -60,7 +60,7 @@ const applyAttr = (attrList) => {
 };
 
 const constructElement = ({ src, altText, classList, wrappers }) => {
-  const element = <img className={clsx("image", classList)} src={src} alt={altText} />;
+  const element = <img className={clsx("image", classList)} src={src} alt={altText} loading="lazy"/>;
   const wrappedElement = wrappers.reduce((result, wr) => wr(result), element);
   return wrappedElement;
 };
