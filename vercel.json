@@ -48,48 +48,48 @@
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/storyblok-experts/",
-      "destination": "https://focusreactive.com/storyblok-expert-agency/",
+      "source": "/storyblok-experts/",
+      "destination": "/storyblok-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/sanity-experts/",
-      "destination": "https://focusreactive.com/sanity-expert-agency/",
+      "source": "/sanity-experts/",
+      "destination": "/sanity-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/headless-cms-agency/",
-      "destination": "https://focusreactive.com/headless-cms-expert-agency/",
+      "source": "/headless-cms-agency/",
+      "destination": "/headless-cms-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/contentful-agency/",
-      "destination": "https://focusreactive.com/contentful-expert-agency/",
+      "source": "/contentful-agency/",
+      "destination": "/contentful-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/jamstack-experts/",
-      "destination": "https://focusreactive.com/jamstack-expert-agency/",
+      "source": "/jamstack-experts/",
+      "destination": "/jamstack-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/next-js-experts/",
-      "destination": "https://focusreactive.com/next-js-expert-agency/",
+      "source": "/next-js-experts/",
+      "destination": "/next-js-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/headless-ecommerce-experts/",
-      "destination": "https://focusreactive.com/headless-ecommerce-expert-agency/",
+      "source": "/headless-ecommerce-experts/",
+      "destination": "/headless-ecommerce-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/crystallize-experts/",
-      "destination": "https://focusreactive.com/crystallize-expert-agency/",
+      "source": "/crystallize-experts/",
+      "destination": "/crystallize-expert-agency/",
       "permanent": true
     },
     {
-      "source": "https://focusreactive.com/ai-experts/",
-      "destination": "https://focusreactive.com/ai-integration-expert-agency/",
+      "source": "/ai-experts/",
+      "destination": "/ai-integration-expert-agency/",
       "permanent": true
     }
   ]
