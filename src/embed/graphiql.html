@@ -10,6 +10,7 @@
 
 <head>
   <meta name="robots" content="noindex" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GraphiQL</title>
   <style>
     body {
@@ -30,19 +31,19 @@
       If you do not want to rely on a CDN, you can host these files locally or
       include them directly in your favored resource bundler.
     -->
-  <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script defer crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
   <!--
       These two files can be found in the npm module, however you may wish to
       copy them directly into your environment, or perhaps include them in your
       favored resource bundler.
      -->
-  <script src="https://unpkg.com/graphiql/graphiql.min.js" type="application/javascript"></script>
+  <script defer src="https://unpkg.com/graphiql/graphiql.min.js" type="application/javascript"></script>
   <link rel="stylesheet" href="https://unpkg.com/graphiql/graphiql.min.css" />
   <!--
       These are imports for the GraphIQL Explorer plugin.
      -->
-  <script src="https://unpkg.com/@graphiql/plugin-explorer/dist/index.umd.js" crossorigin></script>
+  <script defer src="https://unpkg.com/@graphiql/plugin-explorer/dist/index.umd.js" crossorigin></script>
 
   <link rel="stylesheet" href="https://unpkg.com/@graphiql/plugin-explorer/dist/style.css" />
 </head>
@@ -50,53 +51,67 @@
 <body>
   <div id="graphiql">Loading...</div>
   <script>
-    const apiMap = {
-      fr1Contentful: {
-        url: 'https://graphql.contentful.com/content/v1/spaces/24ebgkg0mbjw/environments/master',
-        header: {
-          'Authorization': 'Bearer zqaT5vT3Zh5jkPUZMVwBF4OSy1vha97FeiP-OBa7HAQ'
-        }
-      },
-      fr1Hygraph: {
-        url: 'https://ap-south-1.cdn.hygraph.com/content/clo2sgx5xhqxj01uk167128ja/master',
-        header: {
-          Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2OTgzMzk3NzAsImF1ZCI6WyJodHRwczovL2FwaS1hcC1zb3V0aC0xLmh5Z3JhcGguY29tL3YyL2NsbzJzZ3g1eGhxeGowMXVrMTY3MTI4amEvbWFzdGVyIiwibWFuYWdlbWVudC1uZXh0LmdyYXBoY21zLmNvbSJdLCJpc3MiOiJodHRwczovL21hbmFnZW1lbnQuZ3JhcGhjbXMuY29tLyIsInN1YiI6IjEzZGJmYjMwLTVmNjUtNDA4Yy1iMGM3LTI3M2VjZDhjODc3MiIsImp0aSI6ImNsbzdmbmR0azJxcTEwMXVoODY0MzMyOWUifQ.HsdYXIH189--OK7z2G11M_yaNFfTjMsjiHntZCRpMzn50ID3lrySGcPKNE0Iba48kB6uZ4zDsp3ou3ThRB6ynsQ7A_BfFLQvfMNnshTZP5sJ8XFNv84LRDUvVZk23nuAMzisFmkB59Dg0LpJSb1B4Qpuz7wlwPGHTRm_wUVjpuSZeXUjsAxVbKdMtoCV_oMtpKT1zsfmAFNEyFD-3JKAhHu3Ek8R8dE72uM0HrtyjLMRrlABGPv-w4XT6ZSpj46qvXlCnLvvLQNqVrPnMmDclnpoWOSAEIUG27mXm29Z7n31GUPGgIu0Htr9i-YUmlZ7JjhPuiGj_BjafsFhCvoHX7U7pK6tyCyeCukgcLAc4AbAM0qds0FVAXvETxjoXEYbl7pJPzqksRYcs_ZCNNjgyPvBMRTyM1JW9O2NULCYSbky80tmNtm1lJZhaje-sDI5EzzyRJjPm5pG8TZcug2nvcRrIaden8xlyBNe30oetlzKwsOtIhgkpsVboiTaigYsuAnSibqzldgyB3Y7JAoBrvgv4wscInQaBPdzok_pGDEKPiCgaz4nkVhYv3UoBoLA4VXHgPCaux4_f4N5YcRCG-TsXr5jp41PsPRFtA6kLrtQt2vl_tzLDxvdlGOAfE8PmdOoKqKTThv55LxJ4QNo_V4g69QRZOwYPE5lLLB_mDI'
-        }
-      },
-      fr1Storyblok: {
-        url: 'https://gapi.storyblok.com/v1/api',
-        header: {
-          'Token': 'Yc13OB2hKWrefWXA10rvPQtt'
-        },
-      },
-      fr1Sanity: {
-        url: 'https://mazrac0n.api.sanity.io/v2023-08-01/graphql/production/default',
-        header: {
-          Authorization: 'Bearer skohIkT3FEECfMXBWmuiIdBtvdj0H1jXhBCXj0qAaoDXxCYYyAQNslkCXnS2Z8ox67mzTrz9j0yP4UGi2pQh7zziefNPCSdo7lQYzlYAJTmfSX4Pn9u2v9DAQ2Rssk2QN2RkQmuOZBgGz7BDRpR7PZJg2BYcvPGeWRoMw0YCk40TruoDzy9N'
-        }
+    function renderGraphiQL () {
+      if (typeof ReactDOM === "undefined" || typeof React === "undefined" || typeof GraphiQL === "undefined" || typeof GraphiQLPluginExplorer === "undefined") {
+        setTimeout(renderGraphiQL, 100);
+        return;
       }
-    };
-    const queryParams = new URLSearchParams(window.location.search);
-    const api = queryParams.get('api');
-    const query = queryParams.get('query');
-    const root = ReactDOM.createRoot(document.getElementById('graphiql'));
-    const fetcher = GraphiQL.createFetcher({
-      url: apiMap[api].url,
-      headers: apiMap[api].header,
-    });
-    const explorerPlugin = GraphiQLPluginExplorer.explorerPlugin();
+      const apiMap = {
+        fr1Contentful: {
+          url: 'https://graphql.contentful.com/content/v1/spaces/24ebgkg0mbjw/environments/master',
+          header: {
+            'Authorization': 'Bearer zqaT5vT3Zh5jkPUZMVwBF4OSy1vha97FeiP-OBa7HAQ'
+          }
+        },
+        fr1Hygraph: {
+          url: 'https://ap-south-1.cdn.hygraph.com/content/clo2sgx5xhqxj01uk167128ja/master',
+          header: {
+            Authorization: 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2OTgzMzk3NzAsImF1ZCI6WyJodHRwczovL2FwaS1hcC1zb3V0aC0xLmh5Z3JhcGguY29tL3YyL2NsbzJzZ3g1eGhxeGowMXVrMTY3MTI4amEvbWFzdGVyIiwibWFuYWdlbWVudC1uZXh0LmdyYXBoY21zLmNvbSJdLCJpc3MiOiJodHRwczovL21hbmFnZW1lbnQuZ3JhcGhjbXMuY29tLyIsInN1YiI6IjEzZGJmYjMwLTVmNjUtNDA4Yy1iMGM3LTI3M2VjZDhjODc3MiIsImp0aSI6ImNsbzdmbmR0azJxcTEwMXVoODY0MzMyOWUifQ.HsdYXIH189--OK7z2G11M_yaNFfTjMsjiHntZCRpMzn50ID3lrySGcPKNE0Iba48kB6uZ4zDsp3ou3ThRB6ynsQ7A_BfFLQvfMNnshTZP5sJ8XFNv84LRDUvVZk23nuAMzisFmkB59Dg0LpJSb1B4Qpuz7wlwPGHTRm_wUVjpuSZeXUjsAxVbKdMtoCV_oMtpKT1zsfmAFNEyFD-3JKAhHu3Ek8R8dE72uM0HrtyjLMRrlABGPv-w4XT6ZSpj46qvXlCnLvvLQNqVrPnMmDclnpoWOSAEIUG27mXm29Z7n31GUPGgIu0Htr9i-YUmlZ7JjhPuiGj_BjafsFhCvoHX7U7pK6tyCyeCukgcLAc4AbAM0qds0FVAXvETxjoXEYbl7pJPzqksRYcs_ZCNNjgyPvBMRTyM1JW9O2NULCYSbky80tmNtm1lJZhaje-sDI5EzzyRJjPm5pG8TZcug2nvcRrIaden8xlyBNe30oetlzKwsOtIhgkpsVboiTaigYsuAnSibqzldgyB3Y7JAoBrvgv4wscInQaBPdzok_pGDEKPiCgaz4nkVhYv3UoBoLA4VXHgPCaux4_f4N5YcRCG-TsXr5jp41PsPRFtA6kLrtQt2vl_tzLDxvdlGOAfE8PmdOoKqKTThv55LxJ4QNo_V4g69QRZOwYPE5lLLB_mDI'
+          }
+        },
+        fr1Storyblok: {
+          url: 'https://gapi.storyblok.com/v1/api',
+          header: {
+            'Token': 'Yc13OB2hKWrefWXA10rvPQtt'
+          },
+        },
+        fr1Sanity: {
+          url: 'https://mazrac0n.api.sanity.io/v2023-08-01/graphql/production/default',
+          header: {
+            Authorization: 'Bearer skohIkT3FEECfMXBWmuiIdBtvdj0H1jXhBCXj0qAaoDXxCYYyAQNslkCXnS2Z8ox67mzTrz9j0yP4UGi2pQh7zziefNPCSdo7lQYzlYAJTmfSX4Pn9u2v9DAQ2Rssk2QN2RkQmuOZBgGz7BDRpR7PZJg2BYcvPGeWRoMw0YCk40TruoDzy9N'
+          }
+        },
+        fr2Directus: {
+          url: 'https://artcryption-poc.directus.app/graphql',
+          header: {
+            Authorization: 'Bearer kBgJQb-Eqvq71MUJdzDn65xUfIFzcCDx'
+          }
+        }
+      };
+      const queryParams = new URLSearchParams(window.location.search);
+      const api = queryParams.get('api');
+      const query = queryParams.get('query');
+      const root = ReactDOM.createRoot(document.getElementById('graphiql'));
+      const fetcher = GraphiQL.createFetcher({
+        url: apiMap[api].url,
+        headers: apiMap[api].header,
+      });
+      const explorerPlugin = GraphiQLPluginExplorer.explorerPlugin();
 
 
-    root.render(
-      React.createElement(GraphiQL, {
-        fetcher,
-        defaultEditorToolsVisibility: false,
-        isHeadersEditorEnabled: false,
-        showPersistHeadersSettings: false,
-        query,
-        plugins: [explorerPlugin],
-      }),
-    );
+      root.render(
+        React.createElement(GraphiQL, {
+          fetcher,
+          defaultEditorToolsVisibility: false,
+          isHeadersEditorEnabled: false,
+          showPersistHeadersSettings: false,
+          query,
+          plugins: [explorerPlugin],
+        }),
+      );
+    }
+
+    window.document.onload = renderGraphiQL();
   </script>
 </body>
 
