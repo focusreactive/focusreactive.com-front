@@ -1,23 +1,15 @@
-import React from "react";
-import Layout from "@theme/Layout";
-import Head from "@docusaurus/Head";
-import { GENERIC_DESCRIPTION, GENERIC_TITLE } from "@site/src/constants";
-import { PageMetadata } from "@docusaurus/theme-common";
+import React from 'react';
+import Layout from '@theme/Layout';
+import Head from '@docusaurus/Head';
+import { GENERIC_DESCRIPTION, GENERIC_TITLE } from '@site/src/constants';
+import { PageMetadata } from '@docusaurus/theme-common';
 
 export default function BlogLayout(props) {
-  const {
-    children,
-    title,
-    description,
-    keywords,
-    image,
-    type,
-    ...layoutProps
-  } = props;
+  const { children, title, description, keywords, image, type, ...layoutProps } = props;
 
   const previewImage = image
     ? `${image}?w=1200&h=630`
-    : "https://focusreactive.com/assets/img/og-image.png";
+    : 'https://focusreactive.com/assets/img/og-image.png';
 
   return (
     <Layout {...layoutProps}>
@@ -25,17 +17,14 @@ export default function BlogLayout(props) {
 
       <Head>
         <meta name="description" content={description || GENERIC_DESCRIPTION} />
-        <meta
-          name="og:description"
-          content={description || GENERIC_DESCRIPTION}
-        />
+        <meta name="og:description" content={description || GENERIC_DESCRIPTION} />
 
         <meta name="og:image" content={previewImage} />
         {image && <link rel="prefetch" href={image} />}
 
         {keywords && <meta name="keywords" content={keywords} />}
 
-        <meta name="og:type" content={type || "website"} />
+        <meta name="og:type" content={type || 'website'} />
 
         <meta name="twitter:site" content="@FocusReactive" />
       </Head>

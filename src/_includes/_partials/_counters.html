@@ -1,26 +1,24 @@
 <section class="counters is-light js-scroll-header">
-	<div class="container">
-		<h2 class="counters__title">{{ countersData.title }}</h2>
-		<div class="counters__cards">
-		{% for counter in countersData.elements %}
-			<div class="counters__card">
-				<h4 class="counters__card_title">{{ counter.title }}</h4>
-				<div class="counters__card_value text--border-dark">{{ counter.value }}</div>
-				<div class="counters__card_label">{{ counter.description }}</div>
-			</div>
-		{% endfor %}
-		</div>
+  <div class="container">
+    <h2 class="counters__title">{{ countersData.title }}</h2>
+    <div class="counters__cards">
+      {% for counter in countersData.elements %}
+      <div class="counters__card">
+        <h4 class="counters__card_title">{{ counter.title }}</h4>
+        <div class="counters__card_value text--border-dark">{{ counter.value }}</div>
+        <div class="counters__card_label">{{ counter.description }}</div>
+      </div>
+      {% endfor %}
+    </div>
 
-		{% if countersData.articleTitle or countersData.articleText %}
-			<div class="counters__text">
-				{% if countersData.articleTitle %}
-					<h2>{{ countersData.articleTitle }}</h2>
-				{% endif %}
-
-				{% if countersData.articleText %}
-					<p>{{ countersData.articleText }}</p>
-				{% endif %}
-			</div>
-		{% endif %}
-	</div>
+    {% if countersData.articleTitle or countersData.articleText %}
+    <div class="counters__text">
+      {% if countersData.articleTitle %}
+      <h2>{{ countersData.articleTitle }}</h2>
+      {% endif %} {% if countersData.articleText %}
+      <p>{{ countersData.articleText }}</p>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
 </section>

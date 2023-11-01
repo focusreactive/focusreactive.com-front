@@ -9,9 +9,7 @@
     >
       <h3 class="office__title">{{ office.title }}</h3>
       <p class="office__info">{{ office.tel }}<br />{{ office.address }}</p>
-      <a class="office__mail" href="mailto:{{ office.email }}"
-        >{{ office.email }}</a
-      >
+      <a class="office__mail" href="mailto:{{ office.email }}">{{ office.email }}</a>
     </div>
     {% endfor %}
   </div>
@@ -150,7 +148,7 @@
 
         const officesWrap = document.querySelector('.js-office');
 
-        const offices = [...officesWrap.children].map(element => {
+        const offices = [...officesWrap.children].map((element) => {
           const location = element.dataset;
 
           const marker = new google.maps.Marker({

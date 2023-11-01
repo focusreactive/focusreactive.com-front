@@ -1,91 +1,88 @@
 <!-- begin events -->
 <section id="events" data-section="events" class="events is-dark js-scroll-header">
-    <div class="events__inner">
-        <div class="events__hero" style="background-image: url({{eventsData.bgImage | imgURL}})">
-            <div class="container">
-                <div class="events__title">
-                    <h2 class="title title--light title--xs">
-                        {% for line in eventsData.titleLines %}
-                            {% if loop.last == false %}
-                                    {{line}}<br/>
-                            {% endif %}
-                            {% if loop.last == true %}
-                                {{line}}
-                            {% endif %}
-                        {% endfor %}
-                    </h2>
-                </div>
+  <div class="events__inner">
+    <div class="events__hero" style="background-image: url({{eventsData.bgImage | imgURL}})">
+      <div class="container">
+        <div class="events__title">
+          <h2 class="title title--light title--xs">
+            {% for line in eventsData.titleLines %} {% if loop.last == false %} {{line}}<br />
+            {% endif %} {% if loop.last == true %} {{line}} {% endif %} {% endfor %}
+          </h2>
+        </div>
+      </div>
+      <a href="{{ eventsData.firstEventUrl }}" class="event-link is-main" target="_blank">
+        <div class="event-link__inner container">
+          <h2 class="event-link__title">
+            <svg class="text-border-svg text-border-svg--light" viewBox="0 0 1 85">
+              <text text-anchor="middle" y="80">{{eventsData.firstEventTitle}}</text>
+            </svg>
+          </h2>
+          <h3 class="event-link__name">
+            {% for line in eventsData.firstEventTitleLines %} {% if loop.last == false %}
+            {{line}}<br />
+            {% endif %} {% if loop.last == true %} {{line}} {% endif %} {% endfor %}
+          </h3>
+          <div class="event-link__bottom">
+            <div class="event-link__col">
+              <p class="event-link__type">
+                <svg class="text-border-svg text-border-svg--light">
+                  <text y="38">{{ eventsData.firstEventTypeText }}</text>
+                </svg>
+              </p>
+              <p class="event-link__date text text--font-md text--border-dark is-mobile">
+                {{ eventsData.firstEventDate }}
+              </p>
             </div>
-            <a href="{{ eventsData.firstEventUrl }}" class="event-link is-main" target="_blank">
-                <div class="event-link__inner container">
-                    <h2 class="event-link__title">
-                        <svg class="text-border-svg text-border-svg--light" viewBox="0 0 1 85">
-                            <text text-anchor="middle" y="80">{{eventsData.firstEventTitle}}</text>
-                        </svg>
-                    </h2>
-                    <h3 class="event-link__name">
-                        {% for line in eventsData.firstEventTitleLines %}
-                            {% if loop.last == false %}
-                                    {{line}}<br/>
-                            {% endif %}
-                            {% if loop.last == true %}
-                                {{line}}
-                            {% endif %}
-                        {% endfor %}
-                    </h3>
-                    <div class="event-link__bottom">
-                        <div class="event-link__col">
-                            <p class="event-link__type">
-                                <svg class="text-border-svg text-border-svg--light">
-                                    <text y="38">{{ eventsData.firstEventTypeText }}</text>
-                                </svg>
-                            </p>
-                            <p class="event-link__date text text--font-md text--border-dark is-mobile">{{ eventsData.firstEventDate }}</p>
-                        </div>
-                        <div class="event-link__wrap">
-                            <div class="event-link__col">
-                                <p class="event-link__address">{{ eventsData.firstEventRemoteInfo }}</p>
-                            </div>
-                            <div class="event-link__col">
-                                <p class="event-link__date text text--font-md text--border-dark is-desktop">{{ eventsData.firstEventDate }}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
+            <div class="event-link__wrap">
+              <div class="event-link__col">
+                <p class="event-link__address">{{ eventsData.firstEventRemoteInfo }}</p>
+              </div>
+              <div class="event-link__col">
+                <p class="event-link__date text text--font-md text--border-dark is-desktop">
+                  {{ eventsData.firstEventDate }}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div data-section="events" class="events__links is-light js-scroll-header">
-            {% for event in eventsData.events %}
-                <a href="{{ event.url }}" class="event-link" target="_blank">
-                    <div class="container">
-
-                        <div class="event-link__inner">
-                            <div class="event-link__col">
-                                <p class="event-link__type text--font-xs text--border-dark is-desktop">{{ event.type }}</p>
-                                {% if event.hostInfo %}
-                                <p class="event-link__note text--font-xs text--border-dark is-desktop">{{ event.hostInfo }}</p>
-                                {% endif %}
-                            </div>
-                            <div class="event-link__wrap">
-                                <div class="event-link__col">
-                                    <p class="event-link__address">{{ event.remoteInfo }}</p>
-                                </div>
-                                <div class="event-link__col">
-                                    <p class="event-link__type text--font-xs text--border-dark is-mobile">{{ event.type }}</p>
-                                    <p class="event-link__date text--font-xs text--border-dark">{{ event.date }}</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </a>
-            {% endfor %}
-        </div>
-        <!--<div class="events__plus-link">-->
-            <!--<a href="#." class="plus-link" target="_blank">-->
-                <!--<img src="img/plus.png" alt="add icon"/>-->
-            <!--</a>-->
-        <!--</div>-->
+      </a>
     </div>
+    <div data-section="events" class="events__links is-light js-scroll-header">
+      {% for event in eventsData.events %}
+      <a href="{{ event.url }}" class="event-link" target="_blank">
+        <div class="container">
+          <div class="event-link__inner">
+            <div class="event-link__col">
+              <p class="event-link__type text--font-xs text--border-dark is-desktop">
+                {{ event.type }}
+              </p>
+              {% if event.hostInfo %}
+              <p class="event-link__note text--font-xs text--border-dark is-desktop">
+                {{ event.hostInfo }}
+              </p>
+              {% endif %}
+            </div>
+            <div class="event-link__wrap">
+              <div class="event-link__col">
+                <p class="event-link__address">{{ event.remoteInfo }}</p>
+              </div>
+              <div class="event-link__col">
+                <p class="event-link__type text--font-xs text--border-dark is-mobile">
+                  {{ event.type }}
+                </p>
+                <p class="event-link__date text--font-xs text--border-dark">{{ event.date }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <!--<div class="events__plus-link">-->
+    <!--<a href="#." class="plus-link" target="_blank">-->
+    <!--<img src="img/plus.png" alt="add icon"/>-->
+    <!--</a>-->
+    <!--</div>-->
+  </div>
 </section>
 <!-- end events -->

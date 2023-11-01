@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "@emotion/styled";
-import Link from "@docusaurus/Link";
-import type { BlogApiTag } from "@site/src/types";
+import React from 'react';
+import styled from '@emotion/styled';
+import Link from '@docusaurus/Link';
+import type { BlogApiTag } from '@site/src/types';
 
 type TagProp = {
   isLink: boolean;
@@ -23,7 +23,7 @@ export const Tag = styled.span<TagProp>`
     text-decoration: underline;
   }
   `
-      : ""}
+      : ''}
 `;
 
 interface TagsRowProps {

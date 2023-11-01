@@ -1,34 +1,33 @@
 <section class="mail-us is-light js-scroll-header" id="mail-us">
-	<div class="container">
-		<h3 class="mail-us__title">
-			{% for line in emailFormData.titleLines %}
-				{% if loop.last == false %}
-						{{line}}<br/>
-				{% endif %}
-				{% if loop.last == true %}
-					{{line}}
-				{% endif %}
-			{% endfor %}
-		</h3>
+  <div class="container">
+    <h3 class="mail-us__title">
+      {% for line in emailFormData.titleLines %} {% if loop.last == false %} {{line}}<br />
+      {% endif %} {% if loop.last == true %} {{line}} {% endif %} {% endfor %}
+    </h3>
 
+    <form id="mail-us-form" class="mail-form">
+      <div>
+        Reach us by email <a href="mailto:hi@focusreactive.com">hi@focusreactive.com</a> or fill the
+        form below.
+      </div>
+      <div class="mail-form__line">
+        <input class="mail-form__input" type="email" placeholder="Email" data-key="visitor-email" />
+      </div>
 
-		<form id="mail-us-form" class="mail-form">
-			<div>
-				Reach us by email <a href="mailto:hi@focusreactive.com">hi@focusreactive.com</a> or fill the form below.
-			</div>
-			<div class="mail-form__line">
-				<input class="mail-form__input" type="email" placeholder="Email" data-key="visitor-email">
-			</div>
+      <div class="mail-form__line">
+        <input class="mail-form__input" type="text" placeholder="Name" data-key="visitor-name" />
+      </div>
 
-			<div class="mail-form__line">
-				<input class="mail-form__input" type="text" placeholder="Name" data-key="visitor-name">
-			</div>
+      <div class="mail-form__line">
+        <textarea
+          class="mail-form__input mail-form__input-textarea"
+          type="text"
+          placeholder="Message"
+          data-key="visitor-message"
+        ></textarea>
+      </div>
 
-			<div class="mail-form__line">
-				<textarea class="mail-form__input mail-form__input-textarea" type="text" placeholder="Message" data-key="visitor-message"></textarea>
-			</div>
-
-			<button class="mail-form__submit btn btn--primary" type="submit" disabled="true" >Send</button>
-		</form>
-	</div>
+      <button class="mail-form__submit btn btn--primary" type="submit" disabled="true">Send</button>
+    </form>
+  </div>
 </section>

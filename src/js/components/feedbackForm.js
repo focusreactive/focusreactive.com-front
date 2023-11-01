@@ -2,12 +2,10 @@ const emailValidator = require('email-validator');
 
 const isProd = process.env.NODE_ENV === 'production';
 
-const netlifyFunctionProd =
-  'https://fr-functions.netlify.app/.netlify/functions/feedback-form';
-const netlifyFunctionDev =
-  'https://fr-functions.netlify.app/.netlify/functions/feedback-form-dev';
+const netlifyFunctionProd = 'https://fr-functions.netlify.app/.netlify/functions/feedback-form';
+const netlifyFunctionDev = 'https://fr-functions.netlify.app/.netlify/functions/feedback-form-dev';
 
-const sendEmail = async body => {
+const sendEmail = async (body) => {
   const url = isProd ? netlifyFunctionProd : netlifyFunctionDev;
   const headers = new Headers({
     'Content-Type': 'application/json',
@@ -29,26 +27,26 @@ const sendEmail = async body => {
 };
 
 const lockForm = (inputs, button) => {
-  inputs.forEach(inp => {
+  inputs.forEach((inp) => {
     inp.setAttribute('disabled', true);
   });
   button.setAttribute('disabled', true);
 };
 
 const unlockForm = (inputs, button) => {
-  inputs.forEach(inp => {
+  inputs.forEach((inp) => {
     inp.removeAttribute('disabled');
   });
   button.setAttribute('disabled', true);
 };
 
 const cleanUpForm = (inputs, button) => {
-  inputs.forEach(inp => {
+  inputs.forEach((inp) => {
     inp.value = '';
   });
 };
 
-const validateField = input => {
+const validateField = (input) => {
   const key = input.dataset.key;
   if (!key) return false;
 
@@ -71,9 +69,7 @@ const validateField = input => {
 };
 
 const validateForm = (inputs, button) => () => {
-  const validation = inputs
-    .map(validateField)
-    .filter(({ message }) => !!message);
+  const validation = inputs.map(validateField).filter(({ message }) => !!message);
 
   if (validation.length) {
     button.setAttribute('disabled', true);
@@ -111,18 +107,16 @@ export const feedbackForm = () => {
   const button = document.querySelector('#mail-us-form > button');
 
   if (!form) return;
-  const inputs = [
-    ...document.querySelectorAll('#mail-us-form input, #mail-us-form textarea'),
-  ];
+  const inputs = [...document.querySelectorAll('#mail-us-form input, #mail-us-form textarea')];
   if (inputs.length === 0) return;
 
   const updateButton = validateForm(inputs, button);
-  inputs.forEach(input => {
+  inputs.forEach((input) => {
     input.onblur = inputOnBlur(input, updateButton);
     input.onkeypress = () => setTimeout(inputOnType(input, updateButton), 0);
   });
 
-  form.onsubmit = ev => {
+  form.onsubmit = (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -143,11 +137,9 @@ export const feedbackForm = () => {
       })
       .then(() => unlockForm(inputs, button))
       .then(() => alert('Your message was sent'))
-      .catch(err => {
+      .catch((err) => {
         unlockForm(inputs, button);
-        alert(
-          `Your message wasn't sent! Please try again or write to hi@focusreactive.com`,
-        );
+        alert(`Your message wasn't sent! Please try again or write to hi@focusreactive.com`);
       });
   };
 };

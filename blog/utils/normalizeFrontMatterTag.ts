@@ -1,5 +1,5 @@
-const { kebabCase } = require("lodash");
-const normalizeUrl = require("./normalizeUrl.ts");
+const { kebabCase } = require('lodash');
+const normalizeUrl = require('./normalizeUrl.ts');
 
 function normalizeFrontMatterTag(tagsPath, frontMatterTag) {
   function toTagObject(tagString) {
@@ -17,7 +17,7 @@ function normalizeFrontMatterTag(tagsPath, frontMatterTag) {
     return normalizeUrl([tagsPath, permalink]);
   }
 
-  const tag = typeof frontMatterTag === "string" ? toTagObject(frontMatterTag) : frontMatterTag;
+  const tag = typeof frontMatterTag === 'string' ? toTagObject(frontMatterTag) : frontMatterTag;
 
   return {
     label: tag.label,

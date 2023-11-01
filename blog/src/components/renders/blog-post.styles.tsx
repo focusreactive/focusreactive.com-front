@@ -1,4 +1,4 @@
-import styled from "@emotion/styled";
+import styled from '@emotion/styled';
 
 export const Article = styled.article`
   overflow: hidden;
@@ -53,7 +53,7 @@ export const MarkdownBlock = styled.div<ImageProps>`
     border: none;
     text-align: center;
     ::before {
-      content: "...";
+      content: '...';
       letter-spacing: 0.6em;
       font-size: 28px;
     }
@@ -107,14 +107,24 @@ export const MarkdownBlock = styled.div<ImageProps>`
     margin: 0;
     font-size: 85%;
     border-radius: 3px;
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-family:
+      SFMono-Regular,
+      Consolas,
+      Liberation Mono,
+      Menlo,
+      monospace;
   }
   pre {
     padding: 8px;
     font-size: 85%;
     background-color: hsl(0, 0%, 97%);
     border-radius: 3px;
-    font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+    font-family:
+      SFMono-Regular,
+      Consolas,
+      Liberation Mono,
+      Menlo,
+      monospace;
     overflow: auto;
     max-width: 620px;
     margin: 26px auto 0;

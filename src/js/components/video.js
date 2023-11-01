@@ -1,6 +1,6 @@
-const videos = document.querySelectorAll("video");
+const videos = document.querySelectorAll('video');
 const config = {
-  rootMargin: "0px -100px",
+  rootMargin: '0px -100px',
   threshold: 0,
 };
 const callback = (entries) => {

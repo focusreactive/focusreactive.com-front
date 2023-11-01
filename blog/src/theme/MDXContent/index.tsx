@@ -10,9 +10,9 @@ const components = {
   ...MDXComponents,
   code: (props) => {
     if (props?.className?.match(/^language-graphiql.*/)) {
-      return <GraphiQL {...props} mdxCode={MDXComponents.code}/>;
+      return <GraphiQL {...props} mdxCode={MDXComponents.code} />;
     }
-    return MDXComponents.code(props)
+    return MDXComponents.code(props);
   },
   pre: (props) => {
     return <>{props.children}</>;

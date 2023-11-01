@@ -1,11 +1,11 @@
 @font-face {
-  font-family: "Helvetica";
-  src: url("../fonts/helvetica.woff") format("woff");
+  font-family: 'Helvetica';
+  src: url('../fonts/helvetica.woff') format('woff');
 }
 
 @font-face {
-  font-family: "Helvetica Bold";
-  src: url("../fonts/helvetica-bold.woff") format("woff");
+  font-family: 'Helvetica Bold';
+  src: url('../fonts/helvetica-bold.woff') format('woff');
 }
 
 /**
@@ -30,8 +30,8 @@
   --ifm-footer-title-color: white;
   --ifm-footer-link-color: gray;
   --ifm-BlogPostItem-Header-Title-styles-module-color: red;
-  --ifm-font-family-bold: "Helvetica Bold";
-  --ifm-font-family-base: "Helvetica";
+  --ifm-font-family-bold: 'Helvetica Bold';
+  --ifm-font-family-base: 'Helvetica';
   --ifm-link-decoration: underline;
   --ifm-link-hover-decoration: none;
   --layout-horizonal-padding: 20px;
@@ -58,7 +58,7 @@
 }
 
 .header-logo::before {
-  content: "";
+  content: '';
   width: 140px;
   height: 61px;
   display: flex;
@@ -71,14 +71,17 @@
 
 .header-navbar-link {
   text-transform: uppercase;
-  font-family: Helvetica Bold, Arial, sans-serif;
+  font-family:
+    Helvetica Bold,
+    Arial,
+    sans-serif;
   font-size: 12px;
   letter-spacing: -0.04em;
   margin-left: 10px;
 }
 
 .header-navbar-link::before {
-  content: "";
+  content: '';
   position: absolute;
   width: 0;
   bottom: 0;

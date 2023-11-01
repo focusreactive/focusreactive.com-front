@@ -6,12 +6,10 @@ $padding: 4px 10px 2px;
 $active-background: #e9ecef;
 $hover-count-color: #0366d6;
 
-
 @mixin background-image($color, $gradient) {
   background-color: $color !important;
   background-image: linear-gradient(-180deg, $gradient 0%, $color 90%) !important;
 }
-
 
 @mixin border($alpha) {
   border: 1px solid opacify($border-color, $alpha) !important;
@@ -23,8 +21,9 @@ $hover-count-color: #0366d6;
   margin-right: 0px !important;
 }
 
-
-github-repo-button, .github-repo-button, [github-repo-button] {
+github-repo-button,
+.github-repo-button,
+[github-repo-button] {
   @include border(0.2);
   line-height: 1;
   border-radius: 0 !important;

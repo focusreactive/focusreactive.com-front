@@ -1,5 +1,5 @@
-import React from "react";
-import Gist from "react-gist";
+import React from 'react';
+import Gist from 'react-gist';
 
 type GhGistProps = {
   id: string;

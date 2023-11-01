@@ -1,7 +1,7 @@
-import React from "react";
-import LinkItem from "@theme/Footer/LinkItem";
-import styles from "./styles.module.css";
-import clsx from "clsx";
+import React from 'react';
+import LinkItem from '@theme/Footer/LinkItem';
+import styles from './styles.module.css';
+import clsx from 'clsx';
 
 function ColumnLinkItem({ item }) {
   return item.html ? (
@@ -31,7 +31,7 @@ function Column({ column }) {
 }
 export default function FooterLinksMultiColumn({ columns }) {
   return (
-    <div className={clsx("row footer__links", styles.footer__menu)}>
+    <div className={clsx('row footer__links', styles.footer__menu)}>
       {columns.map((column, i) => (
         <Column key={i} column={column} />
       ))}

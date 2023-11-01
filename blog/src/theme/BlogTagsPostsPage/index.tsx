@@ -1,13 +1,18 @@
-import React from "react";
-import clsx from "clsx";
-import Translate, { translate } from "@docusaurus/Translate";
-import { PageMetadata, HtmlClassNameProvider, ThemeClassNames, usePluralForm } from "@docusaurus/theme-common";
-import Link from "@docusaurus/Link";
-import BlogLayout from "@theme/BlogLayout";
-import SearchMetadata from "@theme/SearchMetadata";
-import { ArticlesList } from "../../components/ArticlesList";
-import styles from "./styles.module.css";
-import { GENERIC_TITLE } from "@site/src/constants";
+import React from 'react';
+import clsx from 'clsx';
+import Translate, { translate } from '@docusaurus/Translate';
+import {
+  PageMetadata,
+  HtmlClassNameProvider,
+  ThemeClassNames,
+  usePluralForm,
+} from '@docusaurus/theme-common';
+import Link from '@docusaurus/Link';
+import BlogLayout from '@theme/BlogLayout';
+import SearchMetadata from '@theme/SearchMetadata';
+import { ArticlesList } from '../../components/ArticlesList';
+import styles from './styles.module.css';
+import { GENERIC_TITLE } from '@site/src/constants';
 
 // Very simple pluralization: probably good enough for now
 function useBlogPostsPlural() {
@@ -17,24 +22,24 @@ function useBlogPostsPlural() {
       count,
       translate(
         {
-          id: "theme.blog.post.plurals",
+          id: 'theme.blog.post.plurals',
           description:
             'Pluralized label for "{count} posts". Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
-          message: "One post|{count} posts",
+          message: 'One post|{count} posts',
         },
-        { count }
-      )
+        { count },
+      ),
     );
 }
 function useBlogTagsPostsPageTitle(tag) {
   const blogPostsPlural = useBlogPostsPlural();
   return translate(
     {
-      id: "theme.blog.tagTitle",
-      description: "The title of the page for a blog tag",
+      id: 'theme.blog.tagTitle',
+      description: 'The title of the page for a blog tag',
       message: '{nPosts} tagged with "{tagName}"',
     },
-    { nPosts: blogPostsPlural(tag.count), tagName: tag.label }
+    { nPosts: blogPostsPlural(tag.count), tagName: tag.label },
   );
 }
 function BlogTagsPostsPageMetadata({ tag }) {
@@ -56,12 +61,21 @@ function BlogTagsPostsPageContent({ tag, items }) {
 
   return (
     <BlogLayout title={title} keywords={tag.label}>
-      <div className={clsx("block__container", "block__container_centered", "block__container_margin-top")}>
+      <div
+        className={clsx(
+          'block__container',
+          'block__container_centered',
+          'block__container_margin-top',
+        )}
+      >
         <header className="margin-bottom--xl">
           <h1>{title}</h1>
 
           <Link href={tag.allTagsPath}>
-            <Translate id="theme.tags.tagsPageLink" description="The label of the link targeting the tag list page">
+            <Translate
+              id="theme.tags.tagsPageLink"
+              description="The label of the link targeting the tag list page"
+            >
               View All Tags
             </Translate>
           </Link>

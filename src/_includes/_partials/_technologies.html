@@ -1,15 +1,15 @@
 <section class="technologies is-dark js-scroll-header">
-	<div class="container">
-		<h2 class="technologies__title text--border-light">{{ technologiesData.title }}</h2>
-		<div class="technologies__cards">
-		{% for item in technologiesData.elements %}
-			<div class="technologies__card">
-				<div class="technologies__card_image">
-					<img width="55" src="{{ item.image | imgURL }}" alt="{{ item.title }}"/>
-				</div>
-				<h4 class="technologies__card_title">{{ item.title }}</h4>
-			</div>
-		{% endfor %}
-		</div>
-	</div>
+  <div class="container">
+    <h2 class="technologies__title text--border-light">{{ technologiesData.title }}</h2>
+    <div class="technologies__cards">
+      {% for item in technologiesData.elements %}
+      <div class="technologies__card">
+        <div class="technologies__card_image">
+          <img width="55" src="{{ item.image | imgURL }}" alt="{{ item.title }}" />
+        </div>
+        <h4 class="technologies__card_title">{{ item.title }}</h4>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>

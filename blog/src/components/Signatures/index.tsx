@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "@emotion/styled";
-import Author from "../Author";
-import getAuthors from "@site/utils/getAuthors";
+import React from 'react';
+import styled from '@emotion/styled';
+import Author from '../Author';
+import getAuthors from '@site/utils/getAuthors';
 
 const Container = styled.div`
   max-width: 620px;

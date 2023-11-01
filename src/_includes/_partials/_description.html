@@ -1,103 +1,132 @@
 <!-- begin description -->
 <section id="description" data-section="about" class="description is-light js-scroll-header">
+  <div class="container">
+    <h2 class="description__main-title text-center text-center--mob-left">
+      <span class="text title title--md text--border-dark text--border-dark-mob">How we work</span>
+    </h2>
+    <div class="description__subtitle">
+      <h3 class="title title--dark title--xs">
+        Focus Reactive is a team of skilled engineers<br />
+        and tech leaders. Bringing years of experience<br />
+        to the table, we help tech businesses scale efficiently.
+      </h3>
+    </div>
+    <div class="description__text">
+      <p>
+        Our mission is to deliver quality software with a focus on scalability and performance.
+        Thanks to our consultants' high degree of seniority (9.5 years average experience), we help
+        our clients achieve more by using proven industry practices tailored to their business
+        needs. Our solutions are uniquely adapted to your team, ensuring lasting results even after
+        our work is done.
+      </p>
+      <p>
+        At FocusReactive, our experts are deeply invested in the JavaScript community, and our
+        involvement with open source contributions, world-class conferences organization, and
+        continuous learning ensure we are at the forefront of developments in the JS world.
+      </p>
+      <p>
+        Whether you need to scale an existing team or add a fully-functional squad onto a new
+        product challenge - we are here to help.
+      </p>
+    </div>
+  </div>
+  <div class="description__list">
     <div class="container">
-        <h2 class="description__main-title text-center text-center--mob-left">
-            <span class="text title title--md text--border-dark text--border-dark-mob">How we work</span>
-        </h2>
-        <div class="description__subtitle">
-            <h3 class="title title--dark title--xs">
-                Focus Reactive is a team of skilled engineers<br/> and tech leaders. Bringing years of experience<br /> to the table, we help tech businesses scale efficiently.
-            </h3>
-        </div>
-        <div class="description__text">
-          <p>Our mission is to deliver quality software with a focus on scalability and performance. Thanks to our consultants' high degree of seniority (9.5 years average experience), we help our clients achieve more by using proven industry practices tailored to their business needs. Our solutions are uniquely adapted to your team, ensuring lasting results even after our work is done.</p>
-          <p>At FocusReactive, our experts are deeply invested in the JavaScript community, and our involvement with open source contributions, world-class conferences organization, and continuous learning ensure we are at the forefront of developments in the JS world.</p>
-          <p>Whether you need to scale an existing team or add a fully-functional squad onto a new product challenge - we are here to help.</p>
-        </div>
-    </div>
-    <div class="description__list">
-        <div class="container">
-            <ul class="advantages">
-                {% for item in advantages %}
-                <li class="advantage">
-                    <div class="advantage__inner">
-                        <div class="advantage__number">0{{ loop.index }}</div>
-                        <div class="advantage__text">
-                            <h3 class="advantage__title">{{ item.title | safe }}</h3>
-                            <p class="advantage__desc">{{ item.desc | safe }}</p>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    <div class="description__btn text-center">
-        <a href="/#mail-us" class="btn btn--primary">Work with us</a>
-    </div>
-
-    <div class="description__slider is-dark js-scroll-header">
-
-        <div class="slider slider--full js-slider-parent">
-            <div class="slider__inner">
-                <div class="slider__slides js-slider">
-                    <div class="slider__slide">
-                        <h4 class="slider__name">Robert @ React Amsterdam</h4>
-                        <img class="js-obj-fit" src="/assets/img/slider_conf/ra-robert2.jpg" alt="Person coding"/>
-                    </div>
-                    <div class="slider__slide">
-                        <h4 class="slider__name">React Amsterdam Main Hall</h4>
-                        <img class="js-obj-fit" src="/assets/img/slider_conf/ra.jpg" alt="Person coding"/>
-                    </div>
-                    <div class="slider__slide">
-                        <h4 class="slider__name">Denis @ Google Dev Fest</h4>
-                        <img class="js-obj-fit" src="/assets/img/slider_conf/gdf-denis.jpg" alt="Person coding"/>
-                    </div>
-                    <div class="slider__slide">
-                      <h4 class="slider__name">React Advanced Workshop</h4>
-                      <img class="js-obj-fit" src="/assets/img/slider_conf/working.jpg" alt="Person coding"/>
-                    </div>
-                </div>
-                <div class="slider__prev-btn js-prev-btn is-hoverable">
-                    {% include 'partials/svg/arrow.svg' %}
-                </div>
-                <div class="slider__next-btn js-next-btn is-hoverable">
-                    {% include 'partials/svg/arrow.svg' %}
-                </div>
+      <ul class="advantages">
+        {% for item in advantages %}
+        <li class="advantage">
+          <div class="advantage__inner">
+            <div class="advantage__number">0{{ loop.index }}</div>
+            <div class="advantage__text">
+              <h3 class="advantage__title">{{ item.title | safe }}</h3>
+              <p class="advantage__desc">{{ item.desc | safe }}</p>
             </div>
-            <div class="slider__amount slider__amount--mt-lg js-slider-amount"></div>
-        </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
+  </div>
+  <div class="description__btn text-center">
+    <a href="/#mail-us" class="btn btn--primary">Work with us</a>
+  </div>
 
-    <div class="help-msg is-light js-scroll-header" id="partnership-models">
-        <div class="container">
-            <div class="help-msg__title is-desktop">
-                <h3 class="title title--dark title--xs">
-                    Embedded teams,<br/>
-                    growth support,<br/>
-                    or project-based work
-                </h3>
-            </div>
-            <div class="help-msg__title is-mobile">
-                <h3 class="title title--dark title--xs">
-                    Embedded teams,<br/>
-                    growth support,<br/>
-                    or project-based work
-                </h3>
-            </div>
-            <div class="help-msg__inner">
-                <div class="help-msg__row">
-                    <div class="help-msg__col">
-                        <p>We offer engagement options for every kind of project and company, ranging from deep integration with your existing engineering team or supporting its expansion, to project-focused work in collaboration with your product manager and designers.</p>
-                    </div>
-                    <div class="help-msg__col">
-                        <p>However we collaborate, we regularly align expectations with both the business and existing engineering teams. Continuous support of the technical products we deliver and the right amount of documentation ensure a smooth transition following project completion. </p>
-                    </div>
-                </div>
-            </div>
+  <div class="description__slider is-dark js-scroll-header">
+    <div class="slider slider--full js-slider-parent">
+      <div class="slider__inner">
+        <div class="slider__slides js-slider">
+          <div class="slider__slide">
+            <h4 class="slider__name">Robert @ React Amsterdam</h4>
+            <img
+              class="js-obj-fit"
+              src="/assets/img/slider_conf/ra-robert2.jpg"
+              alt="Person coding"
+            />
+          </div>
+          <div class="slider__slide">
+            <h4 class="slider__name">React Amsterdam Main Hall</h4>
+            <img class="js-obj-fit" src="/assets/img/slider_conf/ra.jpg" alt="Person coding" />
+          </div>
+          <div class="slider__slide">
+            <h4 class="slider__name">Denis @ Google Dev Fest</h4>
+            <img
+              class="js-obj-fit"
+              src="/assets/img/slider_conf/gdf-denis.jpg"
+              alt="Person coding"
+            />
+          </div>
+          <div class="slider__slide">
+            <h4 class="slider__name">React Advanced Workshop</h4>
+            <img class="js-obj-fit" src="/assets/img/slider_conf/working.jpg" alt="Person coding" />
+          </div>
         </div>
+        <div class="slider__prev-btn js-prev-btn is-hoverable">
+          {% include 'partials/svg/arrow.svg' %}
+        </div>
+        <div class="slider__next-btn js-next-btn is-hoverable">
+          {% include 'partials/svg/arrow.svg' %}
+        </div>
+      </div>
+      <div class="slider__amount slider__amount--mt-lg js-slider-amount"></div>
     </div>
+  </div>
 
-
+  <div class="help-msg is-light js-scroll-header" id="partnership-models">
+    <div class="container">
+      <div class="help-msg__title is-desktop">
+        <h3 class="title title--dark title--xs">
+          Embedded teams,<br />
+          growth support,<br />
+          or project-based work
+        </h3>
+      </div>
+      <div class="help-msg__title is-mobile">
+        <h3 class="title title--dark title--xs">
+          Embedded teams,<br />
+          growth support,<br />
+          or project-based work
+        </h3>
+      </div>
+      <div class="help-msg__inner">
+        <div class="help-msg__row">
+          <div class="help-msg__col">
+            <p>
+              We offer engagement options for every kind of project and company, ranging from deep
+              integration with your existing engineering team or supporting its expansion, to
+              project-focused work in collaboration with your product manager and designers.
+            </p>
+          </div>
+          <div class="help-msg__col">
+            <p>
+              However we collaborate, we regularly align expectations with both the business and
+              existing engineering teams. Continuous support of the technical products we deliver
+              and the right amount of documentation ensure a smooth transition following project
+              completion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- end description -->

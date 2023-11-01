@@ -1,12 +1,12 @@
-import React from "react";
-import clsx from "clsx";
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from "@docusaurus/theme-common";
-import BlogLayout from "@theme/BlogLayout";
-import SearchMetadata from "@theme/SearchMetadata";
-import { ArticlesList } from "../../components/ArticlesList";
-import TagsList from "../../components/TagsList";
-import { GENERIC_TITLE } from "@site/src/constants";
+import React from 'react';
+import clsx from 'clsx';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import { PageMetadata, HtmlClassNameProvider, ThemeClassNames } from '@docusaurus/theme-common';
+import BlogLayout from '@theme/BlogLayout';
+import SearchMetadata from '@theme/SearchMetadata';
+import { ArticlesList } from '../../components/ArticlesList';
+import TagsList from '../../components/TagsList';
+import { GENERIC_TITLE } from '@site/src/constants';
 
 function BlogListPageMetadata(props) {
   const { metadata } = props;
@@ -14,7 +14,7 @@ function BlogListPageMetadata(props) {
     siteConfig: { title: siteTitle },
   } = useDocusaurusContext();
   const { blogDescription, blogTitle, permalink } = metadata;
-  const isBlogOnlyMode = permalink === "/";
+  const isBlogOnlyMode = permalink === '/';
   const title = isBlogOnlyMode ? siteTitle : blogTitle;
   return (
     <>
@@ -31,7 +31,7 @@ function BlogListPageContent(props) {
     title: item.content.frontMatter.title,
     tags: item.content.frontMatter.tags,
   }));
-  const keywords = tags.map((tag) => tag.label).join(", ");
+  const keywords = tags.map((tag) => tag.label).join(', ');
 
   return (
     <BlogLayout keywords={keywords}>
@@ -42,7 +42,9 @@ function BlogListPageContent(props) {
 }
 export default function BlogListPage(props) {
   return (
-    <HtmlClassNameProvider className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}>
+    <HtmlClassNameProvider
+      className={clsx(ThemeClassNames.wrapper.blogPages, ThemeClassNames.page.blogListPage)}
+    >
       <BlogListPageMetadata {...props} />
       <BlogListPageContent {...props} />
     </HtmlClassNameProvider>

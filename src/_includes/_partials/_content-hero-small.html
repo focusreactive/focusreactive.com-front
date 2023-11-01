@@ -1,12 +1,19 @@
 <section class="content_hero small">
-	<h2 class="content_hero__title text-center">{{ heroContentSmallData.title }}</h2>
-	<div class="container is-dark js-scroll-header">
-		<div class="content_hero__bg" style="background-image: url({{ heroContentSmallData.bgImage | imgURL }})"></div>
-		<div class="content_hero__card text-center">
-			<div class="content_hero__card_image">
-				<img width="320" src="{{ heroContentSmallData.image | imgURL }}" alt="{{ heroContentSmallData.description }}"/>
-			</div>
-			<h4 class="content_hero__card_title">{{ heroContentSmallData.description }}</h4>
-		</div>
-	</div>
+  <h2 class="content_hero__title text-center">{{ heroContentSmallData.title }}</h2>
+  <div class="container is-dark js-scroll-header">
+    <div
+      class="content_hero__bg"
+      style="background-image: url({{ heroContentSmallData.bgImage | imgURL }})"
+    ></div>
+    <div class="content_hero__card text-center">
+      <div class="content_hero__card_image">
+        <img
+          width="320"
+          src="{{ heroContentSmallData.image | imgURL }}"
+          alt="{{ heroContentSmallData.description }}"
+        />
+      </div>
+      <h4 class="content_hero__card_title">{{ heroContentSmallData.description }}</h4>
+    </div>
+  </div>
 </section>

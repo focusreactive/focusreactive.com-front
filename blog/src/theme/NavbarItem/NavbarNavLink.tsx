@@ -1,10 +1,10 @@
-import React from "react";
-import Link from "@docusaurus/Link";
-import useBaseUrl from "@docusaurus/useBaseUrl";
-import isInternalUrl from "@docusaurus/isInternalUrl";
-import { isRegexpStringMatch } from "@docusaurus/theme-common";
-import IconExternalLink from "@theme/Icon/ExternalLink";
-import styles from "./styles.module.css";
+import React from 'react';
+import Link from '@docusaurus/Link';
+import useBaseUrl from '@docusaurus/useBaseUrl';
+import isInternalUrl from '@docusaurus/isInternalUrl';
+import { isRegexpStringMatch } from '@docusaurus/theme-common';
+import IconExternalLink from '@theme/Icon/ExternalLink';
+import styles from './styles.module.css';
 
 export default function NavbarNavLink({
   activeBasePath,
@@ -30,19 +30,25 @@ export default function NavbarNavLink({
         children: (
           <div>
             {label}
-            {isExternalLink && <IconExternalLink {...(isDropdownLink && { width: 12, height: 12 })} />}
+            {isExternalLink && (
+              <IconExternalLink {...(isDropdownLink && { width: 12, height: 12 })} />
+            )}
           </div>
         ),
       };
   if (href) {
     return (
       <div>
-        <Link href={prependBaseUrlToHref ? normalizedHref : href} {...props} {...linkContentProps} />
+        <Link
+          href={prependBaseUrlToHref ? normalizedHref : href}
+          {...props}
+          {...linkContentProps}
+        />
       </div>
     );
   }
   return (
-    <div className={styles["navbar-link-wrapper"]}>
+    <div className={styles['navbar-link-wrapper']}>
       <Link
         to={toUrl}
         isNavLink

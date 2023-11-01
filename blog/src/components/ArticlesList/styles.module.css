@@ -30,7 +30,10 @@
 }
 
 .articles-list__title {
-  font-family: Helvetica Bold, Arial, sans-serif;
+  font-family:
+    Helvetica Bold,
+    Arial,
+    sans-serif;
   font-size: 68px;
   font-weight: 700;
   line-height: 1.02;

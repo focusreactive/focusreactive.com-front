@@ -1,8 +1,6 @@
 require('dotenv').config();
 const blogPluginExports = require('@docusaurus/plugin-content-blog');
-const {
-  getBlogTags,
-} = require('@docusaurus/plugin-content-blog/lib/blogUtils');
+const { getBlogTags } = require('@docusaurus/plugin-content-blog/lib/blogUtils');
 const utils = require('@docusaurus/utils');
 const path = require('path');
 const { stringify } = require('yaml');
@@ -23,10 +21,7 @@ const client = sanityClient({
   perspective: isDev ? 'previewDrafts' : 'published',
 });
 
-const pluginDataDirRoot = path.join(
-  '.docusaurus',
-  'docusaurus-plugin-content-blog',
-);
+const pluginDataDirRoot = path.join('.docusaurus', 'docusaurus-plugin-content-blog');
 const aliasedSource = (source) =>
   `~blog/${utils.posixPath(path.relative(pluginDataDirRoot, source))}`;
 
@@ -44,28 +39,19 @@ function formatBlogPostDate(locale, date, calendar) {
   }
 }
 
-function paginateBlogPosts({
-  blogPosts,
-  basePageUrl,
-  blogTitle,
-  blogDescription,
-}) {
+function paginateBlogPosts({ blogPosts, basePageUrl, blogTitle, blogDescription }) {
   const totalCount = blogPosts.length;
   const postsPerPage = totalCount;
   const numberOfPages = Math.ceil(totalCount / postsPerPage);
   const pages = [];
 
   function permalink(page) {
-    return page > 0
-      ? utils.normalizeUrl([basePageUrl, `page/${page + 1}`])
-      : basePageUrl;
+    return page > 0 ? utils.normalizeUrl([basePageUrl, `page/${page + 1}`]) : basePageUrl;
   }
 
   for (let page = 0; page < numberOfPages; page += 1) {
     pages.push({
-      items: blogPosts
-        .slice(page * postsPerPage, (page + 1) * postsPerPage)
-        .map((item) => item.id),
+      items: blogPosts.slice(page * postsPerPage, (page + 1) * postsPerPage).map((item) => item.id),
       metadata: {
         permalink: permalink(page),
         page: page + 1,
@@ -87,9 +73,7 @@ function getRelatedPosts(allBlogPosts, currentPost) {
   const relatedPosts = allBlogPosts.filter(
     (post) =>
       post.tags.some((postTag) =>
-        currentPost.tags.some(
-          (currentPostTag) => postTag.label === currentPostTag.label,
-        ),
+        currentPost.tags.some((currentPostTag) => postTag.label === currentPostTag.label),
       ) && post.title !== currentPost.title,
   );
 
@@ -215,11 +199,7 @@ async function blogPluginExtended(...pluginArgs) {
       const { content: blogContents, actions } = data;
       const { addRoute, createData } = actions;
       const blogItemsToMetadata = {};
-      const {
-        blogPosts: allBlogPosts,
-        blogTags,
-        blogTagsListPath,
-      } = blogContents;
+      const { blogPosts: allBlogPosts, blogTags, blogTagsListPath } = blogContents;
 
       function blogPostItemsModule(items) {
         return items.map((postId) => {
@@ -254,10 +234,7 @@ async function blogPluginExtended(...pluginArgs) {
         allBlogPosts.map(async (blogPost) => {
           const { id, metadata } = blogPost;
 
-          const contentPath = await createData(
-            `${utils.docuHash(id)}.mdx`,
-            blogPost.mdx,
-          );
+          const contentPath = await createData(`${utils.docuHash(id)}.mdx`, blogPost.mdx);
 
           metadata.source = contentPath;
 

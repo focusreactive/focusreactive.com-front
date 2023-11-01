@@ -1,81 +1,86 @@
-<header class="header is-light js-header {{headerMod}} {% if innerPage %} inner {% endif %}" role="banner">
-    <div class="container">
-        <div class="header__inner">
-            <div class="header__logo">
-                <a href="{% if innerPage %}/{% else %}#home{% endif %}" class="logo js-scroll-to" aria-label="FocusReactive">{% include "./svg/focusreactive.svg" %}</a>
-            </div>
-            <div class="header__burger">
-                <div class="burger js-burger"></div>
-            </div>
-            <div class="header__menu js-nav ">
-                <div class="header__note is-mobile">
-                    <p>Next.js, Headless CMS and eCommerce expert agency</p>
-                </div>
-                <nav class="menu" role="navigation">
-                    <ul class="menu__list">
-                        {% for menuItem in headerData.menu %}
-                        <li class="menu__item {{menuItem.mod}} {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}">
-                            <a class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-link-dropdown' if menuItem.dropdown}}" href={{menuItem.link}}>
-                                {{menuItem.text}}
-                            </a>
-
-
-                            {% if menuItem.dropdown and menuItem.dropdown.length > 0 %}
-
-                            <ul class="menu__dropdown m-dropdown js-nav-dropdown">
-                                {% for dropdown in menuItem.dropdown %}
-                                <li class="m-dropdown__item">
-                                    <a class="m-dropdown__link" href={{dropdown.link}}>
-                                        <div class="m-dropdown__content">
-                                            <div class="m-dropdown__title">
-                                                {{dropdown.title}}
-                                            </div>
-                                            <div class="m-dropdown__text">
-                                                {{dropdown.text}}
-                                            </div>
-                                        </div>
-                                        {% if dropdown.logo and dropdown.logo.length > 0 %}
-                                        <div class="m-dropdown__logos">
-                                            {% for logo in dropdown.logo %}
-                                            <div class="m-dropdown__logos-item">
-                                                <img src={{logo.url}} alt="" />
-                                                <img src={{logo.urlHover}} alt="" />
-                                            </div>
-                                            {% endfor %}
-                                        </div>
-                                        {% endif %}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-
-                            <button class="menu__caret js-btn-dropdown"></button>
-
-                            {% endif %}
-                        </li>
-                        {% endfor %}
-
-                    </ul>
-                    <ul class="menu__soc-links">
-                        <li>
-                            <a
-                                href="https://twitter.com/focusreactive"
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                Twitter
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                href="https://www.linkedin.com/company/focusreactive"
-                                target="_blank"
-                                rel="noopener noreferrer">
-                                LinkedIn
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
+<header
+  class="header is-light js-header {{headerMod}} {% if innerPage %} inner {% endif %}"
+  role="banner"
+>
+  <div class="container">
+    <div class="header__inner">
+      <div class="header__logo">
+        <a
+          href="{% if innerPage %}/{% else %}#home{% endif %}"
+          class="logo js-scroll-to"
+          aria-label="FocusReactive"
+          >{% include "./svg/focusreactive.svg" %}</a
+        >
+      </div>
+      <div class="header__burger">
+        <div class="burger js-burger"></div>
+      </div>
+      <div class="header__menu js-nav">
+        <div class="header__note is-mobile">
+          <p>Next.js, Headless CMS and eCommerce expert agency</p>
         </div>
+        <nav class="menu" role="navigation">
+          <ul class="menu__list">
+            {% for menuItem in headerData.menu %}
+            <li
+              class="menu__item {{menuItem.mod}} {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}"
+            >
+              <a
+                class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-link-dropdown' if menuItem.dropdown}}"
+                href="{{menuItem.link}}"
+              >
+                {{menuItem.text}}
+              </a>
+
+              {% if menuItem.dropdown and menuItem.dropdown.length > 0 %}
+
+              <ul class="menu__dropdown m-dropdown js-nav-dropdown">
+                {% for dropdown in menuItem.dropdown %}
+                <li class="m-dropdown__item">
+                  <a class="m-dropdown__link" href="{{dropdown.link}}">
+                    <div class="m-dropdown__content">
+                      <div class="m-dropdown__title">{{dropdown.title}}</div>
+                      <div class="m-dropdown__text">{{dropdown.text}}</div>
+                    </div>
+                    {% if dropdown.logo and dropdown.logo.length > 0 %}
+                    <div class="m-dropdown__logos">
+                      {% for logo in dropdown.logo %}
+                      <div class="m-dropdown__logos-item">
+                        <img src="{{logo.url}}" alt="" />
+                        <img src="{{logo.urlHover}}" alt="" />
+                      </div>
+                      {% endfor %}
+                    </div>
+                    {% endif %}
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+
+              <button class="menu__caret js-btn-dropdown"></button>
+
+              {% endif %}
+            </li>
+            {% endfor %}
+          </ul>
+          <ul class="menu__soc-links">
+            <li>
+              <a href="https://twitter.com/focusreactive" target="_blank" rel="noopener noreferrer">
+                Twitter
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.linkedin.com/company/focusreactive"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
+  </div>
 </header>

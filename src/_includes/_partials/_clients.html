@@ -1,8 +1,4 @@
-<section
-  class="clients is-light js-scroll-header"
-  id="clients"
-  data-section="clients"
->
+<section class="clients is-light js-scroll-header" id="clients" data-section="clients">
   <div class="container">
     <h2 class="clients__title">{{ workPageTitle }}</h2>
     <p class="clients__subtitle">{{ workPageDescription }}</p>
@@ -24,9 +20,7 @@
           </div>
 
           {% if case.linkUrl %} {% if case.linkTitle %}
-          <a href="{{ case.linkUrl }}" class="btn btn--primary"
-            >{{ case.linkTitle }}</a
-          >
+          <a href="{{ case.linkUrl }}" class="btn btn--primary">{{ case.linkTitle }}</a>
           {% endif %} {% endif %}
         </div>
       </div>

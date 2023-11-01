@@ -1,7 +1,7 @@
-import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
-import clsx from "clsx";
-import React from "react";
-import styles from "./styles.module.css";
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import clsx from 'clsx';
+import React from 'react';
+import styles from './styles.module.css';
 
 export default function FooterCopyright({ copyright }) {
   const { siteConfig } = useDocusaurusContext();
@@ -9,9 +9,9 @@ export default function FooterCopyright({ copyright }) {
   const { contactInfo } = customFields;
 
   return (
-    <div className={styles["footer__bottom-container"]}>
+    <div className={styles['footer__bottom-container']}>
       <div
-        className={clsx("footer__copyright", styles["footer-copyright"])}
+        className={clsx('footer__copyright', styles['footer-copyright'])}
         // Developer provided the HTML, so assume it's safe.
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{ __html: copyright }}

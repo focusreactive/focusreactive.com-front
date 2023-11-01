@@ -3,7 +3,10 @@
 }
 
 .mail-us__title {
-  font-family: Helvetica Bold, Arial, sans-serif;
+  font-family:
+    Helvetica Bold,
+    Arial,
+    sans-serif;
   text-transform: uppercase;
   max-width: 700px;
   font-size: 28px;
@@ -28,7 +31,10 @@
 
 .mail-form__input {
   border: 0;
-  font-family: Helvetica Bold, Arial, sans-serif;
+  font-family:
+    Helvetica Bold,
+    Arial,
+    sans-serif;
   font-size: 18px;
   width: 100%;
   height: 58px;

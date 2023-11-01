@@ -4,10 +4,7 @@ import styles from './styles.module.css';
 type Props = {
   className: string;
   children: string;
-  mdxCode: (props: {
-    className: string;
-    children: string;
-  }) => React.ReactElement;
+  mdxCode: (props: { className: string; children: string }) => React.ReactElement;
 };
 
 const GraphiQL = ({ className, children, mdxCode }: Props) => {
@@ -29,9 +26,7 @@ const GraphiQL = ({ className, children, mdxCode }: Props) => {
           />
         </div>
       </div>
-      <div className={styles.code}>
-        {mdxCode({ className: 'language-graphql', children })}
-      </div>
+      <div className={styles.code}>{mdxCode({ className: 'language-graphql', children })}</div>
     </div>
   );
 };

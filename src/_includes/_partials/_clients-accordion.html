@@ -1,8 +1,4 @@
-<section
-  class="clients is-light js-scroll-header"
-  id="clients"
-  data-section="clients"
->
+<section class="clients is-light js-scroll-header" id="clients" data-section="clients">
   <div class="container">
     <h2 class="clients__title">{{ accourdionData.title }}</h2>
   </div>
@@ -25,15 +21,11 @@
             </div>
 
             {% if case.link %} {% if case.linkTitle %}
-            <a href="{{ case.link }}" class="btn btn--primary"
-              >{{ case.linkTitle }}</a
-            >
+            <a href="{{ case.link }}" class="btn btn--primary">{{ case.linkTitle }}</a>
             {% endif %} {% endif %}
           </div>
         </div>
-        <div
-          class="clients-acordion__item_trigger js-accordion-item-trigger"
-        ></div>
+        <div class="clients-acordion__item_trigger js-accordion-item-trigger"></div>
       </div>
     </li>
     {% endfor %}

@@ -1,45 +1,45 @@
-import { getLandingsLinks } from "../../utils/getLandingsLinks";
+import { getLandingsLinks } from '../../utils/getLandingsLinks';
 
-const { EleventyServerless } = require("@11ty/eleventy");
+const { EleventyServerless } = require('@11ty/eleventy');
 
 export default async function handler(request, response) {
   const { slug } = request.query;
   let path;
 
   switch (slug) {
-    case "about-preview": {
-      path = "about-preview";
+    case 'about-preview': {
+      path = 'about-preview';
       break;
     }
-    case "main-preview": {
-      path = "main-preview";
+    case 'main-preview': {
+      path = 'main-preview';
       break;
     }
-    case "graphics-preview": {
-      path = "graphics-preview";
+    case 'graphics-preview': {
+      path = 'graphics-preview';
       break;
     }
-    case "our-work-preview": {
-      path = "our-work-preview";
+    case 'our-work-preview': {
+      path = 'our-work-preview';
       break;
     }
     default: {
-      path = "default-preview";
+      path = 'default-preview';
       break;
     }
   }
 
-  if (path === "default-preview") {
+  if (path === 'default-preview') {
     const landingPaths = getLandingsLinks();
     if (landingPaths.includes(slug)) {
-      path = "landing-preview";
+      path = 'landing-preview';
     }
   }
 
-  let elev = new EleventyServerless("serverless", {
+  let elev = new EleventyServerless('serverless', {
     path: `/${path}`,
     query: {
-      slug: slug.replace(`${path}/`, ""),
+      slug: slug.replace(`${path}/`, ''),
     },
   });
 

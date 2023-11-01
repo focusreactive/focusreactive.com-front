@@ -1,101 +1,140 @@
 <!-- begin description -->
 <section id="description" data-section="about" class="description is-light js-scroll-header">
+  <div class="container">
+    <h2 class="description__main-title text-center text-center--mob-left">
+      <span class="text title title--md text--border-dark text--border-dark-mob"
+        >10 Years in Web graphics development</span
+      >
+    </h2>
+    <div class="description__subtitle">
+      <h3 class="title title--dark title--xs">
+        Focus Reactive owns a rich knowledge in developing online graphics and optimizing Web
+        applications performance. Since first 3D application delivered in 2009 we`ve been constantly
+        sharpening our tools aiming for the excellence in making 3D/2D graphics for the Web
+      </h3>
+    </div>
+    <div class="description__text">
+      <p>
+        Creating rich and smooth 3D/2D graphics for browser requires special expertise. Performance
+        optimization, large-scale WebGL applications architecture, pixel and vertex shaders,
+        physical based rendering - these are a few of skills FocusReactive`ve been mastering for
+        years and now this expertise is available to drive your game project or an application.
+      </p>
+    </div>
+  </div>
+  <div class="description__list">
     <div class="container">
-        <h2 class="description__main-title text-center text-center--mob-left">
-            <span class="text title title--md text--border-dark text--border-dark-mob">10 Years in Web graphics development</span>
-        </h2>
-        <div class="description__subtitle">
-            <h3 class="title title--dark title--xs">
-                Focus Reactive owns a rich knowledge in developing online graphics and optimizing Web applications performance. Since first 3D application delivered in 2009 we`ve been constantly sharpening our tools aiming for the excellence in making 3D/2D graphics for the Web
-            </h3>
-        </div>
-        <div class="description__text">
-          <p>Creating rich and smooth 3D/2D graphics for browser requires special expertise. Performance optimization, large-scale WebGL applications architecture, pixel and vertex shaders, physical based rendering - these are a few of skills FocusReactive`ve been mastering for years and now this expertise is available to drive your game project or an application.</p>
-        </div>
-    </div>
-    <div class="description__list">
-        <div class="container">
-            <ul class="advantages">
-                {% for item in advantages %}
-                <li class="advantage">
-                    <div class="advantage__inner">
-                        <div class="advantage__number">0{{ loop.index }}</div>
-                        <div class="advantage__text">
-                            <h3 class="advantage__title">{{ item.title | safe }}</h3>
-                            <p class="advantage__desc">{{ item.desc | safe }}</p>
-                        </div>
-                    </div>
-                </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </div>
-    <div class="description__btn text-center">
-        <a href="#contacts" class="btn btn--primary">Work with us</a>
-    </div>
-
-    <div class="description__slider is-dark js-scroll-header">
-
-        <div class="slider slider--full js-slider-parent">
-            <div class="slider__inner">
-                <div class="slider__slides js-slider">
-                    <div class="slider__slide">
-                        <h4 class="slider__name">Evolution Gaming 3d online casino (React + WebGL)</h4>
-                        <iframe width="100%" height="600px" src="https://www.youtube.com/embed/0QaJ8XPljLQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slider__slide">
-                        <h4 class="slider__name">Liberty Global Horizon UI (React + WebGL)</h4>
-                        <iframe width="100%" height="600px" src="https://www.youtube.com/embed/JjVg8gidGmA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slider__slide">
-                        <h4 class="slider__name">Teempla collaborative CAD for architects (Canvas)</h4>
-                        <iframe width="100%" height="600px" src="https://www.youtube.com/embed/ZsCNGhlwL3g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="slider__slide">
-                      <h4 class="slider__name">Prayer wheel application (ReactJS + WebGL)</h4>
-                      <iframe width="100%" height="600px" src="https://www.youtube.com/embed/DttNvK4sgh4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                </div>
-                <div class="slider__prev-btn js-prev-btn is-hoverable">
-                    {% include './svg/arrow.svg' %}
-                </div>
-                <div class="slider__next-btn js-next-btn is-hoverable">
-                    {% include './svg/arrow.svg' %}
-                </div>
+      <ul class="advantages">
+        {% for item in advantages %}
+        <li class="advantage">
+          <div class="advantage__inner">
+            <div class="advantage__number">0{{ loop.index }}</div>
+            <div class="advantage__text">
+              <h3 class="advantage__title">{{ item.title | safe }}</h3>
+              <p class="advantage__desc">{{ item.desc | safe }}</p>
             </div>
-            <div class="slider__amount slider__amount--mt-lg js-slider-amount"></div>
-        </div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
     </div>
+  </div>
+  <div class="description__btn text-center">
+    <a href="#contacts" class="btn btn--primary">Work with us</a>
+  </div>
 
-    <div class="help-msg is-light js-scroll-header" id="partnership-models">
-        <div class="container">
-            <div class="help-msg__title is-desktop">
-                <h3 class="title title--dark title--xs">
-                    Embedded teams,<br/>
-                    growth support,<br/>
-                    or project-based work
-                </h3>
-            </div>
-            <div class="help-msg__title is-mobile">
-                <h3 class="title title--dark title--xs">
-                    Embedded teams,<br/>
-                    growth support,<br/>
-                    or project-based work
-                </h3>
-            </div>
-            <div class="help-msg__inner">
-                <div class="help-msg__row">
-                    <div class="help-msg__col">
-                        <p>We offer engagement options for every kind of project and company, ranging from deep integration with your existing engineering team or supporting its expansion, to project-focused work in collaboration with your product manager and designers.</p>
-                    </div>
-                    <div class="help-msg__col">
-                        <p>However we collaborate, we regularly align expectations with both the business and existing engineering teams. Continuous support of the technical products we deliver and the right amount of documentation ensure a smooth transition following project completion. </p>
-                    </div>
-                </div>
-            </div>
+  <div class="description__slider is-dark js-scroll-header">
+    <div class="slider slider--full js-slider-parent">
+      <div class="slider__inner">
+        <div class="slider__slides js-slider">
+          <div class="slider__slide">
+            <h4 class="slider__name">Evolution Gaming 3d online casino (React + WebGL)</h4>
+            <iframe
+              width="100%"
+              height="600px"
+              src="https://www.youtube.com/embed/0QaJ8XPljLQ"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="slider__slide">
+            <h4 class="slider__name">Liberty Global Horizon UI (React + WebGL)</h4>
+            <iframe
+              width="100%"
+              height="600px"
+              src="https://www.youtube.com/embed/JjVg8gidGmA"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="slider__slide">
+            <h4 class="slider__name">Teempla collaborative CAD for architects (Canvas)</h4>
+            <iframe
+              width="100%"
+              height="600px"
+              src="https://www.youtube.com/embed/ZsCNGhlwL3g"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="slider__slide">
+            <h4 class="slider__name">Prayer wheel application (ReactJS + WebGL)</h4>
+            <iframe
+              width="100%"
+              height="600px"
+              src="https://www.youtube.com/embed/DttNvK4sgh4"
+              frameborder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
         </div>
+        <div class="slider__prev-btn js-prev-btn is-hoverable">{% include './svg/arrow.svg' %}</div>
+        <div class="slider__next-btn js-next-btn is-hoverable">{% include './svg/arrow.svg' %}</div>
+      </div>
+      <div class="slider__amount slider__amount--mt-lg js-slider-amount"></div>
     </div>
+  </div>
 
-
+  <div class="help-msg is-light js-scroll-header" id="partnership-models">
+    <div class="container">
+      <div class="help-msg__title is-desktop">
+        <h3 class="title title--dark title--xs">
+          Embedded teams,<br />
+          growth support,<br />
+          or project-based work
+        </h3>
+      </div>
+      <div class="help-msg__title is-mobile">
+        <h3 class="title title--dark title--xs">
+          Embedded teams,<br />
+          growth support,<br />
+          or project-based work
+        </h3>
+      </div>
+      <div class="help-msg__inner">
+        <div class="help-msg__row">
+          <div class="help-msg__col">
+            <p>
+              We offer engagement options for every kind of project and company, ranging from deep
+              integration with your existing engineering team or supporting its expansion, to
+              project-focused work in collaboration with your product manager and designers.
+            </p>
+          </div>
+          <div class="help-msg__col">
+            <p>
+              However we collaborate, we regularly align expectations with both the business and
+              existing engineering teams. Continuous support of the technical products we deliver
+              and the right amount of documentation ensure a smooth transition following project
+              completion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- end description -->

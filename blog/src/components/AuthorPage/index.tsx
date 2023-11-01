@@ -1,7 +1,7 @@
-import React from "react";
-import BlogLayout from "@theme/BlogLayout";
-import { ArticlesList } from "../ArticlesList";
-import { GENERIC_TITLE } from "@site/src/constants";
+import React from 'react';
+import BlogLayout from '@theme/BlogLayout';
+import { ArticlesList } from '../ArticlesList';
+import { GENERIC_TITLE } from '@site/src/constants';
 
 const AuthorPage = (props) => {
   const { items } = props;
@@ -12,7 +12,9 @@ const AuthorPage = (props) => {
     permalink: item.content.frontMatter.slug,
     description: item.content.frontMatter.description,
   }));
-  const keywords = [...new Set(posts.flatMap((post) => post.tags.map((tag) => tag.label)))].join(", ");
+  const keywords = [...new Set(posts.flatMap((post) => post.tags.map((tag) => tag.label)))].join(
+    ', ',
+  );
 
   return (
     <>

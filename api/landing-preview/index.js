@@ -1,12 +1,12 @@
-const { EleventyServerless } = require("@11ty/eleventy");
+const { EleventyServerless } = require('@11ty/eleventy');
 
 export default async function handler(request, response) {
   const { slug } = request.query;
 
-  let elev = new EleventyServerless("serverlessLandings", {
+  let elev = new EleventyServerless('serverlessLandings', {
     path: `/landing-preview`,
     query: {
-      slug: slug.replace("landing-preview/", ""),
+      slug: slug.replace('landing-preview/', ''),
     },
   });
 

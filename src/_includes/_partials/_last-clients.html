@@ -4,7 +4,11 @@
 
     <div class="last-clients sec-last-clients__list">
       {% for item in ourClients.items %}
-      <a href="{{ item.link }}" class="last-clients__item" target="{{ '_blank' if item.openInNewTab }}">
+      <a
+        href="{{ item.link }}"
+        class="last-clients__item"
+        target="{{ '_blank' if item.openInNewTab }}"
+      >
         <img src="{{ item.image | imgURL }}" alt="{{ item.alt }}" />
       </a>
       {% endfor %}

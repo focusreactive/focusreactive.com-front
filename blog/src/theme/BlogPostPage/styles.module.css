@@ -72,7 +72,10 @@
 }
 
 .article h1.article__title {
-  font-family: Helvetica Bold, Arial, sans-serif;
+  font-family:
+    Helvetica Bold,
+    Arial,
+    sans-serif;
   line-height: 1;
   font-size: 70px;
   letter-spacing: -0.03em;
@@ -116,7 +119,10 @@
 }
 
 .article__tags {
-  font-family: Helvetica Bold, Arial, sans-serif;
+  font-family:
+    Helvetica Bold,
+    Arial,
+    sans-serif;
   font-size: 16px;
   margin: 20px auto 40px;
   text-transform: uppercase;

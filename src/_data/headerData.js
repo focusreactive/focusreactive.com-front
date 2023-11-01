@@ -1,4 +1,4 @@
-const fetch = require("node-fetch");
+const fetch = require('node-fetch');
 
 const query = `*[_type=="header"][0] {
     ...,
@@ -17,8 +17,8 @@ const query = `*[_type=="header"][0] {
 module.exports = async () => {
   let QUERY = encodeURIComponent(query);
 
-  let PROJECT_ID = "vftxng62";
-  let DATASET = "production";
+  let PROJECT_ID = 'vftxng62';
+  let DATASET = 'production';
 
   // Compose the URL for your project's endpoint and add the query
   let URL = `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}?query=${QUERY}`;

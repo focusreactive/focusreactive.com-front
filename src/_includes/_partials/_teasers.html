@@ -1,21 +1,23 @@
 <section class="teasers is-light js-scroll-header">
-	<div class="container">
-		<h2 class="teasers__title text-center">{{ teasersData.title }}</h2>
-		<div class="teasers__cards">
-			{% for element in teasersData.elements %}
-				<div class="teasers__card text-center">
-					{% if element.title %}
-						<h4 class="reviews__card_title" style="margin-bottom: 20px; text-transform: none;">{{ element.title }}</h4>
-					{% endif %}
-					<div class="teasers__card_image">
-						<img width="320" src="{{ element.image | imgURL }}" alt=""/>
-					</div>
-					<h4 class="teasers__card_title">{{ element.text }}</h4>
-					<div class="teasers__btn">
-						<a href="{{ element.url }}" class="btn btn--primary">{{ element.buttonText }}</a>
-					</div>
-				</div>
-			{% endfor %}
-		</div>
-	</div>
+  <div class="container">
+    <h2 class="teasers__title text-center">{{ teasersData.title }}</h2>
+    <div class="teasers__cards">
+      {% for element in teasersData.elements %}
+      <div class="teasers__card text-center">
+        {% if element.title %}
+        <h4 class="reviews__card_title" style="margin-bottom: 20px; text-transform: none">
+          {{ element.title }}
+        </h4>
+        {% endif %}
+        <div class="teasers__card_image">
+          <img width="320" src="{{ element.image | imgURL }}" alt="" />
+        </div>
+        <h4 class="teasers__card_title">{{ element.text }}</h4>
+        <div class="teasers__btn">
+          <a href="{{ element.url }}" class="btn btn--primary">{{ element.buttonText }}</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>

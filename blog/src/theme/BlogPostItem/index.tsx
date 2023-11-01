@@ -1,14 +1,14 @@
-import React from "react";
-import clsx from "clsx";
+import React from 'react';
+import clsx from 'clsx';
 // @ts-ignore
-import { useBlogPost } from "@docusaurus/theme-common/internal";
-import BlogPostItemContainer from "@theme/BlogPostItem/Container";
-import BlogPostItemContent from "@theme/BlogPostItem/Content";
-import BlogPostItemFooter from "@theme/BlogPostItem/Footer";
+import { useBlogPost } from '@docusaurus/theme-common/internal';
+import BlogPostItemContainer from '@theme/BlogPostItem/Container';
+import BlogPostItemContent from '@theme/BlogPostItem/Content';
+import BlogPostItemFooter from '@theme/BlogPostItem/Footer';
 // apply a bottom margin in list view
 function useContainerClassName() {
   const { isBlogPostPage } = useBlogPost();
-  return !isBlogPostPage ? "margin-bottom--xl" : undefined;
+  return !isBlogPostPage ? 'margin-bottom--xl' : undefined;
 }
 
 type BlogPostItemProps = {

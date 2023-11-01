@@ -1,9 +1,9 @@
-import React from "react";
-import clsx from "clsx";
-import { translate } from "@docusaurus/Translate";
-import { usePluralForm } from "@docusaurus/theme-common";
-import { useBlogPost } from "@docusaurus/theme-common/internal";
-import styles from "./styles.module.css";
+import React from 'react';
+import clsx from 'clsx';
+import { translate } from '@docusaurus/Translate';
+import { usePluralForm } from '@docusaurus/theme-common';
+import { useBlogPost } from '@docusaurus/theme-common/internal';
+import styles from './styles.module.css';
 // Very simple pluralization: probably good enough for now
 function useReadingTimePlural() {
   const { selectMessage } = usePluralForm();
@@ -13,13 +13,13 @@ function useReadingTimePlural() {
       readingTime,
       translate(
         {
-          id: "theme.blog.post.readingTime.plurals",
+          id: 'theme.blog.post.readingTime.plurals',
           description:
             'Pluralized label for "{readingTime} min read". Use as much plural forms (separated by "|") as your language support (see https://www.unicode.org/cldr/cldr-aux/charts/34/supplemental/language_plural_rules.html)',
-          message: "One min read|{readingTime} min read",
+          message: 'One min read|{readingTime} min read',
         },
-        { readingTime }
-      )
+        { readingTime },
+      ),
     );
   };
 }
@@ -35,16 +35,16 @@ function Date({ date, formattedDate }) {
   );
 }
 function Spacer() {
-  return <>{" · "}</>;
+  return <>{' · '}</>;
 }
 export default function BlogPostItemHeaderInfo({ className }) {
   const { frontMatter } = useBlogPost();
   const { date, formattedDate, readingTime } = frontMatter;
 
   return (
-    <div className={clsx(styles.container, "margin-vert--md", className)}>
+    <div className={clsx(styles.container, 'margin-vert--md', className)}>
       <Date date={date} formattedDate={formattedDate} />
-      {typeof readingTime !== "undefined" && (
+      {typeof readingTime !== 'undefined' && (
         <>
           <Spacer />
           <ReadingTime readingTime={readingTime} />
