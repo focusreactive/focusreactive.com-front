@@ -302,7 +302,7 @@ async function blogPluginExtended(...pluginArgs) {
         const authorPosts = allBlogPosts.filter((post) => {
           const authorIds = post.metadata.authors;
 
-          return authorIds[0] === authorId;
+          return authorIds.includes(authorId);
         });
 
         const authorListPaginated = paginateBlogPosts({
