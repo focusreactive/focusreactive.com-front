@@ -1,6 +1,6 @@
-import React from "react";
-import clsx from "clsx";
-import styles from "./styles.module.css";
+import React from 'react';
+import clsx from 'clsx';
+import styles from './styles.module.css';
 
 const imagePropsReg = /\$\{.*\}/;
 
@@ -10,32 +10,32 @@ const getImageAttr = (str) => {
     return [];
   }
   return matchStr[0]
-    .replace("${", "")
-    .replace("}", "")
-    .split(",")
+    .replace('${', '')
+    .replace('}', '')
+    .split(',')
     .map((s) => s.trim());
 };
 
-const getImageAlt = (str) => str.replace(imagePropsReg, "");
+const getImageAlt = (str) => str.replace(imagePropsReg, '');
 
 const imageAttr = {
-  "full-width": {
-    className: "full-width",
+  'full-width': {
+    className: 'full-width',
   },
   inline: {
-    className: "inline",
+    className: 'inline',
   },
-  "left-side": {
-    className: "left-side",
+  'left-side': {
+    className: 'left-side',
   },
   small: {
-    className: "small",
+    className: 'small',
   },
   centered: {
     wrapper: (element) => <div className={styles.centered}>{element}</div>,
   },
-  "hidden-hero": {
-    className: "hidden-hero",
+  'hidden-hero': {
+    className: 'hidden-hero',
   },
 };
 
@@ -59,20 +59,42 @@ const applyAttr = (attrList) => {
   };
 };
 
+const applyImageTransform = (src) => {
+  const isSanityCDN = /^https:\/\/cdn\.sanity\.io.*/.test(src);
+  if (!isSanityCDN) {
+    return src;
+  }
+  const hasParams = /.*\?.*/.test(src);
+  if (hasParams) {
+    return src;
+  }
+  return `${src}?w=620&auto=format`;
+};
+
 const constructElement = ({ src, altText, classList, wrappers }) => {
-  const element = <img className={clsx("image", classList)} src={src} alt={altText} loading="lazy" />;
+  const element = (
+    <img
+      className={clsx('image', classList)}
+      src={src}
+      alt={altText}
+      loading="lazy"
+    />
+  );
   const wrappedElement = wrappers.reduce((result, wr) => wr(result), element);
   return wrappedElement;
 };
 
 export const Image = ({ src, alt }) => {
-  const isSanityImage = src.includes("sanity.io");
-  const optimizedSrc = isSanityImage ? `${src}?w=620&auto=format` : src;
-  const rowAlt = alt || "";
+  const optimizedSrc = applyImageTransform(src)
+  const rowAlt = alt || '';
   const attr = getImageAttr(rowAlt);
   const altText = getImageAlt(rowAlt);
   const modifiers = applyAttr(attr);
-  const element = constructElement({ src: optimizedSrc, altText, ...modifiers });
+  const element = constructElement({
+    src: optimizedSrc,
+    altText,
+    ...modifiers,
+  });
   return element;
 };
 
