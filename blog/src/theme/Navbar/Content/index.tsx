@@ -5,9 +5,9 @@ import NavbarItem from '@theme/NavbarItem';
 import NavbarColorModeToggle from '@theme/Navbar/ColorModeToggle';
 import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
-import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
 import styles from './styles.module.css';
+import Link from '@docusaurus/Link';
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
   return useThemeConfig().navbar.items;
@@ -21,6 +21,17 @@ function NavbarItems({ items }) {
     </>
   );
 }
+
+function NavbarBrand({ items }) {
+  return (
+    <>
+      {items.map((item, i) => (
+        <Link {...item} key={i} />
+      ))}
+    </>
+  );
+}
+
 function NavbarContentLayout({ left, right }) {
   return (
     <div className="navbar__inner">
@@ -34,14 +45,13 @@ export default function NavbarContent() {
   const items = useNavbarItems();
   const [leftItems, rightItems] = splitNavbarItems(items);
   const searchBarItem = items.find((item) => item.type === 'search');
+
   return (
     <NavbarContentLayout
       left={
         // TODO stop hardcoding items?
         <>
-          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
-          <NavbarLogo />
-          <NavbarItems items={leftItems} />
+          <NavbarBrand items={leftItems} />
         </>
       }
       right={
@@ -55,6 +65,8 @@ export default function NavbarContent() {
               <SearchBar />
             </NavbarSearch>
           )}
+
+          {!mobileSidebar.disabled && <NavbarMobileSidebarToggle />}
         </>
       }
     />

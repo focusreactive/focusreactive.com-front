@@ -35,6 +35,21 @@
   }
 
   .menu__item-button {
-    padding: 0 10px !important;
+    margin-top: 8px;
+    padding: 0 !important;
+    background: transparent;
+    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-stroke: 1.5px #181818;
+    padding-right: 50px;
+    opacity: 0.7;
+    font-size: 32px;
+    line-height: 1.2;
+  }
+  .menu__item-button:hover {
+    background: transparent;
+    opacity: 1;
+    -webkit-text-stroke: 1px #0ac526;
+    color: #0ac526 !important;
   }
 }
