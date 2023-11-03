@@ -12,29 +12,17 @@
   left: 0;
   z-index: 150;
   width: 100%;
-  padding-top: 4px;
-}
-
-@media only screen and (max-width: 599px) {
-  .navbar {
-    padding-top: 18px;
-  }
-}
-
-@media only screen and (max-width: 1280px) {
-  .navbar {
-    padding-top: 16px;
-  }
-}
-
-@media only screen and (max-width: 1366px) {
-  .navbar {
-    padding-top: 20px;
-  }
+  padding: 18px 0;
 }
 
 .navbar__inner {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+}
+
+@media only screen and (max-width: 850px) {
+  .navbar {
+    padding: 15px 0;
+  }
 }
