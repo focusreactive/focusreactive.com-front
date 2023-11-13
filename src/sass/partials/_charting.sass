@@ -89,6 +89,7 @@
   &__label-x
     bottom: calc(var(--yEndRows) * 50px)
     left: calc(100% + 15px)
+
     +s
       bottom: 10px
       left: calc(100% + -30px)
@@ -128,26 +129,29 @@
   &__top-right
     .chart__item
       border-radius: 0px 100px 0px 0px
+      &:hover
+        border-radius: 0px 60px 0px 0px
 
     .chart-labels
       &:before
         --rotateLinesBg: 225deg
+        right: 0
       &:after
         left: -1px
       &__y
         right: 100%
-        margin-right: 15px
-
+        margin-right: 10px
+        text-align: right
         &:after
-          right: -16px
+          right: -11px
 
       &__x
         top: calc(var(--bg-rows) * 50px)
         left: 100%
-        margin-top: 15px
+        margin-top: 10px
 
         &:after
-          top: -16px
+          top: -11px
           left: -1px
 
         &--right
@@ -159,19 +163,22 @@
         &--top
           top: auto
           bottom: 0
-          right: 5px
+          right: -1px
           margin-top: auto
-          margin-bottom: 14px
+          margin-bottom: 9px
+          padding-right: 5px
           &:after
             top: auto
-            right: -5px
-            bottom: -16px
+            right: 0
+            bottom: -11px
 
   &__bottom-left
 
     .chart__item
       border-radius: 0px 0px 0px 100px
       --rotateBg: 45deg
+      &:hover
+        border-radius: 0px 0px 0px 60px
       &:first-child
         +s
           z-index: 6
@@ -196,19 +203,19 @@
         bottom: 0
         top: auto
         transform: translate(0,50%)
-        margin-left: 15px
+        margin-left: 10px
 
         &:after
-          left: -16px
+          left: -11px
           bottom: -1px
 
       &__x
         bottom: calc(var(--bg-rows) * 50px)
         left: 0
-        margin-bottom: 15px
+        margin-bottom: 10px
 
         &:after
-          bottom: -16px
+          bottom: -11px
           left: -1px
 
     &.--m-order-1
@@ -219,7 +226,8 @@
     .chart__item
       border-radius: 0px 0px 100px 0px
       --rotateBg: -45deg
-
+      &:hover
+        border-radius: 0px 0px 60px 0px
     .chart-labels
       &:after
         left: -1px
@@ -235,19 +243,29 @@
         bottom: 0
         top: auto
         transform: translate(0,50%)
-        margin-right: 15px
+        margin-right: 10px
+        text-align: right
+
         &:after
-          right: -16px
+          right: -11px
 
       &__x
         bottom: calc(var(--bg-rows) * 50px)
         right: 0
-        margin-bottom: 15px
+        margin-bottom: 10px
 
         &:after
-          bottom: -16px
+          bottom: -11px
           right: -1px
-
+        &--bottom
+          bottom: auto
+          top: 0
+          margin-bottom: 0
+          margin-top: 10px
+          padding-right: 5px
+          &:after
+            bottom: auto
+            top: -12px
 .chart
   &__item
     --rotateBg: 225deg
@@ -259,6 +277,7 @@
     align-items: center
     position: relative
     padding: 15px
+    transition: border-radius 0.15s linear
     +s
       --rotateBg: 225deg !important
       border-radius: 0px 40px 0px 0px !important
@@ -295,20 +314,24 @@
 
     &:hover
       .chart-techs
-        row-gap: 10px
-
         +sm
           display: none
       .chart-tech__title
+        margin-top: 0
         grid-template-rows: 0fr
 
       .chart-content
         grid-template-rows: 1fr
+        margin-top: 12px
         +sm
           display: block
       .chart-labels
         &:after, &:before
           opacity: 1
+        &:after
+          height: 100%
+        &:before
+          width: 100%
         &__x, &__y
           color: #0AC526
           span
@@ -318,7 +341,8 @@
           &:after
             transform: scale(3)
             background: #0AC526
-            box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.20)
+            box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.85) inset, 0 0 0 2px rgba(255, 255, 255, 0.20)
+            animation: pulse 1.2s linear 0.4s infinite
     &.--active
       +sm
         .chart-labels
@@ -384,8 +408,8 @@
     margin-top: 8px
     display: grid
     grid-template-rows: 1fr
-    transition: grid-template-rows 0.15s linear
-    transition-delay: 0.1s
+    transition: grid-template-rows 0.15s linear, margin-top 0.15s linear
+
     & > div
       overflow: hidden
     +s
@@ -402,13 +426,13 @@
   color: #fff
   font-size: 10px
   font-weight: 400
-  margin-top: 12px
+  margin-top: 0
   position: relative
   z-index: 2
   display: grid
   grid-template-rows: 0fr
-  transition: grid-template-rows 0.15s linear
-  transition-delay: 0.1s
+  transition: grid-template-rows 0.15s linear, margin-top 0.15s linear
+  width: fit-content
   & > div
     overflow: hidden
   +s
@@ -456,22 +480,27 @@
     background: linear-gradient(var(--rotateLinesBg), #0AC526 0%, #363636 100%)
     opacity: 0
     z-index: 2
+    transition: height 0.2s linear, width 0.2s linear
   &:after
-    height: 100%
+    height: 0
     width: 1px
     --rotateLinesBg: 180deg
     +s
       --rotateLinesBg: 180deg !important
       left: -1px
       right: auto
+      top: 0 !important
+      bottom: auto !important
 
   &:before
-    width: 100%
+    width: 0
     height: 1px
     --rotateLinesBg: 90deg
     +s
       top: calc(var(--bg-rowsMobile) * 50px) !important
       bottom: auto !important
+      right: 0 !important
+      left: auto !important
       --rotateLinesBg: 225deg !important
   &__x, &__y
     text-transform: uppercase
@@ -511,6 +540,7 @@
       width: 3px
       height: 3px
       z-index: 5
+      transition: box-shadow 0.2s linear, transform 0.2s linear
 
   &__y
     top: 0
@@ -582,8 +612,10 @@
     &--right
       +s
         top: calc((var(--bg-rowsMobile) * 50px) - 35px) !important
+        padding-right: 5px
       +sm
         top: 42px !important
+        padding-right: 0
       &:after
         +s
           top: auto !important
@@ -591,3 +623,11 @@
         +sm
           top: -2px !important
           bottom: auto !important
+
+@keyframes pulse
+  0%
+    transform: scale(3)
+  50%
+    transform: scale(2.2)
+  100%
+    transform: scale(3)
