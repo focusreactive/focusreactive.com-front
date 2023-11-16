@@ -4,10 +4,9 @@ const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const { buildFileUrl } = require("@sanity/asset-utils");
-require("dotenv").config();
+const { PROJECT_ID, DATASET, API_VERSION } = require('./config');
 
-const PROJECT_ID = "vftxng62";
-const DATASET = "production";
+require("dotenv").config();
 
 const client = ClientObj.createClient({
   projectId: PROJECT_ID,
