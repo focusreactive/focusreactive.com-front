@@ -70,6 +70,10 @@ permalink:
 			{% set introData = block %}
 			{% include "_partials/_intro_text.html" %}
 		{% endif %}
+    {% if block._type === 'chartCms' %}
+			{% set chartCms = block %}
+			{% include "_partials/_charting-cms.html" %}
+		{% endif %}
 		{% if block._type === 'teasers' %}
 			{% set teasersData = block %}
 			{% include "_partials/_teasers.html" %}
