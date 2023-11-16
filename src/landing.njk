@@ -74,6 +74,10 @@ permalink:
 			{% set chartCms = block %}
 			{% include "_partials/_charting-cms.html" %}
 		{% endif %}
+    {% if block._type === 'chartECommerce' %}
+			{% set chartECommerce = block %}
+			{% include "_partials/_charting-eCommerce.html" %}
+		{% endif %}
 		{% if block._type === 'teasers' %}
 			{% set teasersData = block %}
 			{% include "_partials/_teasers.html" %}
