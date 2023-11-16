@@ -1,0 +1,634 @@
+.charting
+  padding: 100px 0
+  background-color: #202020 !important
+  +s
+    padding: 80px 0
+  +sm
+    padding: 50px 0
+
+  .title
+    margin-bottom: 50px
+
+.chart-wrapper
+  padding: 0 30px 0 90px
+  margin-left: -10px
+  margin-right: -10px
+  +sm
+    padding-left: 0
+    padding-right: 0
+.chart
+  height: 100%
+  margin-top: 100px
+  max-width: calc((var(--xStartRows) + var(--xEndRows)) * 50px)
+  margin-left: auto
+  margin-right: auto
+  position: relative
+  display: grid
+  grid-template-columns: calc(var(--xStartRows) * 50px) calc(var(--xEndRows) * 50px)
+  grid-template-rows: calc(var(--yStartRows) * 50px) calc(var(--yEndRows) * 50px)
+  gap: 1px
+  background: #363636
+  +s
+    display: flex
+    flex-direction: column
+    border-left: 1px solid #363636
+    border-bottom: 1px solid #363636
+    background: none
+    padding-top: 50px
+    padding-right: 50px
+    gap: 0
+  +sm
+    padding-top: 0
+    padding-right: 0
+    margin-top: 70px
+    max-width: 560px
+
+  &__lines
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    pointer-events: none
+    z-index: 2
+    display: flex
+    &-group
+      width: 100%
+      display: flex
+      flex-direction: column
+      justify-content: space-between
+
+  &__line
+    width: 100%
+    border-bottom: 1px dotted rgba(255, 255, 255, 0.02)
+
+  &__label-y, &__label-x
+    position: absolute
+    z-index: 1
+    text-transform: uppercase
+    font-size: 10px
+    font-weight: 700
+    color: #fff
+    max-width: 70px
+    +s
+      max-width: none
+
+  &__label-y
+    bottom: calc(100% + 15px)
+    left: calc(var(--xStartRows) * 50px)
+    transform: translate(-50%,0)
+    +s
+      left: 10px
+      bottom: auto
+      top: 0
+      transform: none
+    +sm
+      top: -30px
+      left: 0
+
+  &__label-x
+    bottom: calc(var(--yEndRows) * 50px)
+    left: calc(100% + 15px)
+
+    +s
+      bottom: 10px
+      left: calc(100% + -30px)
+    +sm
+      text-align: right
+      left: auto
+      right: 0
+      bottom: auto
+      top: calc(100% + 10px)
+
+  &__top-left, &__top-right, &__bottom-left, &__bottom-right
+    display: flex
+    flex-direction: column
+    position: relative
+    justify-content: flex-end
+    background: #202020
+    +s
+      background: none
+
+  &__bottom-left, &__bottom-right
+    flex-direction: column-reverse
+
+    .chart-labels
+      top: auto
+      bottom: 0
+
+  &__top-left, &__top-right
+    .chart-labels
+      &:before
+        bottom: -1px
+
+  &__top-left, &__bottom-left
+    align-items: flex-end
+    +s
+      align-items: flex-start
+
+  &__top-right
+    .chart__item
+      border-radius: 0px 100px 0px 0px
+      &:hover
+        border-radius: 0px 60px 0px 0px
+
+    .chart-labels
+      &:before
+        --rotateLinesBg: 225deg
+        right: 0
+      &:after
+        left: -1px
+      &__y
+        right: 100%
+        margin-right: 10px
+        text-align: right
+        &:after
+          right: -11px
+
+      &__x
+        top: calc(var(--bg-rows) * 50px)
+        left: 100%
+        margin-top: 10px
+
+        &:after
+          top: -11px
+          left: -1px
+
+        &--right
+          right: 0
+          left: auto
+          &:after
+            right: 0
+            left: auto
+        &--top
+          top: auto
+          bottom: 0
+          right: -1px
+          margin-top: auto
+          margin-bottom: 9px
+          padding-right: 5px
+          &:after
+            top: auto
+            right: 0
+            bottom: -11px
+
+  &__bottom-left
+
+    .chart__item
+      border-radius: 0px 0px 0px 100px
+      --rotateBg: 45deg
+      &:hover
+        border-radius: 0px 0px 0px 60px
+      &:first-child
+        +s
+          z-index: 6
+
+      &:after
+        bottom: 0
+        top: auto
+
+    .chart-labels
+      &:after
+        right: -1px
+        bottom: 0
+        --rotateLinesBg: 0deg
+
+      &:before
+        top: -1px
+        left: 0
+        --rotateLinesBg: 90deg
+
+      &__y
+        left: 100%
+        bottom: 0
+        top: auto
+        transform: translate(0,50%)
+        margin-left: 10px
+
+        &:after
+          left: -11px
+          bottom: -1px
+
+      &__x
+        bottom: calc(var(--bg-rows) * 50px)
+        left: 0
+        margin-bottom: 10px
+
+        &:after
+          bottom: -11px
+          left: -1px
+
+    &.--m-order-1
+      +s
+        order: 1
+
+  &__bottom-right
+    .chart__item
+      border-radius: 0px 0px 100px 0px
+      --rotateBg: -45deg
+      &:hover
+        border-radius: 0px 0px 60px 0px
+    .chart-labels
+      &:after
+        left: -1px
+        bottom: 0
+        --rotateLinesBg: 0deg
+
+      &:before
+        top: -1px
+        right: 0
+        --rotateLinesBg: -90deg
+      &__y
+        right: 100%
+        bottom: 0
+        top: auto
+        transform: translate(0,50%)
+        margin-right: 10px
+        text-align: right
+
+        &:after
+          right: -11px
+
+      &__x
+        bottom: calc(var(--bg-rows) * 50px)
+        right: 0
+        margin-bottom: 10px
+
+        &:after
+          bottom: -11px
+          right: -1px
+        &--bottom
+          bottom: auto
+          top: 0
+          margin-bottom: 0
+          margin-top: 10px
+          padding-right: 5px
+          &:after
+            bottom: auto
+            top: -12px
+.chart
+  &__item
+    --rotateBg: 225deg
+    height: calc(var(--rows) * 50px)
+    width: calc(var(--columns) * 50px)
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    position: relative
+    padding: 15px
+    transition: border-radius 0.15s linear
+    +s
+      --rotateBg: 225deg !important
+      border-radius: 0px 40px 0px 0px !important
+      width: calc(var(--columnsMobilePercent) * 1%)
+      height: 150px
+      flex-direction: row
+      justify-content: flex-start
+      padding: 20px 20px 20px 30px
+    +sm
+      padding: 36px 23px 20px 20px
+      flex-direction: column
+      justify-content: center
+      align-items: flex-start
+
+    &:after
+      content: ''
+      position: absolute
+      top: 0
+      left: 0
+
+      height: calc(var(--bg-rows) * 50px)
+      width: 100%
+      border-radius: inherit
+      background: linear-gradient(var(--rotateBg), #4D4D4D 10%, #202020 75%)
+      +s
+        height: calc(var(--bg-rowsMobile) * 50px)
+        top: 0 !important
+        bottom: auto !important
+        z-index: 1
+
+    &:hover, &.--active
+      &:after
+        background: linear-gradient(var(--rotateBg), #1A7828 10%, #202220 100%)
+
+    &:hover
+      .chart-techs
+        +sm
+          display: none
+      .chart-tech__title
+        margin-top: 0
+        grid-template-rows: 0fr
+
+      .chart-content
+        grid-template-rows: 1fr
+        margin-top: 12px
+        +sm
+          display: block
+      .chart-labels
+        &:after, &:before
+          opacity: 1
+        &:after
+          height: 100%
+        &:before
+          width: 100%
+        &__x, &__y
+          color: #0AC526
+          span
+            color: #005C0E
+            +s
+              color: #009817
+          &:after
+            transform: scale(3)
+            background: #0AC526
+            box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.85) inset, 0 0 0 2px rgba(255, 255, 255, 0.20)
+            animation: pulse 1.2s linear 0.4s infinite
+    &.--active
+      +sm
+        .chart-labels
+          &__x, &__y
+            color: #0AC526
+            span
+              color: #009817
+
+.chart-techs
+  display: flex
+  flex-wrap: wrap
+  align-items: flex-start
+  justify-content: center
+  width: 100%
+  gap: 12px 6px
+  flex: none
+
+  +s
+    justify-content: flex-start
+    gap: 12px 10px !important
+    width: auto
+    max-width: 55%
+  +sm
+    width: 100%
+    max-width: none
+  &--row
+    flex-direction: column
+
+  &__row
+    display: flex
+    flex-wrap: wrap
+    align-items: flex-start
+    justify-content: center
+    width: 100%
+    gap: 15px 6px
+    +s
+      justify-content: flex-start
+      gap: 12px 10px !important
+    &--lg
+      .chart-tech
+        width: 55px
+        +s
+          width: 40px
+
+.chart-tech
+  width: 46px
+  position: relative
+  z-index: 5
+  flex: none
+  +s
+    width: 30px
+  &__img
+    img
+      margin-left: auto
+      margin-right: auto
+      max-width: 100%
+      display: block
+  &__title
+    font-size: 8px
+    color: #979797
+    text-align: center
+    font-weight: 400
+    margin-top: 8px
+    display: grid
+    grid-template-rows: 1fr
+    transition: grid-template-rows 0.15s linear, margin-top 0.15s linear
+
+    & > div
+      overflow: hidden
+    +s
+      display: none
+
+  &--fr
+    width: 70px
+    margin-top: -15px
+    +s
+      width: 50px
+      margin-top: -12px
+
+.chart-content
+  color: #fff
+  font-size: 12px
+  font-weight: 400
+  margin-top: 0
+  position: relative
+  z-index: 2
+  display: grid
+  grid-template-rows: 0fr
+  transition: grid-template-rows 0.15s linear, margin-top 0.15s linear
+  width: fit-content
+  & > div
+    overflow: hidden
+  +s
+    margin-top: 0 !important
+    margin-left: 25px
+    flex: 1 1 auto
+    font-size: 10px
+    br
+      display: none
+  +sm
+    margin-left: -13px
+    flex: none
+    display: none
+  ul
+    list-style-type: none
+    margin: 0
+    padding: 0
+    li
+      position: relative
+      padding-left: 9px
+      +sm
+        padding-left: 6px
+      &:before
+        position: absolute
+        top: 0
+        left: 0
+        content: '\2022'
+
+.chart-labels
+  --rotateLinesBg: 90deg
+  position: absolute
+  top: 0
+  left: 0
+  right: 0
+  height: calc(var(--bg-rows) * 50px)
+  z-index: 4
+  pointer-events: none
+  +s
+    height: calc(var(--bg-rowsMobile) * 50px)
+    bottom: auto !important
+    top: 0 !important
+  // lines
+  &:after, &:before
+    content: ''
+    position: absolute
+    background: linear-gradient(var(--rotateLinesBg), #0AC526 0%, #363636 100%)
+    opacity: 0
+    z-index: 2
+    transition: height 0.2s linear, width 0.2s linear
+  &:after
+    height: 0
+    width: 1px
+    --rotateLinesBg: 180deg
+    +s
+      --rotateLinesBg: 180deg !important
+      left: -1px
+      right: auto
+      top: 0 !important
+      bottom: auto !important
+
+  &:before
+    width: 0
+    height: 1px
+    --rotateLinesBg: 90deg
+    +s
+      top: calc(var(--bg-rowsMobile) * 50px) !important
+      bottom: auto !important
+      right: 0 !important
+      left: auto !important
+      --rotateLinesBg: 225deg !important
+  &__x, &__y
+    text-transform: uppercase
+    font-size: 10px
+    font-weight: 700
+    color: #979797
+    position: absolute
+    z-index: 5
+    width: fit-content
+    max-width: 80px
+    +sm
+      white-space: nowrap
+      max-width: none
+      br
+        display: none
+
+    span
+      display: block
+      color: #4A4A4A
+      white-space: nowrap
+
+      +sm
+        display: inline
+        color: #767676
+
+      em
+        font-size: 140%
+        line-height: 1
+        display: inline-block
+        vertical-align: middle
+    &:after
+      content: ''
+      position: absolute
+      box-shadow: 0px 0px 2px 0px rgba(255, 255, 255, 0.85) inset
+      background: #fff
+      border-radius: 50%
+      width: 3px
+      height: 3px
+      z-index: 5
+      transition: box-shadow 0.2s linear, transform 0.2s linear
+
+  &__y
+    top: 0
+    transform: translate(0,-50%)
+    +s
+      right: 100% !important
+      left: auto !important
+      bottom: auto !important
+      top: 0 !important
+      margin-right: 15px !important
+      transform: translate(0, -50%) !important
+
+    +sm
+      padding: 7px 0 0 7px
+      transform: none
+      right: auto !important
+      left: 0px !important
+      transform: none !important
+      margin: 0 !important
+    &:after
+      top: 50%
+      margin-top: -1px
+      +s
+        right: -16px !important
+        left: auto !important
+      +sm
+        top: 0
+        left: -2px !important
+        right: auto !important
+
+  &__x
+    +s
+      top: calc((var(--bg-rowsMobile) * 50px)) !important
+      margin-top: 10px !important
+      margin-bottom: 0 !important
+      bottom: auto !important
+      left: auto !important
+      right: 0 !important
+      white-space: nowrap
+      text-align: right
+      max-width: none
+      br
+        display: none
+
+    +sm
+      writing-mode: vertical-lr
+      transform: rotate(180deg)
+      height: calc((var(--bg-rowsMobile) * 50px) - 42px)
+      top: 42px !important
+      bottom: auto !important
+      left: auto !important
+      right: 8px !important
+      text-align: right
+      margin: 0 !important
+
+    &:after
+      +s
+        top: -11px !important
+        bottom: auto !important
+        left: auto !important
+        right: -1px !important
+      +sm
+        top: -2px !important
+        left: -9px !important
+        right: auto !important
+        bottom: auto !important
+        margin: 0 !important
+
+    &--right
+      +s
+        top: calc((var(--bg-rowsMobile) * 50px) - 35px) !important
+        padding-right: 5px
+      +sm
+        top: 42px !important
+        padding-right: 0
+      &:after
+        +s
+          top: auto !important
+          bottom: -13px !important
+        +sm
+          top: -2px !important
+          bottom: auto !important
+
+@keyframes pulse
+  0%
+    transform: scale(3)
+  50%
+    transform: scale(2.2)
+  100%
+    transform: scale(3)
