@@ -127,6 +127,7 @@
       align-items: flex-start
 
   &__top-right
+    justify-content: flex-end
     .chart__item
       border-radius: 0px 100px 0px 0px
       &:hover
@@ -172,6 +173,12 @@
             right: 0
             bottom: -11px
 
+    &.--reverse
+      flex-direction: column-reverse
+      justify-content: flex-start
+      .chart__item:first-child
+        z-index: 6
+
   &__bottom-left
 
     .chart__item
@@ -180,6 +187,9 @@
       &:hover
         border-radius: 0px 0px 0px 60px
       &:first-child
+        +s
+          z-index: 7
+      &:nth-child(2)
         +s
           z-index: 6
 
