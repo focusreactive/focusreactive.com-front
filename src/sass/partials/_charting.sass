@@ -16,26 +16,31 @@
   +sm
     padding-left: 0
     padding-right: 0
+
 .chart
+  --steps: 60px
   height: 100%
   margin-top: 100px
-  max-width: calc((var(--xStartRows) + var(--xEndRows)) * 50px)
+  max-width: calc((var(--xStartRows) + var(--xEndRows)) * var(--steps))
   margin-left: auto
   margin-right: auto
   position: relative
   display: grid
-  grid-template-columns: calc(var(--xStartRows) * 50px) calc(var(--xEndRows) * 50px)
-  grid-template-rows: calc(var(--yStartRows) * 50px) calc(var(--yEndRows) * 50px)
+  grid-template-columns: calc(var(--xStartRows) * var(--steps)) calc(var(--xEndRows) * var(--steps))
+  grid-template-rows: calc(var(--yStartRows) * var(--steps)) calc(var(--yEndRows) * var(--steps))
   gap: 1px
   background: #363636
+  +m
+    --steps: 50px
   +s
+
     display: flex
     flex-direction: column
     border-left: 1px solid #363636
     border-bottom: 1px solid #363636
     background: none
-    padding-top: 50px
-    padding-right: 50px
+    padding-top: var(--steps)
+    padding-right: var(--steps)
     gap: 0
   +sm
     padding-top: 0
@@ -66,16 +71,17 @@
     position: absolute
     z-index: 1
     text-transform: uppercase
-    font-size: 10px
+    font-size: 12px
     font-weight: 700
     color: #fff
     max-width: 70px
     +s
       max-width: none
+      font-size: 10px
 
   &__label-y
     bottom: calc(100% + 15px)
-    left: calc(var(--xStartRows) * 50px)
+    left: calc(var(--xStartRows) * var(--steps))
     transform: translate(-50%,0)
     +s
       left: 10px
@@ -87,7 +93,7 @@
       left: 0
 
   &__label-x
-    bottom: calc(var(--yEndRows) * 50px)
+    bottom: calc(var(--yEndRows) * var(--steps))
     left: calc(100% + 15px)
 
     +s
@@ -147,7 +153,7 @@
           right: -11px
 
       &__x
-        top: calc(var(--bg-rows) * 50px)
+        top: calc(var(--bg-rows) * var(--steps))
         left: 100%
         margin-top: 10px
 
@@ -220,7 +226,7 @@
           bottom: -1px
 
       &__x
-        bottom: calc(var(--bg-rows) * 50px)
+        bottom: calc(var(--bg-rows) * var(--steps))
         left: 0
         margin-bottom: 10px
 
@@ -260,7 +266,7 @@
           right: -11px
 
       &__x
-        bottom: calc(var(--bg-rows) * 50px)
+        bottom: calc(var(--bg-rows) * var(--steps))
         right: 0
         margin-bottom: 10px
 
@@ -279,8 +285,8 @@
 .chart
   &__item
     --rotateBg: 225deg
-    height: calc(var(--rows) * 50px)
-    width: calc(var(--columns) * 50px)
+    height: calc(var(--rows) * var(--steps))
+    width: calc(var(--columns) * var(--steps))
     display: flex
     flex-direction: column
     justify-content: center
@@ -295,7 +301,7 @@
       height: 150px
       flex-direction: row
       justify-content: flex-start
-      padding: 20px 20px 20px 30px
+      padding: 20px 15px 20px 25px
     +sm
       padding: 36px 23px 20px 20px
       flex-direction: column
@@ -308,12 +314,12 @@
       top: 0
       left: 0
 
-      height: calc(var(--bg-rows) * 50px)
+      height: calc(var(--bg-rows) * var(--steps))
       width: 100%
       border-radius: inherit
       background: linear-gradient(var(--rotateBg), #4D4D4D 10%, #202020 75%)
       +s
-        height: calc(var(--bg-rowsMobile) * 50px)
+        height: calc(var(--bg-rowsMobile) * var(--steps))
         top: 0 !important
         bottom: auto !important
         z-index: 1
@@ -345,7 +351,7 @@
         &__x, &__y
           color: #0AC526
           span
-            color: #005C0E
+            color: #007712
             +s
               color: #009817
           &:after
@@ -398,10 +404,12 @@
           width: 40px
 
 .chart-tech
-  width: 46px
+  width: 50px
   position: relative
   z-index: 5
   flex: none
+  +m
+    width: 46px
   +s
     width: 30px
   &__img
@@ -411,7 +419,7 @@
       max-width: 100%
       display: block
   &__title
-    font-size: 8px
+    font-size: 10px
     color: #979797
     text-align: center
     font-weight: 400
@@ -419,22 +427,28 @@
     display: grid
     grid-template-rows: 1fr
     transition: grid-template-rows 0.15s linear, margin-top 0.15s linear
+    +m
+      font-size: 8px
+    +s
+      display: none
 
     & > div
       overflow: hidden
-    +s
-      display: none
 
   &--fr
     width: 70px
     margin-top: -15px
+    .chart-tech__img
+      max-width: 55px
+      margin-left: auto
+      margin-right: auto
     +s
       width: 50px
       margin-top: -12px
 
 .chart-content
   color: #fff
-  font-size: 12px
+  font-size: 14px
   font-weight: 400
   margin-top: 0
   position: relative
@@ -445,17 +459,20 @@
   width: fit-content
   & > div
     overflow: hidden
+  +m
+    font-size: 12px
   +s
     margin-top: 0 !important
     margin-left: 25px
     flex: 1 1 auto
-    font-size: 10px
+    font-size: 11px
     br
       display: none
   +sm
     margin-left: -13px
     flex: none
     display: none
+
   ul
     list-style-type: none
     margin: 0
@@ -477,11 +494,11 @@
   top: 0
   left: 0
   right: 0
-  height: calc(var(--bg-rows) * 50px)
+  height: calc(var(--bg-rows) * var(--steps))
   z-index: 4
   pointer-events: none
   +s
-    height: calc(var(--bg-rowsMobile) * 50px)
+    height: calc(var(--bg-rowsMobile) * var(--steps))
     bottom: auto !important
     top: 0 !important
   // lines
@@ -508,37 +525,40 @@
     height: 1px
     --rotateLinesBg: 90deg
     +s
-      top: calc(var(--bg-rowsMobile) * 50px) !important
+      top: calc(var(--bg-rowsMobile) * var(--steps)) !important
       bottom: auto !important
       right: 0 !important
       left: auto !important
       --rotateLinesBg: 225deg !important
   &__x, &__y
     text-transform: uppercase
-    font-size: 10px
+    font-size: 12px
+    line-height: 1.1
     font-weight: 700
-    color: #979797
+    color: #bcbcbc
     position: absolute
     z-index: 5
     width: fit-content
-    max-width: 80px
+    +m
+      font-size: 10px
     +sm
       white-space: nowrap
       max-width: none
+
       br
         display: none
 
     span
       display: block
-      color: #4A4A4A
+      color: #767676
+      margin-top: 3px
       white-space: nowrap
 
       +sm
         display: inline
-        color: #767676
 
       em
-        font-size: 140%
+        font-size: 160%
         line-height: 1
         display: inline-block
         vertical-align: middle
@@ -584,7 +604,7 @@
 
   &__x
     +s
-      top: calc((var(--bg-rowsMobile) * 50px)) !important
+      top: calc((var(--bg-rowsMobile) * var(--steps))) !important
       margin-top: 10px !important
       margin-bottom: 0 !important
       bottom: auto !important
@@ -599,7 +619,7 @@
     +sm
       writing-mode: vertical-lr
       transform: rotate(180deg)
-      height: calc((var(--bg-rowsMobile) * 50px) - 42px)
+      height: calc((var(--bg-rowsMobile) * var(--steps)) - 42px)
       top: 42px !important
       bottom: auto !important
       left: auto !important
@@ -622,7 +642,7 @@
 
     &--right
       +s
-        top: calc((var(--bg-rowsMobile) * 50px) - 35px) !important
+        top: calc((var(--bg-rowsMobile) * var(--steps)) - 35px) !important
         padding-right: 5px
       +sm
         top: 42px !important

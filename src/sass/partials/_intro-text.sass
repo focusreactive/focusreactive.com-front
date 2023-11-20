@@ -1,124 +1,126 @@
 .intro_text
-	font-size: 16px
-	padding: 80px 0
+  font-size: 16px
+  padding: 80px 0
 
-	&__content
-		max-width: 1000px
-		margin: 0 auto
+  &__content
+    max-width: 1000px
+    margin: 0 auto
 
-		p
-			& + p
-				margin-top: 30px
+    p
+      & + p
+        margin-top: 30px
 
-		&.hide-markers
-			li
-				&:after
-					display: none
+    &.hide-markers
+      li
+        &:after
+          display: none
 
-			ol
-				list-style: none
+      ol
+        list-style: none
 
-	h2
-		+helB
-		text-transform: uppercase
-		text-align: center
-		margin: 0 auto 50px
-		font-size: 45px
-		line-height: 1.2
+  h2
+    +helB
+    text-transform: uppercase
+    text-align: center
+    margin: 0 auto 50px
+    font-size: 45px
+    line-height: 1.2
 
-		+md
-			margin-bottom: 36px
+    +md
+      margin-bottom: 36px
 
-		+xs
-			font-size: 30px
-			margin-bottom: 18px
+    +xs
+      font-size: 30px
+      margin-bottom: 18px
 
-	h3
-		font-size: 60px
-		text-align: center
-		margin: 50px 0
+  h3
+    font-size: 60px
+    text-align: center
+    margin: 50px 0
 
-		+md
-			font-size: 50px
-			margin: 40px 0
+    +md
+      font-size: 50px
+      margin: 40px 0
 
-		+xs
-			font-size: 40px
-			margin: 30px 0
+    +xs
+      font-size: 40px
+      margin: 30px 0
 
-	h4, h5, h6
-		font-size: 38px
-		text-align: center
-		margin: 38px 0
+  h4, h5, h6
+    font-size: 38px
+    text-align: center
+    margin: 38px 0
 
-		+md
-			font-size: 32px
-			margin: 32px 0
+    +md
+      font-size: 32px
+      margin: 32px 0
 
-		+xs
-			font-size: 26px
-			margin: 26px 0
+    +xs
+      font-size: 26px
+      margin: 26px 0
 
-	p, li
-		font-size: 16px
+  p, li
+    font-size: 16px
 
-		+xs
-			font-size: 14px
+    +xs
+      font-size: 14px
 
-	&.medium
-		p, li
-			font-size: 20px
+  &.medium
+    p, li
+      font-size: 20px
 
-			+md
-				font-size: 18px
+      +md
+        font-size: 18px
 
-			+xs
-				font-size: 16px
+      +xs
+        font-size: 16px
 
-	&.large
-		p, li
-			font-size: 24px
+  &.large
+    p, li
+      font-size: 24px
 
-			+md
-				font-size: 20px
+      +md
+        font-size: 20px
 
-			+xs
-				font-size: 18px
+      +xs
+        font-size: 18px
 
-	ul, ol
-		list-style: none
-		margin: 24px auto
-		max-width: 920px
+  ul, ol
+    list-style: none
+    margin: 24px auto
+    max-width: 920px
 
-		li:not(first-child)
-			margin-top: 30px
+    li:not(first-child)
+      margin-top: 30px
 
-	&.pos-left
-		.intro_text__content
-			max-width: none
+  &.pos-left
+    .intro_text__content
+      max-width: none
 
-		ul, ol
-			max-width: none
-			margin-left: 120px
+    ul, ol
+      max-width: none
+      margin-left: 120px
 
-	ul
-		li
-			position: relative
-			padding: 0 0 0 18px
+  ul
+    li
+      position: relative
+      padding: 0 0 0 18px
 
-			&:after
-				content: ''
-				position: absolute
-				left: 1px
-				top: 8px
-				width: 6px
-				height: 6px
-				border-radius: 3px
-				background: $black
+      &:after
+        content: ''
+        position: absolute
+        left: 1px
+        top: 8px
+        width: 6px
+        height: 6px
+        border-radius: 3px
+        background: $black
 
-	ol
-		list-style: decimal
-		list-style-position: inside
+  ol
+    list-style: decimal
+    list-style-position: inside
 
-	a
-		color: $green
+  a
+    color: $green
+    &:hover
+      text-decoration: none
