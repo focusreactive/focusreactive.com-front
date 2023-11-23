@@ -10,6 +10,13 @@ const query = `*[_type=="header"][0] {
       logo[] {
         "url": url.asset->url,
         "urlHover": urlHover.asset->url,
+      },
+      dropdown[] {
+        ...,
+        logo[] {
+          "url": url.asset->url,
+          "urlHover": urlHover.asset->url,
+        }
       }
     }
   }
