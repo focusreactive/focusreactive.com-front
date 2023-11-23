@@ -1,350 +1,439 @@
 
 .m-dropdown
+  --titleSize: 20px
+  --itemPadding: 17px 20px
+  --itemHeight: 112px
+  --itemBg: #1C1C1C
+  --itemBgHover: #fff
+  --iconSizeSmall: 22px
+  --iconSize: 30px
+  --menuBg: #373737
+  --menuColor: #fff
+  --menuColorHover: #1C1C1C
+
+  display: flex
+  flex-wrap: wrap
+  background: var(--menuBg)
+  gap: 1px
+
+  +m
+    --titleSize: 16px
+    --itemPadding: 15px
+    --itemHeight: 100px
+    --iconSizeSmall: 18px
+  +s
+    --itemPadding: 20px
+  +xs
+    --itemPadding: 15px
+    --titleSize: 14px
+
+  &__link
+    display: grid
+    grid-template-columns: 1fr auto
+    grid-template-rows: 1fr auto
+    min-height: var(--itemHeight)
+    padding: var(--itemPadding)
+    gap: 15px
+    height: 100%
+    color: var(--menuColor)
+    text-decoration: none
+    background: var(--itemBg)
+    transition: background 0.14s linear, color 0.14s linear
+
+    +s
+      min-height: auto
+      grid-template-columns: 1fr
+      grid-template-rows: auto
+      gap: 10px
+    +xs
+      gap: 5px
+
+    +rmin(1025)
+      &:focus-visible
+        background: var(--itemBgHover)
+        color: var(--menuColorHover)
+        .m-dropdown__logos img
+          opacity: 1
+          &:first-child
+            display: block
+          &:nth-child(2)
+            display: none
+
+    &:hover
+      text-decoration: none
+
+  &__logos
+    flex: none
     display: flex
-    flex-wrap: wrap
-    background: #1C1C1C
-    +r(850)
-        margin: 10px 0
-    &:after
-        content: ''
+    gap: 8px
+    padding: 10px 0
+    grid-column: 2/3
+    grid-row: 1/3
+    +m
+      padding: 4px 0
+    +s
+      display: none
+    &-item
+      flex: none
+      img
+        max-width: 100%
+        height: var(--iconSizeSmall)
         display: block
-        position: absolute
-        top: 0
-        left: 0
-        width: 100%
-        height: 100%
-
-        box-shadow: inset 0 0 0 1px #1C1C1C
-        pointer-events: none
-        +r(850)
-            display: none
-    &__item
-        width: 25%
-        border-right: 1px solid #373737
-        border-bottom: 1px solid #373737
-        +s
-            width: 33.33%
-        +r(850)
-            width: 100%
-            text-align: left
-            border-right: none
-            &:last-child
-                border: none
-
-    &__link
-        display: flex
-        align-items: flex-start
-        min-height: 112px
-        padding: 17px 20px
-        gap: 15px
-        height: 100%
-        color: #fff
-        text-decoration: none
-
-        +r(850)
-            min-height: auto
-
-        &:hover
-            text-decoration: none
-        +rmin(851)
-            @media (any-hover: hover)
-                &:hover, &:focus-visible
-
-                    background: #fff
-                    color: #1C1C1C
-                    .m-dropdown__logos
-                        img
-                            opacity: 1
-                            &:first-child
-                                display: block
-                            &:nth-child(2)
-                                display: none
-
-    &__content
-        flex: 1
-        min-width: 1px
-        display: flex
-        flex-direction: column
-        gap: 6px
-        height: 100%
-    &__logos
-        flex: none
-        display: flex
-        align-items: center
-        gap: 8px
-        padding: 10px 0
-        &-item
-            &:first-child:last-child
-                img
-                    max-height: 30px
-                    max-width: 30px
-
-        img
-            max-width: 22px
-            max-height: 22px
-            display: block
-            opacity: 0.2
-            &:first-child
-                display: none
-
-    &__title
-        font-size: 20px
-        line-height: 1.2
-        font-weight: 500
-        text-transform: uppercase
-        text-decoration: none
-        +m
-            font-size: 18px
-    &__text
-        margin-top: auto
-        font-size: 10px
-        line-height: 1.2
-        font-weight: 400
-        font-family: 'Helvetica', Arial, sans-serif
-        text-transform: uppercase
-
-.menu
-    +r(850)
-        padding-top: 70px
-        padding-bottom: 30px
-        display: flex
-        min-height: 100%
-        flex-direction: column
-    &__list
-        display: flex
-        +r(850)
-            display: block
-            text-align: center
-    &__item
-        text-transform: uppercase
-        +helB
-        font-size: 12px
-        letter-spacing: -0.04em
-        margin-left: 10px
-        +s
-            margin-left: 5px
-        &:hover:not(.menu__item-button), &:not(.menu__item-button).is-focus
-
-            .menu__link
-                color: $green
-                &:before
-                    width: calc(100% - 40px)
-
-                    +m
-                        &:before
-                            width: calc(100% - 30px)
-                    +s
-                        &:before
-                            width: calc(100% - 12px)
-
-        +rmin(851)
-            &:hover, &.is-focus
-                .menu__dropdown
-                    visibility: visible
-                    opacity: 1
-                    pointer-events: auto
-                    transform: translate(0,0)
-
-        &.is-desktop
-            +xs
-                display: none
-
-        &-button
-            margin-left: 20px
-
-            .menu__link
-                background: darken($green, 13%)
-                &:hover, &:focus-visible
-                    -webkit-text-stroke: 0 #fff
-                    color: #fff !important
-                    background: $green
-                    &:before
-                        display: none
-
-        +r(850)
-            font-size: 32px
-            line-height: 1.2
-            text-align: center
-            margin-top: 8px
-            margin-left: 0
-            .menu__link
-                // +stroke(1, $dark-grey)
-                color: transparent
-                -webkit-background-clip: text
-                -webkit-text-stroke: 1.5px $dark-grey
-                padding-right: 50px
-                opacity: 0.7
-                +not-ie
-                    transition: all .25s ease
-                &:hover
-                    opacity: 1
-                    -webkit-text-stroke: 1px $green
-                    color: $green !important
-                &:before
-                    display: none
-            &:hover, .is-active
-                opacity: 1
-                text-shadow: none
-                color: $green
-
-        +r(540)
-            font-size: 28px
-
+        opacity: 0.2
         &:first-child
-            margin-right: 82px
-            +r(1480)
-                margin-right: 20px
+          display: none
 
-            +r(850)
-                margin-right: auto !important
+      &:first-child:last-child
+        img
+          height: var(--iconSize)
 
-        &--dropdown
-            +r(850)
-                position: relative
-            .menu__link
-                position: relative
-                +s
-                    padding-right: 14px
-                &:after
-                    content: ''
-                    position: absolute
-                    top: 50%
-                    margin-top: -5px
-                    right: 0
-                    height: 6px
-                    width: 6px
-                    border-bottom: 2px solid #0AC526
-                    border-left: 2px solid #0AC526
-                    transform: rotate(-45deg)
-                    +r(850)
-                        display: none
-    &__link:focus-visible
-        color: $green
-        &:before
-            width: calc(100% - 40px)
-            +m
-                &:before
-                    width: calc(100% - 30px)
-            +s
-                &:before
-                    width: calc(100% - 12px)
-    &__soc-links
+  &__title
+    font-size: var(--titleSize)
+    line-height: 1.1
+    font-weight: 700
+    +helB
+    text-transform: uppercase
+    text-decoration: none
+    +s
+      br
         display: none
-        +r(850)
-            display: flex
-            padding-top: 20px
 
-            margin-top: auto
-            justify-content: center
-            li
-                position: relative
-                padding: 0 10px
-                font-size: 0
-                &:not(:first-child)
-                    &:before
-                        content: '/'
-                        position: absolute
-                        left: -4px
-                        top: 0
-                        font-weight: bold
-                        font-size: 14px
-            a
-                text-decoration: none
-                font-size: 14px
-                +helB
-                color: $dark-grey
-                font-weight: bold
+  &__text
+    grid-column: 1/2
+    grid-row: 2/3
+    margin-top: auto
+    font-size: 10px
+    line-height: 1.2
+    font-weight: 400
+    text-transform: uppercase
+    +hel
+    +s
+      br
+        display: none
 
-    &__link
-        display: flex
-        align-items: center
-        height: 40px
-        padding: 0 20px
-        text-decoration: none
-        position: relative
-        transition: color .35s ease
-        white-space: nowrap
+  &__item
+    width: calc(25% - 0.75px)
+    transition: border-color 0.14s linear
+    +s
+      width: 100%
+      text-align: left
+      position: relative
 
-        +m
-            padding: 0 15px
-        +s
-            padding: 0 6px
+    +rmin(1025)
+      &:hover, &.is-focus
+        & > .m-dropdown__link
+          background: var(--itemBgHover)
+          color: var(--menuColorHover)
+          .m-dropdown__logos img
+            opacity: 1
+            &:first-child
+              display: block
+            &:nth-child(2)
+              display: none
 
-        +r(850)
-            padding-left: 0
+    &:last-child
+      +s
+        .m-dropdown
+          padding-bottom: 1px
 
-        &:before
-            content: ''
-            position: absolute
-            left: 20px
-            width: 0
-            bottom: 8px
-            height: 2px
-            background-color: $green
-            +not-ie
-                transition: width .2s ease-in-out
-            +m
-                left: 15px
-            +s
-                left: 6px
-
-    &__dropdown
-        visibility: hidden
-        opacity: 0
-        pointer-events: none
-        transform: translate(0, 10px)
-        position: absolute
-        top: calc(100% + 7px)
-        left: 10px
-        right: 10px
-        z-index: 10
-        transition: opacity 0.2s linear, transform 0.2s linear, visibility 0.2s linear
-        letter-spacing: 0
-        &:before
-            content: ''
-            display: block
-            position: absolute
-            left: 0
-            right: 0
-            bottom: calc(100% - 1px)
-            height: 20px
-
-        +r(850)
-            display: none
-            position: static
+    &--dropdown
+      +s
+        display: grid
+        grid-template-columns: 1fr auto
+        grid-template-rows: 1fr auto
+      +rmin(1025)
+        &:hover, &.is-focus
+          & > .menu__dropdown
             visibility: visible
             opacity: 1
-            margin-left: -20px
-            margin-right: -20px
             pointer-events: auto
             transform: translate(0,0)
 
-            &.is-open
-                display: block
+    .m-dropdown
+      --titleSize: 28px
+      --itemPadding: 27px 20px
+      --itemHeight: 180px
+      --itemBg: #fff
+      --itemBgHover: #{$green}
+      --iconSizeSmall: 32px
+      --iconSize: 44px
+      --menuBg: #DBDBDB
+      --menuColor: #1C1C1C
+      --menuColorHover: #1C1C1C
+      background: var(--menuBg)
+      left: 0
+      right: 0
+      top: 100%
+      transform: translate(0,0)
+      +m
+        --titleSize: 24px
+        --itemPadding: 20px 15px
+        --itemHeight: 150px
+        --iconSizeSmall: 28px
+      +s
+        margin: 0
+        --titleSize: 16px
+        --itemPadding: 15px 20px
+        padding-left: 20px
+        padding-right: 1px
+        --menuBg: #{$green}
 
-    &__caret
+      +xs
+        --itemPadding: 15px
+        --titleSize: 14px
+        padding-left: 15px
+
+      &:before
         display: none
-        +r(850)
-            display: block
-            width: 50px
-            height: 40px
-            position: absolute
-            top: 0
-            right: 0
-            background: transparent
-            border-left: 1px solid rgba(0,0,0, 0.5)
-        +s
-            width: 40px
 
+      .m-dropdown__item
+        border-top: 1px solid var(--menuBg)
+        flex: 1 1 calc(50% - 0.5px)
+        &:nth-last-child(3):first-child,
+        &:nth-last-child(3):first-child ~ .m-dropdown__item
+          flex: 1 1 calc(33.33% - 0.66px)
+        +rmin(1025)
+          @media (any-hover: hover)
+            &:hover
+              border-color: var(--itemBgHover)
+              .m-dropdown__link
+                background: var(--itemBgHover)
+                color: var(--menuColorHover)
+              .m-dropdown__logos-item img
+                filter: grayscale(0)
+
+        &:first-child
+          +s
+            border: none
+
+      .m-dropdown__logos-item
+        img
+          filter: grayscale(100%)
+
+  .menu__caret
+    background: var(--itemBg)
+    border-color: var(--menuBg)
+    &:after
+      border-color: var(--menuColor)
+    &.is-active
+      background: #fff
+      border: 1px solid $green
+      &:after
+        border-color: $green
+
+.menu
+  +s
+    padding-top: 70px
+    padding-bottom: 30px
+    display: flex
+    min-height: 100%
+    flex-direction: column
+  &__list
+    display: flex
+
+    +s
+      display: block
+      margin-left: -20px
+      margin-right: -20px
+    +xs
+      margin-left: -15px
+      margin-right: -15px
+
+  &__link
+    display: flex
+    align-items: center
+    height: 40px
+    padding: 0 20px
+    text-decoration: none
+    position: relative
+    transition: color .35s ease
+    white-space: nowrap
+    +helB
+    font-size: 12px
+    letter-spacing: -0.04em
+    +m
+      padding: 0 15px
+
+    +s
+      padding: 13px 20px
+      font-size: clamp(26px, 4vw, 36px)
+      line-height: 1
+      height: auto
+      color: #1C1C1C
+    +xs
+      padding: 10px 15px
+
+    &:before
+      content: ''
+      position: absolute
+      left: 20px
+      width: 0
+      bottom: 8px
+      height: 2px
+      background-color: $green
+      transition: width 0.2s linear
+      +m
+        left: 15px
+      +s
+        display: none
+
+  &__item
+    text-transform: uppercase
+    margin-left: 10px
+    +s
+      margin-left: 0 !important
+
+    +rmin(1025)
+      &:hover, &.is-focus
+        & > .menu__dropdown
+          visibility: visible
+          opacity: 1
+          pointer-events: auto
+          transform: translate(0,0)
+
+    &:first-child
+      margin-right: 82px
+      +md
+        margin-right: 15px
+      +s
+        margin-right: auto !important
+
+    &:hover:not(.menu__item-button), &:not(.menu__item-button).is-focus
+      .menu__link
+        color: $green
+        &:before
+          width: calc(100% - 40px)
+          +m
+            width: calc(100% - 30px)
+
+    &-button
+      +rmin(1025)
+        margin-left: 20px
+        .menu__link
+          background: darken($green, 13%)
+          &:hover, &:focus-visible
+            color: #fff !important
+            background: $green
+          &:before
+            display: none
+
+    &--dropdown
+      +s
+        display: grid
+        grid-template-columns: 1fr auto
+        grid-template-rows: 1fr auto
+      .menu__link
+        position: relative
         &:after
-            content: ''
+          content: ''
+          position: absolute
+          top: 50%
+          margin-top: -5px
+          right: 0
+          height: 6px
+          width: 6px
+          border-bottom: 2px solid #0AC526
+          border-left: 2px solid #0AC526
+          transform: rotate(-45deg)
+          +s
+            display: none
+
+  &.is-desktop
+    +xs
+      display: none
+
+  &__dropdown
+    visibility: hidden
+    opacity: 0
+    pointer-events: none
+    transform: translate(0, 10px)
+    position: absolute
+    top: calc(100% - 15px)
+    left: 10px
+    right: 10px
+    z-index: 10
+    transition: opacity 0.14s linear, transform 0.14s linear, visibility 0.14s linear
+    letter-spacing: 0
+    &:before
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      right: 0
+      bottom: calc(100% - 1px)
+      height: 20px
+      +s
+        display: none
+
+    +s
+      display: none
+      position: static
+      visibility: visible
+      opacity: 1
+      pointer-events: auto
+      transform: translate(0,0)
+      grid-column: 1/3
+
+      &.is-open
+        display: block
+
+      .menu__dropdown
+        display: none
+        &.is-open
+          display: block
+
+  &__caret
+    display: none
+    +s
+      position: relative
+      display: block
+      width: 60px
+      background: transparent
+      border-left: 1px solid rgba(0,0,0, 0.5)
+
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      margin-top: -12px
+      margin-left: -9px
+      height: 16px
+      width: 16px
+      border-bottom: 2px solid #000
+      border-left: 2px solid #000
+      transform: rotate(-45deg)
+      transition: transform 0.14s linear, margin 0.14s linear
+    &.is-active
+      background: #1c1c1c
+
+      &:after
+        transform: rotate(135deg)
+        margin-top: -6px
+        border-color: #fff
+
+  &__soc-links
+    display: none
+    +s
+      display: flex
+      padding-top: 20px
+      margin-top: auto
+      justify-content: center
+      li
+        position: relative
+        padding: 0 10px
+        font-size: 0
+        &:not(:first-child)
+          &:before
+            content: '/'
             position: absolute
-            top: 50%
-            left: 50%
-            margin-top: -12px
-            margin-left: -2px
-            height: 16px
-            width: 16px
-            border-bottom: 2px solid #000
-            border-left: 2px solid #000
-            transform: rotate(-45deg)
+            left: -4px
+            top: 0
+            font-weight: bold
+            font-size: 14px
+      a
+        text-decoration: none
+        font-size: 14px
+        +helB
+        color: $dark-grey
+        font-weight: bold

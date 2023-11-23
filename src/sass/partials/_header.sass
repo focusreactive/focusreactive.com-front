@@ -1,140 +1,130 @@
 .header
-    position: fixed
-    top: 0
-    left: 0
-    z-index: 150
-    width: 100%
-    padding: 18px 0
-    +r(850)
-        padding: 15px 0
+  position: fixed
+  top: 0
+  left: 0
+  z-index: 150
+  width: 100%
+  padding: 18px 0
+  +s
+    padding: 15px 0
     .container
-        position: relative
+      position: relative
 
-    &__logo
-        display: block
-        margin-top: -5px
-        text-decoration: none
-        transition: all .7s ease
-        +r(850)
-            max-width: 140px
-            flex-shrink: 0
-            font-size: 0
-            margin-top: 0
+  &__logo
+    display: block
+    margin-top: -5px
+    text-decoration: none
+    transition: all .7s ease
+    flex-shrink: 0
+    font-size: 0
+    +m
+      max-width: 140px
+      margin-top: 0
+    a
+      display: block
+      width: 100%
+    svg
+      display: block
+      width: 140px
 
-        a
-            display: block
-            width: 100%
-        svg
-            display: block
-            width: 140px
-            +ie
-                width: 100%
+    svg path
+      transition: all 0.35s ease
+  &__inner
+    display: flex
+    justify-content: space-between
+    align-items: center
+  &__note
+    font-size: 14px
+    color: $light-grey
+    opacity: 0.9
+    position: absolute
+    left: calc(25% + 100px)
+    +lg
+      left: calc(25% + 25px)
+    +xs
+      font-size: 12px
 
-        svg path
-            transition: all 0.35s ease
-    &__inner
-        display: flex
-        justify-content: space-between
-        align-items: center
-    &__note
-        font-size: 12px
-        letter-spacing: -0.02em
-        color: $light-grey
-        opacity: 0.6
-        position: absolute
-        left: calc(25% + 100px)
-        +lg
-            left: calc(25% + 25px)
-
-        &.is-desktop
-            +r(1100)
-                display: none
-        &.is-mobile
-            display: none
-            +r(850)
-                display: block
-                opacity: 1
-                padding-left: 0
-                top: 25px
-                max-width: calc(100% - 70px)
-                left: 30px
-            +r(540)
-                left: 20px
-
-    &__burger
+    &.is-desktop
+      +r(1100)
         display: none
-        +r(850)
-            display: block
-            margin-left: auto
-            position: absolute
-            top: 10px
-            right: 10px
-    &__menu
-        +r(850)
-            transform: translateX(100%)
-            position: fixed
-            width: 100%
-            top: 0
-            right: 0
-            height: 100%
-            background-color: $white
-            transition: transform .25s ease-in-out
-            padding: 0 30px
-            overflow-y: auto
-            &.is-open
-                transform: translateX(0)
-        +r(540)
-            padding: 0 20px
+    &.is-mobile
+      display: none
+      +s
+        display: block
+        opacity: 1
+        padding-left: 0
+        top: 25px
+        max-width: calc(100% - 90px)
+        left: 30px
+      +xs
+        left: 15px
 
-    &.is-light
-        #this__logo
-            svg, svg path
-                fill: $white
-        .header__logo
-            svg, svg path
-                fill: $white
-        .menu
+  &__burger
+    display: none
+    +s
+      display: block
+      margin-left: auto
+      position: absolute
+      top: 5px
+      right: 10px
 
-            &__link
-                color: $white
-                &.is-active
-                    color: $green
+  &__menu
+    +s
+      transform: translateX(100%)
+      position: fixed
+      width: 100%
+      top: 0
+      right: 0
+      height: 100%
+      background-color: $white
+      transition: transform .25s ease-in-out
+      padding: 0 30px
+      overflow-y: auto
+      &.is-open
+        transform: translateX(0)
+    +xs
+      padding: 0 15px
 
-        .burger
-            &::before, &::after
-                background-color: $white
-            &.is-open
-                &::before, &::after
-                    background-color: $black
+  &.is-light
+    .header__logo
+      svg, svg path
+        fill: $white
 
-    &.is-dark
-        #this__logo
-            svg, svg path
-                fill: $black
-        .header__logo
-            svg, svg path
-                fill: $black
-        .menu
-            &__item-button
-                .menu__link
-                    background: $green
-            &__link
-                color: $dark-grey
-                +r(850)
-                    color: $white
-                &.is-active
-                    color: $green
-        .burger
-            &::before, &::after
-                background-color: $black
-            &.is-open
-                &::before, &::after
-                    background-color: $black
-    &.scroll-down
-        #this__logo
-            transform: translateY(-200%)
+    .burger
+      &::before, &::after
+        background-color: $white
+      &.is-open
+        &::before, &::after
+          background-color: $black
 
-    &.is-fixed
-        background: linear-gradient(to bottom, rgba(0,0,0, 0.1), rgba(0,0,0, 0))
-        -webkit-backdrop-filter: blur(10px)
-        backdrop-filter: blur(10px)
+    +rmin(1025)
+      .menu__link
+        color: $white
+        &.is-active
+          color: $green
+
+  &.is-dark
+    .header__logo
+      svg, svg path
+        fill: $black
+    .burger
+      &::before, &::after
+        background-color: $black
+      &.is-open
+        &::before, &::after
+          background-color: $black
+
+    +rmin(1025)
+      .menu
+        &__item-button
+          .menu__link
+            background: $green
+        &__link
+          color: $dark-grey
+          &.is-active
+            color: $green
+
+  &.is-fixed
+    background: linear-gradient(to bottom, rgba(0,0,0, 0.1), rgba(0,0,0, 0))
+    -webkit-backdrop-filter: blur(10px)
+    backdrop-filter: blur(10px)

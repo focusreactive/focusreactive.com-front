@@ -1,16 +1,13 @@
 <header
   class="header is-light js-header {{headerMod}} {% if innerPage %} inner {% endif %}"
-  role="banner"
->
+  role="banner">
   <div class="container">
     <div class="header__inner">
       <div class="header__logo">
         <a
           href="{% if innerPage %}/{% else %}#home{% endif %}"
           class="logo js-scroll-to"
-          aria-label="FocusReactive"
-          >{% include "./svg/focusreactive.svg" %}</a
-        >
+          aria-label="FocusReactive">{% include "./svg/focusreactive.svg" %}</a>
       </div>
       <div class="header__burger">
         <div class="burger js-burger"></div>
@@ -23,28 +20,26 @@
           <ul class="menu__list">
             {% for menuItem in headerData.menu %}
             <li
-              class="menu__item {{menuItem.mod}} {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}"
-            >
+              class="menu__item {{menuItem.mod}} {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}">
               <a
-                class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-link-dropdown' if menuItem.dropdown}}"
-                href="{{menuItem.link}}"
-              >
+                class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }}"
+                href="{{menuItem.link}}">
                 {{menuItem.text}}
               </a>
 
               {% if menuItem.dropdown and menuItem.dropdown.length > 0 %}
 
+              <button class="menu__caret js-btn-dropdown" type="button"></button>
+
               <ul class="menu__dropdown m-dropdown js-nav-dropdown">
-                {% for dropdown in menuItem.dropdown %}
-                <li class="m-dropdown__item">
-                  <a class="m-dropdown__link" href="{{dropdown.link}}">
-                    <div class="m-dropdown__content">
-                      <div class="m-dropdown__title">{{dropdown.title}}</div>
-                      <div class="m-dropdown__text">{{dropdown.text}}</div>
-                    </div>
-                    {% if dropdown.logo and dropdown.logo.length > 0 %}
+                {% for menuItemDropdown in menuItem.dropdown %}
+                <li class="m-dropdown__item m-dropdown__item--dropdown">
+                  <a class="m-dropdown__link" href="{{menuItemDropdown.link}}">
+                    <div class="m-dropdown__title">{{menuItemDropdown.title}}</div>
+                    <div class="m-dropdown__text">{{menuItemDropdown.text}}</div>
+                    {% if menuItemDropdown.logo and menuItemDropdown.logo.length > 0 %}
                     <div class="m-dropdown__logos">
-                      {% for logo in dropdown.logo %}
+                      {% for logo in menuItemDropdown.logo %}
                       <div class="m-dropdown__logos-item">
                         <img src="{{logo.url}}" alt="" />
                         <img src="{{logo.urlHover}}" alt="" />
@@ -53,12 +48,36 @@
                     </div>
                     {% endif %}
                   </a>
+
+                  {% if menuItemDropdown and menuItemDropdown.dropdown.length > 0 %}
+                  <button class="menu__caret js-btn-dropdown" type="button"></button>
+
+                  <ul class="menu__dropdown m-dropdown js-nav-dropdown">
+                    {% for dropdown in menuItemDropdown.dropdown %}
+                    <li class="m-dropdown__item">
+                      <a class="m-dropdown__link" href="{{dropdown.link}}">
+                        <div class="m-dropdown__title">{{dropdown.title}}</div>
+                        <div class="m-dropdown__text">{{dropdown.text}}</div>
+                        {% if dropdown.logo and dropdown.logo.length > 0 %}
+
+                        <div class="m-dropdown__logos">
+                          {% for logo in dropdown.logo %}
+                          <div class="m-dropdown__logos-item">
+                            <img src="{{logo.url}}" alt="" />
+                            <img src="{{logo.urlHover}}" alt="" />
+                          </div>
+                          {% endfor %}
+                        </div>
+                        {% endif %}
+                      </a>
+                    </li>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
                 </li>
+
                 {% endfor %}
               </ul>
-
-              <button class="menu__caret js-btn-dropdown"></button>
-
               {% endif %}
             </li>
             {% endfor %}
@@ -73,8 +92,7 @@
               <a
                 href="https://www.linkedin.com/company/focusreactive"
                 target="_blank"
-                rel="noopener noreferrer"
-              >
+                rel="noopener noreferrer">
                 LinkedIn
               </a>
             </li>

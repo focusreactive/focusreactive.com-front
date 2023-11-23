@@ -10,11 +10,12 @@ body
   min-height: 100%
   display: flex
   flex-direction: column
-  &.is-hidden
-    position: fixed
-    overflow: hidden
-    height: 100%
-    width: 100%
+  +s
+    &.is-hidden
+      position: fixed
+      overflow: hidden
+      height: 100%
+      width: 100%
   &.no-hover
     pointer-events: none
 strong, b
