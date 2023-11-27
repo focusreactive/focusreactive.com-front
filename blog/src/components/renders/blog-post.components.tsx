@@ -59,7 +59,7 @@ const applyAttr = (attrList) => {
   };
 };
 
-const applyImageTransform = (src) => {
+const applyImageTransform = (src: string, { width }: { width: number }) => {
   const isSanityCDN = /^https:\/\/cdn\.sanity\.io.*/.test(src);
   if (!isSanityCDN) {
     return src;
@@ -68,25 +68,33 @@ const applyImageTransform = (src) => {
   if (hasParams) {
     return src;
   }
-  return `${src}?w=620&auto=format`;
+  return `${src}?w=${width}&auto=format`;
 };
 
-const constructElement = ({ src, altText, classList, wrappers }) => {
+const constructElement = ({ src, srcSet, altText, classList, wrappers }) => {
   const element = (
-    <img className={clsx('image', classList)} src={src} alt={altText} loading="lazy" />
+    <img
+      className={clsx('image', classList)}
+      src={src}
+      srcSet={`${srcSet} 2x`}
+      alt={altText}
+      loading="lazy"
+    />
   );
   const wrappedElement = wrappers.reduce((result, wr) => wr(result), element);
   return wrappedElement;
 };
 
 export const Image = ({ src, alt }) => {
-  const optimizedSrc = applyImageTransform(src);
+  const optimizedSrc = applyImageTransform(src, { width: 620 });
+  const optimizedRetinaSrc = applyImageTransform(src, { width: 1240 });
   const rowAlt = alt || '';
   const attr = getImageAttr(rowAlt);
   const altText = getImageAlt(rowAlt);
   const modifiers = applyAttr(attr);
   const element = constructElement({
     src: optimizedSrc,
+    srcSet: optimizedRetinaSrc,
     altText,
     ...modifiers,
   });
