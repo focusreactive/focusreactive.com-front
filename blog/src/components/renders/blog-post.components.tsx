@@ -76,7 +76,6 @@ const constructElement = ({ src, srcSet, altText, classList, wrappers }) => {
     <img
       className={clsx('image', classList)}
       src={src}
-      srcSet={`${srcSet} 2x`}
       alt={altText}
       loading="lazy"
     />
