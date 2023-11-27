@@ -10,7 +10,7 @@
   --menuBg: #373737
   --menuColor: #fff
   --menuColorHover: #1C1C1C
-
+  border: 1px solid #DBDBDB
   display: flex
   flex-wrap: wrap
   background: var(--menuBg)
@@ -23,6 +23,7 @@
     --iconSizeSmall: 18px
   +s
     --itemPadding: 20px
+    border: none
   +xs
     --itemPadding: 15px
     --titleSize: 14px
@@ -160,9 +161,10 @@
       --menuBg: #DBDBDB
       --menuColor: #1C1C1C
       --menuColorHover: #1C1C1C
+      border-top: none
       background: var(--menuBg)
-      left: 0
-      right: 0
+      left: -1px
+      right: -1px
       top: 100%
       transform: translate(0,0)
       +m
