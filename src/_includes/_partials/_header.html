@@ -20,10 +20,14 @@
           <ul class="menu__list">
             {% for menuItem in headerData.menu %}
             <li
-              class="menu__item {{menuItem.mod}} {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}">
+              class="
+              menu__item
+              {{menuItem.mod}}
+              {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}">
+
               <a
                 class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }}"
-                href="{{menuItem.link}}">
+                href="{{menuItem.link}}" {% if menuItem.mod %} onclick="() => window.lintrk('track', { conversion_id: 13457161 });" {% endif %}>
                 {{menuItem.text}}
               </a>
 
