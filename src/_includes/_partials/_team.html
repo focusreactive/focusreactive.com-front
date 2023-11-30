@@ -17,8 +17,9 @@
                 <div class="member__desc">
                   <h4 class="member__name">{{ member.name }}</h4>
                   <p class="member__about text text--font-xs text--border-light">
-                    {% for line in member.keyWords %} {% if loop.last == false %} {{line}}<br />
-                    {% endif %} {% if loop.last == true %} {{line}} {% endif %} {% endfor %}
+                    {% for line in member.keyWords %} {{line}}
+                    {% if loop.last != true %} <br /> {% endif %}
+                    {% endfor %}
                   </p>
                   <!-- <p class="member__text">Even with products that support a diverse. Delivering state of the art mobile software with weekly iterations and daily communication</p> -->
                 </div>
@@ -44,8 +45,7 @@
       href="http://smartrecruiters.com/FocusReactive"
       class="plus-link"
       target="_blank"
-      title="Join us"
-    >
+      title="Join us">
       <img src="/assets/img/plus_light.png" alt="add icon" />
     </a>
   </div>

@@ -1,0 +1,28 @@
+<section id="team2" class="team-sec is-dark js-scroll-header section">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="title title--light title--xxs text-center">{{ teamV2Data.title }}</h2>
+    </div>
+
+    <div class="team-list">
+
+      {% for member in teamV2Data.members %}
+      <div class="team-list__item">
+        <div class="member-item">
+          <div class="member-item__img">
+            <img src="{{ member.avatar }}" alt="{{ member.name }}">
+          </div>
+          <div class="member-item__content">
+            <div class="member-item__name">{{ member.name }}</div>
+            <div class="member-item__about">
+              {% for line in member.keyWords %} {{line}}
+              {% if loop.last != true %} <br /> {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

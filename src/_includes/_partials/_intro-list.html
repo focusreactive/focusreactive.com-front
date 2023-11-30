@@ -1,0 +1,11 @@
+<section class="intro-list is-dark section js-scroll-header {% sectionClasses introData %}">
+  <div class="container">
+    <div class="section__head">
+      <h2 class="text--border-light text--font-lg text-center">{{ introListData.title }}</h2>
+    </div>
+
+    <div class="intro-list__content {{ 'hide-markers' if introData.hideListMarkers }}">
+      {{ introListData.richText | blockContent }}
+    </div>
+  </div>
+</section>

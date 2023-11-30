@@ -1,36 +1,109 @@
 .team
-    padding-top: 100px
-    padding-bottom: 100px
+  padding-top: 100px
+  padding-bottom: 100px
 
-    +sm
-        padding-bottom: 60px
-        padding-top: 60px
+  +sm
+    padding-bottom: 60px
+    padding-top: 60px
+  +xs
+    background-color: #202020 !important
+
+  &__title
+    margin-bottom: 43px
+    color: $dark-grey
+    text-align: center
+    text-transform: uppercase
+    letter-spacing: -0.03em
+    +helB
+    +m
+      margin-bottom: 15px
+    +md
+      margin-bottom: 18px
     +xs
-        background-color: #202020 !important
+      color: $white
+      text-align: left
+      font-size: 36px
+      opacity: 1
+      margin-bottom: 5px
+  &__plus-link
+    text-align: center
+    margin-top: 112px
+    +m
+      margin-top: 36px
+    +md
+      margin-top: 30px
+    +xs
+      margin-top: 44px
 
-    &__title
-        margin-bottom: 43px
-        color: $dark-grey
-        text-align: center
-        text-transform: uppercase
-        letter-spacing: -0.03em
-        +helB
-        +m
-            margin-bottom: 15px
-        +md
-            margin-bottom: 18px
-        +xs
-            color: $white
-            text-align: left
-            font-size: 36px
-            opacity: 1
-            margin-bottom: 5px
-    &__plus-link
-        text-align: center
-        margin-top: 112px
-        +m
-            margin-top: 36px
-        +md
-            margin-top: 30px
-        +xs
-            margin-top: 44px
+.team-list
+  display: flex
+  flex-wrap: wrap
+  gap: 0 20px
+  &__item
+    width: calc(50% - 20px)
+    padding: 30px 0
+    position: relative
+    +xs
+      width: 100%
+    &:after, &:before
+      content: ''
+      position: absolute
+      top: 0
+      left: -50vw
+      width: 150vw
+      height: 1px
+      background: #363636
+    &:before
+      display: none
+      top: auto
+      bottom: 0
+
+    &:last-child:before
+      display: block
+
+.team-sec
+  .container
+    max-width: 1100px
+
+.member-item
+  display: flex
+  gap: 20px
+  &__img
+    width: 90px
+    flex: none
+
+    img
+      width: 100%
+      height: auto
+      aspect-ratio: 1
+      object-fit: cover
+      display: block
+  &__content
+    flex: 1
+  &__name
+    font-size: 24px
+    font-weight: 700
+    color: #fff
+    text-transform: uppercase
+    margin-bottom: 5px
+    line-height: 1
+    +s
+      font-size: 20px
+      margin-bottom: 8px
+    +sm
+      font-size: 18px
+      margin-bottom: 10px
+    +xs
+      font-size: 20px
+  &__about
+    color: #848484
+    text-transform: uppercase
+    font-size: 18px
+    font-weight: 700
+    line-height: 1.1
+    +s
+      font-size: 16px
+    +sm
+      font-size: 14px
+    +xs
+      font-size: 16px

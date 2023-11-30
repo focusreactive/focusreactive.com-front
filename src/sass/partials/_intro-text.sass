@@ -124,3 +124,49 @@
     color: $green
     &:hover
       text-decoration: none
+
+.intro-list
+  &__content
+    max-width: 1000px
+    margin: 0 auto
+    ul
+      list-style-type: none
+      margin: 0
+      padding: 0
+    li
+      font-size: 16px
+      font-weight: 700
+      color: #848484
+      text-transform: uppercase
+      padding: 32px 66px 32px 0
+      border-top: 1px solid #363636
+      position: relative
+      +sm
+        font-size: 14px
+        padding: 20px 56px 20px 0
+
+      &:last-child
+        border-bottom: 1px solid #363636
+      &:after
+        content: ''
+        display: block
+        position: absolute
+        top: 50%
+        right: 0
+        transform: translate(0,-50%)
+        background: url('../img/circle-check.svg') no-repeat center
+        background-size: contain
+        width: 50px
+        height: 50px
+        +sm
+          width: 40px
+          height: 40px
+        +xs
+          width: 32px
+          height: 32px
+
+      a
+        color: #fff
+        text-decoration: none
+        &:hover
+          color: $green
