@@ -27,6 +27,13 @@ const query = `*[_type == 'landingPage' && !(_id in path("drafts.**"))] {
         "image": image.asset->.url,
       }
     },
+    teamV2 {
+      ...,
+      members[] {
+        ...,
+        "avatar": avatar.asset->.url
+      }
+    },
     footer->
   }`;
 
@@ -60,6 +67,13 @@ module.exports = async (params) => {
       ogTwitter {
         ...,
         "image": image.asset->.url,
+      }
+    },
+    teamV2 {
+      ...,
+      members[] {
+        ...,
+        "avatar": avatar.asset->.url
       }
     },
     footer->
