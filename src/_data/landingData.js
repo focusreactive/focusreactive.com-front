@@ -13,7 +13,11 @@ const query = `*[_type == 'landingPage' && !(_id in path("drafts.**"))] {
       },
       elements[] {
         ...,
-        "image": image.asset->.url
+        "image": image.asset->.url,
+      },
+      members[] {
+        ...,
+        "avatar": avatar.asset->.url
       }
     },
     seo {
@@ -27,13 +31,7 @@ const query = `*[_type == 'landingPage' && !(_id in path("drafts.**"))] {
         "image": image.asset->.url,
       }
     },
-    teamV2 {
-      ...,
-      members[] {
-        ...,
-        "avatar": avatar.asset->.url
-      }
-    },
+
     footer->
   }`;
 
@@ -56,6 +54,10 @@ module.exports = async (params) => {
       elements[] {
         ...,
         "image": image.asset->.url
+      },
+      members[] {
+        ...,
+        "avatar": avatar.asset->.url
       }
     },
     seo {
@@ -69,13 +71,7 @@ module.exports = async (params) => {
         "image": image.asset->.url,
       }
     },
-    teamV2 {
-      ...,
-      members[] {
-        ...,
-        "avatar": avatar.asset->.url
-      }
-    },
+
     footer->
   })`,
     );
