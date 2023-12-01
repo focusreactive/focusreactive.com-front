@@ -5,8 +5,7 @@
       class="office__item {{ 'visible' if loop.first }}"
       data-city="{{ office.title }}"
       data-lat="{{ office.lat }}"
-      data-lng="{{ office.lng }}"
-    >
+      data-lng="{{ office.lng }}">
       <h3 class="office__title">{{ office.title }}</h3>
       <p class="office__info">{{ office.tel }}<br />{{ office.address }}</p>
       <a class="office__mail" href="mailto:{{ office.email }}">{{ office.email }}</a>
@@ -141,7 +140,7 @@
         ];
 
         const image = {
-          url: 'img/marker.svg',
+          url: '/assets/img/marker.svg',
           anchor: new google.maps.Point(26, 81),
           scaledSize: new google.maps.Size(52, 81),
         };
@@ -155,7 +154,7 @@
             position: new google.maps.LatLng(location.lat, location.lng),
             map,
             title: location.title,
-            icon: 'img/marker.svg',
+            icon: '/assets/img/marker.svg',
           });
 
           google.maps.event.addListener(marker, 'click', () => {
@@ -173,14 +172,14 @@
         select(offices[0]);
 
         function select({ element, marker }) {
-          marker.setIcon('img/marker2.svg');
+          marker.setIcon('/assets/img/marker2.svg');
           element.classList.add('visible');
         }
 
         function reset() {
           offices.forEach(({ element, marker }) => {
             element.classList.remove('visible');
-            marker.setIcon('img/marker.svg');
+            marker.setIcon('/assets/img/marker.svg');
           });
         }
 
@@ -203,7 +202,6 @@
       async
       defer
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9OZ9xKEBkeoBw6hPjPzz13i0hZbT2LOs&callback=initMap"
-      type="text/javascript"
-    ></script>
+      type="text/javascript"></script>
   </div>
 </section>
