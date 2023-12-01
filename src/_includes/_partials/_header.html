@@ -26,8 +26,8 @@
               {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}">
 
               <a
-                class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }}"
-                href="{{menuItem.link}}" {% if menuItem.mod %} onclick="track()" {% endif %}>
+                class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-track-btn' if menuItem.mod }}"
+                href="{{menuItem.link}}">
                 {{menuItem.text}}
               </a>
 

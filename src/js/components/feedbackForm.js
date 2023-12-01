@@ -132,6 +132,7 @@ export const feedbackForm = () => {
       .then(() => {
         if (window.lintrk) {
           window.lintrk('track', { conversion_id: 13457161 });
+          console.log('send');
         }
         cleanUpForm(inputs);
       })

@@ -55,4 +55,10 @@ export function header() {
       }
     });
   }
+
+  $('.js-track-btn').on('click', function () {
+    if (window.lintrk) {
+      window.lintrk('track', { conversion_id: 13457169 });
+    }
+  });
 }
