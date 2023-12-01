@@ -8,18 +8,12 @@ export function scrollAnchors() {
       let anchor = $(this);
       const href = this.getAttribute('href');
       if (!/^#/.test(href)) return;
-      event.preventDefault();
       let scrollDest = $(anchor.attr('href'));
 
       if (scrollDest.length) {
         $('html, body')
           .stop()
-          .animate(
-            {
-              scrollTop: scrollDest.offset().top - headerHeight + 'px',
-            },
-            1000,
-          );
+          .animate({ scrollTop: scrollDest.offset().top - headerHeight + 'px' }, 1000);
       }
     } catch (err) {
       console.warn(err);

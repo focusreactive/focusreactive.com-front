@@ -27,7 +27,7 @@
 
               <a
                 class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-track-btn' if menuItem.mod }}"
-                href="{{menuItem.link}}">
+                href="{{ menuItem.link | replace('/#', '#') if permalink.serverless === '/main-preview' else menuItem.link}}">
                 {{menuItem.text}}
               </a>
 

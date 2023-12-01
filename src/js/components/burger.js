@@ -11,11 +11,10 @@ export function clickFunctions() {
       $(this).removeClass(ISOPEN);
       $(nav).removeClass(ISOPEN);
       BODY.removeClass(ISHIDDEN);
-      removeBodyHidden();
     } else {
       $(this).addClass(ISOPEN);
       $(nav).addClass(ISOPEN);
-      addBodyHidden();
+      BODY.addClass(ISHIDDEN);
     }
   });
 
@@ -24,22 +23,8 @@ export function clickFunctions() {
     burger.removeClass(ISOPEN);
     nav.removeClass(ISOPEN);
     BODY.removeClass(ISHIDDEN);
-    removeBodyHidden();
 
     MENU_LINKS.removeClass(ISACTIVE);
     $(this).addClass(ISACTIVE);
-    let anchor = $(this);
-    let scrollDest = $(anchor.attr('href'));
-
-    if (scrollDest.length) {
-      $('html, body')
-        .stop()
-        .animate(
-          {
-            scrollTop: scrollDest.offset().top + 'px',
-          },
-          1000,
-        );
-    }
   });
 }
