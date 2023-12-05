@@ -21,13 +21,49 @@
     --itemPadding: 15px
     --itemHeight: 100px
     --iconSizeSmall: 18px
+
+  +rmin(1025)
+    &:has( > .m-dropdown__item:nth-last-child(2):first-child)
+      & > .m-dropdown__item
+        width: calc(50% - 0.5px)
+
+    &:has( > .m-dropdown__item:nth-last-child(3):first-child),
+    &:has( > .m-dropdown__item:nth-last-child(6):first-child),
+    &:has( > .m-dropdown__item:nth-last-child(9):first-child),
+    &:has( > .m-dropdown__item:nth-last-child(15):first-child)
+      & > .m-dropdown__item
+        width: calc(33.33% - 0.66px)
+
+    &:has( > .m-dropdown__item:nth-last-child(5):first-child),
+    &:has( > .m-dropdown__item:nth-last-child(17):first-child)
+      & > .m-dropdown__item
+        width: calc(33.33% - 0.66px)
+        &:last-child, &:nth-last-child(2)
+          width: calc(50% - 0.5px)
+
+    &:has( > .m-dropdown__item:nth-last-child(7):first-child),
+    &:has( > .m-dropdown__item:nth-last-child(11):first-child)
+      & > .m-dropdown__item
+        &:last-child, &:nth-last-child(2), &:nth-last-child(3)
+          width: calc(33.33% - 0.66px)
+
+    &:has( > .m-dropdown__item:nth-last-child(10):first-child),
+    &:has( > .m-dropdown__item:nth-last-child(14):first-child)
+      & > .m-dropdown__item
+        &:last-child, &:nth-last-child(2)
+          width: calc(50% - 0.5px)
+
+    &:has( > .m-dropdown__item:nth-last-child(13):first-child)
+      & > .m-dropdown__item
+        &:last-child, &:nth-last-child(2), &:nth-last-child(3), &:nth-last-child(4), &:nth-last-child(5)
+          width: calc(20% - 0.8px)
   +s
     --itemPadding: 20px
     outline: none
-
   +xs
     --itemPadding: 15px
     --titleSize: 14px
+
   &:hover
     z-index: 11
   &__link
@@ -190,11 +226,6 @@
         display: none
 
       .m-dropdown__item
-
-        flex: 1 1 calc(50% - 0.5px)
-        &:nth-last-child(3):first-child,
-        &:nth-last-child(3):first-child ~ .m-dropdown__item
-          flex: 1 1 calc(33.33% - 0.66px)
         +rmin(1025)
           @media (any-hover: hover)
             &:hover
