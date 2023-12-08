@@ -9,11 +9,23 @@
       {% for member in teamV2Data.members %}
       <div class="team-list__item">
         <div class="member-item">
-          <a href="{{member.link}}" class="member-item__img" target="_blank">
+          {% if member.link %}
+          <a href="{{member.link}}" target="_blank" class="member-item__img">
             <img src="{{ member.avatar }}" alt="{{ member.name }}">
           </a>
+          {% else %}
+          <div class="member-item__img">
+            <img src="{{ member.avatar }}" alt="{{ member.name }}">
+          </div>
+          {% endif %}
+
           <div class="member-item__content">
+            {% if member.link %}
             <a href="{{member.link}}" class="member-item__name" target="_blank">{{ member.name }}</a>
+            {% else %}
+            <div class="member-item__name" target="_blank">{{ member.name }}</div>
+            {% endif %}
+
             <div class="member-item__about">
               {% for line in member.keyWords %} {{line}}
               {% if loop.last != true %} <br /> {% endif %}
