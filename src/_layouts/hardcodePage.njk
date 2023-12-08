@@ -7,26 +7,107 @@
       <meta http-equiv="Cache-control" content="no-cache">
    {% endif %}
 
+   {% if mainPageData.seo.ogTags.locale %}
+      <meta property="og:locale" content="{{ mainPageData.seo.ogTags.locale }}">
+   {% endif %}
 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   {% if mainPageData.seo.ogTags.type %}
+      <meta property="og:type" content="{{ mainPageData.seo.ogTags.type }}">
+   {% endif %}
 
-   <meta name="description" content="{{ description }}">
-   <meta name="twitter:site" content="{{ twitter_publisher }}">
-   <meta name="twitter:card" content="summary_large_image">
-   <meta name="twitter:creator" content="{{ twitter_publisher }}">
-   <meta name="twitter:title" content="{{ title }}">
-   <meta name="twitter:description" content="{{ description }}">
-   <meta name="og:title" content="{{ title }}">
-   <meta name="og:description" content="{{ description }}">
-   <meta name="og:type" content="website">
-   <meta name="og:image" content="{{ og_image }}">
-   <meta name="og:url" content="{{ og_url }}">
-   <meta name="format-detection" content="telephone=no">
+   {% if mainPageData.seo.ogTags.title %}
+      <meta property="og:title" content="{{ mainPageData.seo.ogTags.title }}">
+   {% elif mainPageData.seo.title %}
+      <meta property="og:title" content="{{ mainPageData.seo.title }}">
+   {% endif %}
 
-   <title>{{ title }}</title>
+   {% if mainPageData.seo.ogTags.description %}
+      <meta property="og:description" content="{{ mainPageData.seo.ogTags.description }}">
+   {% elif mainPageData.seo.description %}
+      <meta property="og:description" content="{{ mainPageData.seo.description }}">
+   {% endif %}
 
-   <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+   {% if mainPageData.seo.ogTags.url %}
+      <meta property="og:url" content="{{ mainPageData.seo.ogTags.url }}">
+   {% endif %}
+
+   {% if mainPageData.seo.ogTags.siteName %}
+      <meta property="og:site_name" content="{{ mainPageData.seo.ogTags.siteName }}">
+   {% endif %}
+
+   {% if mainPageData.seo.ogTags.image %}
+      <meta property="og:image" content="{{ mainPageData.seo.ogTags.image }}">
+   {% endif %}
+
+   {% if mainPageData.seo.description %}
+      <meta name="description" content="{{ mainPageData.seo.description }}">
+   {% endif %}
+
+   {% if mainPageData.seo.keyWords %}
+      <meta name="keywords" content="{{ mainPageDatakeyWords }}">
+   {% endif %}
+
+   {% if mainPageData.seo.articleTags.publisher %}
+      <meta name="article:publisher" content="{{ mainPageData.seo.articleTags.publisher }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.articleTags.modifiedTime %}
+      <meta name="article:modified_time" content="{{ mainPageData.seo.articleTags.modifiedTime }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.card %}
+      <meta name="twitter:card" content="{{ mainPageData.seo.ogTwitter.card }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.title %}
+      <meta name="twitter:title" content="{{ mainPageData.seo.ogTwitter.title }}" />
+   {% elif mainPageData.seo.title %}
+      <meta name="twitter:title" content="{{ mainPageData.seo.title }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.description %}
+      <meta name="twitter:description" content="{{ mainPageData.seo.ogTwitter.description }}" />
+   {% elif mainPageData.seo.description %}
+      <meta name="twitter:description" content="{{ mainPageData.seo.description }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.image %}
+      <meta name="twitter:image" content="{{ mainPageData.seo.ogTwitter.image }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.creator %}
+      <meta name="twitter:creator" content="{{ mainPageData.seo.ogTwitter.creator }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.site %}
+      <meta name="twitter:site" content="{{ mainPageData.seo.ogTwitter.site }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.label1 %}
+      <meta name="twitter:label1" content="{{ mainPageData.seo.ogTwitter.label1 }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.data1 %}
+      <meta name="twitter:data1" content="{{ mainPageData.seo.ogTwitter.data1 }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.label2 %}
+       <meta name="twitter:label2" content="{{ mainPageData.seo.ogTwitter.label2 }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.ogTwitter.data2 %}
+       <meta name="twitter:data2" content="{{ mainPageData.seo.ogTwitter.data2 }}" />
+   {% endif %}
+
+   {% if mainPageData.seo.title %}
+      <title>{{ mainPageData.seo.title }}</title>
+   {% endif %}
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta name="format-detection" content="telephone=no">
+  <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
 </head>
 
  {% if eleventy.env.isServerless %}

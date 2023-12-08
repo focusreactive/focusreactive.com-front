@@ -37,6 +37,17 @@ const query = `*[_type == 'mainPage'][0] {
         }
       }
     },
+    seo {
+      ...,
+      ogTags {
+        ...,
+        "image": image.asset->.url,
+      },
+      ogTwitter {
+        ...,
+        "image": image.asset->.url,
+      }
+    },
     footer->
   }`;
 
@@ -80,6 +91,17 @@ module.exports = async (params) => {
           isPartner,
           'src': src.asset->url
         }
+      }
+    },
+    seo {
+      ...,
+      ogTags {
+        ...,
+        "image": image.asset->.url,
+      },
+      ogTwitter {
+        ...,
+        "image": image.asset->.url,
       }
     },
     footer->
