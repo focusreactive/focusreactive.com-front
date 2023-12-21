@@ -66,6 +66,12 @@ permalink:
 			{% set heroData = block %}
 			{% include "_partials/_hero_landing.html" %}
 		{% endif %}
+
+     {% if block._type === 'heroCaseStudy' %}
+      {% set heroData = block %}
+      {% include "_partials/_hero-case-study.html" %}
+    {% endif %}
+
 		{% if block._type === 'aboutText' %}
 			{% set introData = block %}
 			{% include "_partials/_intro_text.html" %}

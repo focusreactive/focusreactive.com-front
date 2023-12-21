@@ -1,0 +1,37 @@
+<section data-section="home" class="hero-case-study is-dark js-scroll-header {{heroMod}}" id="hero-case-study" style="background-image: url({{heroData.image | imgURL }})">
+  <div class="container hero-case-study__container">
+    <h1 class="hero-case-study__title" style="color: {{ heroData.titleColor }}">
+      {% for line in heroData.titleLines %}
+      <span
+        data-disable-custom-style="{{heroData.isCustomFirstLineDisabled}}"
+        data-inherit-color="{% if heroData.titleColor %}true{% endif %}"
+        data-title-shadow="{% if heroData.titleShadow %}true{% endif %}">{{ line }}</span>
+      {% endfor %}
+  </div>
+
+  <div class="hero-case-study__details hcs-details">
+    <div class="hcs-details__logo">
+      <img src="{{heroData.projectDetailsLogo | imgURL }}" alt="">
+    </div>
+    {% for details in heroData.projectDetailsList %}
+    <div class="hcs-details__item">
+      <div class="hcs-details__title">{{details.title}} </div>
+      {% for item in details.projectDetailsListItem %}
+      <div class="hcs-details__text">
+        {% if details.link %}
+        <a href="{{details.link}}" target="_blank">
+          <span>{{item}}</span>
+          <svg class="icon icon-link" xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8" fill="none">
+            <path d="M1.5 0.5H7.5M7.5 0.5V6.5M7.5 0.5L1.5 6.5" stroke="white" stroke-linecap="square" />
+          </svg>
+        </a>
+        {% else %}
+        <span>{{item}}</span>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+
+  </div>
+</section>
