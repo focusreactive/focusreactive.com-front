@@ -9,7 +9,7 @@
         class="last-clients__item"
         target="{{ '_blank' if item.openInNewTab }}"
       >
-        <img src="{{ item.image | imgURL }}" alt="{{ item.alt }}" />
+        <img src="{{ item.image | imgURL }}" loading="lazy" alt="{{ item.alt }}" />
       </a>
       {% endfor %}
     </div>
