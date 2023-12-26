@@ -398,7 +398,7 @@ async function blogPluginExtended(...pluginArgs) {
                   (function () {
                     var t = document.createElement('script');
                     t.type = 'text/javascript';
-                    t.async = true;
+                    t.defer = true;
                     t.id = 'gauges-tracker';
                     t.setAttribute('data-site-id', '5c60ad334cba7a6ec400efc0');
                     t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
@@ -411,7 +411,7 @@ async function blogPluginExtended(...pluginArgs) {
           {
             tagName: 'script',
             attributes: {
-              async: true,
+              defer: true,
               src: 'https://widget.clutch.co/static/js/widget.js',
             },
           },
