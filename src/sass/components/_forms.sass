@@ -1,0 +1,235 @@
+$form-height: 52px
+$form-border: 1px solid #363636
+$form-radius: 0
+$form-bg: transparent
+
+$form-size: 16px
+$form-color: $black
+
+.form-input
+  height: $form-height
+  padding: 0
+  margin: 0
+  border: none
+  border-bottom: $form-border
+  border-radius: $form-radius
+  background: $form-bg
+  display: block
+  width: 100%
+  text-transform: uppercase
+  +helB
+  font-size: $form-size
+  +sm
+    height: 40px
+    font-size: 14px
+  &::placeholder
+    text-transform: uppercase
+
+  &:focus, &:active
+    outline: none
+  &:focus, &:focus-visible
+    border-color: #666
+    outline: none !important
+
+  &.is-light
+    color: #fff
+    &::placeholder
+      color: #fff
+
+textarea
+  &.form-input
+    padding-top: 16px
+    padding-bottom: 10px
+    height: auto
+    min-height: $form-height
+    +sm
+      min-height: 40px
+      padding-top: 11px
+      padding-bottom: 5px
+
+  &.form-textarea
+    height: $form-height
+    white-space: nowrap
+    overflow: hidden
+    resize: none
+    padding-bottom: 0
+    +sm
+      height: 40px
+
+.form-label
+  +helB
+  font-size: $form-size
+  color: $black
+  text-transform: uppercase
+  margin-bottom: 8px
+  display: block
+  +sm
+    font-size: 14px
+  &.is-light
+    color: #fff
+
+.selectbox
+  position: relative
+  &__head
+    display: flex
+    height: $form-height
+    border: none
+    border-bottom: $form-border
+    border-radius: $form-radius
+    cursor: pointer
+    background: $form-bg
+    position: relative
+    +sm
+      height: 40px
+  &__text
+
+    flex: 1
+    min-width: 1px
+    padding: 0
+    max-width: 100%
+    +text-overflow
+    +helB
+    font-size: $form-size
+    color: $form-color
+    text-transform: uppercase
+    line-height: calc($form-height - 1px)
+    +sm
+      font-size: 14px
+      line-height: calc(40px - 1px)
+
+  &__caret
+    display: flex
+    align-items: center
+    flex: none
+    margin-right: 18px
+    margin-left: 18px
+    font-size: 0
+    &:after
+      content: ''
+      display: block
+      width: 6px
+      height: 6px
+      position: relative
+      border-bottom: 1px solid $black
+      border-right: 1px solid $black
+      transform: rotate(45deg)
+
+  &__drop
+    display: none
+    position: absolute
+    top: calc(100% + 1px)
+    left: 0
+    width: 100%
+    z-index: 10
+    background: #fff
+
+    ul
+
+      max-height: rem(172)
+      overflow: hidden
+      overflow-y: auto
+
+      li
+        padding: 15px 20px
+        font-size: 16px
+        font-weight: 400
+        color: $form-color
+        cursor: pointer
+        text-transform: uppercase
+        position: relative
+        +sm
+          font-size: 14px
+        &:not(:last-child)
+          border-bottom: 1px solid #b7b7b7
+        &:hover
+          background: #1C1C1C
+          color: #fff
+        &._selected
+          background: $green
+          color: #fff
+          padding-left: 47px
+          &:before
+            content: ''
+            position: absolute
+            top: 50%
+            left: 20px
+            margin-top: -7px
+            width: 15px
+            height: 8px
+            border-bottom: 2px solid #fff
+            border-left: 2px solid #fff
+            transform: rotate(-45deg)
+
+  &._open
+    .selectbox__head
+      z-index: 11
+    .selectbox__caret
+      transform: rotate(180deg)
+      &:after
+        bottom: 3px
+
+    .selectbox__drop
+      display: block
+
+  &.is-light
+    .selectbox__text
+      color: #fff
+    .selectbox__caret
+      &:after
+        border-color: #fff
+    .selectbox__drop
+      background: #1C1C1C
+      ul
+        li
+          color: #fff
+          &:not(:last-child)
+            border-color: #373737
+          &:hover
+            background: #fff
+            color: $black
+
+.selectbox__drop ul::-webkit-scrollbar
+  width: rem(2)
+
+.selectbox__drop ul::-webkit-scrollbar-track
+  background: #aaa
+.selectbox__drop ul::-webkit-scrollbar-thumb
+  background: #000
+
+.selectbox__drop ul::-webkit-scrollbar-button
+  display: none
+
+.checkbox-btn-list
+  display: flex
+  align-items: flex-start
+  flex-wrap: wrap
+  gap: 8px
+
+.checkbox-btn
+  position: relative
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  vertical-align: middle
+  border: $form-border
+  border-radius: 100px
+  height: 50px
+  font-weight: 700
+  font-size: 16px
+  white-space: nowrap
+  padding: 0 20px
+  color: #747474
+  cursor: pointer
+  +sm
+    font-size: 14px
+    height: 40px
+    padding: 0 15px
+
+  input
+    display: none
+  &:has( > input:checked)
+    background: $green
+    color: #fff
+    border-color: $green
+  &:hover
+    border-color: #666
