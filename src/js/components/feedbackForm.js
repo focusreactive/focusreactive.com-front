@@ -104,7 +104,7 @@ const inputOnType = (input, updateButton) => () => {
 
 export const feedbackForm = () => {
   const form = document.querySelector('#mail-us-form');
-  const button = document.querySelector('#mail-us-form > button');
+  const button = document.querySelector('#mail-us-form button');
 
   if (!form) return;
   const inputs = [...document.querySelectorAll('#mail-us-form input, #mail-us-form textarea')];
