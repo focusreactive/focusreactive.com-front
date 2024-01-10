@@ -120,11 +120,10 @@ export const feedbackForm = () => {
     ev.preventDefault();
     ev.stopPropagation();
 
-    const fields = inputs
-      .map(({ value, dataset: { key = 'field' } }) => ({
-        [key]: value,
-      }))
-      .reduce((data, obj) => ({ ...data, ...obj }), {});
+    const formData = new FormData(form);
+    const formEntries = [...formData.entries()];
+    const fields = formEntries.reduce(([key, value], obj) => ({ [key]: value, ...obj }), {});
+    console.log("🚀 ~ feedbackForm ~ fields:", fields)
 
     lockForm(inputs, button);
 

@@ -7,3 +7,5 @@ functions/serverless
 functions/serverlessLandings
 .vercel
 .env
+
+.yarn/cache/

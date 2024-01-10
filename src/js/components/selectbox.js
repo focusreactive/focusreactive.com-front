@@ -1,11 +1,21 @@
 export function selectbox() {
   const selectboxHeads = document.querySelectorAll('[data-selectbox-head]');
   const selectboxTitles = document.querySelectorAll('[data-selectbox-title]');
-  const selectboxListElements = document.querySelectorAll('.selectbox__drop ul li');
+  const selectboxDrop = document.querySelectorAll('.selectbox__drop ul li');
 
   if (selectboxHeads.length > 0) {
     selectboxHeads.forEach((item) => {
       item.addEventListener('click', selectboxOpen);
+      const select = item.parentElement.querySelector('select');
+      const values = [...select.options].map((opt) => opt?.innerText || '');
+      const drop = item.parentElement.querySelector('.selectbox__drop');
+      const ul = document.createElement('ul');
+      drop.appendChild(ul);
+      values.forEach((val) => {
+        const li = document.createElement('li');
+        li.innerText = val;
+        ul.appendChild(li);
+      });
     });
 
     selectboxTitles.forEach((item) => {
@@ -18,6 +28,7 @@ export function selectbox() {
       }
     });
 
+    const selectboxListElements = document.querySelectorAll('.selectbox__drop ul li');
     selectboxListElements.forEach((item) => {
       item.addEventListener('click', selectboxChange);
       if (item.classList.contains('_selected')) {
@@ -47,6 +58,9 @@ export function selectbox() {
     });
 
     this.classList.add('_selected');
+
+    const sel = selectbox.querySelector('select');
+    sel.value = thisText;
   }
 
   // Открытие селекта

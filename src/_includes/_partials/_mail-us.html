@@ -18,38 +18,38 @@
     <form id="mail-us-form" class="mail-form">
       <div class="mail-form__grid">
         <div class="mail-form__line">
-          <input class="form-input is-light" type="text" placeholder="Your name" data-key="visitor-name" />
+          <input name="visitor-name" class="form-input is-light" type="text" placeholder="Your name" data-key="visitor-name" />
         </div>
 
         <div class="mail-form__line">
-          <input class="form-input is-light" type="email" placeholder="Business email" data-key="visitor-email" />
+          <input name="visitor-email" class="form-input is-light" type="email" placeholder="Business email" data-key="visitor-email" />
         </div>
 
         <div class="mail-form__line mail-form__line--full">
           <label class="form-label is-light">Subject</label>
           <div class="checkbox-btn-list">
             <label class="checkbox-btn">
-              <input type="checkbox" data-key="visitor-Next-JS-development" />
+              <input name="visitor-Next-JS-development" type="checkbox" data-key="visitor-Next-JS-development" />
               <span class="checkbox-btn__text">Next.JS development</span>
             </label>
             <label class="checkbox-btn">
-              <input type="checkbox" data-key="visitor-Headless-CMS-dvelopment" />
-              <span class="checkbox-btn__text">Headless CMS dvelopment</span>
+              <input name="visitor-Headless-CMS-development" type="checkbox" data-key="visitor-Headless-CMS-development" />
+              <span class="checkbox-btn__text">Headless CMS development</span>
             </label>
             <label class="checkbox-btn">
-              <input type="checkbox" data-key="visitor-Headless-eCommerce-development" />
+              <input name="visitor-Headless-eCommerce-development" data-key="visitor-Headless-eCommerce-development" type="checkbox" data-key="visitor-Headless-eCommerce-development" />
               <span class="checkbox-btn__text">Headless eCommerce development</span>
             </label>
             <label class="checkbox-btn">
-              <input type="checkbox" data-key="visitor-Next-JS-performance-audit" />
+              <input name="visitor-Next-JS-performance-audit" type="checkbox" data-key="visitor-Next-JS-performance-audit" />
               <span class="checkbox-btn__text">Next.JS performance audit</span>
             </label>
             <label class="checkbox-btn">
-              <input type="checkbox" data-key="visitor-Migration" />
+              <input name="visitor-Migration" type="checkbox" data-key="visitor-Migration" />
               <span class="checkbox-btn__text">Migration</span>
             </label>
             <label class="checkbox-btn">
-              <input type="checkbox" data-key="visitor-AI-integration" />
+              <input name="visitor-AI-integration" type="checkbox" data-key="visitor-AI-integration" />
               <span class="checkbox-btn__text">AI integration</span>
             </label>
           </div>
@@ -57,42 +57,43 @@
 
         <div class="mail-form__line">
           <div class="selectbox is-light" data-selectbox data-key="visitor-estimated-budget">
+            <select name="visitor-estimated-budget">
+              <option>5-10k</option>
+              <option>10-50k</option>
+              <option>50-100k</option>
+              <option>100k+</option>
+            </select>
             <div class="selectbox__head" data-selectbox-head>
               <div class="selectbox__text" data-selectbox-title="Estimated budget (EUR)"></div>
               <div class="selectbox__caret"></div>
             </div>
             <div class="selectbox__drop">
-              <ul>
-                <li>5-10k</li>
-                <li>10-50k</li>
-                <li>50-100k</li>
-                <li>100k+</li>
-              </ul>
             </div>
           </div>
         </div>
 
         <div class="mail-form__line">
           <div class="selectbox is-light" data-selectbox data-key="visitor-timeframe">
+            <select name="visitor-timeframe">
+              <option>urgent</option>
+              <option>1-2 weeks</option>
+              <option>within a month</option>
+              <option>this quarter</option>
+              <option class="_selected">next quarter</option>
+              <option>flexible</option>
+            </select>
             <div class="selectbox__head" data-selectbox-head>
               <div class="selectbox__text" data-selectbox-title="Timeframe"></div>
               <div class="selectbox__caret"></div>
             </div>
             <div class="selectbox__drop">
-              <ul>
-                <li>urgent</li>
-                <li>1-2 weeks</li>
-                <li>within a month</li>
-                <li>this quarter</li>
-                <li class="_selected">next quarter</li>
-                <li>flexible</li>
-              </ul>
             </div>
           </div>
         </div>
 
         <div class="mail-form__line mail-form__line--full">
           <textarea
+            name="visitor-message"
             class="form-input form-textarea is-light"
             rows="1"
             placeholder="Tell us about your project"
