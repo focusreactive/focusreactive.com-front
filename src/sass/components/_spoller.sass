@@ -47,8 +47,8 @@
         color: var(--colorWhiteToDark)
 
     @media (any-hover: hover)
+      &:focus-within,
       &:hover
-
         &:after
           border-color: $green
           background: $green
@@ -62,6 +62,11 @@
     font-size: 16px
     font-weight: 700
     text-transform: uppercase
+    appearance: none
+    background: none
+    border: none
+    &:focus-visible
+      outline: none !important
     +sm
       font-size: 14px
   &__body
