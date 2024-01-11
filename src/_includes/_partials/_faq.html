@@ -1,4 +1,8 @@
-<section class="section is-dark js-scroll-header {% sectionClasses %}">
+<section
+  class="section is-dark js-scroll-header {% sectionClasses %}"
+  itemscope
+  itemtype="https://schema.org/FAQPage"
+>
   <div class="container container--sm">
     <div class="section__head">
       <h2 class="title title--xxs title--light text-center">{{faqData.title}}</h2>
@@ -6,12 +10,23 @@
 
     <div class="spoller" data-spollers data-one-spoller>
       {% for item in faqData.items %}
-      <div class="spoller__item">
-        <div class="spoller__head " data-spoller>
-          <div class="spoller__title">{{item.title}}</div>
+      <div
+        class="spoller__item"
+        itemscope
+        itemprop="mainEntity"
+        itemtype="https://schema.org/Question"
+      >
+        <div class="spoller__head" data-spoller>
+          <div class="spoller__title" itemprop="name">{{item.title}}</div>
         </div>
-        <div class="spoller__body" data-spoller-content>
-          {{item.richText | blockContent}}
+        <div
+          class="spoller__body"
+          data-spoller-content
+          itemscope
+          itemprop="acceptedAnswer"
+          itemtype="https://schema.org/Answer"
+        >
+          <span itemprop="text"> {{item.richText | blockContent}} </span>
         </div>
       </div>
       {% endfor %}
