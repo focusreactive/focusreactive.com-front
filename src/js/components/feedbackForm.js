@@ -122,8 +122,7 @@ export const feedbackForm = () => {
 
     const formData = new FormData(form);
     const formEntries = [...formData.entries()];
-    const fields = formEntries.reduce(([key, value], obj) => ({ [key]: value, ...obj }), {});
-    console.log("🚀 ~ feedbackForm ~ fields:", fields)
+    const fields = formEntries.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
 
     lockForm(inputs, button);
 
