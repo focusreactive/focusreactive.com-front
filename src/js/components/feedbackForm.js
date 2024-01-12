@@ -104,7 +104,7 @@ const inputOnType = (input, updateButton) => () => {
 
 export const feedbackForm = () => {
   const form = document.querySelector('#mail-us-form');
-  const button = document.querySelector('#mail-us-form button');
+  const button = document.querySelector('#mail-us-form .mail-form__button');
 
   if (!form) return;
   const inputs = [...document.querySelectorAll('#mail-us-form input, #mail-us-form textarea')];
@@ -122,7 +122,7 @@ export const feedbackForm = () => {
 
     const formData = new FormData(form);
     const formEntries = [...formData.entries()];
-    const fields = formEntries.reduce((obj, [key, value]) => ({...obj, [key]: value}), {});
+    const fields = formEntries.reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
 
     lockForm(inputs, button);
 

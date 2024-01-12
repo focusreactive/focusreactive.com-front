@@ -63,11 +63,11 @@
               <option>50-100k</option>
               <option>100k+</option>
             </select>
-            <div class="selectbox__head" data-selectbox-head>
+            <button type="button" class="selectbox__head" data-selectbox-head aria-controls="menu" aria-expanded="false" aria-haspopup="true">
               <div class="selectbox__text" data-selectbox-title="Estimated budget (EUR)"></div>
               <div class="selectbox__caret"></div>
-            </div>
-            <div class="selectbox__drop">
+            </button>
+            <div class="selectbox__drop" aria-hidden="true">
             </div>
           </div>
         </div>
@@ -82,11 +82,11 @@
               <option class="_selected">next quarter</option>
               <option>flexible</option>
             </select>
-            <div class="selectbox__head" data-selectbox-head>
+            <button type="button" class="selectbox__head" data-selectbox-head aria-controls="menu" aria-expanded="false" aria-haspopup="true">
               <div class="selectbox__text" data-selectbox-title="Timeframe"></div>
               <div class="selectbox__caret"></div>
-            </div>
-            <div class="selectbox__drop">
+            </button>
+            <div class="selectbox__drop" aria-hidden="true">
             </div>
           </div>
         </div>
@@ -100,7 +100,7 @@
             data-key="visitor-message"></textarea>
         </div>
         <div class="mail-form__line">
-          <button class="btn btn--primary btn--lg btn--block" type="submit" disabled="true">Send message</button>
+          <button class="mail-form__button btn btn--primary btn--lg btn--block" type="submit" disabled="true">Send message</button>
         </div>
         <div class="mail-form__line align-self-center">
           <div class="mail-form__text">

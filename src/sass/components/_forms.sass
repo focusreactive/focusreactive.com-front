@@ -27,9 +27,12 @@ $form-color: $black
 
   &:focus, &:active
     outline: none
+
   &:focus, &:focus-visible
-    border-color: #666
+    border-color: #999
     outline: none !important
+    &::placeholder
+      opacity: 0
   &.error
     border-color: red
 
@@ -46,6 +49,7 @@ textarea
     padding-bottom: 10px
     height: auto
     min-height: $form-height
+    text-transform: none
     +sm
       min-height: 40px
       padding-top: 11px
@@ -57,6 +61,7 @@ textarea
     overflow: hidden
     resize: none
     padding-bottom: 0
+    text-transform: none
     +sm
       height: 40px
 
@@ -77,6 +82,8 @@ textarea
   &__head
     display: flex
     height: $form-height
+    width: 100%
+    text-align: left
     border: none
     border-bottom: $form-border
     border-radius: $form-radius
@@ -86,7 +93,7 @@ textarea
     +sm
       height: 40px
   &__text
-
+    height: 100%
     flex: 1
     min-width: 1px
     padding: 0
@@ -108,6 +115,7 @@ textarea
     margin-right: 18px
     margin-left: 18px
     font-size: 0
+    height: 100%
     &:after
       content: ''
       display: block
@@ -145,7 +153,7 @@ textarea
           font-size: 14px
         &:not(:last-child)
           border-bottom: 1px solid #b7b7b7
-        &:hover
+        &:hover, &:focus-visible
           background: #1C1C1C
           color: #fff
         &._selected
@@ -188,20 +196,14 @@ textarea
           color: #fff
           &:not(:last-child)
             border-color: #373737
-          &:hover
+          &:hover, &:focus-visible
+
             background: #fff
             color: $black
-
-.selectbox__drop ul::-webkit-scrollbar
-  width: rem(2)
-
-.selectbox__drop ul::-webkit-scrollbar-track
-  background: #aaa
-.selectbox__drop ul::-webkit-scrollbar-thumb
-  background: #000
-
-.selectbox__drop ul::-webkit-scrollbar-button
-  display: none
+          &._selected
+            &:focus-visible, &:hover
+              &:before
+                border-color: #1C1C1C
 
 .checkbox-btn-list
   display: flex
@@ -224,16 +226,22 @@ textarea
   padding: 0 20px
   color: #747474
   cursor: pointer
+  overflow: hidden
   +sm
     font-size: 14px
     height: 40px
     padding: 0 15px
 
   input
-    display: none
+    position: absolute
+    left: -30px
+    opacity: 0
   &:has( > input:checked)
     background: $green
     color: #fff
     border-color: $green
+  &:has( > input:focus),
+  &:has( > input:focus-visible)
+    border-color: #999
   &:hover
-    border-color: #666
+    border-color: #999
