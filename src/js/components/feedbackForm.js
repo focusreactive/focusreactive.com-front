@@ -69,6 +69,28 @@ const validateField = (input) => {
   };
 };
 
+const createInputGroups = (inputs) => {
+  // returns array of inputs, if inputs have the same "name" add it to the nested array
+  return inputs.reduce((arr, input) => {
+    const name = input.getAttribute('name');
+    const group = arr.find((g) => g.name === name);
+    if (group) {
+      group.inputs.push(input);
+      return arr;
+    }
+    return [...arr, { name, inputs: [input] }];
+  }, []);
+};
+
+const validateSubjectCheckboxes = (inputGroup) => {
+  const containsSelected = inputGroup.inputs.some((input) => input.checked);
+  return {
+    isValid: containsSelected,
+    message: containsSelected ? undefined : `field ${inputGroup.name} shouldn't be empty`,
+    key: inputGroup.name,
+  };
+};
+
 const validateForm = (inputs, button) => () => {
   const validation = inputs.map(validateField).filter(({ message }) => !!message);
 
@@ -77,6 +99,22 @@ const validateForm = (inputs, button) => () => {
     return;
   }
   button.removeAttribute('disabled');
+};
+
+const onChangeSubjectCheckboxes = (subjectGroup, button) => {
+  const subjectValidation = validateSubjectCheckboxes(subjectGroup);
+
+  if (subjectValidation.message) {
+    subjectGroup.inputs.forEach((input) => {
+      input.classList.add('error');
+      input.setAttribute('title', subjectValidation.message);
+    });
+  } else {
+    subjectGroup.inputs.forEach((input) => {
+      input.classList.remove('error');
+      input.removeAttribute('title');
+    });
+  }
 };
 
 const inputOnBlur = (input, updateButton) => () => {
@@ -116,7 +154,15 @@ export const feedbackForm = () => {
   if (inputs.length === 0) return;
 
   const updateButton = validateForm(inputs, button);
+  const groupedInputs = createInputGroups(inputs);
+
+  const subjectGroup = groupedInputs.find(({ name }) => name === 'visitor-subject');
+  subjectGroup.inputs.forEach((input) => {
+    input.addEventListener('change', () => onChangeSubjectCheckboxes(subjectGroup, button));
+  });
+
   inputs.forEach((input) => {
+    if (input.name === 'visitor-subject') return;
     input.onblur = inputOnBlur(input, updateButton);
     input.onkeypress = () => setTimeout(inputOnType(input, updateButton), 0);
   });
@@ -127,7 +173,14 @@ export const feedbackForm = () => {
 
     const formData = new FormData(form);
     const formEntries = [...formData.entries()];
-    const fields = formEntries.reduce((obj, [key, value]) => ({ ...obj, [key]: value }), {});
+    const fields = formEntries.reduce((obj, [key, value]) => {
+      if (Array.isArray(obj[key])) {
+        return { ...obj, [key]: [...obj[key], value] };
+      } else if (obj[key]) {
+        return { ...obj, [key]: [obj[key], value] };
+      }
+      return { ...obj, [key]: value };
+    }, {});
 
     lockForm(inputs, button);
 
