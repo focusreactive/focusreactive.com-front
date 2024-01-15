@@ -97,6 +97,9 @@ export function selectbox() {
           if (activeIndex > 0) activeIndex--;
           selectobxLi[activeIndex].focus();
         }
+        if (e.keyCode === 9) {
+          selectboxClose();
+        }
       });
     } else {
       selectbox.classList.remove('_open');
