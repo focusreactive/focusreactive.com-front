@@ -7,7 +7,10 @@ export function selectbox() {
       item.addEventListener('click', selectboxOpen);
 
       const select = item.parentElement.querySelector('select');
-      const values = [...select.options].map((opt) => opt?.innerText || '');
+      const values = [...select.options].reduce((acc, opt) => {
+        if (opt?.innerText != '') acc.push(opt.innerText);
+        return acc;
+      }, []);
       const drop = item.parentElement.querySelector('.selectbox__drop');
       const ul = document.createElement('ul');
       drop.appendChild(ul);
@@ -34,7 +37,7 @@ export function selectbox() {
 
     const selectboxListElements = document.querySelectorAll('.selectbox__drop ul li');
 
-    selectboxListElements.forEach((item, itemIndex) => {
+    selectboxListElements.forEach((item) => {
       item.addEventListener('click', selectboxChange);
       item.addEventListener('keyup', function (e) {
         if (e.keyCode === 13) {
@@ -51,6 +54,7 @@ export function selectbox() {
 
   // Изменяем значение селекта
   function selectboxChange() {
+    const selectOptions = this.closest('[data-selectbox]').querySelectorAll('option');
     const thisText = this.innerHTML;
     const selectbox = this.closest('[data-selectbox]');
     const selectboxText = selectbox.querySelector('[data-selectbox-title]');
@@ -69,7 +73,9 @@ export function selectbox() {
     });
 
     this.classList.add('_selected');
-
+    selectOptions.forEach((option) => {
+      option.val === thisText ? (option.selected = true) : false;
+    });
     const sel = selectbox.querySelector('select');
     sel.value = thisText;
   }

@@ -51,6 +51,7 @@ const validateField = (input) => {
   if (!key) return false;
 
   const value = input.value;
+
   if (key !== 'visitor-email') {
     const isValid = !!value;
     return {
@@ -107,7 +108,11 @@ export const feedbackForm = () => {
   const button = document.querySelector('#mail-us-form .mail-form__button');
 
   if (!form) return;
-  const inputs = [...document.querySelectorAll('#mail-us-form input, #mail-us-form textarea')];
+  const inputs = [
+    ...document.querySelectorAll(
+      '#mail-us-form input, #mail-us-form textarea, #mail-us-form select',
+    ),
+  ];
   if (inputs.length === 0) return;
 
   const updateButton = validateForm(inputs, button);

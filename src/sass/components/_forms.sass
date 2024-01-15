@@ -239,6 +239,8 @@ textarea
     position: absolute
     left: -30px
     opacity: 0
+  &:has( > input.error)
+    border-color: red
   &:has( > input:checked)
     background: $green
     color: #fff
