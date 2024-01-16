@@ -226,11 +226,9 @@ export const feedbackForm = () => {
 
     const formData = new FormData(form);
     const formEntries = [...formData.entries()];
-    const fields = formEntries.reduce((obj, [key, value]) => {
-      if (Array.isArray(obj[key])) {
-        return { ...obj, [key]: [...obj[key], value] };
-      } else if (obj[key]) {
-        return { ...obj, [key]: [obj[key], value] };
+    const fields = formEntries.reduce((obj, [key, value]) =>  {
+      if (key === 'visitor-subject') {
+        return { ...obj, [key]: [...(obj[key] || []), value] };
       }
       return { ...obj, [key]: value };
     }, {});
