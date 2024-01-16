@@ -34,7 +34,7 @@ function BlogListPageContent(props) {
   const keywords = tags.map((tag) => tag.label).join(', ');
 
   return (
-    <BlogLayout keywords={keywords}>
+    <BlogLayout title={'Blog'} keywords={keywords}>
       <TagsList tags={tags} />
       <ArticlesList posts={posts} />
     </BlogLayout>
