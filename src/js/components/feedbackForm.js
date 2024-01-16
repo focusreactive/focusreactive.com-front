@@ -47,6 +47,11 @@ const cleanUpForm = (inputs, button) => {
       return;
     }
 
+    if (inp.type === 'checkbox') {
+      inp.checked = false;
+      return;
+    }
+
     inp.value = '';
   });
 };
