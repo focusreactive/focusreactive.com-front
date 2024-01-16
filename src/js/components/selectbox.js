@@ -7,6 +7,12 @@ export function selectbox() {
       item.addEventListener('click', selectboxOpen);
 
       const select = item.parentElement.querySelector('select');
+
+      select.resetSelectbox = () => {
+        const selectboxText = item.querySelector('[data-selectbox-title]');
+        setSelectboxValue(item.parentElement, selectboxText.dataset.selectboxTitle);
+      };
+
       const values = [...select.options].reduce((acc, opt) => {
         if (opt?.innerText != '') acc.push(opt.innerText);
         return acc;
@@ -78,6 +84,30 @@ export function selectbox() {
     });
     const sel = selectbox.querySelector('select');
     sel.value = thisText;
+  }
+
+  function setSelectboxValue(selectbox, value) {
+    const selectOptions = selectbox.querySelectorAll('option');
+    const selectboxText = selectbox.querySelector('[data-selectbox-title]');
+    const selectboxListEls = selectbox.querySelectorAll('li');
+
+    if (selectbox.classList.contains('_open')) {
+      selectbox.classList.remove('_open');
+    }
+
+    selectbox.classList.add('_change');
+
+    selectboxText.innerHTML = value;
+
+    selectboxListEls.forEach((item) => {
+      item.classList.remove('_selected');
+    });
+
+    selectOptions.forEach((option) => {
+      option.selected = option.val === value;
+    });
+    const sel = selectbox.querySelector('select');
+    sel.value = value;
   }
 
   // Открытие селекта

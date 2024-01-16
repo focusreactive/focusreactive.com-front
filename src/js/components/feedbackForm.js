@@ -42,6 +42,11 @@ const unlockForm = (inputs, button) => {
 
 const cleanUpForm = (inputs, button) => {
   inputs.forEach((inp) => {
+    if (inp.tagName === 'SELECT' && typeof inp.resetSelectbox === 'function') {
+      inp.resetSelectbox();
+      return;
+    }
+
     inp.value = '';
   });
 };
