@@ -112,11 +112,18 @@ export function selectbox() {
       selectbox.querySelector('[data-selectbox-head]').setAttribute('aria-expanded', isOpen);
       selectbox.querySelector('.selectbox__drop').setAttribute('aria-hidden', !isOpen);
     }
+
+    const event = new CustomEvent('selectboxOpen', { detail: { selectbox } });
+    document.dispatchEvent(event);
   }
 
   // Закрытие селекта
   function selectboxClose() {
-    document.querySelectorAll('.selectbox').forEach((item) => item.classList.remove('_open'));
+    const selectboxes = document.querySelectorAll('.selectbox._open');
+    selectboxes.forEach((item) => item.classList.remove('_open'));
+
+    const event = new CustomEvent('selectboxClose', { detail: { selectboxes } });
+    document.dispatchEvent(event);
   }
 
   document.body.addEventListener('keydown', function (e) {

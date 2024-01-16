@@ -46,6 +46,22 @@ const cleanUpForm = (inputs, button) => {
   });
 };
 
+const validateSelectbox = (selectbox) => {
+  const key = selectbox.dataset.key;
+  if (!key) return false;
+
+  const select = selectbox.querySelector('select');
+  if (!select) return false;
+
+  const value = select.value;
+  const isValid = !!value;
+  return {
+    isValid,
+    message: isValid ? undefined : `field ${key} shouldn't be empty`,
+    key,
+  };
+};
+
 const validateField = (input) => {
   const key = input.dataset.key;
   if (!key) return false;
@@ -117,6 +133,33 @@ const onChangeSubjectCheckboxes = (subjectGroup, button) => {
   }
 };
 
+const onSelectboxClose = (event) => {
+  const selectboxes = event.detail.selectboxes;
+
+  if (!selectboxes?.length) return;
+
+  selectboxes.forEach((selectbox) => {
+    if (!selectbox) return;
+    const { message } = validateSelectbox(selectbox);
+    if (!message) {
+      selectbox.removeAttribute('title');
+      selectbox.classList.remove('error');
+      return;
+    }
+
+    selectbox.classList.add('error');
+    selectbox.setAttribute('title', message);
+  });
+};
+
+const onSelectboxOpen = (event) => {
+  const selectbox = event.detail.selectbox;
+  if (!selectbox) return;
+
+  selectbox.removeAttribute('title');
+  selectbox.classList.remove('error');
+};
+
 const inputOnBlur = (input, updateButton) => () => {
   const { message } = validateField(input);
   updateButton();
@@ -166,6 +209,9 @@ export const feedbackForm = () => {
     input.onblur = inputOnBlur(input, updateButton);
     input.onkeypress = () => setTimeout(inputOnType(input, updateButton), 0);
   });
+
+  document.addEventListener('selectboxOpen', onSelectboxOpen);
+  document.addEventListener('selectboxClose', onSelectboxClose);
 
   form.onsubmit = (ev) => {
     ev.preventDefault();
