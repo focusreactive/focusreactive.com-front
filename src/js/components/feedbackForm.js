@@ -58,10 +58,20 @@ const cleanUpForm = (inputs, button) => {
 
 const validateSelectbox = (selectbox) => {
   const key = selectbox.dataset.key;
-  if (!key) return false;
+  if (!key)
+    return {
+      isValid: false,
+      message: 'something went wrong',
+      key,
+    };
 
   const select = selectbox.querySelector('select');
-  if (!select) return false;
+  if (!select)
+    return {
+      isValid: false,
+      message: 'something went wrong',
+      key,
+    };
 
   const value = select.value;
   const isValid = !!value;
@@ -73,8 +83,25 @@ const validateSelectbox = (selectbox) => {
 };
 
 const validateField = (input) => {
-  const key = input.dataset.key;
-  if (!key) return false;
+  let key = input.dataset.key;
+
+  if (input.tagName === 'SELECT') {
+    const selectbox = input.closest('.selectbox');
+    const selectboxValidation = validateSelectbox(selectbox);
+    if (selectboxValidation.isValid) {
+      return selectboxValidation;
+    }
+    key = selectboxValidation.key;
+  }
+
+  if (input.type === 'checkbox') return { isValid: true, message: undefined, key };
+
+  if (!key)
+    return {
+      isValid: false,
+      message: 'something went wrong',
+      key,
+    };
 
   const value = input.value;
 
@@ -117,8 +144,16 @@ const validateSubjectCheckboxes = (inputGroup) => {
   };
 };
 
-const validateForm = (inputs, button) => () => {
+const validateForm = (inputs, button, groupedInputs) => () => {
   const validation = inputs.map(validateField).filter(({ message }) => !!message);
+
+  if (groupedInputs) {
+    const subjectGroup = groupedInputs.find(({ name }) => name === 'visitor-subject');
+    const subjectValidation = validateSubjectCheckboxes(subjectGroup);
+    if (subjectValidation.message) {
+      validation.push(subjectValidation);
+    }
+  }
 
   if (validation.length) {
     button.setAttribute('disabled', true);
@@ -127,7 +162,7 @@ const validateForm = (inputs, button) => () => {
   button.removeAttribute('disabled');
 };
 
-const onChangeSubjectCheckboxes = (subjectGroup, button) => {
+const onChangeSubjectCheckboxes = (subjectGroup, updateButton) => {
   const subjectValidation = validateSubjectCheckboxes(subjectGroup);
 
   if (subjectValidation.message) {
@@ -141,9 +176,11 @@ const onChangeSubjectCheckboxes = (subjectGroup, button) => {
       input.removeAttribute('title');
     });
   }
+
+  updateButton();
 };
 
-const onSelectboxClose = (event) => {
+const onSelectboxClose = (event, updateButton) => {
   const selectbox = event.detail.selectbox;
 
   if (!selectbox) return;
@@ -152,19 +189,22 @@ const onSelectboxClose = (event) => {
   if (!message) {
     selectbox.removeAttribute('title');
     selectbox.classList.remove('error');
+    updateButton();
     return;
   }
 
   selectbox.classList.add('error');
   selectbox.setAttribute('title', message);
+  updateButton();
 };
 
-const onSelectboxOpen = (event) => {
+const onSelectboxOpen = (event, updateButton) => {
   const selectbox = event.detail.selectbox;
   if (!selectbox) return;
 
   selectbox.removeAttribute('title');
   selectbox.classList.remove('error');
+  updateButton();
 };
 
 const inputOnBlur = (input, updateButton) => () => {
@@ -203,12 +243,12 @@ export const feedbackForm = () => {
   ];
   if (inputs.length === 0) return;
 
-  const updateButton = validateForm(inputs, button);
   const groupedInputs = createInputGroups(inputs);
+  const updateButton = validateForm(inputs, button, groupedInputs);
 
   const subjectGroup = groupedInputs.find(({ name }) => name === 'visitor-subject');
   subjectGroup.inputs.forEach((input) => {
-    input.addEventListener('change', () => onChangeSubjectCheckboxes(subjectGroup, button));
+    input.addEventListener('change', () => onChangeSubjectCheckboxes(subjectGroup, updateButton));
   });
 
   inputs.forEach((input) => {
@@ -217,8 +257,8 @@ export const feedbackForm = () => {
     input.onkeypress = () => setTimeout(inputOnType(input, updateButton), 0);
   });
 
-  document.addEventListener('selectboxOpen', onSelectboxOpen);
-  document.addEventListener('selectboxClose', onSelectboxClose);
+  document.addEventListener('selectboxOpen', (event) => onSelectboxOpen(event, updateButton));
+  document.addEventListener('selectboxClose', (event) => onSelectboxClose(event, updateButton));
 
   form.onsubmit = (ev) => {
     ev.preventDefault();
@@ -226,7 +266,7 @@ export const feedbackForm = () => {
 
     const formData = new FormData(form);
     const formEntries = [...formData.entries()];
-    const fields = formEntries.reduce((obj, [key, value]) =>  {
+    const fields = formEntries.reduce((obj, [key, value]) => {
       if (key === 'visitor-subject') {
         return { ...obj, [key]: [...(obj[key] || []), value] };
       }
@@ -239,7 +279,6 @@ export const feedbackForm = () => {
       .then(() => {
         if (window.lintrk) {
           window.lintrk('track', { conversion_id: 13457161 });
-          console.log('send');
         }
         cleanUpForm(inputs);
       })

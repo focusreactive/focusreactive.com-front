@@ -66,10 +66,6 @@ export function selectbox() {
     const selectboxText = selectbox.querySelector('[data-selectbox-title]');
     const selectboxListEls = selectbox.querySelectorAll('li');
 
-    if (selectbox.classList.contains('_open')) {
-      selectbox.classList.remove('_open');
-    }
-
     selectbox.classList.add('_change');
 
     selectboxText.innerHTML = thisText;
@@ -84,6 +80,10 @@ export function selectbox() {
     });
     const sel = selectbox.querySelector('select');
     sel.value = thisText;
+
+    if (selectbox.classList.contains('_open')) {
+      selectboxClose();
+    }
   }
 
   function setSelectboxValue(selectbox, value) {
@@ -153,6 +153,9 @@ export function selectbox() {
   // Закрытие селекта
   function selectboxClose() {
     const selectboxes = document.querySelectorAll('.selectbox._open');
+
+    if (!selectboxes.length) return;
+
     selectboxes.forEach((item) => item.classList.remove('_open'));
 
     const event = new CustomEvent('selectboxClose', { detail: { selectbox: selectboxes[0] } });
