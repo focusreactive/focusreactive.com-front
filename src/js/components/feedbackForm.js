@@ -144,22 +144,19 @@ const onChangeSubjectCheckboxes = (subjectGroup, button) => {
 };
 
 const onSelectboxClose = (event) => {
-  const selectboxes = event.detail.selectboxes;
+  const selectbox = event.detail.selectbox;
 
-  if (!selectboxes?.length) return;
+  if (!selectbox) return;
 
-  selectboxes.forEach((selectbox) => {
-    if (!selectbox) return;
-    const { message } = validateSelectbox(selectbox);
-    if (!message) {
-      selectbox.removeAttribute('title');
-      selectbox.classList.remove('error');
-      return;
-    }
+  const { message } = validateSelectbox(selectbox);
+  if (!message) {
+    selectbox.removeAttribute('title');
+    selectbox.classList.remove('error');
+    return;
+  }
 
-    selectbox.classList.add('error');
-    selectbox.setAttribute('title', message);
-  });
+  selectbox.classList.add('error');
+  selectbox.setAttribute('title', message);
 };
 
 const onSelectboxOpen = (event) => {

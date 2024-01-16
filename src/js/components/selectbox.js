@@ -137,14 +137,17 @@ export function selectbox() {
           selectboxClose();
         }
       });
+
+      const event = new CustomEvent('selectboxOpen', { detail: { selectbox } });
+      document.dispatchEvent(event);
     } else {
       selectbox.classList.remove('_open');
       selectbox.querySelector('[data-selectbox-head]').setAttribute('aria-expanded', isOpen);
       selectbox.querySelector('.selectbox__drop').setAttribute('aria-hidden', !isOpen);
-    }
 
-    const event = new CustomEvent('selectboxOpen', { detail: { selectbox } });
-    document.dispatchEvent(event);
+      const event = new CustomEvent('selectboxClose', { detail: { selectbox } });
+      document.dispatchEvent(event);
+    }
   }
 
   // Закрытие селекта
@@ -152,7 +155,7 @@ export function selectbox() {
     const selectboxes = document.querySelectorAll('.selectbox._open');
     selectboxes.forEach((item) => item.classList.remove('_open'));
 
-    const event = new CustomEvent('selectboxClose', { detail: { selectboxes } });
+    const event = new CustomEvent('selectboxClose', { detail: { selectbox: selectboxes[0] } });
     document.dispatchEvent(event);
   }
 
