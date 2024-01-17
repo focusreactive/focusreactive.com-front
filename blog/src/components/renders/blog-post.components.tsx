@@ -71,14 +71,11 @@ const applyImageTransform = (src: string, { width }: { width: number }) => {
   return `${src}?w=${width}&auto=format`;
 };
 
-const constructElement = ({ src, srcSet, altText, classList, wrappers }) => {
+const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappers }) => {
   const element = (
-    <img
-      className={clsx('image', classList)}
-      src={src}
-      alt={altText}
-      loading="lazy"
-    />
+    <a href={fullSizeSrc} target={'_blank'}>
+      <img className={clsx('image', classList)} src={src} alt={altText} loading="lazy" />
+    </a>
   );
   const wrappedElement = wrappers.reduce((result, wr) => wr(result), element);
   return wrappedElement;
@@ -94,6 +91,7 @@ export const Image = ({ src, alt }) => {
   const element = constructElement({
     src: optimizedSrc,
     srcSet: optimizedRetinaSrc,
+    fullSizeSrc: src,
     altText,
     ...modifiers,
   });
