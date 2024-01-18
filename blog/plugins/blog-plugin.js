@@ -438,7 +438,8 @@ function getHeaderHtml() {
 
   return header
     .replace('header is-light js-header', 'header is-dark js-header')
-    .replace('"container"', '"block__container"');
+    .replace('"container"', '"block__container"')
+    .replace('href="#mail-us"', 'href="/#mail-us"');
 }
 
 module.exports = {

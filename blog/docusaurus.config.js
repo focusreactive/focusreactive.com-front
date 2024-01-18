@@ -240,6 +240,14 @@ const config = {
     OR FEELING STUCK ON A CURRENT ONE,
     CONTACT US TODAY`,
   },
+
+  scripts: [
+    {
+      src: '/js/header.js',
+      async: true,
+      defer: true,
+    },
+  ],
 };
 
 module.exports = config;
