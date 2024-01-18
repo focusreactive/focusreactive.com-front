@@ -1,3 +1,25 @@
+@font-face {
+  font-family: 'Helvetica';
+  src:
+    url('../fonts/Helvetica.woff2') format('woff2'),
+    url('../fonts/Helvetica.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  font-weight: 700;
+  src:
+    url('../fonts/Helvetica-Bold.woff2') format('woff2'),
+    url('../fonts/Helvetica-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Helvetica Bold';
+  src:
+    url('../fonts/Helvetica-Bold.woff2') format('woff2'),
+    url('../fonts/Helvetica-Bold.woff') format('woff');
+}
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
