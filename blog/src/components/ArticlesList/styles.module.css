@@ -1,5 +1,9 @@
 .articles-list {
   width: 100%;
+
+  @media only screen and (max-width: 599px) {
+    margin-top: 100px;
+  }
 }
 
 .articles-list ul.articles-list__list {

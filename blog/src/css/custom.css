@@ -59,24 +59,6 @@
   box-sizing: border-box;
 }
 
-.header .block__container {
-  position: static;
-}
-
-.menu__dropdown {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu__link {
-  border-radius: 0;
-}
-
-.menu__link:hover {
-  background: none;
-}
-
 @media (min-width: 600px) {
   :root {
     --layout-horizonal-padding: 50px;

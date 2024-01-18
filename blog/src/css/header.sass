@@ -6,9 +6,39 @@
 =hel
   font-family: 'Helvetica', Arial, sans-serif
   font-weight: 400
+
 =helB
   font-family: 'Helvetica', Arial, sans-serif
   font-weight: 700
 
-@import "../../../src/sass/partials/_header.sass"
-@import "../../../src/sass/components/_menu.sass"
+@import "../../../src/sass/partials/_header"
+@import "../../../src/sass/components/_menu"
+@import "../../../src/sass/components/_burger"
+
+button
+  margin: 0
+  padding: 0
+  border: 0
+
+.header
+  .block__container
+    position: static
+
+    @media only screen and (max-width: 599px)
+      position: relative
+
+.menu
+  overflow-x: initial
+
+.menu__dropdown
+  list-style: none
+  padding: 0
+  margin: 0
+
+.menu__link,
+.menu__caret
+  border-radius: 0
+
+.menu__link:hover
+  background: none
+
