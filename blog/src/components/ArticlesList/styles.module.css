@@ -35,10 +35,10 @@
 
 .articles-list__title {
   font-family:
-    Helvetica Bold,
+    Helvetica,
     Arial,
     sans-serif;
-  font-size: 68px;
+  font-size: 52px;
   font-weight: 700;
   line-height: 1.02;
   text-transform: none;
@@ -61,11 +61,12 @@
 }
 
 .articles-list__desc {
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.72;
   max-width: 1000px;
   margin: 15px auto 28px 0;
   text-transform: none;
+  font-weight: 400;
 }
 
 .short .articles-list__title {

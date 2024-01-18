@@ -42,13 +42,21 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
+  line-height: 1.5;
 }
 
 .author p.author__name,
 .author p.author__company {
-  font-size: 12px;
   color: #666;
   margin: 0;
+}
+
+.author p.author__name {
+  font-size: 14px;
+}
+
+.author p.author__company {
+  font-size: 12px;
 }
 
 .author .author__desc a {

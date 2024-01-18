@@ -13,13 +13,6 @@
     url('../fonts/Helvetica-Bold.woff') format('woff');
 }
 
-@font-face {
-  font-family: 'Helvetica Bold';
-  src:
-    url('../fonts/Helvetica-Bold.woff2') format('woff2'),
-    url('../fonts/Helvetica-Bold.woff') format('woff');
-}
-
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -42,7 +35,7 @@
   --ifm-footer-title-color: white;
   --ifm-footer-link-color: gray;
   --ifm-BlogPostItem-Header-Title-styles-module-color: red;
-  --ifm-font-family-bold: 'Helvetica Bold';
+  --ifm-font-family-bold: 'Helvetica';
   --ifm-font-family-base: 'Helvetica';
   --ifm-link-decoration: underline;
   --ifm-link-hover-decoration: none;

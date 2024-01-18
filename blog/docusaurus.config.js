@@ -244,7 +244,6 @@ const config = {
   scripts: [
     {
       src: '/js/header.js',
-      async: true,
       defer: true,
     },
   ],

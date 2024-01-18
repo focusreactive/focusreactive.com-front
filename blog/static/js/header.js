@@ -3,6 +3,7 @@ const ISHIDDEN = 'is-hidden';
 const ISOPEN = 'is-open';
 const ISFOCUS = 'is-focus';
 
+// from src/js/components/dropdown.js
 function dropdownMenu() {
   let dropdownBtns = document.querySelectorAll('.js-btn-dropdown');
   let links = document.querySelectorAll('.menu__link');
@@ -67,6 +68,7 @@ function dropdownMenu() {
   });
 }
 
+// from src/js/components/header.js
 function clickHandlers() {
   let burger = document.querySelector('.js-burger');
   let nav = document.querySelector('.js-nav');
