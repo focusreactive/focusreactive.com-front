@@ -15,6 +15,8 @@ function NavbarBackdrop(props) {
   );
 }
 export default function NavbarLayout({ children }) {
+  return null;
+
   const {
     navbar: { hideOnScroll, style },
   } = useThemeConfig();

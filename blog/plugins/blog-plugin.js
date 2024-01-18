@@ -8,6 +8,7 @@ const os = require('os');
 const defaultBlogPlugin = blogPluginExports.default;
 const normalizeFrontMatterTag = require('../utils/normalizeFrontMatterTag.ts');
 const sanityClient = require('@sanity/client');
+const fs = require('fs');
 
 const isDev = process.env.NODE_ENV === 'development';
 const sanityToken = process.env.SANITY_API_TOKEN;
@@ -374,6 +375,8 @@ async function blogPluginExtended(...pluginArgs) {
       await Promise.all(Object.values(blogTags).map(createTagPostsListPage));
     },
     injectHtmlTags() {
+      const headerHtml = getHeaderHtml();
+
       return {
         headTags: [
           {
@@ -416,11 +419,26 @@ async function blogPluginExtended(...pluginArgs) {
             },
           },
         ],
+        preBodyTags: [headerHtml],
       };
     },
     postBuild: function () // Do we need this?
     {},
   };
+}
+
+function getHeaderHtml() {
+  let headerPath = path.resolve(__dirname, '../src/_header/index.html');
+
+  if (process.env.NODE_ENV === 'development') {
+    headerPath = path.resolve(__dirname, '../src/stubs/_header/index.html');
+  }
+
+  const header = fs.readFileSync(headerPath, 'utf8');
+
+  return header
+    .replace('header is-light js-header', 'header is-dark js-header')
+    .replace('"container"', '"block__container"');
 }
 
 module.exports = {
