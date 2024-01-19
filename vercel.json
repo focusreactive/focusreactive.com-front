@@ -1,0 +1,96 @@
+{
+  "functions": {
+    "api/preview/index.js": {
+      "includeFiles": "functions/serverless/**"
+    },
+    "api/landing-preview/index.js": {
+      "includeFiles": "functions/serverlessLandings/**"
+    }
+  },
+  "rewrites": [{ "source": "/", "destination": "/home" }],
+  "buildCommand": "yarn build && cd blog && yarn build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
+  "installCommand": "yarn && cd blog && yarn",
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/how-to-improve-seo-with-nextjs/",
+      "destination": "/how-nextjs-can-improve-seo/",
+      "permanent": true
+    },
+    {
+      "source": "/contentfull-part1/",
+      "destination": "/contentful-part-1/",
+      "permanent": true
+    },
+    {
+      "source": "/contentfull-part2/",
+      "destination": "/contentful-part-2/",
+      "permanent": true
+    },
+    {
+      "source": "/jamstack-the-new-era-tech/",
+      "destination": "/what-is-jamstack/",
+      "permanent": true
+    },
+    {
+      "source": "/headless-vs-traditional/",
+      "destination": "/headless-cms-vs-traditional/",
+      "permanent": true
+    },
+    {
+      "source": "/best-cms-for-nextjs/",
+      "destination": "/best-headless-cms-for-nextjs/",
+      "permanent": true
+    },
+    {
+      "source": "/headless-cms-experts/",
+      "destination": "/headless-cms-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/storyblok-experts/",
+      "destination": "/storyblok-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/sanity-experts/",
+      "destination": "/sanity-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/headless-cms-agency/",
+      "destination": "/headless-cms-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/contentful-agency/",
+      "destination": "/contentful-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/jamstack-experts/",
+      "destination": "/jamstack-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/next-js-experts/",
+      "destination": "/next-js-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/headless-ecommerce-experts/",
+      "destination": "/headless-ecommerce-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/crystallize-experts/",
+      "destination": "/crystallize-expert-agency/",
+      "permanent": true
+    },
+    {
+      "source": "/ai-experts/",
+      "destination": "/ai-integration-expert-agency/",
+      "permanent": true
+    }
+  ]
+}
