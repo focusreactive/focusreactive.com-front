@@ -102,5 +102,21 @@ function clickHandlers() {
   });
 }
 
+// function that adds `is-fixed` class to header when scrolling, and removes it at the top
+function scrollHandler() {
+  const header = document.querySelector('.js-header');
+
+  function onScroll() {
+    if (window.pageYOffset > 0) {
+      header.classList.add('is-fixed');
+    } else {
+      header.classList.remove('is-fixed');
+    }
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+}
+
 clickHandlers();
 dropdownMenu();
+scrollHandler();
