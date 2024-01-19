@@ -11,6 +11,13 @@ const sendEmail = async (body) => {
     'Content-Type': 'application/json',
   });
 
+  // TODO: remove this when we have a proper email template
+  body['visitor-message'] = `MESSAGE: ${body['visitor-message']} ~~~ SUBJECT: ${body[
+    'visitor-subject'
+  ].join(', ')} ~~~ ESTIMATED BUDGET: ${body['visitor-estimated-budget']} ~~~ TIMEFRAME: ${
+    body['visitor-timeframe']
+  }`;
+
   const response = await fetch(url, {
     method: 'POST', // *GET, POST, PUT, DELETE, etc.
     mode: 'cors', // no-cors, *cors, same-origin
