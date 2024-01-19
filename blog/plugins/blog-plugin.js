@@ -12,6 +12,7 @@ const sanityClient = require('@sanity/client');
 const isDev = process.env.NODE_ENV === 'development';
 const sanityToken = process.env.SANITY_API_TOKEN;
 
+
 const client = sanityClient({
   projectId: 'vftxng62',
   dataset: 'production',
