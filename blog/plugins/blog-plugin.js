@@ -376,6 +376,7 @@ async function blogPluginExtended(...pluginArgs) {
     },
     injectHtmlTags() {
       const headerHtml = getHeaderHtml();
+      const footerHtml = getFooterHtml();
 
       return {
         headTags: [
@@ -420,6 +421,7 @@ async function blogPluginExtended(...pluginArgs) {
           },
         ],
         preBodyTags: [headerHtml],
+        postBodyTags: [footerHtml],
       };
     },
     postBuild: function () // Do we need this?
@@ -440,6 +442,20 @@ function getHeaderHtml() {
     .replace('header is-light js-header', 'header is-dark js-header')
     .replace('"container"', '"block__container"')
     .replace('href="#mail-us"', 'href="/#mail-us"');
+}
+
+function getFooterHtml() {
+  let headerPath = path.resolve(__dirname, '../src/_footer/index.html');
+
+  if (process.env.NODE_ENV === 'development') {
+    headerPath = path.resolve(__dirname, '../src/stubs/_footer/index.html');
+  }
+
+  const footer = fs.readFileSync(headerPath, 'utf8');
+
+  return footer
+    .replace('f-top container', 'f-top block__container')
+    .replace('f-bottom container', 'f-bottom block__container');
 }
 
 module.exports = {

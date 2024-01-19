@@ -34,14 +34,15 @@
 }
 
 .articles-list__title {
-  font-family:
-    Helvetica,
-    Arial,
-    sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   font-size: 52px;
   font-weight: 700;
   line-height: 1.2;
   text-transform: none;
+
+  @media only screen and (max-width: 599px) {
+    font-size: 32px;
+  }
 }
 
 .articles-list__link {
@@ -71,14 +72,12 @@
 
 .short .articles-list__title {
   font-size: 36px;
+
+  @media only screen and (max-width: 599px) {
+    font-size: 6vw;
+  }
 }
 
 .short .articles-list__link {
   padding: 34px 0 23px;
-}
-
-@media only screen and (max-width: 599px) {
-  .articles-list__title {
-    font-size: 6vw;
-  }
 }

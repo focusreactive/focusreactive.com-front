@@ -1,0 +1,37 @@
+@import "../../../src/sass/helpers/mixins"
+@import "../../../src/sass/helpers/helpers"
+@import "../../../src/sass/helpers/variables"
+
+// from src/sass/helpers/_fonts.sass
+=hel
+  font-family: 'Helvetica', Arial, sans-serif
+  font-weight: 400
+
+=helB
+  font-family: 'Helvetica', Arial, sans-serif
+  font-weight: 700
+
+@import "../../../src/sass/partials/footer"
+
+.footer
+  margin-top: 85px
+
+  .block__container
+    padding: 15px 50px
+
+    @media only screen and (max-width: 767px)
+      flex-direction: column
+      text-align: center
+
+    @media only screen and (max-width: 599px)
+      padding: 15px 20px
+
+  .f-bottom
+    display: flex
+    align-items: center
+
+  ul
+    list-style: none
+    padding: 0
+    margin: 0
+

@@ -138,6 +138,7 @@ const config = {
           customCss: [
             require.resolve('./src/css/custom.css'),
             require.resolve('./src/css/header.sass'),
+            require.resolve('./src/css/footer.sass'),
           ],
         },
         sitemap: {
