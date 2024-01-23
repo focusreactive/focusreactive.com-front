@@ -10,6 +10,7 @@ const normalizeFrontMatterTag = require('../utils/normalizeFrontMatterTag.ts');
 const sanityClient = require('@sanity/client');
 
 const isDev = process.env.NODE_ENV === 'development';
+const isPreview = process.env.PREVIEW_MODE === "true";
 const sanityToken = process.env.SANITY_API_TOKEN;
 
 const client = sanityClient({
@@ -18,7 +19,7 @@ const client = sanityClient({
   apiVersion: '2022-11-21', // use current UTC date - see "specifying API version"!
   token: isDev ? sanityToken : '', // or leave blank for unauthenticated usage
   useCdn: true, // `false` if you want to ensure fresh data
-  perspective: isDev ? 'previewDrafts' : 'published',
+  perspective: isDev || isPreview ? 'previewDrafts' : 'published',
 });
 
 const pluginDataDirRoot = path.join('.docusaurus', 'docusaurus-plugin-content-blog');
