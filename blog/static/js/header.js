@@ -77,11 +77,11 @@ function clickHandlers() {
     if (burger.classList.contains(ISOPEN)) {
       burger.classList.remove(ISOPEN);
       nav.classList.remove(ISOPEN);
-      document.body.classList.add(ISHIDDEN);
+      document.body.classList.remove(ISHIDDEN);
     } else {
       burger.classList.add(ISOPEN);
       nav.classList.add(ISOPEN);
-      document.body.classList.remove(ISHIDDEN);
+      document.body.classList.add(ISHIDDEN);
     }
   });
 
