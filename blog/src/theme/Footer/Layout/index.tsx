@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import styles from './styles.module.css';
 
 export default function FooterLayout({ style, links, logo, copyright }) {
+  return null;
+
   return (
     <footer
       className={clsx('footer', styles.footer, {

@@ -135,7 +135,11 @@ const config = {
         docs: false,
         blog: false,
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [
+            require.resolve('./src/css/custom.css'),
+            require.resolve('./src/css/header.sass'),
+            require.resolve('./src/css/footer.sass'),
+          ],
         },
         sitemap: {
           changefreq: 'weekly',
@@ -145,7 +149,7 @@ const config = {
       }),
     ],
   ],
-  plugins: ['./plugins/blog-plugin.js'],
+  plugins: ['./plugins/blog-plugin.js', 'docusaurus-plugin-sass'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -237,6 +241,13 @@ const config = {
     OR FEELING STUCK ON A CURRENT ONE,
     CONTACT US TODAY`,
   },
+
+  scripts: [
+    {
+      src: '/js/header.js',
+      defer: true,
+    },
+  ],
 };
 
 module.exports = config;

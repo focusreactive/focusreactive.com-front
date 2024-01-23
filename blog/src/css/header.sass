@@ -1,0 +1,46 @@
+@import "../../../src/sass/helpers/mixins"
+@import "../../../src/sass/helpers/helpers"
+@import "../../../src/sass/helpers/variables"
+
+// from src/sass/helpers/_fonts.sass
+=hel
+  font-family: 'Helvetica', Arial, sans-serif
+  font-weight: 400
+
+=helB
+  font-family: 'Helvetica', Arial, sans-serif
+  font-weight: 700
+
+@import "../../../src/sass/partials/_header"
+@import "../../../src/sass/components/_menu"
+@import "../../../src/sass/components/_burger"
+body.is-hidden
+  @media only screen and (max-width: 1024px)
+    overflow: hidden
+
+button
+  margin: 0
+  padding: 0
+  border: 0
+
+.header
+  .block__container
+    position: static
+
+    @media only screen and (max-width: 1024px)
+      position: relative
+
+.menu
+  overflow-x: initial
+
+.menu__dropdown
+  list-style: none
+  padding: 0
+  margin: 0
+
+.menu__link,
+.menu__caret
+  border-radius: 0
+
+.menu__link:hover
+  background: none
