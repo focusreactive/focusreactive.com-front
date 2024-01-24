@@ -7,19 +7,19 @@ const { stringify } = require('yaml');
 const os = require('os');
 const defaultBlogPlugin = blogPluginExports.default;
 const normalizeFrontMatterTag = require('../utils/normalizeFrontMatterTag.ts');
-const sanityClient = require('@sanity/client');
+const { createClient } = require('@sanity/client');
 const fs = require('fs');
 
 const isDev = process.env.NODE_ENV === 'development';
-const isPreview = process.env.PREVIEW_MODE === "true";
+const isPreview = process.env.PREVIEW_MODE === 'true';
 const sanityToken = process.env.SANITY_API_TOKEN;
 
-const client = sanityClient({
+const client = createClient({
   projectId: 'vftxng62',
   dataset: 'production',
   apiVersion: '2022-11-21', // use current UTC date - see "specifying API version"!
-  token: isDev ? sanityToken : '', // or leave blank for unauthenticated usage
-  useCdn: true, // `false` if you want to ensure fresh data
+  token: isDev || isPreview ? sanityToken : '', // or leave blank for unauthenticated usage
+  useCdn: !(isDev || isPreview), // `false` if you want to ensure fresh data
   perspective: isDev || isPreview ? 'previewDrafts' : 'published',
 });
 
