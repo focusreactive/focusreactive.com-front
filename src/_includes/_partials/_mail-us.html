@@ -7,7 +7,7 @@
       <h2 class="mail-us__title text text--font-lg text--border-light">
         {% for line in emailFormData.titleLines %}
         {{line}}
-        {% if loop.last != false %}
+        {% if not loop.last %}
         <br />
         {% endif %}
 
