@@ -1,32 +1,45 @@
 .btn
-    display: inline-flex
-    align-items: center
-    justify-content: center
-    font-size: 24px
-    letter-spacing: -0.04em
-    line-height: 1
-    font-weight: bold
-    text-transform: uppercase
-    text-decoration: none
-    transition: all .25s ease
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  font-size: 24px
+  line-height: 1
+  font-weight: bold
+  text-transform: uppercase
+  text-decoration: none
+  transition: all .25s ease
+  +helB
+  +md
+    font-size: 20px
+  &--primary
+    background-color: darken($green, 11%)
+    color: $white
+    min-width: 375px
+    padding: 17px 12px
+    border: 1px solid darken($green, 11%)
     +md
-        font-size: 20px
-    &--primary
-        background-color: darken($green, 11%)
-        color: $white
-        min-width: 375px
-        padding: 17px 12px
-        border: 1px solid darken($green, 11%)
-        +md
-            min-width: 315px
-            padding: 19px 12px
-        +xs
-            min-width: 260px
-            padding: 13px 12px
-        &:hover, &:focus-visible
-            background-color: $white
-            color: $green
-        &:disabled
-            background-color: white
-            color: gray
-            border-color: gray
+      min-width: 315px
+      padding: 19px 12px
+    +xs
+      min-width: 260px
+      padding: 13px 12px
+    &:hover, &:focus-visible
+      background-color: $white
+      color: $green
+    &:disabled
+      background-color: #363636
+      color: #fff
+      border-color: #363636
+      cursor: default
+  &--block
+    width: 100%
+    display: flex
+  &--lg
+    height: 60px
+    font-size: 16px
+    padding: 0 30px
+    min-width: auto
+    +sm
+      height: 50px
+      font-size: 14px
+      padding: 0 25px
