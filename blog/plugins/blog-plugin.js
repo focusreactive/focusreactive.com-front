@@ -433,7 +433,7 @@ async function blogPluginExtended(...pluginArgs) {
 function getHeaderHtml() {
   let headerPath = path.resolve(__dirname, '../src/_header/index.html');
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev || isPreview) {
     headerPath = path.resolve(__dirname, '../src/stubs/_header/index.html');
   }
 
@@ -448,7 +448,7 @@ function getHeaderHtml() {
 function getFooterHtml() {
   let headerPath = path.resolve(__dirname, '../src/_footer/index.html');
 
-  if (process.env.NODE_ENV === 'development') {
+  if (isDev || isPreview) {
     headerPath = path.resolve(__dirname, '../src/stubs/_footer/index.html');
   }
 
