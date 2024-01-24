@@ -12,6 +12,7 @@ import { scrollDirection } from './components/scollDirection.js';
 import { feedbackForm } from './components/feedbackForm.js';
 import { accordion } from './components/accordion.js';
 import { dropdownMenu } from './components/dropdownMenu.js';
+import { selectbox } from './components/selectbox.js';
 import { video } from './components/video.js';
 
 // For github buttons plugin
@@ -38,6 +39,7 @@ const hydrateJs = () => {
   feedbackForm();
   accordion();
   dropdownMenu();
+  selectbox();
   // video();
 };
 

@@ -1,32 +1,114 @@
-<section class="mail-us is-light js-scroll-header" id="mail-us">
+<section class="mail-us is-dark js-scroll-header" id="mail-us">
   <div class="container">
-    <h3 class="mail-us__title">
-      {% for line in emailFormData.titleLines %} {% if loop.last == false %} {{line}}<br />
-      {% endif %} {% if loop.last == true %} {{line}} {% endif %} {% endfor %}
-    </h3>
+    <div class="mail-us__head">
+      {% if emailFormData.subtitle %}
+      <h3 class="mail-us__suptitle ">{{emailFormData.subtitle}}</h3>
+      {% endif %}
+      <h2 class="mail-us__title text text--font-lg text--border-light">
+        {% for line in emailFormData.titleLines %}
+        {{line}}
+        {% if loop.last != false %}
+        <br />
+        {% endif %}
+
+        {% endfor %}
+      </h2>
+    </div>
 
     <form id="mail-us-form" class="mail-form">
-      <div>
-        Reach us by email <a href="mailto:hi@focusreactive.com">hi@focusreactive.com</a> or fill the
-        form below.
-      </div>
-      <div class="mail-form__line">
-        <input class="mail-form__input" type="email" placeholder="Email" data-key="visitor-email" />
-      </div>
+      <div class="mail-form__grid">
+        <div class="mail-form__line">
+          <input name="visitor-name" class="form-input is-light" type="text" placeholder="Your name" data-key="visitor-name" />
+        </div>
 
-      <div class="mail-form__line">
-        <input class="mail-form__input" type="text" placeholder="Name" data-key="visitor-name" />
-      </div>
+        <div class="mail-form__line">
+          <input name="visitor-email" class="form-input is-light" type="email" placeholder="Business email" data-key="visitor-email" />
+        </div>
 
-      <div class="mail-form__line">
-        <textarea
-          class="mail-form__input mail-form__input-textarea"
-          type="text"
-          placeholder="Message"
-          data-key="visitor-message"></textarea>
-      </div>
+        <div class="mail-form__line mail-form__line--full">
+          <label class="form-label is-light">Subject</label>
+          <div class="checkbox-btn-list">
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Next-JS-development" type="checkbox" data-key="visitor-Next-JS-development" />
+              <span class="checkbox-btn__text">Next.JS development</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Headless-CMS-development" type="checkbox" data-key="visitor-Headless-CMS-development" />
+              <span class="checkbox-btn__text">Headless CMS development</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Headless-eCommerce-development" data-key="visitor-Headless-eCommerce-development" type="checkbox" data-key="visitor-Headless-eCommerce-development" />
+              <span class="checkbox-btn__text">Headless eCommerce development</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Next-JS-performance-audit" type="checkbox" data-key="visitor-Next-JS-performance-audit" />
+              <span class="checkbox-btn__text">Next.JS performance audit</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Migration" type="checkbox" data-key="visitor-Migration" />
+              <span class="checkbox-btn__text">Migration</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-AI-integration" type="checkbox" data-key="visitor-AI-integration" />
+              <span class="checkbox-btn__text">AI integration</span>
+            </label>
+          </div>
+        </div>
 
-      <button class="mail-form__submit btn btn--primary" type="submit" disabled="true" onclick="track2()">Send</button>
+        <div class="mail-form__line">
+          <div class="selectbox is-light" data-selectbox data-key="visitor-estimated-budget">
+            <select name="visitor-estimated-budget">
+              <option disabled selected value></option>
+              <option>5-10k</option>
+              <option>10-50k</option>
+              <option>50-100k</option>
+              <option>100k+</option>
+            </select>
+            <button type="button" class="selectbox__head" data-selectbox-head aria-controls="menu" aria-expanded="false" aria-haspopup="true">
+              <div class="selectbox__text" data-selectbox-title="Estimated budget (EUR)"></div>
+              <div class="selectbox__caret"></div>
+            </button>
+            <div class="selectbox__drop" aria-hidden="true">
+            </div>
+          </div>
+        </div>
+        <div class="mail-form__line">
+          <div class="selectbox is-light" data-selectbox data-key="visitor-timeframe">
+            <select name="visitor-timeframe">
+              <option disabled selected value></option>
+              <option>urgent</option>
+              <option>1-2 weeks</option>
+              <option>within a month</option>
+              <option>this quarter</option>
+              <option>next quarter</option>
+              <option>flexible</option>
+            </select>
+            <button type="button" class="selectbox__head" data-selectbox-head aria-controls="menu" aria-expanded="false" aria-haspopup="true">
+              <div class="selectbox__text" data-selectbox-title="Timeframe"></div>
+              <div class="selectbox__caret"></div>
+            </button>
+            <div class="selectbox__drop" aria-hidden="true">
+            </div>
+          </div>
+        </div>
+
+        <div class="mail-form__line mail-form__line--full">
+          <textarea
+            name="visitor-message"
+            class="form-input form-textarea is-light"
+            rows="1"
+            placeholder="Tell us about your project"
+            data-key="visitor-message"></textarea>
+        </div>
+        <div class="mail-form__line">
+          <button class="mail-form__button btn btn--primary btn--lg btn--block" type="submit" disabled="true">Send message</button>
+        </div>
+        <div class="mail-form__line align-self-center">
+          <div class="mail-form__text">
+            Don't want to fill out the form? Then contact us by email <a href="mailto:hi@focusreactive.com">hi@focusreactive.com</a>
+          </div>
+        </div>
+      </div>
     </form>
   </div>
 </section>
