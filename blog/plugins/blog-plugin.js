@@ -126,8 +126,13 @@ async function blogPluginExtended(...pluginArgs) {
       "picture": picture.asset->url,
       `;
 
-        const indexQuery = `{
+        const indexQuery = !isPreview
+          ? `{
         "posts": *[_type == "post"] | order(date desc, _updatedAt desc) {${postFields}},
+        "authors": *[_type == "author"] {${authorFields}},
+      }`
+          : `{
+        "posts": *[_type == "post" && isReadyForPreview] | order(date desc, _updatedAt desc) {${postFields}},
         "authors": *[_type == "author"] {${authorFields}},
       }`;
 
