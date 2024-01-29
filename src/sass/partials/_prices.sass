@@ -1,0 +1,168 @@
+.prices-container
+  position: relative
+  &:after, &:before
+    content: ''
+    height: 1px
+    background: var(--colorGray3ToGrayE)
+    width: 110vw
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translate(-50%, 0 )
+    +sm
+      display: none
+  &:after
+    top: auto
+    bottom: 0
+
+.prices-swiper
+  padding: 0 2px 0
+  margin: 0 -2px
+  +sm
+    margin-left: -30px
+    margin-right: -30px
+    padding-left: 30px
+    padding-right: 30px
+    padding-bottom: 26px
+  +xs
+    margin-left: -20px
+    margin-right: -20px
+    padding-left: 20px
+    padding-right: 20px
+  .swiper-pagination
+    +rmin(768)
+      display: none
+  .swiper-slide
+    height: auto
+    display: flex
+    +rmin(768)
+      width: 33.33%
+    &:nth-child(2)
+      .prices-item__button
+        .btn
+          @extend .btn--success
+
+    &:last-child
+      .prices-item
+        border-right: 1px solid var(--colorGray3ToGrayE)
+
+.prices-item
+  padding: 35px 40px
+  border-top: 1px solid var(--colorGray3ToGrayE)
+  border-bottom: 1px solid var(--colorGray3ToGrayE)
+  border-left: 1px solid var(--colorGray3ToGrayE)
+  width: 100%
+  display: flex
+  gap: 45px 0
+  flex-direction: column
+  +m
+    padding: 30px
+  +s
+    padding: 25px 20px
+    gap: 20px 0
+  &__top
+    margin-bottom: 20px
+    display: flex
+    align-items: flex-start
+    justify-content: space-between
+  &__plan
+    color: var(--colorGray7ToGray94)
+    text-transform: uppercase
+    +helB
+    font-size: 16px
+    +s
+      font-size: 14px
+  &__label
+    font-size: 16px
+    font-weight: 400
+    color: #fff
+    background: $green
+    padding: 0 18px
+    border-radius: 100px
+    line-height: 40px
+    white-space: nowrap
+    margin-left: 10px
+    display: inline-block
+
+    text-transform: uppercase
+    margin-top: -10px
+    margin-bottom: -10px
+    +m
+      line-height: 30px
+      padding: 0 12px
+      font-size: 12px
+      margin-top: -5px
+      margin-bottom: -5px
+      +s
+        padding: 0 8px
+        font-size: 10px
+        line-height: 24px
+        margin-top: -3px
+        margin-bottom: -3px
+  &__head
+    flex: none
+
+  &__price
+    display: flex
+    align-items: flex-end
+    gap: 5px
+    font-size: 16px
+    +helB
+    color: var(--colorGray7ToGray94)
+    margin-bottom: 27px
+    +s
+      font-size: 14px
+    &-val
+      color: transparent
+      -webkit-background-clip: text
+      -webkit-text-stroke: 2px var(--colorWhiteToDark)
+      +helB
+      font-size: clamp(52px, 6.6vw, 86px)
+      line-height: 1
+      display: block
+
+      +sm
+        text-shadow: none
+        -webkit-text-stroke-width: 0
+        color: var(--colorWhiteToDark)
+  &__text
+    font-size: 14px
+    color: var(--colorGray7ToGray94)
+    +ellipsis(2)
+    height: 50px
+    +s
+      font-size: 12px
+
+  &__body
+    flex: 1 1 auto
+
+    ul
+      list-style-type: none
+      margin: 0
+      padding: 0
+      font-size: 14px
+      font-weight: 400
+      color: var(--colorWhiteToDark)
+      +s
+        font-size: 12px
+      li:not(:last-child)
+        border-bottom: 1px solid var(--colorGray3ToGrayE)
+      li
+        position: relative
+        padding: 10px 0 10px 32px
+        +s
+          padding: 8px 0 8px 24px
+
+        &:before
+          content: ''
+          background: url('/assets/img/list-check.svg') no-repeat center
+          background-size: contain
+          width: 16px
+          height: 12px
+          position: absolute
+          left: 0
+          top: 12px
+          +s
+            top: 10px
+            width: 14px
+            height: 10px

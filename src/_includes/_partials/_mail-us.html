@@ -25,6 +25,30 @@
           <input name="visitor-email" class="form-input is-light" type="email" placeholder="Business email" data-key="visitor-email" />
         </div>
 
+        {% if visiblePrices %}
+        <div class="mail-form__line mail-form__line--full">
+          <input name="visitor-link" class="form-input is-light" type="text" placeholder="website link" data-key="visitor-link" />
+        </div>
+        <div class="mail-form__line mail-form__line--full">
+          <label class="form-label is-light">Choose audit plan</label>
+          <div class="checkbox-btn-list">
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Startup" type="radio" data-key="visitor-Startup" />
+              <span class="checkbox-btn__text">Startup</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Premium" type="radio" data-key="visitor-Premium" />
+              <span class="checkbox-btn__text">Premium</span>
+            </label>
+            <label class="checkbox-btn">
+              <input name="visitor-subject" value="visitor-Enterprise" type="radio" data-key="visitor-Enterprise" />
+              <span class="checkbox-btn__text">Enterprise</span>
+            </label>
+          </div>
+        </div>
+        {% endif %}
+
+        {% if not visiblePrices %}
         <div class="mail-form__line mail-form__line--full">
           <label class="form-label is-light">Subject</label>
           <div class="checkbox-btn-list">
@@ -54,6 +78,7 @@
             </label>
           </div>
         </div>
+        {% endif %}
 
         <div class="mail-form__line">
           <div class="selectbox is-light" data-selectbox data-key="visitor-estimated-budget">

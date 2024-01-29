@@ -318,3 +318,11 @@
 =ie
   html.ie &
     @content
+
+=ellipsis($var)
+  overflow: hidden
+  -ms-text-overflow: ellipsis
+  text-overflow: ellipsis
+  display: -webkit-box
+  -webkit-line-clamp: $var
+  -webkit-box-orient: vertical

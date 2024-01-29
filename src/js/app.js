@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import { slider } from './components/slider.js';
+// import { slider } from './components/slider.js';
 import { scrollAnchors } from './components/scrollTo.js';
 import videoLazy from './components/videoLazy.js';
 import { header } from './components/header.js';
@@ -14,7 +14,7 @@ import { accordion } from './components/accordion.js';
 import { dropdownMenu } from './components/dropdownMenu.js';
 import { selectbox } from './components/selectbox.js';
 import { video } from './components/video.js';
-
+import { pricesSlider } from './components/pricesSlider.js';
 // For github buttons plugin
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -24,7 +24,7 @@ require('isomorphic-fetch');
 // require('./lib/github-repo-buttons.js');
 
 const hydrateJs = () => {
-  slider();
+  // slider();
   scrollAnchors();
   videoLazy();
   header();
@@ -40,6 +40,7 @@ const hydrateJs = () => {
   accordion();
   dropdownMenu();
   selectbox();
+  pricesSlider();
   // video();
 };
 

@@ -1,0 +1,49 @@
+<section class="section
+{{'is-light' if pricesData.themeConfig.theme else 'is-dark' }}
+js-scroll-header
+{% sectionClasses %}
+">
+
+  <div class="container container--sm">
+    <div class="section__head">
+      <h2 class="title title--xxs title--toggle text-center">
+        {{ pricesData.title }}
+      </h2>
+    </div>
+
+    <div class="prices-container">
+      <div class="prices-swiper swiper ">
+        <div class="swiper-wrapper  js-prices-slider">
+          {% for plan in pricesData.items %}
+          <div class="swiper-slide ">
+            <div class="prices-item">
+              <div class="prices-item__top">
+                <span class="prices-item__plan">{{plan.title}}</span>
+                {% if plan.discount %}
+                <span class="prices-item__label">{{plan.discount}}</span>
+                {% endif %}
+              </div>
+              <div class="prices-item__head">
+                <div class="prices-item__price">
+                  <span class="prices-item__price-val">€{{plan.price}}</span>
+                  /{{plan.period}}
+                </div>
+
+                <div class="prices-item__text">{{plan.description}}</div>
+              </div>
+              <div class="prices-item__button">
+                <a href="#mail-us" class="btn btn--md btn--outline btn--block js-scroll-to js-audit-plan-active" data-action="{{plan.title}}">{{plan.btnText}}</a>
+              </div>
+              <div class="prices-item__body">
+                {{plan.richText | blockContent}}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+
+      </div>
+    </div>
+  </div>
+</section>

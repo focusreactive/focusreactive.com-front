@@ -54,7 +54,7 @@ const cleanUpForm = (inputs, button) => {
       return;
     }
 
-    if (inp.type === 'checkbox') {
+    if (inp.type === 'checkbox' && inp.type === 'radio') {
       inp.checked = false;
       return;
     }
@@ -101,7 +101,8 @@ const validateField = (input) => {
     key = selectboxValidation.key;
   }
 
-  if (input.type === 'checkbox') return { isValid: true, message: undefined, key };
+  if (input.type === 'checkbox' && input.type === 'radio')
+    return { isValid: true, message: undefined, key };
 
   if (!key)
     return {
