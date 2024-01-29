@@ -53,6 +53,7 @@ permalink:
 
 ---
 {% set blocks = blocks %}
+{% set visiblePrices = false %}
 {% set emailFormData = data.emailForm %}
 
 {% import "_partials/_mixins.html" as mixins %}
@@ -77,10 +78,17 @@ permalink:
       {% include "_partials/_hero-case-study.html" %}
     {% endif %}
 
-		{% if block._type === 'aboutText' %}
-			{% set introData = block %}
-			{% include "_partials/_intro_text.html" %}
-		{% endif %}
+    {% if block._type === 'aboutText' %}
+      {% set introData = block %}
+      {% include "_partials/_intro_text.html" %}
+    {% endif %}
+
+    {% if block._type === 'prices' %}
+      {% set visiblePrices = true %}
+      {% set pricesData = block %}
+      {% include "_partials/_prices.html" %}
+    {% endif %}
+
     {% if block._type === 'introList' %}
       {% set introListData = block %}
       {% include "_partials/_intro-list.html" %}
