@@ -26,9 +26,7 @@
         </div>
 
         {% if visiblePrices %}
-        <div class="mail-form__line mail-form__line--full">
-          <input name="visitor-link" class="form-input is-light" type="text" placeholder="website link" data-key="visitor-link" />
-        </div>
+
         <div class="mail-form__line mail-form__line--full">
           <label class="form-label is-light">Choose audit plan</label>
           <div class="checkbox-btn-list">
@@ -78,8 +76,6 @@
             </label>
           </div>
         </div>
-        {% endif %}
-
         <div class="mail-form__line">
           <div class="selectbox is-light" data-selectbox data-key="visitor-estimated-budget">
             <select name="visitor-estimated-budget">
@@ -97,6 +93,14 @@
             </div>
           </div>
         </div>
+        {% endif %}
+
+        {% if visiblePrices %}
+        <div class="mail-form__line mail-form__line--full">
+          <input name="visitor-link" class="form-input is-light" type="text" placeholder="website link" data-key="visitor-link" />
+        </div>
+        {% endif %}
+
         <div class="mail-form__line">
           <div class="selectbox is-light" data-selectbox data-key="visitor-timeframe">
             <select name="visitor-timeframe">
