@@ -71,60 +71,49 @@
     +helB
     font-size: 16px
     +s
-      font-size: 14px
+      font-size: 12px
+
   &__label
-    font-size: 16px
+    font-size: 12px
     font-weight: 400
     color: #fff
     background: $green
-    padding: 0 18px
+    padding: 0 12px
     border-radius: 100px
-    line-height: 40px
+    line-height: 32px
     white-space: nowrap
-    margin-left: 10px
+    margin-left: 6px
     display: inline-block
 
     text-transform: uppercase
-    margin-top: -10px
-    margin-bottom: -10px
-    +m
-      line-height: 30px
-      padding: 0 12px
-      font-size: 12px
-      margin-top: -5px
-      margin-bottom: -5px
-      +s
-        padding: 0 8px
-        font-size: 10px
-        line-height: 24px
-        margin-top: -3px
-        margin-bottom: -3px
+    margin-top: -5px
+    margin-bottom: -5px
+    margin-right: -12px
+
+    +s
+      padding: 0 8px
+      font-size: 9px
+      line-height: 24px
+      margin-top: -3px
+      margin-bottom: -3px
+      margin-right: -8px
   &__head
     flex: none
 
   &__price
-    display: flex
-    align-items: flex-end
-    gap: 5px
-    font-size: 16px
-    +helB
-    color: var(--colorGray7ToGray94)
-    margin-bottom: 27px
-    +s
-      font-size: 14px
-    &-val
-      color: transparent
-      -webkit-background-clip: text
-      -webkit-text-stroke: 2px var(--colorWhiteToDark)
-      +helB
-      font-size: clamp(52px, 6.6vw, 86px)
-      line-height: 1
-      display: block
 
-      +sm
-        text-shadow: none
-        -webkit-text-stroke-width: 0
-        color: var(--colorWhiteToDark)
+    margin-bottom: 27px
+    color: transparent
+    -webkit-background-clip: text
+    -webkit-text-stroke: 2px var(--colorWhiteToDark)
+    +helB
+    font-size: clamp(52px, 6.4vw, 74px)
+    line-height: 1
+
+    +sm
+      text-shadow: none
+      -webkit-text-stroke-width: 0
+      color: var(--colorWhiteToDark)
   &__text
     font-size: 14px
     color: var(--colorGray7ToGray94)
@@ -132,7 +121,10 @@
     height: 50px
     +s
       font-size: 12px
-
+  &__button
+    .btn
+      +s
+        font-size: 14px
   &__body
     flex: 1 1 auto
 

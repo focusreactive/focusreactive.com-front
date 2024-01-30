@@ -1,7 +1,7 @@
 <section class="section
 {{'is-light' if pricesData.themeConfig.theme else 'is-dark' }}
 js-scroll-header
-{% sectionClasses %}
+{% sectionClasses pricesData %}
 ">
 
   <div class="container container--sm">
@@ -25,8 +25,7 @@ js-scroll-header
               </div>
               <div class="prices-item__head">
                 <div class="prices-item__price">
-                  <span class="prices-item__price-val">€{{plan.price}}</span>
-                  /{{plan.period}}
+                  {{plan.price}}
                 </div>
 
                 <div class="prices-item__text">{{plan.description}}</div>

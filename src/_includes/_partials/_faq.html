@@ -1,8 +1,7 @@
 <section
-  class="section is-dark js-scroll-header {% sectionClasses %}"
+  class="section is-dark js-scroll-header {% sectionClasses faqData %}"
   itemscope
-  itemtype="https://schema.org/FAQPage"
->
+  itemtype="https://schema.org/FAQPage">
   <div class="container container--sm">
     <div class="section__head">
       <h2 class="title title--xxs title--light text-center">{{faqData.title}}</h2>
@@ -14,8 +13,7 @@
         class="spoller__item"
         itemscope
         itemprop="mainEntity"
-        itemtype="https://schema.org/Question"
-      >
+        itemtype="https://schema.org/Question">
         <div class="spoller__head" data-spoller>
           <button class="spoller__title" itemprop="name">{{item.title}}</button>
 
@@ -25,8 +23,7 @@
           data-spoller-content
           itemscope
           itemprop="acceptedAnswer"
-          itemtype="https://schema.org/Answer"
-        >
+          itemtype="https://schema.org/Answer">
           <span itemprop="text"> {{item.richText | blockContent}} </span>
         </div>
       </div>
