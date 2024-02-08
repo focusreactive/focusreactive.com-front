@@ -1,5 +1,5 @@
 const fetch = require('node-fetch');
-const { PROJECT_ID, DATASET, API_VERSION } = require('../../config');
+const { PROJECT_ID, DATASET, API_VERSION, DRAFT_MODE } = require('../../config');
 
 const query = `*[_type == 'landingPage' && !(_id in path("drafts.**"))] {
     ...,
@@ -78,7 +78,7 @@ module.exports = async (params) => {
   }
 
   // Compose the URL for your project's endpoint and add the query
-  const URL = `https://${PROJECT_ID}.api.sanity.io/${API_VERSION}/data/query/${DATASET}?query=${QUERY}`;
+  const URL = `https://${PROJECT_ID}.api.sanity.io/${API_VERSION}/data/query/${DATASET}?query=${QUERY}${DRAFT_MODE}`;
 
   const data = await fetch(URL, {
     headers: {
@@ -88,5 +88,7 @@ module.exports = async (params) => {
     .then((res) => res.json())
     .catch((err) => console.error(err));
 
-  return data?.result?.length ? data.result : [data.result];
+  const result = data.result.filter((d) => d.path?.current);
+
+  return result?.length ? result : [result];
 };

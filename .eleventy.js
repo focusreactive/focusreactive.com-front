@@ -4,7 +4,7 @@ const imageUrlBuilder = require("@sanity/image-url");
 const blocksToHtml = require("@sanity/block-content-to-html");
 const { EleventyServerlessBundlerPlugin } = require("@11ty/eleventy");
 const { buildFileUrl } = require("@sanity/asset-utils");
-const { PROJECT_ID, DATASET, API_VERSION } = require('./config');
+const { PROJECT_ID, DATASET, API_VERSION, PERSPECTIVE } = require('./config');
 
 require("dotenv").config();
 
@@ -13,6 +13,8 @@ const client = ClientObj.createClient({
   dataset: DATASET,
   token: process.env.SANITY_API_TOKEN,
   useCdn: true,
+  perspective: PERSPECTIVE,
+  apiVersion: API_VERSION,
 });
 
 const builder = imageUrlBuilder(client);
