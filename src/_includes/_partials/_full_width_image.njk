@@ -1,8 +1,8 @@
-<section class="full-width-image js-scroll-header {% sectionClasses fullWidthImageData %}">
+<section class="full-width-image {{ darkModeClass }} js-scroll-header {% sectionClasses fullWidthImageData %}">
   <div class="container">
   <figure>
     <img
-      class="full-width-image__image"
+      class="{{ 'full-width-image__image-is-dark' if darkMode else 'full-width-image__image' }}"
       src="{{ fullWidthImageData.image | imgURL }}"
       loading="lazy"
     >
