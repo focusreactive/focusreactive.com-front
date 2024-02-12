@@ -1,8 +1,9 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import Head from '@docusaurus/Head';
-import { GENERIC_DESCRIPTION, GENERIC_TITLE } from '@site/src/constants';
+import { GENERIC_DESCRIPTION } from '@site/src/constants';
 import { PageMetadata } from '@docusaurus/theme-common';
+import { usePreview } from '@site/src/hooks/usePreview';
 
 export default function BlogLayout(props) {
   const { children, title, description, keywords, image, type, ...layoutProps } = props;
@@ -10,6 +11,8 @@ export default function BlogLayout(props) {
   const previewImage = image
     ? `${image}?w=1200&h=630`
     : 'https://focusreactive.com/assets/img/og-image.png';
+
+  usePreview();
 
   return (
     <Layout {...layoutProps}>
