@@ -1,5 +1,4 @@
 const Nunjucks = require('nunjucks');
-const { createClient } = require('@sanity/client');
 const imageUrlBuilder = require('@sanity/image-url');
 const blocksToHtml = require('@sanity/block-content-to-html');
 const { EleventyServerlessBundlerPlugin } = require('@11ty/eleventy');
@@ -8,7 +7,7 @@ const { PROJECT_ID, DATASET } = require('./config');
 
 require('dotenv').config();
 
-const { client } = import('src/_data/common');
+const { client } = require('./src/_data/common');
 
 const builder = imageUrlBuilder(client);
 
