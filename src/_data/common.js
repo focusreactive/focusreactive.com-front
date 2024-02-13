@@ -1,36 +1,27 @@
 const { PERSPECTIVE, PROJECT_ID, API_VERSION, DATASET } = require('../../config');
+const { createClient } = require('@sanity/client');
 
-const buildSanityApiUrl = (query, { perspective = PERSPECTIVE } = {}) => {
-  const urlParams = new URLSearchParams({
-    query,
-    perspective,
-  });
-
-  return `https://${PROJECT_ID}.api.sanity.io/${API_VERSION}/data/query/${DATASET}?${urlParams.toString()}`;
-};
+const client = createClient({
+  projectId: PROJECT_ID,
+  dataset: DATASET,
+  useCdn: false,
+  token: process.env.SANITY_API_TOKEN,
+  apiVersion: API_VERSION,
+  perspective: PERSPECTIVE,
+});
 
 const fetchSanity = async (query, { isPreview } = {}) => {
-  const perspective = isPreview ? 'previewDrafts' : undefined;
-  const params = {
-    perspective,
-  };
-  const url = buildSanityApiUrl(query, params);
+  if (isPreview) {
+    client.config({ perspective: 'previewDrafts' });
+  }
 
-  return await fetch(url, {
-    headers: {
-      Authorization: `Bearer ${process.env.SANITY_API_TOKEN}`,
-    },
-  })
-    .then((res) => res.json())
-    .then((result) => (result.error ? Promise.reject(result.error) : result))
-    .catch((err) =>
-      console.error(
-        `Error fetching data from Sanity:\nQuery: %o\nParams: %o\nError: %o\n\n`,
-        query,
-        params,
-        err,
-      ),
-    );
+  try {
+    const result = await client.fetch(query);
+    return { result };
+  } catch (error) {
+    console.log('Error fetching data from Sanity:', error);
+    return { error };
+  }
 };
 
 module.exports = { fetchSanity };
