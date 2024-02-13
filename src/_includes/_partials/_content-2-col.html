@@ -2,9 +2,9 @@
   <div class="container">
     {% if columnsData.topTitle %}
     <div class="content_2_col__head">
-      <h2 class="text text--font-lg text--border-dark">{{columnsData.topTitle}} </h2>
+      <h2 class="text text--font-lg text--border-dark">{{columnsData.topTitle}}</h2>
     </div>
-    {% endif %}
+    {% endif %} {% if columnsData.paragraphs.length > 0 %}
     <div class="content_2_col__col content_2_col__col_1">
       <h2 class="content_2_col__subtitle">{{ columnsData.title }}</h2>
       <div class="content_2_col__text {{ columnsData.textSize }}">
@@ -13,21 +13,22 @@
         {% endfor %}
       </div>
     </div>
+    {% endif %} {% if columnsData.video %}
     <div class="content_2_col__col content_2_col__col_2">
-      {% if columnsData.video %}
       <video
         autoplay
         loop
         muted
         playsinline
         title="{{ columnsData.title }}"
-        poster="{{ columnsData.image | imgURL }}">
+        poster="{{ columnsData.image | imgURL }}"
+      >
         <source src="{{ columnsData.video | videoURL }}" type="video/mp4" />
       </video>
-      {% else %}
-      <img src="{{ columnsData.image | imgURL }}" alt="{{ columnsData.title }}" />
-      {% endif %}
     </div>
+    {% endif %} {% if columnsData.image %}
+    <img src="{{ columnsData.image | imgURL }}" alt="{{ columnsData.title }}" />
+    {% endif %}
   </div>
 
   {% if columnsData.link %}
