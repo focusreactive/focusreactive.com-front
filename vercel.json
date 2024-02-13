@@ -8,8 +8,8 @@
     }
   },
   "rewrites": [{ "source": "/", "destination": "/home" }],
-  "buildCommand": "yarn build && cd blog && mv ../_site/{_header,_footer} src && yarn build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
-  "installCommand": "yarn && cd blog && yarn",
+  "buildCommand": "npm run build && cd blog && mv ../_site/{_header,_footer} src && npm run build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
+  "installCommand": "npm i && cd blog && npm i",
   "trailingSlash": true,
   "redirects": [
     {
