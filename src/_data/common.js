@@ -24,4 +24,4 @@ const fetchSanity = async (query, { isPreview } = {}) => {
   }
 };
 
-module.exports = { fetchSanity };
+module.exports = { client, fetchSanity };
