@@ -11,7 +11,7 @@ Main project is based on 11ty, a static site generator. It is used to build Main
 To run Main project in development mode, use the following command:
 
 ```bash
-npm run start
+pnpm start
 ```
 
 This command will start a development server and allow you to preview your changes in real-time.
@@ -21,7 +21,7 @@ This command will start a development server and allow you to preview your chang
 To build Main project for production, use the following command:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 This command will generate optimized files for deployment.
@@ -37,7 +37,7 @@ The project is based on Docusaurus, a modern static website generator. It is use
 To run blog project in development mode, navigate to the `blog` directory and use the following command:
 
 ```bash
-npm run start
+pnpm start
 ```
 
 This command will start a development server specifically for Blog project.
@@ -47,7 +47,7 @@ This command will start a development server specifically for Blog project.
 To build Blog project for production, navigate to the `blog` directory and use the following command:
 
 ```bash
-npm run build
+pnpm build
 ```
 
 ---
