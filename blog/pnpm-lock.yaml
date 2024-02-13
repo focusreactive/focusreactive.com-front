@@ -7,6 +7,9 @@ dependencies:
   '@docusaurus/preset-classic':
     specifier: ^2.4.1
     version: 2.4.1(@algolia/client-search@4.22.1)(react-dom@17.0.2)(react@17.0.2)(search-insights@2.13.0)(typescript@4.9.5)
+  '@docusaurus/theme-common':
+    specifier: ^2.4.1
+    version: 2.4.1(@docusaurus/types@2.4.1)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5)
   '@emotion/react':
     specifier: ^11.11.1
     version: 11.11.1(react@17.0.2)
@@ -573,7 +576,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.22.5
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.12.9)
       '@babel/plugin-transform-parameters': 7.23.3(@babel/core@7.12.9)
     dev: false
