@@ -48,7 +48,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addNunjucksShortcode('structuredData', function (content) {
     const structuredData = [];
 
-    if (!content?.blocks) return;
+    if (!content?.blocks) return '';
 
     const faqBlock = content.blocks.find(
       ({ _type, isFaqSchemaDisabled }) => _type === 'faq' && !isFaqSchemaDisabled,
