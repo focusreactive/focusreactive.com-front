@@ -8,7 +8,7 @@
     }
   },
   "rewrites": [{ "source": "/", "destination": "/home" }],
-  "buildCommand": "pnpm build && cd blog && pnpm i && mv ../_site/{_header,_footer} src && pnpm build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
+  "buildCommand": "pnpm build && cd blog && mv ../_site/{_header,_footer} src && pnpm build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
   "installCommand": "pnpm i",
   "trailingSlash": true,
   "redirects": [
