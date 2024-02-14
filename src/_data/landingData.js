@@ -41,13 +41,6 @@ module.exports = async (params) => {
     footer->
   }`;
   const landingData = await fetchSanity(query, { isPreview });
-  const result = landingData.result.filter((d) => d.path?.current);
 
-  console.log('landingData', result.length);
-
-  if (isPreview) {
-    return result[0];
-  }
-
-  return result;
+  return landingData.result.filter((d) => d.path?.current);
 };
