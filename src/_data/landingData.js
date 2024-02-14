@@ -5,7 +5,7 @@ module.exports = async (params) => {
   const isPreview = !!dynamicSlug;
   // get single landing page by slug in preview mode
   const querySelect = dynamicSlug
-    ? `*[_type == "landingPage" && path.current == "${dynamicSlug}"][0]`
+    ? `*[_type == "landingPage" && path.current == "${dynamicSlug}"]`
     : `*[_type == "landingPage"]`;
   const query = `${querySelect} {
     ...,
