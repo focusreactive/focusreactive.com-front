@@ -45,6 +45,39 @@ module.exports = function (eleventyConfig) {
     return classes.join(' ');
   });
 
+  eleventyConfig.addNunjucksShortcode('structuredData', function (content) {
+    const structuredData = [];
+
+    if (!content?.blocks) return;
+
+    const faqBlock = content.blocks.find(
+      ({ _type, isFaqSchemaDisabled }) => _type === 'faq' && !isFaqSchemaDisabled,
+    );
+
+    if (faqBlock) {
+      const faq = faqBlock.items.map(({ title: question, richText: answer }) => ({
+        '@type': 'Question',
+        name: question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: blocksToHtml({
+            blocks: answer,
+          }),
+        },
+      }));
+
+      structuredData.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faq,
+      });
+    }
+
+    return structuredData
+      .map((data) => `<script type="application/ld+json">${JSON.stringify(data)}</script>`)
+      .join('');
+  });
+
   let nunjucksEnvironment = new Nunjucks.Environment(
     new Nunjucks.FileSystemLoader('src/_includes'),
     {

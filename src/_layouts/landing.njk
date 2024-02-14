@@ -2,168 +2,173 @@
 <html lang="en">
 
 <head>
+  {% if eleventy.env.isServerless %}
+    <meta http-equiv="Cache-control" content="no-cache">
+  {% endif %}
 
-   {% if eleventy.env.isServerless %}
-      <meta http-equiv="Cache-control" content="no-cache">
-   {% endif %}
+  {% if data.seo.ogTags.locale %}
+    <meta property="og:locale" content="{{ data.seo.ogTags.locale }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.locale %}
-      <meta property="og:locale" content="{{ data.seo.ogTags.locale }}">
-   {% endif %}
+  {% if data.seo.ogTags.type %}
+    <meta property="og:type" content="{{ data.seo.ogTags.type }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.type %}
-      <meta property="og:type" content="{{ data.seo.ogTags.type }}">
-   {% endif %}
+  {% if data.seo.ogTags.title %}
+    <meta property="og:title" content="{{ data.seo.ogTags.title }}">
+  {% elif data.seo.title %}
+    <meta property="og:title" content="{{ data.seo.title }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.title %}
-      <meta property="og:title" content="{{ data.seo.ogTags.title }}">
-   {% elif data.seo.title %}
-      <meta property="og:title" content="{{ data.seo.title }}">
-   {% endif %}
+  {% if data.seo.ogTags.description %}
+    <meta property="og:description" content="{{ data.seo.ogTags.description }}">
+  {% elif data.seo.description %}
+    <meta property="og:description" content="{{ data.seo.description }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.description %}
-      <meta property="og:description" content="{{ data.seo.ogTags.description }}">
-   {% elif data.seo.description %}
-      <meta property="og:description" content="{{ data.seo.description }}">
-   {% endif %}
+  {% if data.seo.ogTags.url %}
+    <meta property="og:url" content="{{ data.seo.ogTags.url }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.url %}
-      <meta property="og:url" content="{{ data.seo.ogTags.url }}">
-   {% endif %}
+  {% if data.seo.ogTags.siteName %}
+    <meta property="og:site_name" content="{{ data.seo.ogTags.siteName }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.siteName %}
-      <meta property="og:site_name" content="{{ data.seo.ogTags.siteName }}">
-   {% endif %}
+  {% if data.seo.ogTags.image %}
+    <meta property="og:image" content="{{ data.seo.ogTags.image }}">
+  {% endif %}
 
-   {% if data.seo.ogTags.image %}
-      <meta property="og:image" content="{{ data.seo.ogTags.image }}">
-   {% endif %}
+  {% if data.seo.description %}
+    <meta name="description" content="{{ data.seo.description }}">
+  {% endif %}
 
-   {% if data.seo.description %}
-      <meta name="description" content="{{ data.seo.description }}">
-   {% endif %}
+  {% if data.seo.keyWords %}
+    <meta name="keywords" content="{{ data.keyWords }}">
+  {% endif %}
 
-   {% if data.seo.keyWords %}
-      <meta name="keywords" content="{{ data.keyWords }}">
-   {% endif %}
+  {% if data.seo.articleTags.publisher %}
+    <meta name="article:publisher" content="{{ data.seo.articleTags.publisher }}" />
+  {% endif %}
 
-   {% if data.seo.articleTags.publisher %}
-      <meta name="article:publisher" content="{{ data.seo.articleTags.publisher }}" />
-   {% endif %}
+  {% if data.seo.articleTags.modifiedTime %}
+    <meta name="article:modified_time" content="{{ data.seo.articleTags.modifiedTime }}" />
+  {% endif %}
 
-   {% if data.seo.articleTags.modifiedTime %}
-      <meta name="article:modified_time" content="{{ data.seo.articleTags.modifiedTime }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.card %}
+    <meta name="twitter:card" content="{{ data.seo.ogTwitter.card }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.card %}
-      <meta name="twitter:card" content="{{ data.seo.ogTwitter.card }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.title %}
+    <meta name="twitter:title" content="{{ data.seo.ogTwitter.title }}" />
+  {% elif data.seo.title %}
+    <meta name="twitter:title" content="{{ data.seo.title }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.title %}
-      <meta name="twitter:title" content="{{ data.seo.ogTwitter.title }}" />
-   {% elif data.seo.title %}
-      <meta name="twitter:title" content="{{ data.seo.title }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.description %}
+    <meta name="twitter:description" content="{{ data.seo.ogTwitter.description }}" />
+  {% elif data.seo.description %}
+    <meta name="twitter:description" content="{{ data.seo.description }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.description %}
-      <meta name="twitter:description" content="{{ data.seo.ogTwitter.description }}" />
-   {% elif data.seo.description %}
-      <meta name="twitter:description" content="{{ data.seo.description }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.image %}
+    <meta name="twitter:image" content="{{ data.seo.ogTwitter.image }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.image %}
-      <meta name="twitter:image" content="{{ data.seo.ogTwitter.image }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.creator %}
+    <meta name="twitter:creator" content="{{ data.seo.ogTwitter.creator }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.creator %}
-      <meta name="twitter:creator" content="{{ data.seo.ogTwitter.creator }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.site %}
+    <meta name="twitter:site" content="{{ data.seo.ogTwitter.site }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.site %}
-      <meta name="twitter:site" content="{{ data.seo.ogTwitter.site }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.label1 %}
+    <meta name="twitter:label1" content="{{ data.seo.ogTwitter.label1 }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.label1 %}
-      <meta name="twitter:label1" content="{{ data.seo.ogTwitter.label1 }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.data1 %}
+    <meta name="twitter:data1" content="{{ data.seo.ogTwitter.data1 }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.data1 %}
-      <meta name="twitter:data1" content="{{ data.seo.ogTwitter.data1 }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.label2 %}
+     <meta name="twitter:label2" content="{{ data.seo.ogTwitter.label2 }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.label2 %}
-       <meta name="twitter:label2" content="{{ data.seo.ogTwitter.label2 }}" />
-   {% endif %}
+  {% if data.seo.ogTwitter.data2 %}
+     <meta name="twitter:data2" content="{{ data.seo.ogTwitter.data2 }}" />
+  {% endif %}
 
-   {% if data.seo.ogTwitter.data2 %}
-       <meta name="twitter:data2" content="{{ data.seo.ogTwitter.data2 }}" />
-   {% endif %}
+  {% if data.seo.title %}
+    <title>{{ data.seo.title }}</title>
+  {% endif %}
 
-   {% if data.seo.title %}
-      <title>{{ data.seo.title }}</title>
-   {% endif %}
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
 
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-   <link href="/assets/css/app.css" rel="stylesheet" type="text/css">
+  {% if eleventy.env.isServerless %}
+  <script>
+    window.addEventListener('message', receiveMessage, false);
+
+    function receiveMessage(event) {
+      if (event.origin === 'http://localhost:3333' || event.origin === 'https://fr-website.sanity.studio') {
+        if (event.data === 'reload()') {
+          window.location.reload();
+        }
+      }
+      return;
+    }
+  </script>
+  {% endif %}
+
+  {% structuredData data %}
+
 </head>
 
- {% if eleventy.env.isServerless %}
-   <script>
-        window.addEventListener('message', receiveMessage, false);
-
-        function receiveMessage(event) {
-            if (event.origin === 'http://localhost:3333' || event.origin === 'https://fr-website.sanity.studio') {
-                if(event.data === 'reload()') {
-                    window.location.reload(true);
-                }
-            }
-            return;
-        }
-    </script>
-   {% endif %}
 
 <body class="bg" topmargin="0">
-   <div class="out">
-      {% include "_partials/_header.html" %}
-      {{ content | safe }}
-      {% include "_partials/_footer.html" %}
-   </div>
+  <div class="out">
+    {% include "_partials/_header.html" %}
+    {{ content | safe }}
+    {% include "_partials/_footer.html" %}
+  </div>
 
-    <script>
-      (function (h, o, t, j, a, r) {
-      h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
-      h._hjSettings = { hjid: 3443963, hjsv: 6 };
-      a = o.getElementsByTagName('head')[0];
-      r = o.createElement('script'); r.defer = 1;
-      r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-      a.appendChild(r);
-      })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
-    <script>
-      var _gauges = _gauges || [];
-      (function () {
-       var t = document.createElement('script');
-       t.type = 'text/javascript';
-       t.defer = true;
-       t.id = 'gauges-tracker';
-       t.setAttribute('data-site-id', '5c60ad334cba7a6ec400efc0');
-       t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
-       t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
-       var s = document.getElementsByTagName('script')[0];
-       s.parentNode.insertBefore(t, s);
-      })();
-    </script>
-   <script type="text/javascript" src="/assets/js/github-repo-buttons.js" ></script>
-   <script type="text/javascript" defer src="https://widget.clutch.co/static/js/widget.js"></script>
-   <script src="/assets/js/app.js"></script>
+  <script>
+    (function (h, o, t, j, a, r) {
+    h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+    h._hjSettings = { hjid: 3443963, hjsv: 6 };
+    a = o.getElementsByTagName('head')[0];
+    r = o.createElement('script'); r.defer = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+    })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+  </script>
 
+  <script>
+    var _gauges = _gauges || [];
+    (function () {
+     var t = document.createElement('script');
+     t.type = 'text/javascript';
+     t.defer = true;
+     t.id = 'gauges-tracker';
+     t.setAttribute('data-site-id', '5c60ad334cba7a6ec400efc0');
+     t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+     t.src = 'https://d2fuc4clr7gvcn.cloudfront.net/track.js';
+     var s = document.getElementsByTagName('script')[0];
+     s.parentNode.insertBefore(t, s);
+    })();
+  </script>
 
-   <script type="text/javascript">
+  <script type="text/javascript" src="/assets/js/github-repo-buttons.js" ></script>
+  <script type="text/javascript" defer src="https://widget.clutch.co/static/js/widget.js"></script>
+  <script src="/assets/js/app.js"></script>
+
+  <script type="text/javascript">
     _linkedin_partner_id = "5506353";
     window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
     window._linkedin_data_partner_ids.push(_linkedin_partner_id);
   </script>
+
   <script type="text/javascript">
     (function(l) {
     if (!l){window.lintrk = function(a,b){window.lintrk.q.push([a,b])};
@@ -174,6 +179,7 @@
     b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
     s.parentNode.insertBefore(b, s);})(window.lintrk);
   </script>
+
   <noscript>
     <img height="1" width="1" style="display:none;" alt="" src="https://px.ads.linkedin.com/collect/?pid=5506353&fmt=gif" />
   </noscript>
