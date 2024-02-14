@@ -43,7 +43,7 @@ module.exports = async (params) => {
   const landingData = await fetchSanity(query, { isPreview });
   const result = landingData.result.filter((d) => d.path?.current);
 
-  console.log('landingData', landingData, result, dynamicSlug, isPreview);
+  console.log('landingData', result.length);
 
   if (isPreview) {
     return result[0];
