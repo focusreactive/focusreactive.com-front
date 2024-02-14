@@ -3,7 +3,7 @@ const { EleventyServerless } = require('@11ty/eleventy');
 export default async function handler(request, response) {
   const { slug } = request.query;
 
-  let elev = new EleventyServerless('serverlessLandings', {
+  const eleventy = new EleventyServerless('serverlessLandings', {
     path: `/landing-preview`,
     query: {
       slug: slug.replace('landing-preview/', ''),
@@ -11,8 +11,10 @@ export default async function handler(request, response) {
   });
 
   try {
-    let [page] = await elev.getOutput();
-    let html = page.content;
+    const data = await eleventy.getOutput();
+    console.log(data);
+    const [page] = data;
+    const html = page.content;
 
     return response.status(200).send(html);
   } catch (e) {
