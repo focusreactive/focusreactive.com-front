@@ -1,0 +1,290 @@
+
+.sec-expertise
+  padding: 100px 0
+  color: var(--colorWhiteToDark)
+  +s
+    padding: 80px 0
+  +sm
+    padding: 50px 0
+  &__head
+    margin-bottom: 50px
+
+    +sm
+      margin-bottom: 30px
+
+.expertise
+  display: grid
+  grid-template-columns: 260px 1fr
+  +s
+    grid-template-columns: 1fr
+    border-bottom: 1px solid var(--colorGray3ToGrayC)
+    margin-left: calc(var(--container) * -1)
+    margin-right: calc(var(--container) * -1)
+  &__item
+    grid-column: 1/2
+    grid-row: auto
+    margin-bottom: 17px
+    position: relative
+    +s
+      margin-bottom: 0
+      border-top: 1px solid var(--colorGray3ToGrayC)
+      padding-right: var(--container)
+      padding-left: var(--container)
+
+    &:last-child
+      margin-bottom: 0
+
+    &:first-child
+      margin-top: -10px
+      +s
+        margin-top: 0
+
+    &.is-active
+      .expertise__description
+        display: block
+
+      .expertise__title
+        +s
+          padding-bottom: 10px
+
+        &:after
+          content: '\2013'
+          line-height: 43px
+          border-color: var(--colorWhiteToDark)
+          color: var(--colorWhiteToDark)
+          transform: translate(0, calc((50% - 8px) * -1))
+          +sm
+            line-height: 33px
+
+    &:hover, &.is-active, &:focus-visible
+      .expertise__title
+        color: var(--colorWhiteToDark)
+
+  &__title
+    display: block
+    text-align: left
+    width: 100%
+    border: none
+    padding: 10px 35px 10px 0
+    background: transparent
+    color: #747474
+    font-size: 22px
+    +helB
+    text-transform: uppercase
+    position: relative
+    +s
+      padding: 27px 70px 27px 0
+
+    &:after
+      position: absolute
+      top: 50%
+      right: 0
+      transform: translate(0, -50%)
+      content: '+'
+      font-family: Times New Roman, Helvetica, sans-serif
+      display: none
+      text-align: center
+      width: 50px
+      height: 50px
+      font-size: 30px
+      line-height: 50px
+      font-weight: 400
+      border-radius: 50%
+      flex: none
+      border: 1px solid var(--colorGray7ToGray94)
+      color: var(--colorGray7ToGray94)
+      +s
+        display: block
+      +sm
+        width: 40px
+        height: 40px
+        line-height: 40px
+  &__description
+    font-size: 12px
+    line-height: 1.5
+    margin-top: 5px
+    display: none
+    max-width: 400px
+    padding-right: 35px
+    +s
+      padding-right: 70px
+  &__body
+    grid-column: 2/3
+    grid-row: 1 / 20
+    border-left: 1px solid var(--colorGray3ToGrayC)
+    display: flex
+    +s
+      margin-top: 30px
+      margin-bottom: 40px
+      grid-column: 1/2
+      grid-row: auto
+      border: none
+      padding-left: var(--container)
+      padding-right: var(--container)
+    +sm
+      display: block
+      margin-bottom: 10px
+      margin-top: 20px
+
+    &.is-hidden
+      display: none
+  &__nav
+    padding: 0 clamp(20px, 3.4vw, 40px)
+    flex: none
+    width: 306px
+    max-width: 306px
+    display: flex
+    flex-direction: column
+    margin-top: -14px
+
+    align-items: flex-start
+    +s
+      width: 37%
+      padding-left: 0
+      padding-right: 0
+      margin-top: 0
+    +sm
+      max-width: none
+      width: auto
+      gap: 0
+      padding-right: 0
+      margin-right: calc(var(--container) * -1)
+    &-item
+      width: 100%
+      position: relative
+      +s
+        border-top: 1px solid var(--colorGray3ToGrayC)
+      &:last-child
+        +s
+          border-bottom: 1px solid var(--colorGray3ToGrayC)
+        +sm
+          border-bottom: none
+      &.is-active
+        .expertise__nav-btn
+          color: $green
+        .expertise__nav-link
+          display: flex
+    &-btn
+      font-size: 18px
+      +helB
+      color: var(--colorWhiteToDark)
+      text-decoration: none
+      text-transform: uppercase
+      display: block
+      background: transparent
+      width: 100%
+      display: block
+      padding: 16px 100px 16px 0
+      text-align: left
+
+      &:hover, &:focus-visible
+        color: $green
+        text-decoration: none
+    &-link
+      position: absolute
+      top: 50%
+      right: 0
+      transform: translate(0,-50%)
+      z-index: 2
+      padding: 5px 0
+      +helB
+      font-size: 14px
+      line-height: 14px
+      display: none
+      gap: 6px
+      align-items: center
+      color: var(--colorWhiteToDark)
+      text-decoration: none
+      text-transform: uppercase
+      +s
+        right: 30px
+      .icon
+        position: relative
+        top: -1px
+        display: block
+        width: 12px
+        height: 12px
+        stroke: currentColor
+        color: var(--colorWhiteToDark)
+      &:hover, &:focus-visible
+        color: $green
+
+  &__content
+    border-left: 1px solid var(--colorGray3ToGrayC)
+    padding-left: clamp(20px, 3.4vw, 50px)
+    flex: 1 1 auto
+    +s
+      padding-left: 50px
+    +sm
+      padding-left: 0
+      margin-top: 10px
+      margin-bottom: 10px
+      border: none
+    & > *:last-child
+      margin-bottom: 0
+    &-img
+      width: 100%
+      margin-bottom: 30px
+      +sm
+        margin-bottom: 15px
+      img
+        max-width: 100%
+        display: block
+    &-title
+      font-size: 18px
+      +helB
+      text-transform: uppercase
+      margin-bottom: 10px
+
+    &-text
+      font-size: 12px
+      line-height: 1.5
+      margin-bottom: 25px
+      a
+        color: var(--colorWhiteToDark)
+        text-decoration: underline
+        &:hover
+          text-decoration: none
+      p:not(:last-child)
+        margin-bottom: 10px
+    &.is-hidden
+      display: none
+
+.e-utils
+  display: flex
+  flex-wrap: wrap
+  gap: 30px 40px
+  &__item
+    flex: none
+  &__title
+    text-transform: uppercase
+    +helB
+    font-size: 14px
+    color: #747474
+    margin-bottom: 10px
+  &__list
+    &-item
+      display: flex
+      align-items: center
+      white-space: nowrap
+      font-size: 12px
+      line-height: 12px
+      color: #747474
+      gap: 10px
+      text-decoration: none
+      margin-bottom: 8px
+      &:hover, &:focus-visible
+        color: var(--colorWhiteToDark)
+    &-img
+      flex: none
+      width: 22px
+      height: 22px
+      position: relative
+      top: -1px
+      display: flex
+      align-items: center
+      justify-content: center
+      img
+        max-width: 100%
+        max-height: 100%
+        display: block

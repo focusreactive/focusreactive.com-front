@@ -1,4 +1,4 @@
-<section class="mail-us is-dark js-scroll-header" id="mail-us">
+<section class="mail-us is-light js-scroll-header" id="mail-us">
   <div class="container">
     <div class="mail-us__head">
       {% if emailFormData.subtitle %}
@@ -18,17 +18,17 @@
     <form id="mail-us-form" class="mail-form">
       <div class="mail-form__grid">
         <div class="mail-form__line">
-          <input name="visitor-name" class="form-input is-light" type="text" placeholder="Your name" data-key="visitor-name" />
+          <input name="visitor-name" class="form-input " type="text" placeholder="Your name" data-key="visitor-name" />
         </div>
 
         <div class="mail-form__line">
-          <input name="visitor-email" class="form-input is-light" type="email" placeholder="Business email" data-key="visitor-email" />
+          <input name="visitor-email" class="form-input " type="email" placeholder="Business email" data-key="visitor-email" />
         </div>
 
         {% if visiblePrices %}
 
         <div class="mail-form__line mail-form__line--full">
-          <label class="form-label is-light">Choose audit plan</label>
+          <label class="form-label ">Choose audit plan</label>
           <div class="checkbox-btn-list">
             <label class="checkbox-btn">
               <input name="visitor-subject" value="visitor-Basic" type="radio" data-key="visitor-Basic" />
@@ -77,7 +77,7 @@
           </div>
         </div>
         <div class="mail-form__line">
-          <div class="selectbox is-light" data-selectbox data-key="visitor-estimated-budget">
+          <div class="selectbox " data-selectbox data-key="visitor-estimated-budget">
             <select name="visitor-estimated-budget">
               <option disabled selected value></option>
               <option>5-10k</option>
@@ -97,12 +97,12 @@
 
         {% if visiblePrices %}
         <div class="mail-form__line ">
-          <input name="visitor-link" class="form-input is-light" type="text" placeholder="website link" data-key="visitor-link" />
+          <input name="visitor-link" class="form-input " type="text" placeholder="website link" data-key="visitor-link" />
         </div>
         {% endif %}
 
         <div class="mail-form__line">
-          <div class="selectbox is-light" data-selectbox data-key="visitor-timeframe">
+          <div class="selectbox " data-selectbox data-key="visitor-timeframe">
             <select name="visitor-timeframe">
               <option disabled selected value></option>
               <option>urgent</option>
@@ -124,7 +124,7 @@
         <div class="mail-form__line mail-form__line--full">
           <textarea
             name="visitor-message"
-            class="form-input form-textarea is-light"
+            class="form-input form-textarea "
             rows="1"
             placeholder="Tell us about your project"
             data-key="visitor-message"></textarea>

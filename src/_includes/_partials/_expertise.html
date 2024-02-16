@@ -1,0 +1,81 @@
+<!-- begin summary -->
+<section id="services" data-section="services" class="sec-expertise is-dark js-scroll-header">
+  <div class="container container--sm">
+    <div class="sec-expertise__head">
+      <h2 class="title title--xxs text-center">{{expertise.title}}</h2>
+    </div>
+
+    <div class="expertise">
+
+      {% for item in expertise.items %}
+      {% set tabIndex = loop.index %}
+      <div class="expertise__item {{'is-active' if loop.first }}">
+        <button class="expertise__title js-scroll-to" type="button" aria-label="{{item.title}}" data-fr-trigger="tab-level-1" data-fr-target="#expertise-body_{{loop.index}}">
+          {{item.title}}
+        </button>
+        {% if item.text %}
+        <div class="expertise__description">
+          {{item.text}}
+        </div>
+        {% endif %}
+      </div>
+
+      <div class="expertise__body {{ 'is-hidden' if not loop.first }}" id="expertise-body_{{loop.index}}" data-fr-collapse="expertise-body">
+        <div class="expertise__nav">
+          {% for navItem in item.items %}
+          <div class="expertise__nav-item {{ 'is-active' if loop.first}}">
+            <button class="expertise__nav-btn " data-fr-trigger="tab-level-2-{{tabIndex}}" data-fr-target="#expertise-content_{{tabIndex}}_{{loop.index}}">{{navItem.linkText}}</button>
+            {% if navItem.link %}
+            <a href="{{navItem.link}}" class="expertise__nav-link">
+              Visit
+
+              <svg class="icon icon-permalink" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path d="M5.5 2.5H2.5C1.67157 2.5 1 3.17157 1 4V11.5C1 12.3284 1.67157 13 2.5 13H10C10.8284 13 11.5 12.3284 11.5 11.5V8.5M8.5 1H13M13 1V5.5M13 1L5.5 8.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+        {% for navItem in item.items %}
+        <div class="expertise__content {{ 'is-hidden' if not loop.first }}" id="expertise-content_{{tabIndex}}_{{loop.index}}" data-fr-collapse="expertise-content_{{tabIndex}}">
+          {% if navItem.image %}
+          <div class="expertise__content-img">
+            <a href="{{navItem.link}}" arial-label="{{navItem.linkText}}">
+              <img src="{{navItem.image}}" alt="{{navItem.title}}" role="presentation">
+            </a>
+          </div>
+          {% endif %}
+          <div class="expertise__content-title">{{navItem.title}}</div>
+          <div class="expertise__content-text">
+            {{navItem.richText | blockContent}}
+          </div>
+          {% if navItem.technologies %}
+          <div class="e-utils">
+            {% for technologies in navItem.technologies %}
+            <div class="e-utils__item">
+              <div class="e-utils__title">{{technologies.title}}</div>
+              <div class="e-utils__list">
+                {% for technologiesItem in technologies.items %}
+                <a href="{{technologiesItem.link}}" class="e-utils__list-item">
+                  <div class="e-utils__list-img">
+                    <img src="{{technologiesItem.icon}}" alt="{{technologiesItem.title}}">
+                  </div>
+                  <span>{{technologiesItem.title}}</span>
+                </a>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+        {% endfor %}
+
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- end summary -->

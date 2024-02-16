@@ -39,9 +39,13 @@ module.exports = function (eleventyConfig) {
     const sectionConfig = block?.sectionConfig;
     if (!sectionConfig) return '';
     const classes = [];
-    const { disableTopPadding, disableBottomPadding } = sectionConfig;
+    const { disableTopPadding, disableBottomPadding, darkMode } = sectionConfig;
     disableTopPadding && classes.push('pt-0');
     disableBottomPadding && classes.push('pb-0');
+    if (typeof darkMode !== 'undefined') {
+      darkMode ? classes.push('is-dark') : classes.push('is-light');
+    }
+
     return classes.join(' ');
   });
 

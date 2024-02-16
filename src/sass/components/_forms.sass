@@ -1,5 +1,5 @@
 $form-height: 52px
-$form-border: 1px solid #363636
+$form-border: 1px solid var(--colorGray3ToGrayC, #363636)
 $form-radius: 0
 $form-bg: transparent
 
@@ -15,6 +15,7 @@ $form-color: $black
   border-radius: $form-radius
   background: $form-bg
   display: block
+  color: var(--colorWhiteToDark, $black)
   width: 100%
   text-transform: uppercase
   +helB
@@ -24,6 +25,7 @@ $form-color: $black
     font-size: 14px
   &::placeholder
     text-transform: uppercase
+    color: var(--colorWhiteToDark, $black)
 
   &:focus, &:active
     outline: none
@@ -36,10 +38,6 @@ $form-color: $black
   &.error
     border-color: red
 
-  &.is-light
-    color: #fff
-    &::placeholder
-      color: #fff
 select
   display: none
 
@@ -63,7 +61,7 @@ textarea
 .form-label
   +helB
   font-size: $form-size
-  color: $black
+  color: var(--colorWhiteToDark, $black)
   text-transform: uppercase
   margin-bottom: 8px
   display: block
@@ -99,7 +97,7 @@ textarea
     +text-overflow
     +helB
     font-size: $form-size
-    color: $form-color
+    color: var(--colorWhiteToDark, $black)
     text-transform: uppercase
     line-height: calc($form-height - 1px)
     +sm
@@ -120,8 +118,8 @@ textarea
       width: 6px
       height: 6px
       position: relative
-      border-bottom: 1px solid $black
-      border-right: 1px solid $black
+      border-bottom: 1px solid var(--colorWhiteToDark, $black)
+      border-right: 1px solid var(--colorWhiteToDark, $black)
       transform: rotate(45deg)
 
   &__drop
@@ -153,8 +151,8 @@ textarea
         &:not(:last-child)
           border-bottom: 1px solid #373737
         &:hover, &:focus-visible
-          background: #fff
-          color: $black
+          background: $green
+          color: #fff
 
         &._selected
           background: $green
@@ -171,8 +169,7 @@ textarea
             border-bottom: 2px solid #fff
             border-left: 2px solid #fff
             transform: rotate(-45deg)
-          &:hover, &:focus-visible
-            background: $green !important
+
   &._open
     .selectbox__head
       z-index: 11
@@ -186,24 +183,6 @@ textarea
   &.error
     .selectbox__head
       border-color: red
-
-  &.is-light
-    .selectbox__text
-      color: #fff
-    .selectbox__caret
-      &:after
-        border-color: #fff
-    .selectbox__drop
-      background: #fff
-      ul
-        li
-          color: $black
-          &:not(:last-child)
-            border-color: #b7b7b7
-          &:hover, &:focus-visible
-
-            background: #dfdfdf
-            color: $black
 
 .checkbox-btn-list
   display: flex

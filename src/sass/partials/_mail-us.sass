@@ -1,14 +1,13 @@
 .mail-us
   padding: 80px 0
-  --color: #000
-
+  color: var(--colorWhiteToDark)
   &__head
     margin-bottom: 40px
   &__suptitle
     margin-bottom: 10px
     font-size: clamp(18px, 2.5vw, 28px)
     +helB
-    color: #fff
+
     line-height: 1.2
     text-align: center
     text-transform: uppercase
@@ -19,8 +18,7 @@
     +helB
     +sm
       line-height: 1
-  &.is-dark
-    --color: #fff
+
 .mail-form
   max-width: 1200px
   margin-left: auto
@@ -44,7 +42,7 @@
     color: #747474
     text-align: center
     a
-      color: var(--color)
+      color: var(--colorWhiteToDark)
       text-decoration: none
       &:hover
         text-decoration: underline
