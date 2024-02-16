@@ -11,6 +11,7 @@ import objectFitImages from 'object-fit-images';
 import { scrollDirection } from './components/scollDirection.js';
 import { feedbackForm } from './components/feedbackForm.js';
 import { accordion } from './components/accordion.js';
+import { expertise } from './components/expertise.js';
 import { dropdownMenu } from './components/dropdownMenu.js';
 import { selectbox } from './components/selectbox.js';
 import { video } from './components/video.js';
@@ -38,6 +39,7 @@ const hydrateJs = () => {
   objectFitImages(objImages);
   feedbackForm();
   accordion();
+  expertise();
   dropdownMenu();
   selectbox();
   pricesSlider();

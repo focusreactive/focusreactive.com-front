@@ -25,6 +25,23 @@ module.exports = async (params) => {
         }
       }
     },
+    expertise {
+      ...,
+      items[] {
+        ...,
+        items[] {
+          ...,
+          "image": image.asset->.url,
+          technologies[] {
+            ...,
+            items[] {
+              ...,
+              "icon": icon.asset->.url
+            }
+          }
+        }
+      }
+    },
     techs {
       title,
       subTitle,

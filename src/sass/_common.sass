@@ -33,10 +33,13 @@ strong, b
   padding: 0 50px
   width: 100%
   margin: 0 auto
+  --container: 50px
   +m
     padding: 0 30px
+    --container: 30px
   +xs
     padding: 0 20px
+    --container: 20px
   &--sm
     max-width: 1200px
 
@@ -48,14 +51,12 @@ strong, b
   margin: 0 auto
   text-align: center
   text-transform: uppercase
+  color: var(--colorWhiteToDarkGrey)
   +xs
     text-align: left
-  &--dark
-    color: $dark-grey
-  &--light
-    color: $white
+
   &--toggle
-    color: var(--colorWhiteToDark)
+    color: var(--colorWhiteToDarkGrey)
 
   &--md
     font-size: 80px
@@ -83,29 +84,23 @@ strong, b
       font-size: 20px
   &--xxs
     font-size: 28px
+    +sm
+      font-size: 26px
+    +xs
+      font-size: 20px
 
 .text
-  &--border-dark
+  &--border-dark, &--border-light
 
     color: transparent
     -webkit-background-clip: text
-    -webkit-text-stroke: 2px $black
+    -webkit-text-stroke: 2px var(--colorWhiteToDarkGrey, $dark-grey)
 
     +sm
       text-shadow: none
-      color: $dark-grey
-      font-weight: bold
+      color: var(--colorWhiteToDarkGrey, $dark-grey)
       -webkit-text-stroke-width: 0
 
-  &--border-light
-    color: transparent
-    -webkit-background-clip: text
-    -webkit-text-stroke: 2px #fff
-    +sm
-
-      text-shadow: none
-      -webkit-text-stroke-width: 0
-      color: $white
   &--green
     color: $green
 
