@@ -41,7 +41,7 @@
         <div class="expertise__content {{ 'is-hidden' if not loop.first }}" id="expertise-content_{{tabIndex}}_{{loop.index}}" data-fr-collapse="expertise-content_{{tabIndex}}">
           {% if navItem.image %}
           <div class="expertise__content-img">
-            <a href="{{navItem.link}}" arial-label="{{navItem.linkText}}">
+            <a href="{{navItem.titleLink}}" arial-label="{{navItem.title}}">
               <img src="{{navItem.image}}" alt="{{navItem.title}}" role="presentation">
             </a>
           </div>
