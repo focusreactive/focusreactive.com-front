@@ -53,7 +53,7 @@
   border-left: 1px solid var(--colorGray3ToGrayE)
   width: 100%
   display: flex
-  gap: 45px 0
+  gap: 35px 0
   flex-direction: column
   +m
     padding: 30px
@@ -118,13 +118,18 @@
     font-size: 14px
     color: var(--colorGray7ToGray94)
     +ellipsis(2)
-    height: 50px
+    height: 40px
     +s
       font-size: 12px
   &__button
     .btn
       +s
         font-size: 14px
+  &__subtitle
+    color: var(--colorWhiteToDark)
+    font-size: 16px
+    font-weight: 700
+    margin-bottom: 10px
   &__body
     flex: 1 1 auto
 

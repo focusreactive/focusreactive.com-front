@@ -247,3 +247,19 @@ br.is-desktop
     transform: translateY(0)
   100%
     transform: translateY(0)
+
+.styled-text
+  ul, ol
+    margin-left: 30px
+  li
+    margin-bottom: 5px
+  ul
+    list-style-type: disc
+  ol
+    list-style-type: decimal
+  p, ul, ol
+    margin-bottom: 15px
+  &>*:last-child
+    margin-bottom: 0 !important
+  &>*:first-child
+    margin-top: 0 !important

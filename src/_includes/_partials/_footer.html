@@ -7,7 +7,7 @@
         <ul class="f-menu__list">
           {% for menuItem in menuList.links %}
           <li>
-            <a href="{{menuItem.link}}">{{menuItem.title}}</a>
+            <a href="{{menuItem.link}}" {% if menuItem.openInNewTab %} target="_blank" {% endif %}>{{menuItem.title}}</a>
           </li>
           {% endfor %}
         </ul>
@@ -29,7 +29,6 @@
       data-expandifr="true"
       data-scale="100"
       data-clutchcompany-id="1262793"
-      aria-hidden="true"
-    ></div>
+      aria-hidden="true"></div>
   </div>
 </footer>

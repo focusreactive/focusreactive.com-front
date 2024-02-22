@@ -18,7 +18,7 @@
         <h4 class="teasers__card_title">{{ element.text }}</h4>
         {% endif %}
         {% if element.richText %}
-        <div name="rich-text" class="teasers__card_rich{{ '--dark' if darkMode else '' }}">{{ element.richText | blockContent }}</div>
+        <div name="rich-text" class="teasers__card_rich styled-text">{{ element.richText | blockContent }}</div>
         {% endif %}
         {% if element.buttonText %}
         <div class="teasers__btn">

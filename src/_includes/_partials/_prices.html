@@ -33,7 +33,12 @@ js-scroll-header
               <div class="prices-item__button">
                 <a href="#mail-us" class="btn btn--md btn--outline btn--block js-scroll-to js-audit-plan-active" data-action="{{plan.title}}">{{plan.btnText}}</a>
               </div>
+
+
               <div class="prices-item__body">
+                {% if plan.subtitle %}
+                <div class="prices-item__subtitle">{{plan.subtitle}}</div>
+                {% endif %}
                 {{plan.richText | blockContent}}
               </div>
             </div>
