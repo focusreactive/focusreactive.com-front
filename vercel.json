@@ -13,7 +13,7 @@
       "destination": "/home"
     }
   ],
-  "buildCommand": "npm run build && cd blog && mv ../_site/{_header,_footer} src && npm run build && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/ && node critters",
+  "buildCommand": "npm run build && cd blog && mv ../_site/{_header,_footer} src && npm run build && node critters && cd build && rm -f index.html 404.html robots.txt && cp -R ./* ../../_site/",
   "installCommand": "npm i && cd blog && npm i",
   "trailingSlash": true,
   "redirects": [
