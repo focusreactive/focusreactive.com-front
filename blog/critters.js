@@ -23,7 +23,8 @@ function getFiles(dir, files = []) {
 }
 
 async function main() {
-  const currentFolder = join(process.cwd(), 'build');
+  const folder = process.argv[2];
+  const currentFolder = join(process.cwd(), folder);
   const critters = new Critters({ path: currentFolder });
 
   const files = getFiles(currentFolder);
