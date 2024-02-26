@@ -33,24 +33,12 @@ async function main() {
     if (file.endsWith('.html')) {
       try {
         const html = fs.readFileSync(file, 'utf-8');
-
         const inlined = await critters.process(html);
-
         const DOM = parse(inlined);
-        const headElement = DOM.querySelector('head');
 
-        if (headElement) {
-          for (const link of DOM.querySelectorAll('link')) {
-            if (link.attributes?.as === 'style') {
-              // headElement.insertAdjacentHTML(
-              //   'beforeend',
-              //   `<script></script>
-              //      <link rel='preload' href='${link.attributes?.href}' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-              //      <script></script>`,
-              // );
-
-              link.remove();
-            }
+        for (const link of DOM.querySelectorAll('link')) {
+          if (link.attributes?.as === 'style') {
+            link.remove();
           }
         }
 
