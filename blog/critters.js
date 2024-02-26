@@ -42,12 +42,12 @@ async function main() {
         if (headElement) {
           for (const link of DOM.querySelectorAll('link')) {
             if (link.attributes?.as === 'style') {
-              headElement.insertAdjacentHTML(
-                'beforeend',
-                `<script></script>
-                   <link rel='preload' href='${link.attributes?.href}' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
-                   <script></script>`,
-              );
+              // headElement.insertAdjacentHTML(
+              //   'beforeend',
+              //   `<script></script>
+              //      <link rel='preload' href='${link.attributes?.href}' as='style' onload="this.onload=null;this.rel='stylesheet'"/>
+              //      <script></script>`,
+              // );
 
               link.remove();
             }
