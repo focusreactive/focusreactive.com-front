@@ -2,6 +2,7 @@ const Critters = require('critters');
 const { join } = require('path');
 const fs = require('fs');
 const { parse } = require('node-html-parser');
+const CryptoJS = require('crypto-js');
 
 // Recursive function to get files
 function getFiles(dir, files = []) {
@@ -38,8 +39,6 @@ async function main() {
 
         for (const style of DOMBeforeCritters.querySelectorAll('style')) {
           uniqueExtractedStyles.add(style.innerHTML);
-
-          // style.remove();
         }
 
         const inlined = await critters.process(html);
@@ -47,13 +46,6 @@ async function main() {
         const head = DOMAfterCritters.querySelector('head');
 
         if (head) {
-          if (uniqueExtractedStyles.size > 0) {
-            head.insertAdjacentHTML(
-              'beforeend',
-              `<style>${Array.from(uniqueExtractedStyles).join('')}</style>`,
-            );
-          }
-
           for (const linkInHead of head.querySelectorAll('link')) {
             if (
               linkInHead.attributes?.as === 'style' ||
@@ -64,20 +56,22 @@ async function main() {
           }
         }
 
-        const inlinedStylesPath = `/assets/css/styles.${Date.now()}.css`;
+        const importantCSS = Array.from(uniqueExtractedStyles).join('');
 
-        fs.writeFileSync(
-          join(process.cwd(), 'build', inlinedStylesPath),
-          Array.from(uniqueExtractedStyles).join(''),
-        );
+        if (importantCSS.length > 0) {
+          const hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(importantCSS));
+          const inlinedStylesPath = `/assets/css/styles.${hash}.css`;
 
-        const body = DOMAfterCritters.querySelector('body');
+          fs.writeFileSync(join(process.cwd(), 'build', inlinedStylesPath), importantCSS);
 
-        if (body) {
-          body.insertAdjacentHTML(
-            'beforeend',
-            `<link rel="stylesheet" href="${inlinedStylesPath}" />`,
-          );
+          const body = DOMAfterCritters.querySelector('body');
+
+          if (body) {
+            body.insertAdjacentHTML(
+              'beforeend',
+              `<link rel="stylesheet" href="${inlinedStylesPath}" />`,
+            );
+          }
         }
 
         fs.writeFileSync(file, DOMAfterCritters.toString());
