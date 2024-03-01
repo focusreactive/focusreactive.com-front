@@ -46,16 +46,18 @@ async function main() {
         const DOMAfterCritters = parse(inlined);
         const head = DOMAfterCritters.querySelector('head');
 
-        if (head && uniqueExtractedStyles.size > 0) {
-          head.insertAdjacentHTML(
-            'beforeend',
-            `<style>${Array.from(uniqueExtractedStyles).join('')}</style>`,
-          );
-        }
+        if (head) {
+          if (uniqueExtractedStyles.size > 0) {
+            head.insertAdjacentHTML(
+              'beforeend',
+              `<style>${Array.from(uniqueExtractedStyles).join('')}</style>`,
+            );
+          }
 
-        for (const link of DOMAfterCritters.querySelectorAll('link')) {
-          if (link.attributes?.as === 'style') {
-            link.remove();
+          for (const linkInHead of head.querySelectorAll('link')) {
+            if (linkInHead.attributes?.as === 'style' || link.attributes?.rel === 'stylesheet') {
+              linkInHead.remove();
+            }
           }
         }
 
