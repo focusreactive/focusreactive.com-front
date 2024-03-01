@@ -39,7 +39,7 @@ async function main() {
         for (const style of DOMBeforeCritters.querySelectorAll('style')) {
           uniqueExtractedStyles.add(style.innerHTML);
 
-          style.remove();
+          // style.remove();
         }
 
         const inlined = await critters.process(html);
@@ -62,6 +62,22 @@ async function main() {
               linkInHead.remove();
             }
           }
+        }
+
+        const inlinedStylesPath = `/assets/css/styles.${Date.now()}.css`;
+
+        fs.writeFileSync(
+          join(process.cwd(), 'build', inlinedStylesPath),
+          Array.from(uniqueExtractedStyles).join(''),
+        );
+
+        const body = DOMAfterCritters.querySelector('body');
+
+        if (body) {
+          body.insertAdjacentHTML(
+            'beforeend',
+            `<link rel="stylesheet" href="${inlinedStylesPath}" />`,
+          );
         }
 
         fs.writeFileSync(file, DOMAfterCritters.toString());
