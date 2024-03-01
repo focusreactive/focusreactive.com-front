@@ -54,7 +54,7 @@ async function main() {
         }
 
         for (const link of DOMAfterCritters.querySelectorAll('link')) {
-          if (link.attributes?.as === 'style' || link.attributes?.rel === 'stylesheet') {
+          if (link.attributes?.as === 'style') {
             link.remove();
           }
         }
