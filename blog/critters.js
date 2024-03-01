@@ -26,7 +26,7 @@ function getFiles(dir, files = []) {
 async function main() {
   const folder = process.argv[2];
   const currentFolder = join(process.cwd(), folder);
-  const critters = new Critters({ path: currentFolder });
+  const critters = new Critters({ path: currentFolder, inlineFonts: true });
 
   const files = getFiles(currentFolder);
 
@@ -35,10 +35,15 @@ async function main() {
       try {
         const html = fs.readFileSync(file, 'utf-8');
         const DOMBeforeCritters = parse(html);
-        const uniqueExtractedStyles = new Set();
+
+        /*
+        whole thing with "importantStyles" is a workaround for preserving the specificity 
+        of applied styles in cases where both inline styles and regular CSS are used.
+        */
+        const uniqueImportantStyles = new Set();
 
         for (const style of DOMBeforeCritters.querySelectorAll('style')) {
-          uniqueExtractedStyles.add(style.innerHTML);
+          uniqueImportantStyles.add(style.innerHTML);
         }
 
         const inlined = await critters.process(html);
@@ -56,7 +61,7 @@ async function main() {
           }
         }
 
-        const importantCSS = Array.from(uniqueExtractedStyles).join('');
+        const importantCSS = Array.from(uniqueImportantStyles).join('');
 
         if (importantCSS.length > 0) {
           const hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(importantCSS));
