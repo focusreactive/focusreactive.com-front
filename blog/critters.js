@@ -55,7 +55,10 @@ async function main() {
           }
 
           for (const linkInHead of head.querySelectorAll('link')) {
-            if (linkInHead.attributes?.as === 'style' || link.attributes?.rel === 'stylesheet') {
+            if (
+              linkInHead.attributes?.as === 'style' ||
+              linkInHead.attributes?.rel === 'stylesheet'
+            ) {
               linkInHead.remove();
             }
           }
