@@ -33,16 +33,33 @@ async function main() {
     if (file.endsWith('.html')) {
       try {
         const html = fs.readFileSync(file, 'utf-8');
-        const inlined = await critters.process(html);
-        const DOM = parse(inlined);
+        const DOMBeforeCritters = parse(html);
+        const uniqueExtractedStyles = new Set();
 
-        for (const link of DOM.querySelectorAll('link')) {
-          if (link.attributes?.as === 'style') {
+        for (const style of DOMBeforeCritters.querySelectorAll('style')) {
+          uniqueExtractedStyles.add(style.innerHTML);
+
+          style.remove();
+        }
+
+        const inlined = await critters.process(html);
+        const DOMAfterCritters = parse(inlined);
+        const head = DOMAfterCritters.querySelector('head');
+
+        if (head && uniqueExtractedStyles.size > 0) {
+          head.insertAdjacentHTML(
+            'beforeend',
+            `<style>${Array.from(uniqueExtractedStyles).join('')}</style>`,
+          );
+        }
+
+        for (const link of DOMAfterCritters.querySelectorAll('link')) {
+          if (link.attributes?.as === 'style' || link.attributes?.rel === 'stylesheet') {
             link.remove();
           }
         }
 
-        fs.writeFileSync(file, DOM.toString());
+        fs.writeFileSync(file, DOMAfterCritters.toString());
       } catch (error) {
         console.log(error);
       }
