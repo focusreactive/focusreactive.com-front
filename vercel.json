@@ -96,6 +96,11 @@
       "source": "/ai-experts/",
       "destination": "/ai-integration-expert-agency/",
       "permanent": true
+    },
+    {
+      "source": "/nextjs-seo-expert-agency/ ",
+      "destination": "/nextjs-seo-audit-agency/",
+      "permanent": true
     }
   ]
 }
