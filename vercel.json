@@ -101,6 +101,11 @@
       "source": "/nextjs-seo-expert-agency/",
       "destination": "/nextjs-seo-audit-agency/",
       "permanent": true
+    },
+    {
+      "source": "/nextjs-seo-audit-agency/",
+      "destination": "/nextjs-seo-audit/",
+      "permanent": true
     }
   ]
 }
