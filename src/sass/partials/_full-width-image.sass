@@ -1,48 +1,48 @@
 .full-width-image
-	padding: clamp(20px, 5vw, 50px) 0
-	position: relative
+  padding: clamp(20px, 5vw, 50px) 0
+  position: relative
 
-	figcaption
-		max-width: 800px
-		margin: 0 auto
-		font-size: 24px
-		text-align: center
-		padding-top: 34px
+  figcaption
+    max-width: 800px
+    margin: 0 auto
+    font-size: 24px
+    text-align: center
+    padding-top: 34px
 
-		+s
-			margin-top: 20px
-			font-size: 16px
+    +s
+      margin-top: 20px
+      font-size: 16px
 
-	&__image
-		width: 100%
-		box-shadow: #c6c6c6 0 0 22px 3px
+  &__image
+    width: 100%
+    // box-shadow: #c6c6c6 0 0 22px 3px
 
-		+s
-			box-shadow: #c6c6c6 0 0 10px 2px
+    // +s
+    //   box-shadow: #c6c6c6 0 0 10px 2px
 
-	&__image-is-dark
-		width: 100%
-		box-shadow: none
+  &__image-is-dark
+    width: 100%
+    box-shadow: none
 
-	&__text
-		position: absolute
-		top: 50%
-		left: 50%
-		transform: translate(-50%, -50%)
-		font-size: clamp(52px, 10vw, 118px)
-		line-height: 1.2
-		letter-spacing: -0.02em
-		margin-bottom: 0
-		text-transform: uppercase
-		+helB
-		color: transparent
-		-webkit-background-clip: text
-		-webkit-text-stroke: 2px #fff
+  &__text
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    font-size: clamp(52px, 10vw, 118px)
+    line-height: 1.2
+    letter-spacing: -0.02em
+    margin-bottom: 0
+    text-transform: uppercase
+    +helB
+    color: transparent
+    -webkit-background-clip: text
+    -webkit-text-stroke: 2px #fff
 
-		&.colored
-			color: $green
-			-webkit-background-clip: unset
-			-webkit-text-stroke: 0
+    &.colored
+      color: $green
+      -webkit-background-clip: unset
+      -webkit-text-stroke: 0
 
-		&.shadow:not(.colored)
-			filter: drop-shadow(-3px -3px #222)
+    &.shadow:not(.colored)
+      filter: drop-shadow(-3px -3px #222)
