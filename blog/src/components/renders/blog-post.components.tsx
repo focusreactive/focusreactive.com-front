@@ -59,22 +59,39 @@ const applyAttr = (attrList) => {
   };
 };
 
-const applyImageTransform = (src: string, { width }: { width: number }) => {
+const generateOptimizedSources = (src: string, { width }: { width: number }) => {
   const isSanityCDN = /^https:\/\/cdn\.sanity\.io.*/.test(src);
+
   if (!isSanityCDN) {
-    return src;
+    return { optimizedSrcSet: src, optimizedSrc: src };
   }
+
   const hasParams = /.*\?.*/.test(src);
+
   if (hasParams) {
-    return src;
+    return { optimizedSrcSet: src, optimizedSrc: src };
   }
-  return `${src}?w=${width}&auto=format`;
+
+  const optimizedSrc = `${src}?w=${width}&auto=format`;
+  const optimizedSrcSet = [];
+
+  for (let i = 1; i <= 4; i++) {
+    optimizedSrcSet.push(`${src}?w=${width * i}&auto=format ${i}x`);
+  }
+
+  return { optimizedSrcSet: optimizedSrcSet.join(', '), optimizedSrc };
 };
 
 const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappers }) => {
   const element = (
     <a href={fullSizeSrc} target={'_blank'}>
-      <img className={clsx('image', classList)} src={src} alt={altText} loading="lazy" />
+      <img
+        className={clsx('image', classList)}
+        src={src}
+        alt={altText}
+        loading="lazy"
+        srcSet={srcSet}
+      />
     </a>
   );
   const wrappedElement = wrappers.reduce((result, wr) => wr(result), element);
@@ -82,15 +99,14 @@ const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappe
 };
 
 export const Image = ({ src, alt }) => {
-  const optimizedSrc = applyImageTransform(src, { width: 620 });
-  const optimizedRetinaSrc = applyImageTransform(src, { width: 1240 });
+  const { optimizedSrc, optimizedSrcSet } = generateOptimizedSources(src, { width: 620 });
   const rowAlt = alt || '';
   const attr = getImageAttr(rowAlt);
   const altText = getImageAlt(rowAlt);
   const modifiers = applyAttr(attr);
   const element = constructElement({
     src: optimizedSrc,
-    srcSet: optimizedRetinaSrc,
+    srcSet: optimizedSrcSet,
     fullSizeSrc: src,
     altText,
     ...modifiers,
