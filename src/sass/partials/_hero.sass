@@ -1,325 +1,339 @@
 .hero
-	min-height: 100vh
-	position: relative
-	$this: &
-	&__bg
-		position: absolute
-		top: 0
-		left: 0
-		width: 100%
-		height: 100%
-		background-repeat: no-repeat
-		background-size: cover
-		background-position: 100% 0
-		overflow: hidden
-		video
-			position: absolute
-			width: auto
-			height: auto
-			left: 0
-			top: 0
-			min-width: 100%
-			min-height: 100%
-			overflow: hidden
-			top: 50%
-			left: 50%
-			transform: translate(-50%,-50%)
-	&__inner
-		position: relative
-		z-index: 100
-		padding-top: 170px
-		display: flex
-		flex-direction: column
-		justify-content: center
-		min-height: calc(100vh - 50px)
-		padding-bottom: 100px
-		&.top
-			justify-content: flex-start
-		&.bottom
-			justify-content: flex-end
-			padding-bottom: 130px
-		+m
-			padding-top: 120px
-		+md
-			padding-top: 100px
-		+r(1024)
-			padding-top: 105px
-		+ie
-			display: block
-			padding-top: 15vh
-		&--center
-			padding-top: 132px
-			+md
-				padding-top: 132px
-			+xs
-				padding-top: 130px
-			+ie
-				padding-top: 25vh
-				+md
-					padding-top: 20vh
-				+xs
-					padding-top: 10vh
-	&__title
-		color: $green
-		font-size: 120px
-		letter-spacing: -0.025em
-		margin: 0 0 0 -10px
-		+helB
-		line-height: 0.842
-		text-transform: uppercase
-		// margin-left: -10px
-		+m
-			font-size: 9.6vw
-		+xs
-			font-size: 11vw
-			line-height: 1
-		+ie
-			margin-left: 50px
-			padding-top: 8vh
-			+md
-				margin-left: 0
-		@supports (-webkit-overflow-scrolling: touch)
-			+hel
-			font-weight: 700
-		span
-			position: relative
-			display: block
+  min-height: 100vh
+  position: relative
+  $this: &
+  padding-top: 170px
+  padding-bottom: 50px
+  display: flex
+  +m
+    padding-top: 120px
+  +md
+    padding-top: 100px
+  +r(1024)
+    padding-top: 105px
+  &:has(.hero__inner--center)
+    padding-top: 132px
+    +md
+      padding-top: 132px
+    +xs
+      padding-top: 130px
+    +ie
+      padding-top: 25vh
+    +md
+      padding-top: 20vh
+    +xs
+      padding-top: 10vh
+  .container
+    display: flex
+    flex-direction: column
+  &__bg
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: 100% 0
+    overflow: hidden
+    video
+      position: absolute
+      width: auto
+      height: auto
+      left: 0
+      top: 0
+      min-width: 100%
+      min-height: 100%
+      overflow: hidden
+      top: 50%
+      left: 50%
+      transform: translate(-50%,-50%)
+  &__inner
+    position: relative
+    z-index: 100
+    margin-bottom: 100px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    flex: 1
+    &.top
+      justify-content: flex-start
+    &.bottom
+      justify-content: flex-end
+      padding-bottom: 130px
+    +sm
+      margin-bottom: 60px
 
-			&:nth-child(1)
-				margin-left: 8%
+    +ie
+      display: block
+      padding-top: 15vh
 
-			&:nth-child(2)
-				margin-left: 20%
-				color: transparent
-				-webkit-background-clip: text
-				-webkit-text-stroke: 2px #fff
+  &__title
+    color: $green
+    font-size: clamp(35px, 8.5vw, 120px)
+    letter-spacing: -0.025em
+    margin: 0 0 0 -10px
+    +helB
+    line-height: 0.842
+    text-transform: uppercase
+    +md
+      margin-left: 0
+    +xs
+      line-height: 1
 
-			&:nth-child(3)
-				margin-left: 50%
-				color: transparent
-				-webkit-background-clip: text
-				-webkit-text-stroke: 2px #fff
+    @supports (-webkit-overflow-scrolling: touch)
+      +hel
+      font-weight: 700
+    span
+      position: relative
+      display: block
 
-			&:nth-child(4)
-				margin-left: 30.5%
+      &:nth-child(1)
+        margin-left: 8%
 
-			&:nth-child(5)
-				margin-left: 51%
-			+xs
-				&:nth-child(2),
-				&:nth-child(3)
-					-webkit-text-stroke: 1.5px #fff
-				&:nth-child(2),
-				&:nth-child(4),
-				&:nth-child(5)
-					margin: 0
-					text-align: center
+      &:nth-child(2)
+        margin-left: 20%
+        color: transparent
+        -webkit-background-clip: text
+        -webkit-text-stroke: 2px #fff
 
-				&:nth-child(3)
-					margin: 0
-					text-align: right
+      &:nth-child(3)
+        margin-left: 50%
+        color: transparent
+        -webkit-background-clip: text
+        -webkit-text-stroke: 2px #fff
 
-	&__title_landing
-		font-size: 120px
-		letter-spacing: -0.025em
-		//margin: 0 0 0 -10px
-		+helB
-		line-height: 0.842
-		text-transform: uppercase
-		margin-left: -10px
-		+m
-			font-size: 9.6vw
-		+xs
-			font-size: 11vw
-			line-height: 1
+      &:nth-child(4)
+        margin-left: 30.5%
 
-		+md
-			margin: 0 0 0 -10px
-		+ie
-			margin-left: 50px
-			padding-top: 8vh
-			+md
-				margin-left: 0
-		@supports (-webkit-overflow-scrolling: touch)
-			+hel
-			font-weight: 700
+      &:nth-child(5)
+        margin-left: 51%
+      +xs
+        &:nth-child(2),
+        &:nth-child(3)
+          -webkit-text-stroke: 1.5px #fff
+        &:nth-child(2),
+        &:nth-child(4),
+        &:nth-child(5)
+          margin: 0
+          text-align: center
 
-		span:not([data-inherit-color="true"])
-			color: $green
+        &:nth-child(3)
+          margin: 0
+          text-align: right
 
-		span
-			position: relative
-			display: block
+  &__title_landing
+    font-size: clamp(35px, 8.5vw, 120px)
+    letter-spacing: -0.025em
+    +helB
+    line-height: 0.842
+    text-transform: uppercase
+    margin-left: -10px
+    +md
+      margin: 0
+    +xs
+      line-height: 1
 
-			&:nth-child(1):not([data-disable-custom-style="true"])
-				color: transparent
-				-webkit-background-clip: text
-				-webkit-text-stroke: 2px #fff
+    @supports (-webkit-overflow-scrolling: touch)
+      +hel
+      font-weight: 700
 
-				&[data-title-shadow="true"]
-					filter: drop-shadow(-3px -3px #222)
+    span:not([data-inherit-color="true"])
+      color: $green
 
-		&--main
-			svg
-				+xs
-					max-height: 55px !important
-					margin-left: 10px
-				+r(520)
-					max-height: 46px !important
-				+r(500)
-					max-height: 56px !important
-				+r(400)
-					max-height: 48px !important
-				+r(350)
-					max-height: 43px !important
-			svg text
-				+xs
-					font-size: 150px
+    span
+      position: relative
+      display: block
 
-	&__next-section
-		position: absolute
-		// bottom: 80px
-		bottom: 9vh
-		left: 0
-		right: 0
-		margin: 0 auto
-		text-align: center
-		z-index: 100
-		animation: mouseArrowDown 4s ease infinite
-		+m
-			bottom: 53px
-		+md
-			bottom: 56px
-		+xs
-			bottom: 25px
-		svg
-			line, polyline
-				stroke: #9b9d9f
-			+md
-				width: 31px
-	&__note
-		position: absolute
-		bottom: 34px
-		font-size: 12px
-		font-weight: normal
-		left: 69.8%
-		// right: percentage(325px/1600px)
-		z-index: 10
-		color: $white
-		white-space: nowrap
-		text-decoration: none
-		// padding-right: 40px
-		+lg
-			left: 73.5%
-		+md
-			left: 73.5%
-			bottom: 18px
-			letter-spacing: -0.025em
-		+sm
-			left: auto
-			right: 20px
-			bottom: 20px
-			padding-right: 10px
-		+xs
-			display: none
-		strong
-			font-weight: normal
-		span
-			opacity: 0.3
-			padding-left: 20px
-	&__scroll-note
-		position: absolute
-		bottom: -15px
-		left: 50px
-		color: $white
-		opacity: 0.4
-		font-size: 12px
-		cursor: pointer
-		z-index: 100
-		text-decoration: none
-		display: inline-block
-		transition: opacity .2s ease
-		+md
-			left: 30px
-			bottom: -36px
-		&:hover, &:focus-visible
+      &:nth-child(1):not([data-disable-custom-style="true"])
+        color: transparent
+        -webkit-background-clip: text
+        -webkit-text-stroke: 2px #fff
 
-			opacity: 1
-		+sm
-			bottom: -30px
-		+xs
-			display: none
-	&__feature
-		+rmin(768)
-			display: none
-		+sm
-			display: block
-			position: absolute
-			transform: rotate(-90deg)
-			+hel
-			z-index: 100
-			right: -70px
-			bottom: 35%
-			font-size: 11px
-			color: $white
-			opacity: 0.4
-	.container
-		position: relative
+        &[data-title-shadow="true"]
+          filter: drop-shadow(-3px -3px #222)
 
-	&__logos
-		position: absolute
-		bottom: 0
-		right: 0
-		left: 0
-		color: #fff
+    &--main
+      svg
+        +xs
+          max-height: 55px !important
+          margin-left: 10px
+        +r(520)
+          max-height: 46px !important
+        +r(500)
+          max-height: 56px !important
+        +r(400)
+          max-height: 48px !important
+        +r(350)
+          max-height: 43px !important
+      svg text
+        +xs
+          font-size: 150px
 
-		p
-			margin-bottom: 20px
+  &__next-section
+    position: absolute
 
-	&__logos_inner
-		display: flex
-		flex-direction: column
-		justify-content: flex-end
+    bottom: 9vh
+    left: 0
+    right: 0
+    margin: 0 auto
+    text-align: center
+    z-index: 100
+    animation: mouseArrowDown 4s ease infinite
+    +m
+      bottom: 53px
+    +md
+      bottom: 56px
+    +xs
+      bottom: 25px
+    svg
+      line, polyline
+        stroke: #9b9d9f
+      +md
+        width: 31px
+  &__note
+    position: absolute
+    bottom: 34px
+    font-size: 12px
+    font-weight: normal
+    left: 69.8%
 
-		+md
-			display: flex
-			flex-direction: column
-			justify-content: flex-start
+    z-index: 10
+    color: $white
+    white-space: nowrap
+    text-decoration: none
 
-	&__logos_box
-		display: flex
-		flex-direction: row
-		flex-wrap: wrap
-		gap: 20px 50px
-		margin-bottom: 30px
+    +lg
+      left: 73.5%
+    +md
+      left: 73.5%
+      bottom: 18px
+      letter-spacing: -0.025em
+    +sm
+      left: auto
+      right: 20px
+      bottom: 20px
+      padding-right: 10px
+    +xs
+      display: none
+    strong
+      font-weight: normal
+    span
+      opacity: 0.3
+      padding-left: 20px
+  &__scroll-note
+    position: absolute
+    bottom: -15px
+    left: 50px
+    color: $white
+    opacity: 0.4
+    font-size: 12px
+    cursor: pointer
+    z-index: 100
+    text-decoration: none
+    display: inline-block
+    transition: opacity .2s ease
+    +md
+      left: 30px
+      bottom: -36px
+    &:hover, &:focus-visible
 
-		+sm
-			gap: 10px 30px
+      opacity: 1
+    +sm
+      bottom: -30px
+    +xs
+      display: none
+  &__feature
+    +rmin(768)
+      display: none
+    +sm
+      display: block
+      position: absolute
+      transform: rotate(-90deg)
+      +hel
+      z-index: 100
+      right: -70px
+      bottom: 35%
+      font-size: 11px
+      color: $white
+      opacity: 0.4
+  .container
+    position: relative
 
-	&__logos-item
-		display: flex
-		align-items: center
-		justify-content: center
-		height: 90px
-		max-width: 200px
+  &__logos
+    flex: none
+    color: #fff
 
-		+md
-			height: 60px
-			max-width: 140px
+    p
+      margin-bottom: 20px
+      text-transform: uppercase
+      font-size: 14px
+      font-weight: 700
 
-		+sm
-			height: 40px
-			max-width: 100px
+  &__logos_inner
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
 
-		img
-			display: flex
-			object-fit: contain
-			width: 100%
-			height: 100%
+    +md
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
 
-	&.is-desktop
-		+xs
-			display: none
-		#{$this}__next-section
-			+xs
-				display: none
+  &__logos_box
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    gap: 20px 50px
+
+    +sm
+      gap: 10px 30px
+
+  &__logos-item
+    display: flex
+    align-items: center
+    justify-content: center
+    height: 90px
+    max-width: 200px
+
+    +md
+      height: 60px
+      max-width: 140px
+
+    +sm
+      height: 40px
+      max-width: 100px
+
+    img
+      display: flex
+      object-fit: contain
+      width: 100%
+      height: 100%
+
+  &.is-desktop
+    +xs
+      display: none
+    #{$this}__next-section
+      +xs
+        display: none
+  &--bg-right
+    +s
+      padding-bottom: calc(40vh + 40px)
+    .hero__bg
+      left: 50%
+      width: 50%
+
+      +s
+        left: 0
+        width: 100%
+        top: auto
+        bottom: 0
+        height: 40vh
+
+    .hero__inner
+      padding-top: 0 !important
+      max-width: calc(50% - 50px)
+      +s
+        max-width: none
+    .hero__logos p
+      color: #747474

@@ -1,9 +1,10 @@
 <!-- begin hero -->
-<section id="home" data-section="home" class="hero is-dark js-scroll-header {{heroMod}}">
+<section id="home" data-section="home" class="hero is-dark js-scroll-header {{heroMod}} {{ 'hero--bg-right' if heroData.isCustomBgImage }}">
+
   <div
     class="hero__bg hero-bg--image"
-    style="background-image: url({{ heroData.image | imgURL }})"
-  ></div>
+    style="background-image: url({{ heroData.image | imgURL }})">
+  </div>
   <div class="container">
     <div class="hero__inner {{ heroData.titlePosition }}">
       <h1 class="hero__title_landing" style="color: {{ heroData.titleColor }}">
@@ -11,17 +12,12 @@
         <span
           data-disable-custom-style="{{heroData.isCustomFirstLineDisabled}}"
           data-inherit-color="{% if heroData.titleColor %}true{% endif %}"
-          data-title-shadow="{% if heroData.titleShadow %}true{% endif %}"
-          >{{ line }}</span
-        >
+          data-title-shadow="{% if heroData.titleShadow %}true{% endif %}">{{ line }}</span>
         {% endfor %}
       </h1>
     </div>
-  </div>
-
-  {% if data._id != 'ce0e4726-6b0f-4d3d-b726-d580a64b15a2' %}
-  <div class="hero__logos">
-    <div class="container">
+    {% if data._id != 'ce0e4726-6b0f-4d3d-b726-d580a64b15a2' %}
+    <div class="hero__logos">
       <div class="hero__logos_inner">
         <p>Official partners</p>
         <div class="hero__logos_box">
@@ -33,7 +29,9 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
-  {% endif %}
+
+
 </section>
 <!-- end hero -->
