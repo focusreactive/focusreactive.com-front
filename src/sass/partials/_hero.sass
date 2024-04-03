@@ -4,7 +4,7 @@
   $this: &
   padding-top: 170px
   padding-bottom: 50px
-  display: flex
+
   +m
     padding-top: 120px
   +md
@@ -23,9 +23,7 @@
       padding-top: 20vh
     +xs
       padding-top: 10vh
-  .container
-    display: flex
-    flex-direction: column
+
   &__bg
     position: absolute
     top: 0
@@ -317,6 +315,10 @@
       +xs
         display: none
   &--bg-right
+    display: flex
+    .container
+      display: flex
+      flex-direction: column
     +s
       padding-bottom: calc(40vh + 40px)
     .hero__bg
