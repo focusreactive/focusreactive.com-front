@@ -1,0 +1,240 @@
+
+.sec-portfolio
+
+  padding-top: 170px
+
+  +s
+    padding-top: 105px
+  &__title
+    text-align: center
+    font-size: clamp(30px, 7.4vw, 86px)
+    +helB
+    line-height: 0.9
+    text-transform: uppercase
+    margin-left: -10px
+    color: transparent
+    -webkit-background-clip: text
+    -webkit-text-stroke: 2px #fff
+    +md
+      margin: 0
+    +sm
+      -webkit-text-stroke-width: 1px
+    +xs
+      line-height: 1
+    span
+      display: block
+  &__subtitle
+    color: #fff
+    text-align: center
+    font-size: clamp(12px, 2vw, 16px)
+    font-weight: 700
+    line-height: 1.15
+    text-transform: uppercase
+    max-width: 600px
+    margin-left: auto
+    margin-right: auto
+    margin-top: 30px
+    +sm
+      margin-top: 15px
+  &__tags
+    display: flex
+    margin-top: 40px
+    margin-bottom: 40px
+    justify-content: center
+    position: sticky
+    top: 92px
+    z-index: 10
+    background: inherit
+    @extend .container
+    padding-top: 10px
+    padding-bottom: 10px
+
+    +sm
+      margin-top: 20px
+      margin-bottom: 20px
+
+.nav-tags
+  display: flex
+  gap: 6px
+  overflow: hidden
+  overflow-x: auto
+  margin: 0 calc(var(--container) * -1)
+  padding: 0 var(--container) 5px
+
+  &__link
+    flex: none
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    border-radius: 50px
+    border: 1px solid #363636
+    height: 50px
+    font-size: 16px
+    color: #747474
+    padding: 0 30px
+    text-decoration: none
+    background: transparent
+    +sm
+      height: 40px
+      border-radius: 40px
+      padding: 0 20px
+      font-size: 14px
+    &:hover, &:focus-visible
+      border-color: #999
+    &.is-active
+      background: $green
+      color: #fff
+      border-color: $green
+
+.portfolio-item
+  padding: 55px 0
+  min-height: 370px
+  display: flex
+  border-top: 1px solid var(--colorGray3ToGrayC)
+  position: relative
+  z-index: 1
+
+  +sm
+    padding: 0
+    border: none !important
+    min-height: auto
+  &.is-hidden
+    display: none
+  &:last-child
+    border-bottom: 1px solid var(--colorGray3ToGrayC)
+  .container
+    display: flex
+    gap: 0 50px
+
+    +s
+      gap: 0 40px
+    +sm
+      flex-direction: column
+      padding: 0
+    a
+      position: relative
+      z-index: 2
+  &__logo
+    flex: 1
+    display: flex
+    align-items: center
+    justify-content: center
+    padding: 20px
+    +s
+      flex: 0.8
+    +sm
+      min-height: 218px
+      position: relative
+      padding-left: var(--container)
+      padding-right: var(--container)
+    img
+      width: 100%
+      max-width: 300px
+      filter: brightness(50%)
+      transition: filter 0.2s linear
+      +sm
+        filter: brightness(100%)
+  &__content
+    flex: 1
+    display: flex
+    flex-direction: column
+    gap: 16px
+    +s
+      flex: 1.2
+    +sm
+      padding: 25px var(--container)
+
+  &__title
+    color: var(--colorWhiteToDark)
+    font-size: 28px
+    font-weight: 700
+    text-transform: uppercase
+    text-wrap: balance
+    max-width: 360px
+    line-height: 1.1
+    flex: none
+    +sm
+      font-size: 22px
+      max-width: none
+  &__text
+    line-height: 1.3
+    flex: 1 1 auto
+    font-size: 14px
+    color: var(--colorWhiteToDark)
+    +sm
+      font-size: 12px
+    a
+      text-decoration: underline
+      color: inherit
+      &:hover
+        text-decoration: none
+  &__link
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    display: block
+    &:hover, &:focus-visible
+      & + .container .portfolio-item__bg
+        opacity: 1
+      & + .container .portfolio-item__logo
+        img
+          filter: brightness(100%)
+      & + .container .e-utils
+        &__title
+          color: #fff
+        &__list-item
+          color: #fff
+
+  &__bg
+    background-size: cover
+    background-repeat: no-repeat
+    background-position: center
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    z-index: -1
+    opacity: 0
+    transition: opacity 0.2s linear
+    +sm
+      opacity: 1
+    &:after
+      content: ''
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%)
+      position: absolute
+      top: 0
+      left: 0
+      right: 0
+      bottom: 0
+
+  .e-utils
+    flex: 1 1 auto
+    &__list-img
+      img
+        filter: brightness(50%)
+    +rmin(768)
+      &__title
+        font-size: 16px
+      &__list-item
+        font-size: 14px
+
+  &:hover, &:focus-visible
+    border-top-color: transparent
+    & + .portfolio-item
+      border-top-color: transparent
+    &:last-child
+      border-bottom-color: transparent
+
+    .portfolio-item__bg
+      opacity: 1
+    .portfolio-item__logo
+      img
+        filter: brightness(100%)
+    .e-utils
+      &__title
+        color: #fff
+      &__list-item
+        color: #fff

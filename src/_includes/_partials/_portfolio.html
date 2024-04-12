@@ -1,0 +1,66 @@
+<section id="portfolio" data-section="portfolio" class="sec-portfolio is-dark
+js-scroll-header
+
+
+">
+  <div class="container ">
+    <h1 class="sec-portfolio__title">
+      {% for line in portfolioData.titleLines %}
+      <span>{{ line }}</span>
+      {% endfor %}
+    </h1>
+    <h2 class="sec-portfolio__subtitle">OUR SOLUTIONS HELP CLIENTS BEAT THE COMPETITION AND ACCELERATE BUSINESS GROWTH. WHILE ADVANCED TECH IS OUR GAME, BUSINESS PRIORITIES ARE ALWAYS FIRST</h2>
+  </div>
+
+  {% if portfolioData.tags.length > 0 %}
+  <div class="sec-portfolio__tags js-mixed-nav" id="tags">
+    <div class="nav-tags scrollbar">
+      {% for tag in portfolioData.tags %}
+      <a href="#portfolio-list" class="nav-tags__link js-mixed-btn " data-offset-target="#tags">{{tag}}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  <div id="portfolio-list">
+    {% for portfolio in portfolioData.portfolio.elements %}
+    <div class="portfolio-item js-mixed-items" data-tags="{% for tag in portfolio.tags %}{{tag.title}}{{',' if not loop.last}}{% endfor %}">
+      <a href="{{portfolio.link}}" aria-label="{{portfolio.title}}" class="portfolio-item__link">&nbsp;</a>
+      <div class="container container--sm">
+        <div class="portfolio-item__logo">
+          <div class="portfolio-item__bg" style="background-image: url('{{portfolio.background}}');"></div>
+          <img src="{{portfolio.logo}}" alt="">
+        </div>
+        <div class="portfolio-item__content">
+          <h3 class="portfolio-item__title">{{portfolio.title}}</h3>
+          <div class="portfolio-item__text">
+            {{portfolio.richText | blockContent}}
+          </div>
+
+
+          {% if portfolio.portfolioTechnologies %}
+          <div class="e-utils">
+            {% for technologies in portfolio.portfolioTechnologies %}
+            <div class="e-utils__item">
+              <div class="e-utils__title">{{technologies.title}}</div>
+              <div class="e-utils__list">
+                {% for technologiesItem in technologies.items %}
+                <a href="{{technologiesItem.link}}" class="e-utils__list-item">
+                  <div class="e-utils__list-img">
+                    <img src="{{technologiesItem.icon}}" alt="{{technologiesItem.title}}">
+                  </div>
+                  <span>{{technologiesItem.title}}</span>
+                </a>
+                {% endfor %}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
