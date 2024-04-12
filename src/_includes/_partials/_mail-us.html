@@ -1,4 +1,4 @@
-<section class="mail-us is-light js-scroll-header" id="mail-us">
+<section class="mail-us  js-scroll-header {% sectionClasses emailFormData %}" id="mail-us">
   <div class="container">
     <div class="mail-us__head">
       {% if emailFormData.subtitle %}
@@ -48,7 +48,7 @@
 
         {% if not visiblePrices %}
         <div class="mail-form__line mail-form__line--full">
-          <label class="form-label is-light">Subject</label>
+          <label class="form-label ">Subject</label>
           <div class="checkbox-btn-list">
             <label class="checkbox-btn">
               <input name="visitor-subject" value="visitor-Next-JS-development" type="checkbox" data-key="visitor-Next-JS-development" />
