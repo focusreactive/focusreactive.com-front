@@ -21,7 +21,7 @@ body
 strong, b
   +helB
 .out
-  overflow: hidden
+  overflow: clip
   width: 100%
   min-height: 100%
   flex: 1 1 auto
@@ -263,3 +263,31 @@ br.is-desktop
     margin-bottom: 0 !important
   &>*:first-child
     margin-top: 0 !important
+
+.scrollbar
+  &::-webkit-scrollbar
+    width: 4px
+    height: 4px
+
+  &::-webkit-scrollbar-button
+    width: 0px
+    height: 0px
+
+  &::-webkit-scrollbar-thumb
+    background: #666
+    border: 0px none #ffffff
+    cursor: pointer
+    border-radius: 50px
+
+  &::-webkit-scrollbar-thumb:hover,
+  &::-webkit-scrollbar-thumb:active
+    background: #999
+
+  &::-webkit-scrollbar-track
+    background: #212424
+    border: 0px none #ffffff
+    border-radius: 50px
+    cursor: pointer
+
+  &::-webkit-scrollbar-corner
+    background: transparent

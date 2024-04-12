@@ -36,7 +36,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/sass');
 
   eleventyConfig.addNunjucksShortcode('sectionClasses', function (block) {
-    const sectionConfig = block?.sectionConfig;
+    const sectionConfig = block?.sectionConfig || block?.mainSectionConfig;
     if (!sectionConfig) return '';
     const classes = [];
     const { disableTopPadding, disableBottomPadding, darkMode } = sectionConfig;
