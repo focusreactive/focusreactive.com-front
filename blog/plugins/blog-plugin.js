@@ -84,6 +84,7 @@ function getRelatedPosts(allBlogPosts, currentPost) {
     permalink: '/' + post.slug,
     authors: post.authors,
     tags: post.tags,
+    technologies: post.technologies,
   }));
 }
 
@@ -117,6 +118,14 @@ async function blogPluginExtended(...pluginArgs) {
       "authors": authors[]->id,
       "content": contentMarkdown,
       "tags": tags[]->label,
+      "technologies": technologies{
+        title,
+        technologies[]->{
+          name,
+          link,
+          "picture": picture.asset->url
+        }
+      },
       `;
 
         const authorFields = `
@@ -165,6 +174,7 @@ async function blogPluginExtended(...pluginArgs) {
               title: post.title,
               description: post.description,
               tags: post.tags,
+              technologies: post.technologies,
               authors: post.authors,
               frontMatter: {},
             },
@@ -184,6 +194,7 @@ async function blogPluginExtended(...pluginArgs) {
                 relatedPosts,
                 authorsMap,
                 tags: post.tags,
+                technologies: post.technologies,
               }) +
               '---' +
               os.EOL +
