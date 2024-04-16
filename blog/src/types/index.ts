@@ -6,6 +6,17 @@ export type SanityApiAuthor = {
   url: string;
 };
 
+export type BlogApiTechnologies = {
+  title: string;
+  technologies: BlogApiTechnology[];
+};
+
+export type BlogApiTechnology = {
+  name: string;
+  picture: string;
+  link: string;
+};
+
 export type BlogApiTag = {
   label: string;
   /** Permalink to this tag's page, without the `/tags/` base path. */
