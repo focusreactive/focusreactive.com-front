@@ -11,21 +11,23 @@ import Signatures from '../../components/Signatures';
 import { ArticlesList } from '../../components/ArticlesList';
 import styles from './styles.module.css';
 import { TagsRow } from '../../components/TagsRow';
-import type { SanityApiAuthor, BlogApiRelatedPost } from '@site/src/types';
+import type { SanityApiAuthor, BlogApiRelatedPost, BlogApiTechnologies } from '@site/src/types';
 import clsx from 'clsx';
 import MDXContent from '../MDXContent';
 import Head from '@docusaurus/Head';
 import { GENERIC_TITLE } from '@site/src/constants';
+import TechnologiesList from '@site/src/components/TechnologiesList';
 
 function BlogPostPageContent({ children }) {
   const { frontMatter } = useBlogPost();
 
   type ExtendedMetadata = typeof frontMatter & {
+    technologies: BlogApiTechnologies;
     relatedPosts: BlogApiRelatedPost;
     authorsMap: SanityApiAuthor[];
   };
 
-  const { title, description, tags, relatedPosts, permalink, authorsMap, date } =
+  const { title, description, tags, relatedPosts, technologies, permalink, authorsMap, date } =
     frontMatter as unknown as ExtendedMetadata;
 
   const heroImage = (frontMatter.image || frontMatter.heroImage) as string;
@@ -72,6 +74,7 @@ function BlogPostPageContent({ children }) {
         </div>
       </Article>
       <Signatures authorsMap={authorsMap} authorIds={authorIds} />
+      {technologies && <TechnologiesList technologies={technologies} />}
       <ArticlesList posts={relatedPosts} excludeLinks={permalink} short />
     </BlogLayout>
   );
