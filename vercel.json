@@ -111,6 +111,11 @@
       "source": "/best-headless-cms-for-nextjs-2024/",
       "destination": "/best-headless-cms-for-nextjs-2023/",
       "permanent": true
+    },
+    {
+      "source": "/cms-kit/",
+      "destination": "/cms-kit-focusreactive/",
+      "permanent": true
     }
   ]
 }
