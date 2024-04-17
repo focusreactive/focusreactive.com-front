@@ -1,0 +1,40 @@
+.sec-our-mission
+  border-top: 1px solid #363636
+  border-bottom: 1px solid #363636
+  position: relative
+  .title
+    margin-bottom: 20px
+.our-mission
+  &__content
+    flex: 1
+    max-width: 50%
+  &__img
+    position: absolute
+    top: -1px
+    bottom: -1px
+    left: 55%
+    width: 45%
+
+    img
+      display: block
+      width: 100%
+      height: 100%
+      object-fit: cover
+  &__text
+    font-size: 16px
+    color: var(--colorWhiteToDark)
+    ul
+      li
+        position: relative
+        padding-left: 2em
+        margin-bottom: 7px
+        &:last-child
+          margin-bottom: 0
+        &:before
+          content: ''
+          position: absolute
+          left: 0
+          top: .1em
+          width: 1em
+          height: 1em
+          background: url('/assets/img/list-check.svg') no-repeat center

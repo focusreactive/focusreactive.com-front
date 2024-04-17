@@ -23,6 +23,14 @@ export default async function handler(request, response) {
       path = 'our-work-preview';
       break;
     }
+    case 'portfolio-preview': {
+      path = 'portfolio-preview';
+      break;
+    }
+    case 'cms-kit-preview': {
+      path = 'cms-kit-preview';
+      break;
+    }
     default: {
       path = 'default-preview';
       break;
