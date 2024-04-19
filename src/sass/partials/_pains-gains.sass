@@ -1,0 +1,24 @@
+
+.pains-gains
+  &__item
+    display: flex
+    align-items: center
+    gap: 50px
+    min-height: 112px
+    border-top: 1px solid var(--colorGray3ToGrayC)
+    &:last-child
+      border-bottom: 1px solid var(--colorGray3ToGrayC)
+  &__minus, &__plus
+    flex: 1
+    position: relative
+    min-height: 52px
+    display: flex
+    align-items: center
+  &__minus
+    padding-left: 90px
+    color: var(--colorGray7ToGray94)
+    background: url('/assets/img/circle-close.svg') no-repeat center left
+  &__plus
+    padding-right: 90px
+    color: var(--colorWhiteToDark)
+    background: url('/assets/img/circle-check.svg') no-repeat center right

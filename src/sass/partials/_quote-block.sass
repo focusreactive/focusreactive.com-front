@@ -1,0 +1,41 @@
+.sec-quote
+  border-top: 1px solid var(--colorGray3ToGrayC)
+  border-bottom: 1px solid var(--colorGray3ToGrayC)
+  position: relative
+
+.quote-block
+  display: flex
+  flex-direction: column
+  gap: 30px
+  max-width: 715px
+  margin-left: auto
+  margin-right: auto
+  &__text
+    color: var(--colorWhiteToDark)
+    font-size: 28px
+    font-weight: 700
+    text-transform: uppercase
+    line-height: 1.3
+
+  &__author
+    display: flex
+    align-items: center
+    gap: 20px
+    &-img
+      flex: none
+      width: 60px
+      height: 60px
+      img
+        width: 100%
+        height: 100%
+        border-radius: 50%
+        object-fit: cover
+    &-name
+      color: var(--colorGray7ToGray94)
+      font-size: 16px
+      font-weight: 700
+      text-transform: uppercase
+      line-height: 1.2
+    &-info
+      font-size: 14px
+      color: var(--colorGray7ToGray94)

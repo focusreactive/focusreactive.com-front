@@ -2,19 +2,25 @@
   border-top: 1px solid #363636
   border-bottom: 1px solid #363636
   position: relative
+
   .title
     margin-bottom: 20px
+    +sm
+      text-align: center
 .our-mission
   &__content
     flex: 1
     max-width: 50%
+    +s
+      max-width: 100%
   &__img
     position: absolute
     top: -1px
     bottom: -1px
     left: 55%
     width: 45%
-
+    +s
+      display: none
     img
       display: block
       width: 100%
@@ -23,6 +29,8 @@
   &__text
     font-size: 16px
     color: var(--colorWhiteToDark)
+    +sm
+      font-size: 14px
     ul
       li
         position: relative
