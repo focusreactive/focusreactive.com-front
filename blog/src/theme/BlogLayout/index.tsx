@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import { GENERIC_DESCRIPTION } from '@site/src/constants';
 import { PageMetadata } from '@docusaurus/theme-common';
 import { usePreview } from '@site/src/hooks/usePreview';
+import { getFullHeroImageSrc } from '@site/utils/getFullHeroImageSrc';
 
 export default function BlogLayout(props) {
   const { children, title, description, keywords, image, type, ...layoutProps } = props;
@@ -23,7 +24,9 @@ export default function BlogLayout(props) {
         <meta name="og:description" content={description || GENERIC_DESCRIPTION} />
 
         <meta name="og:image" content={previewImage} />
-        {image && <link rel="prefetch" href={image} />}
+        {image && (
+          <link href={getFullHeroImageSrc(image)} rel="preload" as="image" fetchPriority="high" />
+        )}
 
         {keywords && <meta name="keywords" content={keywords} />}
 
