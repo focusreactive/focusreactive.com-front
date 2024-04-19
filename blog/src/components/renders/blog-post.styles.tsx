@@ -191,4 +191,8 @@ export const MarkdownBlock = styled.div<ImageProps>`
       line-height: 1.72;
     }
   }
+
+  .image {
+    height: auto;
+  }
 `;

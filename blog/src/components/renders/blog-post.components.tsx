@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import { getImageDimensions } from '@site/utils/getImageDimensions';
 
 const imagePropsReg = /\$\{.*\}/;
 
@@ -83,6 +84,8 @@ const generateOptimizedSources = (src: string, { width }: { width: number }) => 
 };
 
 const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappers }) => {
+  const { width, height } = getImageDimensions(src);
+
   const element = (
     <a href={fullSizeSrc} target={'_blank'}>
       <img
@@ -91,6 +94,8 @@ const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappe
         alt={altText}
         loading="lazy"
         srcSet={srcSet}
+        width={width}
+        height={height}
       />
     </a>
   );
