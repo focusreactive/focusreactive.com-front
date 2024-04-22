@@ -423,8 +423,7 @@ async function blogPluginExtended(...pluginArgs) {
             },
           },
         ],
-        preBodyTags: [headerHtml],
-        postBodyTags: [footerHtml],
+        postBodyTags: [headerHtml, footerHtml],
       };
     },
     postBuild: function () {

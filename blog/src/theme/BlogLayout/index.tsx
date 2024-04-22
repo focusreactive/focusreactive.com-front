@@ -4,7 +4,7 @@ import Head from '@docusaurus/Head';
 import { GENERIC_DESCRIPTION } from '@site/src/constants';
 import { PageMetadata } from '@docusaurus/theme-common';
 import { usePreview } from '@site/src/hooks/usePreview';
-import { getFullHeroImageSrc } from '@site/utils/getFullHeroImageSrc';
+import { generateOptimizedSources } from '@site/utils/imageOptimizations';
 
 export default function BlogLayout(props) {
   const { children, title, description, keywords, image, type, ...layoutProps } = props;
@@ -14,6 +14,8 @@ export default function BlogLayout(props) {
     : 'https://focusreactive.com/assets/img/og-image.png';
 
   usePreview();
+
+  const { optimizedSrc, optimizedSrcSet } = generateOptimizedSources(image, { width: 'full' });
 
   return (
     <Layout {...layoutProps}>
@@ -25,7 +27,13 @@ export default function BlogLayout(props) {
 
         <meta name="og:image" content={previewImage} />
         {image && (
-          <link href={getFullHeroImageSrc(image)} rel="preload" as="image" fetchPriority="high" />
+          <link
+            href={optimizedSrc}
+            rel="preload"
+            as="image"
+            fetchPriority="high"
+            imageSrcSet={optimizedSrcSet}
+          />
         )}
 
         {keywords && <meta name="keywords" content={keywords} />}

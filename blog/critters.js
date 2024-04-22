@@ -26,7 +26,7 @@ function getFiles(dir, files = []) {
 async function main() {
   const folder = process.argv[2];
   const currentFolder = join(process.cwd(), folder);
-  const critters = new Critters({ path: currentFolder });
+  const critters = new Critters({ path: currentFolder, fonts: true });
 
   const files = getFiles(currentFolder);
 
