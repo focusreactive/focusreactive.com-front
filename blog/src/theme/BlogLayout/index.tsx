@@ -4,6 +4,7 @@ import Head from '@docusaurus/Head';
 import { GENERIC_DESCRIPTION } from '@site/src/constants';
 import { PageMetadata } from '@docusaurus/theme-common';
 import { usePreview } from '@site/src/hooks/usePreview';
+import { generateOptimizedSources } from '@site/utils/imageOptimizations';
 
 export default function BlogLayout(props) {
   const { children, title, description, keywords, image, type, ...layoutProps } = props;
@@ -14,6 +15,8 @@ export default function BlogLayout(props) {
 
   usePreview();
 
+  const { optimizedSrc, optimizedSrcSet } = generateOptimizedSources(image, { width: 'full' });
+
   return (
     <Layout {...layoutProps}>
       <PageMetadata title={title} />
@@ -23,7 +26,15 @@ export default function BlogLayout(props) {
         <meta name="og:description" content={description || GENERIC_DESCRIPTION} />
 
         <meta name="og:image" content={previewImage} />
-        {image && <link rel="prefetch" href={image} />}
+        {image && (
+          <link
+            href={optimizedSrc}
+            rel="preload"
+            as="image"
+            fetchPriority="high"
+            imageSrcSet={optimizedSrcSet}
+          />
+        )}
 
         {keywords && <meta name="keywords" content={keywords} />}
 
