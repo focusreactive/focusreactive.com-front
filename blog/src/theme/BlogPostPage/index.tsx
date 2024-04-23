@@ -17,6 +17,7 @@ import MDXContent from '../MDXContent';
 import Head from '@docusaurus/Head';
 import { GENERIC_TITLE } from '@site/src/constants';
 import TechnologiesList from '@site/src/components/TechnologiesList';
+import { generateOptimizedSources, getImageDimensions } from '@site/utils/imageOptimizations';
 
 function BlogPostPageContent({ children }) {
   const { frontMatter } = useBlogPost();
@@ -37,6 +38,9 @@ function BlogPostPageContent({ children }) {
     .filter((author) => authorIds.includes(author.id))
     .map((author) => author.name)
     .join(', ');
+
+  const { width, height } = getImageDimensions(heroImage);
+  const { optimizedSrc, optimizedSrcSet } = generateOptimizedSources(heroImage, { width: 'full' });
 
   return (
     <BlogLayout
@@ -62,9 +66,11 @@ function BlogPostPageContent({ children }) {
           {heroImage ? (
             <img
               className="hero-image"
-              src={`${heroImage}?w=1920&auto=format`}
+              src={optimizedSrc}
               alt={title}
-              fetchPriority="hight"
+              width={width}
+              height={height}
+              srcSet={optimizedSrcSet}
             />
           ) : null}
           <MDXContent>{children}</MDXContent>

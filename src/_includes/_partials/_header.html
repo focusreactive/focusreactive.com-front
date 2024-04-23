@@ -1,13 +1,9 @@
-<header
-  class="header is-light js-header {{headerMod}} {% if innerPage %} inner {% endif %}"
-  role="banner">
+<header class="header is-light js-header {{headerMod}} {% if innerPage %} inner {% endif %}" role="banner">
   <div class="container">
     <div class="header__inner">
       <div class="header__logo">
-        <a
-          href="{% if innerPage %}/{% else %}#home{% endif %}"
-          class="logo js-scroll-to"
-          aria-label="FocusReactive">{% include "./svg/focusreactive.svg" %}</a>
+        <a href="{% if innerPage %}/{% else %}#home{% endif %}" class="logo js-scroll-to" aria-label="FocusReactive">{%
+          include "./svg/focusreactive.svg" %}</a>
       </div>
       <div class="header__burger">
         <div class="burger js-burger"></div>
@@ -19,14 +15,12 @@
         <nav class="menu" role="navigation">
           <ul class="menu__list">
             {% for menuItem in headerData.menu %}
-            <li
-              class="
+            <li class="
               menu__item
               {{menuItem.mod}}
               {{'menu__item--dropdown' if menuItem.dropdown and menuItem.dropdown.length > 0 }}">
 
-              <a
-                class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-track-btn' if menuItem.mod }}"
+              <a class="menu__link {{'js-nav-link js-scroll-to' if menuItem.inner }} {{'js-track-btn' if menuItem.mod }}"
                 href="{{ menuItem.link | replace('/#', '#') if permalink.serverless === '/main-preview' else menuItem.link}}">
                 {{menuItem.text}}
               </a>
@@ -45,8 +39,8 @@
                     <div class="m-dropdown__logos">
                       {% for logo in menuItemDropdown.logo %}
                       <div class="m-dropdown__logos-item">
-                        <img src="{{logo.url}}" alt="" />
-                        <img src="{{logo.urlHover}}" alt="" />
+                        <img src="{{logo.url}}" alt="" loading="lazy" />
+                        <img src="{{logo.urlHover}}" alt="" loading="lazy" />
                       </div>
                       {% endfor %}
                     </div>
@@ -67,8 +61,8 @@
                         <div class="m-dropdown__logos">
                           {% for logo in dropdown.logo %}
                           <div class="m-dropdown__logos-item">
-                            <img src="{{logo.url}}" alt="" />
-                            <img src="{{logo.urlHover}}" alt="" />
+                            <img src="{{logo.url}}" alt="" loading="lazy" />
+                            <img src="{{logo.urlHover}}" alt="" loading="lazy" />
                           </div>
                           {% endfor %}
                         </div>
@@ -93,10 +87,7 @@
               </a>
             </li>
             <li>
-              <a
-                href="https://www.linkedin.com/company/focusreactive"
-                target="_blank"
-                rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/company/focusreactive" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
             </li>

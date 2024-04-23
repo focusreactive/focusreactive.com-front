@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import styles from './styles.module.css';
+import { generateOptimizedSources, getImageDimensions } from '@site/utils/imageOptimizations';
 
 const imagePropsReg = /\$\{.*\}/;
 
@@ -59,30 +60,9 @@ const applyAttr = (attrList) => {
   };
 };
 
-const generateOptimizedSources = (src: string, { width }: { width: number }) => {
-  const isSanityCDN = /^https:\/\/cdn\.sanity\.io.*/.test(src);
-
-  if (!isSanityCDN) {
-    return { optimizedSrcSet: src, optimizedSrc: src };
-  }
-
-  const hasParams = /.*\?.*/.test(src);
-
-  if (hasParams) {
-    return { optimizedSrcSet: src, optimizedSrc: src };
-  }
-
-  const optimizedSrc = `${src}?w=${width}&auto=format`;
-  const optimizedSrcSet = [];
-
-  for (let i = 1; i <= 4; i++) {
-    optimizedSrcSet.push(`${src}?w=${width * i}&auto=format ${i}x`);
-  }
-
-  return { optimizedSrcSet: optimizedSrcSet.join(', '), optimizedSrc };
-};
-
 const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappers }) => {
+  const { width, height } = getImageDimensions(src);
+
   const element = (
     <a href={fullSizeSrc} target={'_blank'}>
       <img
@@ -91,6 +71,8 @@ const constructElement = ({ src, srcSet, fullSizeSrc, altText, classList, wrappe
         alt={altText}
         loading="lazy"
         srcSet={srcSet}
+        width={width}
+        height={height}
       />
     </a>
   );

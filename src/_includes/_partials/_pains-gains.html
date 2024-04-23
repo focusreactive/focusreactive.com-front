@@ -1,0 +1,20 @@
+<section id="pains-gains" data-section="pains-gains" class="section sec-pains-gains  js-scroll-header {% sectionClasses painsGainsData %}">
+  <div class="container container--sm">
+    <div class="section__head">
+      <h2 class="title title--xxs text-ceter">{{painsGainsData.title}}</h2>
+    </div>
+
+    <div class="pains-gains">
+      {% for item in painsGainsData.items %}
+      <div class="pains-gains__item">
+        <div class="pains-gains__minus">
+          {{item.disabledText}}
+        </div>
+        <div class="pains-gains__plus">
+          {{item.enabledText}}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

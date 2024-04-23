@@ -1,0 +1,23 @@
+<section id="quote-block" data-section="quote-block" class="section sec-quote js-scroll-header  {% sectionClasses quoteBlockData %}">
+  <div class="container container--sm">
+    <div class="quote-block">
+      <div class="quote-block__text">
+        {{quoteBlockData.richText | blockContent}}
+      </div>
+      <div class="quote-block__author">
+        <div class="quote-block__author-img">
+          <img src="{{quoteBlockData.authorAvatar}}" alt="{{quoteBlockData.authorInfo}}">
+        </div>
+        <div class="quote-block__author-content">
+          <div class="quote-block__author-name">
+            {{quoteBlockData.authorName}}
+          </div>
+          <div class="quote-block__author-info">
+            {{quoteBlockData.authorInfo}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

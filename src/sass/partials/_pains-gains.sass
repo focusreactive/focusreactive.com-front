@@ -1,0 +1,43 @@
+
+.pains-gains
+  &__item
+    display: flex
+    align-items: center
+    gap: 50px
+    padding: 30px 0
+    min-height: 112px
+    border-top: 1px solid var(--colorGray3ToGrayC)
+    font-size: 16px
+    +s
+      font-size: 14px
+    +sm
+      flex-direction: column
+      gap: 20px
+    +xs
+      font-size: 12px
+    &:last-child
+      border-bottom: 1px solid var(--colorGray3ToGrayC)
+  &__minus, &__plus
+    flex: 1
+    position: relative
+    min-height: 52px
+    display: flex
+    align-items: center
+    +sm
+      width: 100%
+  &__minus
+    padding-left: 90px
+    color: var(--colorGray7ToGray94)
+    background: url('/assets/img/circle-close.svg') no-repeat center left
+    +s
+      padding-left: 70px
+  &__plus
+    padding-right: 90px
+    color: var(--colorWhiteToDark)
+    background: url('/assets/img/circle-check.svg') no-repeat center right
+    +s
+      padding-right: 70px
+    +sm
+      padding-left: 70px
+      padding-right: 0
+      background-position: center left

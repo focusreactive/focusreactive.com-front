@@ -13,6 +13,7 @@ import { feedbackForm } from './components/feedbackForm.js';
 import { accordion } from './components/accordion.js';
 import { expertise } from './components/expertise.js';
 import { mixed } from './components/mixed.js';
+import { pyramid } from './components/pyramid.js';
 import { dropdownMenu } from './components/dropdownMenu.js';
 import { selectbox } from './components/selectbox.js';
 import { video } from './components/video.js';
@@ -45,6 +46,7 @@ const hydrateJs = () => {
   selectbox();
   pricesSlider();
   mixed();
+  pyramid();
   // video();
 };
 

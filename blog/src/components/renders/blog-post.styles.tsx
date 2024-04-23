@@ -14,6 +14,7 @@ export const MarkdownBlock = styled.div<ImageProps>`
 
   .hero-image {
     width: 100vw;
+    height: auto;
     max-width: 100vw;
     position: relative;
     left: 50%;
@@ -189,5 +190,9 @@ export const MarkdownBlock = styled.div<ImageProps>`
       font-size: 16px;
       line-height: 1.72;
     }
+  }
+
+  .image {
+    height: auto;
   }
 `;
