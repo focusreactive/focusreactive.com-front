@@ -96,17 +96,6 @@ async function main() {
           }
         }
 
-        if (body) {
-          // Not related to critical. Make sure all scripts have "defer"
-          const scripts = body.querySelectorAll('script');
-
-          scripts.forEach((script) => {
-            if (!script.getAttribute('defer')) {
-              script.setAttribute('defer', 'defer');
-            }
-          });
-        }
-
         fs.writeFileSync(file, DOMAfterCritters.toString());
       } catch (error) {
         console.log(error);
