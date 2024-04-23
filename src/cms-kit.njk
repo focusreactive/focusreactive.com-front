@@ -1,0 +1,67 @@
+---
+title: "FocusReactive - Next.js, Headless CMS and eCommerce expert agency"
+keywords: "react, reactjs, javascript, nodejs, consultancy, london, software development, contractors"
+twitter_publisher: "@focusreactive"
+description: "We architect, build and lead technically advanced websites with a focus on performance and scalability. Partners and experts in Next.js/Vercel, Sanity, Contentful, Shopify Hydrogen and other Headless eCommerce plafroms."
+og_url: "https://focusreactive.com"
+og_image: "https://focusreactive.com/assets/img/og-image.png"
+innerPage: true,
+
+layout: 'hardcodePage.njk'
+
+permalink:
+    build: "/cms-kit/"
+    serverless: '/cms-kit-preview'
+
+---
+{% set blocks = cmsKitData.blocks %}
+{% set emailFormData = cmsKitData.emailForm %}
+
+{% import "_partials/_mixins.html" as mixins %}
+
+{% for block in cmsKitData.blocks %}
+  {% if block._type === 'heroWithVideo' %}
+    {% set heroWidhVideoData = block %}
+    {% include "_partials/_hero-with-video.html" %}
+  {% endif %}
+  {% if block._type === 'ourMission' %}
+    {% set ourMissionData = block %}
+    {% include "_partials/_our-mission.html" %}
+  {% endif %}
+  {% if block._type === 'coreSdk' %}
+    {% set coreSdkData = block %}
+    {% include "_partials/_core-sdk.html" %}
+  {% endif %}
+  {% if block._type === 'pyramid' %}
+    {% set pyramidData = block %}
+    {% include "_partials/_pyramid.html" %}
+  {% endif %}
+  {% if block._type === 'ctaBlock' %}
+    {% set ctaBlockData = block %}
+    {% include "_partials/_cta-block.html" %}
+  {% endif %}
+  {% if block._type === 'quoteBlock' %}
+    {% set quoteBlockData = block %}
+    {% include "_partials/_quote-block.html" %}
+  {% endif %}
+  {% if block._type === 'scenarios' %}
+    {% set scenariosData = block %}
+    {% include "_partials/_scenarios.html" %}
+  {% endif %}
+  {% if block._type === 'formBlock' %}
+    {% set formBlockData = block %}
+    {% include "_partials/_form-block.html" %}
+  {% endif %}
+  {% if block._type === 'painsGains' %}
+    {% set painsGainsData = block %}
+    {% include "_partials/_pains-gains.html" %}
+  {% endif %}
+  {% if block._type === 'faq' %}
+    {% set faqData = block %}
+    {% include "_partials/_faq.html" %}
+  {% endif %}
+{% endfor %}
+
+{% include "_partials/_mail-us.html" %}
+
+

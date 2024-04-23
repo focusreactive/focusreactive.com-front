@@ -1,0 +1,30 @@
+<section id="scenarios" data-section="scenarios-block" class="section sec-scenarios js-scroll-header  {% sectionClasses scenariosData %}">
+  <div class="container container--sm">
+    <div class="section__head">
+      <h2 class="text--border-light text--font-lg text-center ttu">
+        {{scenariosData.title}}
+      </h2>
+    </div>
+
+    <div class="scenarios-list">
+      {% for item in scenariosData.items %}
+      <div class="scenarios-list__item">
+        <div class="scenarios-list__icon">
+          <img src="{{item.icon}}" alt="" role="presentation">
+        </div>
+        <div class="scenarios-list__head">
+          <div class="scenarios-list__title">
+            {{item.title}}
+          </div>
+          <div class="scenarios-list__subtitle">
+            {{item.description}}
+          </div>
+        </div>
+        <div class="scenarios-list__content styled-text">
+          {{item.richText | blockContent}}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>

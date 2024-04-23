@@ -1,0 +1,47 @@
+.form-block
+  padding: 50px
+  display: flex
+  gap: 20px 50px
+  background: var(--colorDark100ToWhite100)
+  margin-left: -20px
+  margin-right: -20px
+  +s
+    gap: 20px 40px
+    padding: 30px 40px
+    flex-wrap: wrap
+    margin-left: 0
+    margin-right: 0
+    align-items: flex-end
+  +sm
+    margin-left: calc(var(--container) * -1)
+    margin-right: calc(var(--container) * -1)
+    padding-left: var(--container)
+    padding-right: var(--container)
+  &__text
+    color: var(--colorWhiteToDark)
+    font-size: 16px
+    line-height: 1.3
+    text-wrap: balance
+    flex: 1
+    align-self: center
+    +s
+      width: 100%
+      text-wrap: wrap
+      flex: auto
+    +sm
+      font-size: 14px
+
+  &__field
+    flex: 1
+    .form-input
+      height: 50px
+  &__button
+    flex: none
+    width: 290px
+    +sm
+      width: 220px
+    +xs
+      width: 100%
+    .btn
+      width: 100%
+      height: 50px
