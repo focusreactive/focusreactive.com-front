@@ -14,19 +14,54 @@ permalink:
     serverless: '/cms-kit-preview'
 
 ---
-
+{% set blocks = cmsKitData.blocks %}
 {% set emailFormData = cmsKitData.emailForm %}
 
-{% block content %}
-  {% include "_partials/_cms-kit.html" %}
-  {% include "_partials/_our-mission.html" %}
-  {% include "_partials/_core-sdk.html" %}
-  {% include "_partials/_pyramid.html" %}
-  {% include "_partials/_cta-block.html" %}
-  {% include "_partials/_quote-block.html" %}
-  {% include "_partials/_scenarios.html" %}
-  {% include "_partials/_form-block.html" %}
-  {% include "_partials/_pains-gains.html" %}
-	{% include "_partials/_mail-us.html" %}
+{% import "_partials/_mixins.html" as mixins %}
 
-{% endblock %}
+{% for block in cmsKitData.blocks %}
+  {% if block._type === 'heroWithVideo' %}
+    {% set heroWidhVideoData = block %}
+    {% include "_partials/_hero-with-video.html" %}
+  {% endif %}
+  {% if block._type === 'ourMission' %}
+    {% set ourMissionData = block %}
+    {% include "_partials/_our-mission.html" %}
+  {% endif %}
+  {% if block._type === 'coreSdk' %}
+    {% set coreSdkData = block %}
+    {% include "_partials/_core-sdk.html" %}
+  {% endif %}
+  {% if block._type === 'pyramid' %}
+    {% set pyramidData = block %}
+    {% include "_partials/_pyramid.html" %}
+  {% endif %}
+  {% if block._type === 'ctaBlock' %}
+    {% set ctaBlockData = block %}
+    {% include "_partials/_cta-block.html" %}
+  {% endif %}
+  {% if block._type === 'quoteBlock' %}
+    {% set quoteBlockData = block %}
+    {% include "_partials/_quote-block.html" %}
+  {% endif %}
+  {% if block._type === 'scenarios' %}
+    {% set scenariosData = block %}
+    {% include "_partials/_scenarios.html" %}
+  {% endif %}
+  {% if block._type === 'formBlock' %}
+    {% set formBlockData = block %}
+    {% include "_partials/_form-block.html" %}
+  {% endif %}
+  {% if block._type === 'painsGains' %}
+    {% set painsGainsData = block %}
+    {% include "_partials/_pains-gains.html" %}
+  {% endif %}
+  {% if block._type === 'faq' %}
+    {% set faqData = block %}
+    {% include "_partials/_faq.html" %}
+  {% endif %}
+{% endfor %}
+
+{% include "_partials/_mail-us.html" %}
+
+

@@ -1,31 +1,30 @@
-<section id="scenarios" data-section="scenarios-block" class="section sec-scenarios is-dark js-scroll-header  {% sectionClasses scenariosBlockData %}">
+<section id="scenarios" data-section="scenarios-block" class="section sec-scenarios js-scroll-header  {% sectionClasses scenariosData %}">
   <div class="container container--sm">
     <div class="section__head">
       <h2 class="text--border-light text--font-lg text-center ttu">
-        Scenarios when CMS-KIT rocks:
+        {{scenariosData.title}}
       </h2>
     </div>
 
     <div class="scenarios-list">
+      {% for item in scenariosData.items %}
       <div class="scenarios-list__item">
-        <div class="scenarios-list__icon"></div>
+        <div class="scenarios-list__icon">
+          <img src="{{item.icon}}" alt="" role="presentation">
+        </div>
         <div class="scenarios-list__head">
           <div class="scenarios-list__title">
-            No code launch
+            {{item.title}}
           </div>
           <div class="scenarios-list__subtitle">
-            (No tech skills required)
+            {{item.description}}
           </div>
         </div>
         <div class="scenarios-list__content styled-text">
-          <p>You can create and develop your own website based on a headless CMS. Just fill out a simple form and the new website will be launched, you will receive an invitation to your admin group. You can start by creating pages, editing content, and adding resources. If necessary, you can involve developers (your own team or contact us for help).</p>
-          <ul>
-            <li>Faster project start</li>
-            <li>Essential project structure</li>
-            <li>Initial components for quick project outline</li>
-          </ul>
+          {{item.richText | blockContent}}
         </div>
       </div>
+      {% endfor %}
     </div>
   </div>
 </section>

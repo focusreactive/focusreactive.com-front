@@ -1,19 +1,19 @@
-<section id="quote-block" data-section="quote-block" class="section sec-quote is-dark js-scroll-header  {% sectionClasses quoteBlockData %}">
+<section id="quote-block" data-section="quote-block" class="section sec-quote js-scroll-header  {% sectionClasses quoteBlockData %}">
   <div class="container container--sm">
     <div class="quote-block">
       <div class="quote-block__text">
-        “We want to provide simple and convenient experience of traditional CMS but with the power of cutting edge tech stack under the hood”
+        {{quoteBlockData.richText | blockContent}}
       </div>
       <div class="quote-block__author">
         <div class="quote-block__author-img">
-          <img src="" alt="">
+          <img src="{{quoteBlockData.authorAvatar}}" alt="{{quoteBlockData.authorInfo}}">
         </div>
         <div class="quote-block__author-content">
           <div class="quote-block__author-name">
-            Robert Haritonov
+            {{quoteBlockData.authorName}}
           </div>
           <div class="quote-block__author-info">
-            Co-founder @Focus Reactive
+            {{quoteBlockData.authorInfo}}
           </div>
         </div>
 

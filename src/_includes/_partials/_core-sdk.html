@@ -1,41 +1,24 @@
-<section id="core-sdk" data-section="core-sdk" class="sec-core-sdk section is-dark js-scroll-header ">
+<section id="core-sdk" data-section="core-sdk" class="sec-core-sdk section js-scroll-header {% sectionClasses coreSdkData %} ">
   <div class="container container--sm">
-    <div class="core-sdk">
 
+    <div class="core-sdk">
+      {% for item in coreSdkData.items %}
       <a href="#" class="core-sdk__item">
-        <div class="core-sdk__title">Headless CMS Integration</div>
+        <div class="core-sdk__title">{{item.title}}</div>
+
         <div class="core-sdk__logos">
-          <img src="/assets/img/chart/Sanity.svg" alt="">
-          <img src="/assets/img/chart/Storyblok.svg" alt="">
-          <img src="/assets/img/chart/Contenful.svg" alt="">
-          <img src="/assets/img/chart/chart-img-2.svg" alt="">
+          {% for img in item.logos %}
+          <img src="{{img.image}}" alt="">
+          {% endfor %}
         </div>
+
       </a>
-      <a href="#" class="core-sdk__item">
-        <div class="core-sdk__title">Frontend Biolerplate</div>
-        <div class="core-sdk__logos">
-          <img src="/assets/img/chart/react.svg" alt="">
-          <img src="/assets/img/chart/next.svg" alt="">
-          <img src="/assets/img/chart/r.svg" alt="">
-          <img src="/assets/img/chart/shopify.svg" alt="">
-        </div>
-      </a>
-      <a href="#" class="core-sdk__item">
-        <div class="core-sdk__title">Functional Blocks, API, Helpers</div>
-      </a>
-      <a href="#" class="core-sdk__item">
-        <div class="core-sdk__title">Pluggable Component Set</div>
-        <div class="core-sdk__logos">
-          <img src="/assets/img/chart/chart-img-3.svg" alt="">
-          <img src="/assets/img/chart/chart-img-4.svg" alt="">
-          <img src="/assets/img/chart/style.svg" alt="">
-        </div>
-      </a>
-      <a href="#" class="core-sdk__head">
-        <div class="core-sdk__head-title">Core SDK</div>
+      {% endfor %}
+      <a href="{{coreSdkData.link}}" class="core-sdk__head">
+        <div class="core-sdk__head-title">{{coreSdkData.title}}</div>
         <div class="core-sdk__head-link">
           <img src="/assets/img/chart/npm.svg" alt="">
-          <span>@focus-reactive|/cms-kit</span>
+          <span>{{coreSdkData.titleLink}}</span>
         </div>
       </a>
     </div>

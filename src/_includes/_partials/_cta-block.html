@@ -1,11 +1,11 @@
-<section id="cta-block" data-section="cta-block" class="section sec-cta is-dark js-scroll-header pt-0 {% sectionClasses ctaBlockData %}">
+<section id="cta-block" data-section="cta-block" class="section sec-cta js-scroll-header {% sectionClasses ctaBlockData %}">
   <div class="container container--sm">
     <div class="cta-block">
       <div class="cta-block__text">
-        The new website will be launched, you will receive an invitation to your admin group.
+        {{ctaBlockData.text}}
       </div>
       <div class="cta-block__button">
-        <a href="#" class="btn btn--primary btn--md">Get started</a>
+        <a href="{{ctaBlockData.btnLink}}" class="btn btn--primary btn--md">{{ctaBlockData.btnText}}</a>
       </div>
     </div>
   </div>
