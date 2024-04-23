@@ -25,6 +25,8 @@ function getFiles(dir, files = []) {
 }
 
 async function main() {
+  console.time('Processing html files');
+
   const folder = process.argv[2];
   const currentFolder = join(process.cwd(), folder);
   const files = getFiles(currentFolder);
@@ -36,18 +38,10 @@ async function main() {
     logLevel: isLoggingEnabled ? 'debug' : 'silent',
   });
 
-  function logger(textNode) {
-    if (isLoggingEnabled) {
-      console.log(textNode);
-    }
-  }
-
   for (const file of files) {
     if (file.endsWith('.html')) {
       try {
-        logger('Found html file. Reading the file');
         const html = fs.readFileSync(file, 'utf-8');
-        logger('Parse html');
         const DOMBeforeCritters = parse(html);
 
         /*
@@ -57,24 +51,19 @@ async function main() {
         const uniqueImportantStyles = new Set();
 
         for (const style of DOMBeforeCritters.querySelectorAll('style')) {
-          logger('Found inline style');
           uniqueImportantStyles.add(style.innerHTML);
         }
 
-        logger('Inline critical styles from attached stylesheets');
         const inlined = await critters.process(html);
-        logger('Parse resulting html');
         const DOMAfterCritters = parse(inlined);
         const importantCSS = Array.from(uniqueImportantStyles).join('');
         const body = DOMAfterCritters.querySelector('body');
 
         if (importantCSS.length > 0) {
-          logger('There are styles that need to be merged in stylesheet');
           const hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(importantCSS));
           const inlinedStylesPath = `/assets/css/styles.${hash}.css`;
           const attachedStylesheets = [];
 
-          logger('Collect links of all attached stylesheets and remove them from html');
           for (const linkInHead of DOMAfterCritters.querySelectorAll('link')) {
             if (
               linkInHead.attributes?.as === 'style' ||
@@ -87,23 +76,19 @@ async function main() {
           }
 
           const stylesheets = [];
-          logger('Read all stylesheets');
+
           for (const stylesheet of attachedStylesheets) {
             const stylesheetStyles = fs.readFileSync(join(process.cwd(), 'build', stylesheet));
 
             stylesheets.push(stylesheetStyles);
           }
 
-          logger(
-            'Merge all stylesheets in one, add importantCSS in the end to persist specificity',
-          );
+          // Merge all stylesheets in one, add importantCSS in the end to persist specificity
           const allInOne = stylesheets.join('') + importantCSS;
 
-          logger('Minify and save result');
           fs.writeFileSync(join(process.cwd(), 'build', inlinedStylesPath), minify(allInOne).css);
 
           if (body) {
-            logger('Attach our custom css file to html');
             body.insertAdjacentHTML(
               'beforeend',
               `<link rel="stylesheet" href="${inlinedStylesPath}" />`,
@@ -112,7 +97,7 @@ async function main() {
         }
 
         if (body) {
-          logger('Not related to critical. Make sure all scripts have "defer"');
+          // Not related to critical. Make sure all scripts have "defer"
           const scripts = body.querySelectorAll('script');
 
           scripts.forEach((script) => {
@@ -122,13 +107,14 @@ async function main() {
           });
         }
 
-        logger('Save resulting html file');
         fs.writeFileSync(file, DOMAfterCritters.toString());
       } catch (error) {
         console.log(error);
       }
     }
   }
+
+  console.timeEnd('Processing html files');
 }
 
 main();
