@@ -252,13 +252,13 @@
       display: none
 
 .e-utils
-  display: flex
-  flex-wrap: wrap
-  gap: 30px 40px
+  display: grid
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr))
+  gap: 30px
   +sm
-    gap: 20px 25px
-  &__item
-    flex: none
+    gap: 20px
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))
+
   &__title
     text-transform: uppercase
     +helB

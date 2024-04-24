@@ -28,8 +28,8 @@ js-scroll-header
       <a href="{{portfolio.link}}" aria-label="{{portfolio.title}}" class="portfolio-item__link">&nbsp;</a>
       <div class="container container--sm">
         <div class="portfolio-item__logo">
-          <div class="portfolio-item__bg" style="background-image: url('{{portfolio.background}}');"></div>
-          <img src="{{portfolio.logo}}" alt="">
+          <div class="portfolio-item__bg" style="background-image: url('{{portfolio.background}}?auto=format');"></div>
+          <img src="{{portfolio.logo}}?auto=format" alt="">
         </div>
         <div class="portfolio-item__content">
           <h3 class="portfolio-item__title">{{portfolio.title}}</h3>
@@ -47,7 +47,7 @@ js-scroll-header
                 {% for technologiesItem in technologies.items %}
                 <a href="{{technologiesItem.link}}" class="e-utils__list-item">
                   <div class="e-utils__list-img">
-                    <img src="{{technologiesItem.icon}}" alt="{{technologiesItem.title}}">
+                    <img src="{{technologiesItem.icon}}?auto=format" alt="{{technologiesItem.title}}">
                   </div>
                   <span>{{technologiesItem.title}}</span>
                 </a>
