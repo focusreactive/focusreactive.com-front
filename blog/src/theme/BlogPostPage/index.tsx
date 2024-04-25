@@ -26,10 +26,20 @@ function BlogPostPageContent({ children }) {
     technologies: BlogApiTechnologies;
     relatedPosts: BlogApiRelatedPost;
     authorsMap: SanityApiAuthor[];
+    seoCanonical?: string;
   };
 
-  const { title, description, tags, relatedPosts, technologies, permalink, authorsMap, date } =
-    frontMatter as unknown as ExtendedMetadata;
+  const {
+    title,
+    description,
+    tags,
+    relatedPosts,
+    technologies,
+    permalink,
+    authorsMap,
+    date,
+    seoCanonical,
+  } = frontMatter as unknown as ExtendedMetadata;
 
   const heroImage = (frontMatter.image || frontMatter.heroImage) as string;
   const authorIds = frontMatter.authors || [];
@@ -49,6 +59,7 @@ function BlogPostPageContent({ children }) {
       keywords={keywords}
       image={heroImage}
       type={'article'}
+      canonical={seoCanonical}
     >
       <Head>
         <meta property={'article:published_time'} content={date.toISOString()} />
