@@ -3,6 +3,7 @@ const { join } = require('path');
 const fs = require('fs');
 const { parse } = require('node-html-parser');
 const CryptoJS = require('crypto-js');
+const { minify } = require('csso');
 
 // Recursive function to get files
 function getFiles(dir, files = []) {
@@ -24,11 +25,18 @@ function getFiles(dir, files = []) {
 }
 
 async function main() {
+  console.time('Processing html files');
+
   const folder = process.argv[2];
   const currentFolder = join(process.cwd(), folder);
-  const critters = new Critters({ path: currentFolder, fonts: true });
-
   const files = getFiles(currentFolder);
+  const isLoggingEnabled = process.argv[3];
+
+  const critters = new Critters({
+    path: currentFolder,
+    fonts: true,
+    logLevel: isLoggingEnabled ? 'debug' : 'silent',
+  });
 
   for (const file of files) {
     if (file.endsWith('.html')) {
@@ -48,28 +56,37 @@ async function main() {
 
         const inlined = await critters.process(html);
         const DOMAfterCritters = parse(inlined);
-        const head = DOMAfterCritters.querySelector('head');
-
-        if (head) {
-          for (const linkInHead of head.querySelectorAll('link')) {
-            if (
-              linkInHead.attributes?.as === 'style' ||
-              linkInHead.attributes?.rel === 'stylesheet'
-            ) {
-              linkInHead.remove();
-            }
-          }
-        }
-
         const importantCSS = Array.from(uniqueImportantStyles).join('');
+        const body = DOMAfterCritters.querySelector('body');
 
         if (importantCSS.length > 0) {
           const hash = CryptoJS.MD5(CryptoJS.enc.Latin1.parse(importantCSS));
           const inlinedStylesPath = `/assets/css/styles.${hash}.css`;
+          const attachedStylesheets = [];
 
-          fs.writeFileSync(join(process.cwd(), 'build', inlinedStylesPath), importantCSS);
+          for (const linkInHead of DOMAfterCritters.querySelectorAll('link')) {
+            if (
+              linkInHead.attributes?.as === 'style' ||
+              linkInHead.attributes?.rel === 'stylesheet'
+            ) {
+              attachedStylesheets.push(linkInHead.getAttribute('href'));
 
-          const body = DOMAfterCritters.querySelector('body');
+              linkInHead.remove();
+            }
+          }
+
+          const stylesheets = [];
+
+          for (const stylesheet of attachedStylesheets) {
+            const stylesheetStyles = fs.readFileSync(join(process.cwd(), 'build', stylesheet));
+
+            stylesheets.push(stylesheetStyles);
+          }
+
+          // Merge all stylesheets in one, add importantCSS in the end to persist specificity
+          const allInOne = stylesheets.join('') + importantCSS;
+
+          fs.writeFileSync(join(process.cwd(), 'build', inlinedStylesPath), minify(allInOne).css);
 
           if (body) {
             body.insertAdjacentHTML(
@@ -85,6 +102,8 @@ async function main() {
       }
     }
   }
+
+  console.timeEnd('Processing html files');
 }
 
 main();
