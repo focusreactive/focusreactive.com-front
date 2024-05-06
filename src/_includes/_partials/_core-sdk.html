@@ -6,11 +6,19 @@
       <a href="#" class="core-sdk__item">
         <div class="core-sdk__title">{{item.title}}</div>
 
+        {% if item.logos.length > 0 %}
         <div class="core-sdk__logos">
           {% for img in item.logos %}
           <img src="{{img.image}}" alt="">
           {% endfor %}
         </div>
+        {% endif %}
+
+        {% if item.text %}
+        <div class="core-sdk__text styled-text">
+          {{item.text | blockContent}}
+        </div>
+        {% endif %}
 
       </a>
       {% endfor %}

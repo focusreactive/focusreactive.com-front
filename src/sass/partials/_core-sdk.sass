@@ -66,8 +66,13 @@
         .core-sdk__logos
           justify-content: flex-end
           margin-left: auto
-        .core-sdk__title
+        .core-sdk__title, .core-sdk__text
           margin-left: auto
+        .core-sdk__text
+          ul, ol
+            direction: rtl
+            margin-left: 0
+            margin-right: 30px
       &:nth-child(3), &:nth-child(4)
         .core-sdk__logos
           order: -1
@@ -93,8 +98,8 @@
     align-items: center
     text-decoration: none
     +s
-      width: 220px
-      height: 220px
+      width: 200px
+      height: 200px
     +sm
       position: relative
       order: -1
@@ -157,25 +162,35 @@
     margin-bottom: auto
     font-size: 24px
     font-weight: 700
-    max-width: 313px
+    max-width: 340px
+    width: 100%
     line-height: 1
     color: var(--colorWhiteToDark)
     text-transform: uppercase
     +s
       font-size: 18px
-      max-width: 213px
+      max-width: 253px
+
+  &__text
+    color: var(--colorWhiteToDark)
+    max-width: 280px
+    width: 100%
+    font-size: 14px
+    +s
+      max-width: 200px
 
   &__logos
     display: flex
     align-items: center
-    gap: 5px
+    gap: 10px
     max-width: 313px
     img
-      width: 50px
-      height: 50px
+      display: block
+      max-width: 50px
+      max-height: 50px
       +s
-        width: 40px
-        height: 40px
+        max-width: 40px
+        max-height: 40px
 
 @keyframes border-pulse
 
