@@ -7,7 +7,7 @@ import { usePreview } from '@site/src/hooks/usePreview';
 import { generateOptimizedSources } from '@site/utils/imageOptimizations';
 
 export default function BlogLayout(props) {
-  const { children, title, description, keywords, image, type, ...layoutProps } = props;
+  const { children, title, description, keywords, image, type, canonical, ...layoutProps } = props;
 
   const previewImage = image
     ? `${image}?w=1200&h=630`
@@ -24,6 +24,7 @@ export default function BlogLayout(props) {
       <Head>
         <meta name="description" content={description || GENERIC_DESCRIPTION} />
         <meta name="og:description" content={description || GENERIC_DESCRIPTION} />
+        {canonical && <link rel="canonical" href={canonical} />}
 
         <meta name="og:image" content={previewImage} />
         {image && (
