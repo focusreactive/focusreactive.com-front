@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    body {
+      background-color: #0d0d0d;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .form-container {
+      text-align: center;
+    }
+
+    .form-container input[type="email"],
+    .form-container button {
+      width: 300px;
+      height: 50px;
+      padding: 10px;
+      font-size: 18px;
+      border: none;
+      outline: none;
+      display: block;
+      margin: 0 auto 20px auto;
+    }
+
+    .form-container input[type="email"] {
+      width: 280px;
+      height: 30px;
+    }
+
+    .form-container button {
+      background-color: gray;
+      color: white;
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    .form-container button.enabled {
+      background-color: green;
+      cursor: pointer;
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <form id="contactForm">
+      <input type="email" id="email" placeholder="Enter your email" required>
+      <button type="submit" id="submitBtn" disabled>Start Personal Demo</button>
+    </form>
+    <p id="message"></p>
+  </div>
+  <script>
+    const emailInput = document.getElementById('email');
+    const submitBtn = document.getElementById('submitBtn');
+    const messagePara = document.getElementById('message');
+
+    emailInput.addEventListener('input', function () {
+      const email = emailInput.value;
+      const isValidEmail = email.match(/^[^\s@]+@[^\s@]+\.[^\s@]+$/);
+      submitBtn.disabled = !isValidEmail;
+      if (isValidEmail) {
+        submitBtn.classList.add('enabled');
+      } else {
+        submitBtn.classList.remove('enabled');
+      }
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function (event) {
+      event.preventDefault();
+      submitBtn.disabled = true;
+      submitBtn.innerText = 'Initialization...';
+      const email = emailInput.value;
+
+      fetch('https://cms-kit-sanity.vercel.app/api/roll-out', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: email }),
+      })
+        .then(response => response.json())
+        .then(data => {
+          messagePara.innerText = 'Response: ' + JSON.stringify(data);
+          submitBtn.innerText = 'Start Personal Demo';
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('enabled');
+          emailInput.value = '';
+        })
+        .catch(error => {
+          messagePara.innerText = 'Error: ' + error.message;
+          submitBtn.innerText = 'Start Personal Demo';
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('enabled');
+          emailInput.value = '';
+        });
+    });
+  </script>
+</body>
+
+</html>
