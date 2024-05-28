@@ -89,7 +89,7 @@
         },
         body: JSON.stringify({ email: email }),
       })
-        .then(response => response.json())
+        .then(response => response.text())
         .then(data => {
           messagePara.innerText = `Response: ${data}`;
           submitBtn.innerText = 'Start Personal Demo';
