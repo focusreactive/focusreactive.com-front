@@ -91,7 +91,7 @@
       })
         .then(response => response.json())
         .then(data => {
-          messagePara.innerText = 'Response: ' + JSON.stringify(data);
+          messagePara.innerText = `Response: ${data}`;
           submitBtn.innerText = 'Start Personal Demo';
           submitBtn.disabled = false;
           submitBtn.classList.remove('enabled');
