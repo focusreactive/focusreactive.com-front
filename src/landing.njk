@@ -194,6 +194,10 @@ permalink:
 			{% set fullWidthVideoData = block %}
 			{% include "_partials/_full_width_video.html" %}
 		{% endif %}
+    {% if block._type === 'gridColumns' %}
+			{% set gridColumnsData = block %}
+			{% include "_partials/_gridColumns.html" %}
+		{% endif %}
 
 	{% endfor %}
 	{% include "_partials/_social.html" %}

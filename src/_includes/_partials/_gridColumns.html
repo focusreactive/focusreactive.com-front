@@ -1,0 +1,31 @@
+<!-- begin products -->
+<section id="grid-columns" data-section="grid-columns" class="section sec-grid-columns js-scroll-header {% sectionClasses gridColumnsData %}">
+  <div class="container">
+    <h3 class="title title--xs text-center">
+      {{gridColumnsData.title}}
+    </h3>
+  </div>
+
+  <div class="grid-columns">
+    {% for item in gridColumnsData.items %}
+    {% if item.image %}
+    <div class="grid-columns__item grid-columns__item--img" style="background-image: url({{item.image | imgURL}});">
+
+    </div>
+    {% else %}
+    <a class="grid-columns__item" href="{{item.link}}">
+      <div class="grid-columns__container">
+        <h3 class="grid-columns__title">
+          {{item.title}}
+        </h3>
+        <p class="grid-columns__desc">{{ item.description }}</p>
+      </div>
+    </a>
+    {% endif %}
+    {% endfor %}
+
+  </div>
+
+
+</section>
+<!-- end products -->
