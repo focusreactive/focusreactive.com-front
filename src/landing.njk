@@ -67,6 +67,42 @@ permalink:
 			{% set heroData = block %}
 			{% include "_partials/_hero_landing.html" %}
 		{% endif %}
+    {% if block._type === 'heroWithVideo' %}
+      {% set heroWidhVideoData = block %}
+      {% include "_partials/_hero-with-video.html" %}
+    {% endif %}
+    {% if block._type === 'ourMission' %}
+      {% set ourMissionData = block %}
+      {% include "_partials/_our-mission.html" %}
+    {% endif %}
+    {% if block._type === 'coreSdk' %}
+    {% set coreSdkData = block %}
+    {% include "_partials/_core-sdk.html" %}
+  {% endif %}
+  {% if block._type === 'pyramid' %}
+    {% set pyramidData = block %}
+    {% include "_partials/_pyramid.html" %}
+  {% endif %}
+  {% if block._type === 'ctaBlock' %}
+    {% set ctaBlockData = block %}
+    {% include "_partials/_cta-block.html" %}
+  {% endif %}
+  {% if block._type === 'quoteBlock' %}
+    {% set quoteBlockData = block %}
+    {% include "_partials/_quote-block.html" %}
+  {% endif %}
+  {% if block._type === 'scenarios' %}
+    {% set scenariosData = block %}
+    {% include "_partials/_scenarios.html" %}
+  {% endif %}
+  {% if block._type === 'formBlock' %}
+    {% set formBlockData = block %}
+    {% include "_partials/_form-block.html" %}
+  {% endif %}
+  {% if block._type === 'painsGains' %}
+    {% set painsGainsData = block %}
+    {% include "_partials/_pains-gains.html" %}
+  {% endif %}
 
     {% if block._type === 'faq' %}
 			{% set faqData = block %}
@@ -157,6 +193,10 @@ permalink:
 		{% if block._type === 'fullWidthVideo' %}
 			{% set fullWidthVideoData = block %}
 			{% include "_partials/_full_width_video.html" %}
+		{% endif %}
+    {% if block._type === 'gridColumns' %}
+			{% set gridColumnsData = block %}
+			{% include "_partials/_gridColumns.html" %}
 		{% endif %}
 
 	{% endfor %}

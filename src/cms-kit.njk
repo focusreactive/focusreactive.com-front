@@ -96,6 +96,10 @@ permalink:
     {% set technologiesData = block %}
     {% include "_partials/_technologies.html" %}
   {% endif %}
+  {% if block._type === 'gridColumns' %}
+			{% set gridColumnsData = block %}
+			{% include "_partials/_gridColumns.html" %}
+		{% endif %}
 {% endfor %}
 
 {% include "_partials/_mail-us.html" %}
