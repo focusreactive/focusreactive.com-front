@@ -1,22 +1,73 @@
-<section id="form-block" data-section="form-block"
-  class="section sec-form js-scroll-header {% sectionClasses formBlockData %}">
+<section
+  id="form-block"
+  data-section="form-block"
+  class="section sec-form js-scroll-header {% sectionClasses formBlockData %}"
+>
   <div class="container container--sm">
     <form class="form-block">
-      <div class="form-block__text">
-        {{formBlockData.text}}
-      </div>
+      <div class="txt form-block__text">{{formBlockData.text}}</div>
       <div class="form-block__field">
-        <input type="email" placeholder="your email" class="form-input">
+        <input type="email" placeholder="your email" class="form-input" />
       </div>
       <div class="form-block__button">
         <button type="submit" class="btn btn--primary btn--md">{{formBlockData.btnText}}</button>
       </div>
       <script>
-        document.querySelector('.form-block').addEventListener('submit', function (e) {
-          e.preventDefault();
-          var email = document.querySelector('.form-input').value;
-          console.log(email);
-        });
+        try {
+          const endpoint = `{{ formBlockData.endpoint }}`;
+          const bodyStr = `{{ formBlockData.body }}`;
+          const method = `{{ formBlockData.method }}`;
+          const textStr = `{{ formBlockData.text }}`;
+
+          let body = {};
+          try {
+            body = JSON.parse(bodyStr);
+          } catch (e) {
+            console.error(e);
+          }
+
+          const form = document.currentScript.closest('.form-block');
+          const input = form.querySelector('.form-input');
+          const button = form.querySelector('.btn');
+          const text = form.querySelector('.txt');
+
+          const submitForm = async (email) => {
+            try {
+              const response = await fetch('http://localhost:3000' + endpoint, {
+                method,
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ ...body, email }),
+              });
+              const data = await response.json();
+              return data;
+            } catch (e) {
+              return { error: e.message };
+            }
+          };
+
+          form.addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const email = input.value;
+            button.disabled = true;
+            input.disabled = true;
+            text.innerHTML = textStr;
+            text.style.color = undefined;
+            const result = await submitForm(email);
+            if(result.error) {
+              text.innerHTML = result.error;
+              text.style.color = 'red';
+              console.log(result.error);
+            } else {
+              alert('Success');
+            }
+            button.disabled = false;
+            input.disabled = false;
+          });
+        } catch (e) {
+          console.error(e);
+        }
       </script>
     </form>
   </div>
