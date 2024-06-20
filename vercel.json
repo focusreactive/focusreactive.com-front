@@ -1,5 +1,8 @@
 {
   "functions": {
+    "api/cms-kit-rollout/index.js": {
+      "includeFiles": "functions/cms-kit-rollout/**"
+    },
     "api/preview/index.js": {
       "includeFiles": "functions/serverless/**"
     },
