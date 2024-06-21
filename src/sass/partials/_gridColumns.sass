@@ -20,6 +20,11 @@
     flex: 1 1
     transition: all 0.1s ease
     outline: 1px solid var(--colorGray3ToGrayC)
+    background-color: var(--background-color)
+    overflow: hidden
+    :hover
+      background-color: var(--hover-color, $green)
+
     +md
       min-height: 340px
 
@@ -27,7 +32,7 @@
       min-height: 250px
 
     &:not(.grid-columns__item--img):hover, &:not(.grid-columns__item--img):focus-visible
-      background: $green
+
       .grid-columns__title, .grid-columns__desc
         color: #fff
       .grid-columns__title
@@ -36,6 +41,9 @@
       background-size: cover
       background-repeat: no-repeat
       background-position: center
+      transition: transform 1s ease
+      &:hover
+        transform: scale(1.03)
   &__container
     display: flex
     flex-direction: column
