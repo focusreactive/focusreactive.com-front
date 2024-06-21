@@ -1,5 +1,8 @@
 {
   "functions": {
+    "api/cms-kit-rollout/index.js": {
+      "includeFiles": "functions/cms-kit-rollout/**"
+    },
     "api/preview/index.js": {
       "includeFiles": "functions/serverless/**"
     },
@@ -110,11 +113,6 @@
     {
       "source": "/best-headless-cms-for-nextjs-2024/",
       "destination": "/best-headless-cms-for-nextjs-2023/",
-      "permanent": true
-    },
-    {
-      "source": "/cms-kit/",
-      "destination": "/cms-kit-focusreactive/",
       "permanent": true
     },
     {

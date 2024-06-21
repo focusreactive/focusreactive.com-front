@@ -8,6 +8,7 @@
 		"build:sass": "sass src/sass:_site/assets/css",
 		"watch:eleventy": "eleventy --serve --port=3000",
 		"build:eleventy": "eleventy",
+    "dev:api": "vercel dev --listen 3001",
 		"start": "esbuild src/js/app.js --bundle --outdir=_site/assets/js && npm run build:sass & npm run watch:sass & npm run watch:eleventy",
 		"build": "esbuild src/js/app.js --define:process.env.NODE_ENV=\\\"production\\\" --bundle --outdir=_site/assets/js && npm run build:sass & NODE_ENV=production npm run build:eleventy"
 	},

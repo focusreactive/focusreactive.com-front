@@ -1,0 +1,20 @@
+GET http://localhost:3001/api/cms-kit-rollout?project=cms-kit
+
+###
+
+POST http://localhost:3001/api/cms-kit-rollout
+Content-Type: application/json
+
+{
+ "project": "cms-kit-sanity",
+ "email": "oleg@gitnation.org"
+}
+
+###
+
+POST https://cms-kit-sanity.vercel.app/api/roll-out
+Content-Type: application/json
+
+{
+ "email": "oleg@gitnation.org"
+}

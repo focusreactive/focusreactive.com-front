@@ -7,6 +7,7 @@
   <title>Contact Form</title>
   <style>
     body {
+      background-color: #0d0d0d;
       color: white;
       font-family: Arial, sans-serif;
       display: flex;
@@ -30,11 +31,6 @@
       outline: none;
       display: block;
       margin: 0 auto 20px auto;
-    }
-
-    .form-container input[type="email"] {
-      width: 280px;
-      height: 30px;
     }
 
     .form-container button {
@@ -91,7 +87,7 @@
       })
         .then(response => response.text())
         .then(data => {
-          messagePara.innerText = `Response: ${data}`;
+          messagePara.innerText = 'Response: ' + data;
           submitBtn.innerText = 'Start Personal Demo';
           submitBtn.disabled = false;
           submitBtn.classList.remove('enabled');
