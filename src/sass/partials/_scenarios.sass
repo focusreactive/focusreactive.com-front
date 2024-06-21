@@ -22,6 +22,7 @@
       gap: 16px
       padding: 20px 0
       grid-template-columns: auto 1fr
+      min-height: auto
     &:last-child
       border-bottom: 1px solid var(--colorGray3ToGrayC)
   &__icon
@@ -49,12 +50,13 @@
       font-size: 18px
   &__subtitle
     color: var(--colorGray7ToGray94)
-    font-size: 14px
+    font-size: 16px
     +sm
-      font-size: 12px
+      font-size: 14px
   &__content
     font-size: 14px
 
     +sm
       font-size: 12px
       grid-column: 2/3
+      align-self: flex-start
