@@ -1,8 +1,5 @@
-<section
-  id="form-block"
-  data-section="form-block"
-  class="section sec-form js-scroll-header {% sectionClasses formBlockData %}"
->
+<section id="form-block" data-section="form-block"
+  class="section sec-form js-scroll-header {% sectionClasses formBlockData %}">
   <div class="container container--sm">
     <form class="form-block">
       <div class="txt form-block__text">{{formBlockData.text}}</div>
@@ -47,6 +44,14 @@
             }
           };
 
+          const cmsKitAction = async (data) => {
+            if (!data?.projectDetails?.projectName) {
+              return;
+            }
+            const startingUrl = data.projectDetails.startingUrl;
+            window.open(startingUrl, '_blank');
+          }
+
           form.addEventListener('submit', async function (e) {
             e.preventDefault();
             const email = input.value;
@@ -55,12 +60,12 @@
             text.innerHTML = textStr;
             text.style.color = undefined;
             const result = await submitForm(email);
-            if(result.error) {
+            if (result.error) {
               text.innerHTML = result.error;
               text.style.color = 'red';
               console.log(result.error);
             } else {
-              alert('Success');
+              cmsKitAction(result);
             }
             button.disabled = false;
             input.disabled = false;
