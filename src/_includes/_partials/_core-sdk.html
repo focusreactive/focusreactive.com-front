@@ -1,6 +1,8 @@
 <section id="core-sdk" data-section="core-sdk" class="sec-core-sdk section js-scroll-header {% sectionClasses coreSdkData %} ">
   <div class="container container--sm">
-
+    <div class="section__head">
+      <h2 class="title title--xxs text-center">{{coreSdkData.title}}</h2>
+    </div>
     <div class="core-sdk">
       {% for item in coreSdkData.items %}
       <a href="#" class="core-sdk__item">
@@ -22,11 +24,11 @@
 
       </a>
       {% endfor %}
-      <a href="{{coreSdkData.link}}" class="core-sdk__head">
-        <div class="core-sdk__head-title">{{coreSdkData.title}}</div>
+      <a href="{{coreSdkData.npmLink}}" class="core-sdk__head">
+        <div class="core-sdk__head-title">{{coreSdkData.titleInCircle}}</div>
         <div class="core-sdk__head-link">
           <img src="/assets/img/chart/npm.svg" alt="">
-          <span>{{coreSdkData.titleLink}}</span>
+          <span>{{coreSdkData.npmTitle}}</span>
         </div>
       </a>
     </div>

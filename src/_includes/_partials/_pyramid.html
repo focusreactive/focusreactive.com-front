@@ -1,5 +1,8 @@
 <section id="pyramid" data-section="pyramid" class="section sec-pyramid js-scroll-header {% sectionClasses pyramidData %}">
   <div class="container container--sm">
+    <div class="section__head">
+      <h2 class="title title--xxs text-center">{{pyramidData.title}}</h2>
+    </div>
     <div class="pyramid">
       {% for item in pyramidData.items %}
       <button class="pyramid__head pyramid__head--{{loop.index}} js-pyramid-toggle {{'is-active' if loop.index === 3}}" data-pyramid-index="{{loop.index}}">
