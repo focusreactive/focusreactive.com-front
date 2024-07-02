@@ -1,15 +1,23 @@
-const endpoints = {
-  'cms-kit-sanity': 'https://cms-kit-sanity.vercel.app/api/roll-out',
+const integrationTypes = {
+  sanity: {
+    endpoint: 'https://cms-kit-sanity.vercel.app/api/roll-out/assignProject',
+    startingSlug:
+      '/presentation/landing/36643ba6-5775-4cf5-b729-ccd85c8a3fcc/content[_key=="0Dcomk3aoeUEhIjmxilWE"].components[_key=="kxtZMIADLL3jvZR8xWjFpu"].customRichText[_key=="02a049a37562"].children[_key=="c356d7b11fe90"].text?preview=/home',
+  },
 };
 
-const defaultProject = 'cms-kit-sanity';
+const defaultIntegration = 'sanity';
 
 export default async function handler(request, response) {
   try {
     if (request.method === 'POST') {
       const body = request.body;
-      const { project = defaultProject, email } = body;
-      const endpoint = endpoints[project];
+      const { integration = defaultIntegration, email } = body;
+      const endpoint = integrationTypes[integration]?.endpoint;
+
+      if (!endpoint) {
+        throw new Error('Wrong Integration Type. Check the "project" value');
+      }
 
       const result = await fetch(endpoint, {
         method: 'POST',
@@ -19,16 +27,17 @@ export default async function handler(request, response) {
         body: JSON.stringify({ email }),
       });
 
+      const data = await result.json();
       if (!result.ok) {
-        const data = await result.json();
         return response
           .status(500)
-          .json({ status: result.status, message: result.statusText, error: data.error });
+          .json({ status: result.status, message: result.message, error: data.error });
       }
 
-      console.log('🚀 ~ handler ~ data:', data);
+      const startingUrl = data.projectDetails.studioUrl + integrationTypes[integration].startingSlug;
+      data.projectDetails.startingUrl = startingUrl;
 
-      return response.status(200).json({ message: 'Data received successfully', data });
+      return response.status(200).json(data);
     } else if (request.method === 'GET') {
       const status = {
         status: 'OK',
