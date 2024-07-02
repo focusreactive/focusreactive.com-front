@@ -280,7 +280,7 @@ export const feedbackForm = () => {
       }
       return { ...obj, [key]: value };
     }, {});
-
+    fields.path = window.location.href.split(/\?|#/)[0];
     lockForm(inputs, button);
 
     sendEmail(fields)
